@@ -1,0 +1,111 @@
+ /* The navigation bar */
+ 
+ body {
+     background-color: rgb(215, 218, 230);
+ }
+ 
+ .navbar {
+     overflow: hidden;
+     background-color: rgb(252, 177, 6);
+     position: fixed;
+     /* Set the navbar to fixed position */
+     right: 0px;
+     left: 0px;
+     top: 0;
+     margin-top: 40px;
+     margin-right: 20px;
+     margin-left: 20px;
+     /* Position the navbar at the top of the page */
+     /* width: 100%;*/
+     /* border-radius: 10px;    later on gettin some shapes*/
+     border-style: solid;
+     border-color: rgb(27, 23, 21);
+     box-shadow: 0px 4px 2px #27272780;
+     -webkit-box-shadow: 0px 4px 2px #27272780;
+     -moz-box-shadow: 0px 4px 2px #27272780;
+     /*position: relative;*/
+     z-index: 999999;
+     /*position: relative;*/
+     /* Full width */
+ }
+ /* Links inside the navbar */
+ 
+ .navbar a {
+     float: left;
+     display: block;
+     color: rgb(50, 54, 63);
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+ }
+ 
+ .navbar #Login {
+     float: left;
+     display: block;
+     color: #000000;
+     text-align: right;
+     /*margin-top: 10px;*/
+     /* margin-right: 20px;
+     */
+     /* padding: 14px 16px;*/
+     text-decoration: none;
+ }
+ 
+ .navbar .LoginFields {
+     text-align: right;
+     /*display: block;*/
+     color: rgb(50, 54, 63);
+     margin-top: 20px;
+     margin-bottom: 5px;
+     margin-right: 20px;
+     /* padding: 14px 16px;*/
+ }
+ /* Change background on mouse-over */
+ 
+ .navbar a:hover {
+     background: rgb(73, 168, 223);
+     color: black;
+     transition: 0.3s;
+ }
+ 
+ .navbar .navigation ul {
+     display: inline-block;
+     position: absolute;
+     bottom: 0;
+     margin-top: auto;
+ }
+ 
+ .navbar .navigation li {
+     display: inline-flex;
+     position: relative;
+     bottom: 0px;
+     margin-bottom: 0px;
+ }
+ /* Main content */
+ 
+ .main {
+     margin-top: 190px;
+     margin-left: 20px;
+     /* Add a top margin to avoid content overlay */
+ }
+ 
+ .square {
+     height: 160px;
+     width: 100%;
+     top: 0;
+     position: fixed;
+     background-color: rgb(215, 218, 230);
+ }
+ /*As a hiding element when you scroll down*/
+ 
+ @media screen and (max-width: 800px) {
+     .navbar .navigation li {
+         display: none;
+         float: none;
+         /*display: block;*/
+         text-align: left;
+     }
+     .navbar .LoginFields {
+         float: none;
+     }
+ }
