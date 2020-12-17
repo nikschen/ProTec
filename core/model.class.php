@@ -42,6 +42,17 @@ abstract class Model
         }
     }
 
+    public function __destruct()
+    {
+        foreach ($this->scheme as $key => $value)
+        {
+            if(isset($values[$key]))
+            {
+                $this->{$key}=null;
+            }
+        }
+    }
+
     public static function find($where='')
     {
         
@@ -98,7 +109,7 @@ abstract class Model
         
     }
 
-    public function delete (&$errors = null)
+    public function delete (&$occuringErrors = null)
     {
         $db=$GLOBALS['db'];
 
@@ -111,7 +122,7 @@ abstract class Model
         }
         catch (\PDOException $e)
         {
-            $errors[] = 'Error deleting '.get_called_class();
+            $occuringErrors[] = 'Error deleting '.get_called_class();
         }
         return false;
     }   
@@ -119,7 +130,7 @@ abstract class Model
     public function __set($key, $value)
     {
         
-        if(array_key_exists($key,$this->schema))
+        if(array_key_exists($key,$this->scheme))
         {
             $this->data[$key] = $value;
             return;
@@ -135,6 +146,84 @@ abstract class Model
             return $this->data[$key];
         }
         throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
+    }
+
+
+    public function validate(&$occuringErrors = null)
+    {
+       foreach ($this->scheme as $key => $schemeOptions)
+       {
+           if(isset($this->data[$key]) && is_array($schemeOptions))
+           {
+               $valueErrors = $this->validateValue($key, $this->data[$key], $schemeOptions);
+
+               if($valueErrors !==true)
+               {
+                   array_push($occuringErrors, ...$valueErrors);
+               }
+           }
+       }
+
+       if(count($occuringErrors)===0)
+       {
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+    }
+
+    protected function validateValue($attribute,&$value, &$schemeOptions)
+    {
+        $type = $schemeOptions['type'];
+        $ValidEnums= $schemeOptions['values'];
+        $occuringErrors = [];
+
+        switch ($type)
+        {
+           case Model::TYPE_STRING:
+           {
+               if(isset($schemeOptions['min']) && mb_strlen($value) < $schemeOptions['min'])
+               {
+                   $occuringErrors[]=$attribute.': String needs min. '. $schemeOptions['min']. ' characters!';
+               }
+               if(isset($schemeOptions['max']) && mb_strlen($value) < $schemeOptions['max'])
+               {
+                   $occuringErrors[]=$attribute.': String can have max. '. $schemeOptions['max']. ' characters!';
+               }
+           }
+           break;
+           case Model::TYPE_INT:
+           break;
+           case Model::TYPE_DECIMAL:
+               {
+                   if(!is_float($value)) {$occuringErrors[] =$attribute.': decimal must be in  (X.Y) format!';}
+                   if(isset($schemeOptions['min']) && $value < $schemeOptions['min'])
+                   {
+                       $occuringErrors[]=$attribute.': Value must be greater than or equal to' . $schemeOptions['min'] . '!';
+                   }
+                   if(isset($schemeOptions['max']) && $value < $schemeOptions['max'])
+                   {
+                       $occuringErrors[]=$attribute.': Value must be less than or equal to' . $schemeOptions['min'] . '!';
+                   }
+               }
+           break;
+           case Model::TYPE_DATE:
+           break;
+           case Model::TYPE_BOOL:
+               {
+                   if (!($value || !$value)) {$occuringErrors[] =$attribute.': Booleans must be either true or false!';}
+               }
+           break;
+           case Model::TYPE_ENUM:
+               {
+                   if(!in_array($value,$ValidEnums)) {$occuringErrors[] =$attribute.': This Value is not valid for this attribute';}
+               }
+           break;
+        }
+
+        return count($occuringErrors) <0 ? $occuringErrors : true;
     }
 }
 
