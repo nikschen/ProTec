@@ -45,15 +45,15 @@ if(file_exists($controllerPath))
 		}
 		else
 		{
-			header('Location: index.php?c=pages&a=error404');
+			header('Location: error404.php?c=errors&a=error404');
 		}
 	}
 	else
 	{
-		header('Location: index.php?c=pages&a=error404');
+		header('Location: error404.php?c=errors&a=error404');
 	}
 }
 else
 {
-	header('Location: index.php?c=pages&a=error404');
+	header('Location: error404.php?c=errors&a=error404');
 }
