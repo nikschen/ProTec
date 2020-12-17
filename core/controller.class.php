@@ -10,27 +10,24 @@ class Controller
 
 	protected $viewParams = []; //parameters for related Views
 
-	public function __construct($action = null, $controllerName = null)
+	public function __construct($actionName = null, $controllerName = null)
 	{
-		$this->_action         = $action;
-		$this->_controllerName = $controllerName;
+		$this->actionName     = $actionName;
+		$this->controllerName = $controllerName;
 	}
 
 	public function renderHTML()
 	{
-		// generate view by callend controller name and called action name
-		$viewPath = $this->viewPath($this->_controllerName, $this->_action);
+		// get viewpath via name of the controller and wanted action
+		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
 
-		// flat the assoc array to variables so that the correct names availible in our view rending
-		extract($this->_params);
+		extract($this->viewParams); //Import variables into the current symbol table from an array
 
 		// can not be used as key in params and will overwritten here as safety
 		$body = '';
 
 		if(file_exists($viewPath))
 		{
-			// new paper for include !! meanse clean output which can be used to store the view
-			// into an variable for better layout handling!
 			ob_start();
 			{
 				include $viewPath;
@@ -42,7 +39,7 @@ class Controller
 		
 	}
 
-	protected function viewPath($controllerName, $action)
+	protected function viewPath($controllerName, $actionName)
 	{
 		return __DIR__.'/../views/'.$controllerName.'/'.$action.'.php';
 	}
