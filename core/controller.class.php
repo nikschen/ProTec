@@ -1,14 +1,14 @@
 <?php
 
-namespace app\core;
+namespace protec\core;
 
 class Controller
 {
 
-	private $_action = null; // stores the called action name
-	private $_controllerName = null; // stores the called controller name without "controller" as suffix
+	private $actionName = null; 
+	private $controllerName = null; 
 
-	protected $_params = []; // stores all values we like to transfer to the view in render perform
+	protected $viewParams = []; //parameters for related Views
 
 	public function __construct($action = null, $controllerName = null)
 	{

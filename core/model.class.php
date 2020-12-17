@@ -225,5 +225,7 @@ abstract class Model
 
         return count($occuringErrors) <0 ? $occuringErrors : true;
     }
+
+    //TODO: Update() and Insert()
 }
 
