@@ -1,8 +1,7 @@
 <?php
 
-namespace protec\controller;
 
-class PagesController extends protec\core\Controller
+class PagesController extends \protec\core\Controller
 {
 
 	public function actionIndex()
@@ -62,8 +61,5 @@ class PagesController extends protec\core\Controller
 		}
 	}
 
-	public function actionError404()
-	{
-		
-	}
+
 }

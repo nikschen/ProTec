@@ -35,12 +35,12 @@ class Controller
 			$body = ob_get_clean();
 		}
 
-		include __DIR__.'/../views/layout.php';
+		include __DIR__.'/../views/pages/index.php';
 		
 	}
 
 	protected function viewPath($controllerName, $actionName)
 	{
-		return __DIR__.'/../views/'.$controllerName.'/'.$action.'.php';
+		return __DIR__.'/../views/'.$controllerName.'/'.$actionName.'.php';
 	}
 }

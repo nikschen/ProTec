@@ -1,8 +1,8 @@
 <?php
 
-class PayDetail extends \protec\core\model
+class PayDetail extends \protec\core\Model
 {
-    const TABLE_NAME = '`PayDetail`';
+    const TABLENAME = '`PayDetail`';
 
     protected $scheme = 
     [

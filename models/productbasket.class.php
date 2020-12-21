@@ -1,8 +1,8 @@
 <?php
 
-class ProductBasket extends \protec\core\model
+class ProductBasket extends \protec\core\Model
 {
-    const TABLE_NAME = '`ProductBasket`';
+    const TABLENAME = '`ProductBasket`';
 
     protected $scheme = 
     [

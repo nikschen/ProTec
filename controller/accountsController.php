@@ -1,6 +1,5 @@
 <?php
 
-namespace protec\controller;
 
 class AccountsController extends \protec\core\Controller
 {

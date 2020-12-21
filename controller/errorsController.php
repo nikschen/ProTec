@@ -1,6 +1,5 @@
 <?php
 
-namespace protec\controller;
 
 class ErrorsController extends \protec\core\Controller
 {
