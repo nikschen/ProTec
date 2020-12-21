@@ -1,8 +1,8 @@
 <?php
 
-namespace app\controller;
+namespace protec\controller;
 
-class PagesController extends \app\core\Controller
+class PagesController extends protec\core\Controller
 {
 
 	public function actionIndex()
