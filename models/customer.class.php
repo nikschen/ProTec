@@ -1,8 +1,8 @@
 <?php
 
-class Customers extends \protec\core\models
+class Customer extends \protec\core\model
 {
-    const TABLE_NAME = '`Customers`';
+    const TABLE_NAME = '`Customer`';
 
     protected $scheme = 
     [

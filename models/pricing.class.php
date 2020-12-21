@@ -1,8 +1,8 @@
 <?php
 
-class Pricings extends \protec\core\models
+class Pricing extends \protec\core\model
 {
-    const TABLE_NAME = '`Pricings`';
+    const TABLE_NAME = '`Pricing`';
 
     protected $scheme = 
     [

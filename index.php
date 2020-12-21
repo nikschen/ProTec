@@ -6,7 +6,10 @@ session_start();
 require_once 'init/database.php';
 require_once 'init/imports.php';
 
-
+foreach(glob('models/*.php') as $modelclass) //including all present models
+{
+    require_once $modelclass;
+}
 
 // query params with 'c' means controller and 'a' means action
 // controller is alwayse the controller of the views
@@ -19,7 +22,7 @@ $controllerName = $_GET['c'] ?? 'pages';
 $actionName = $_GET['a'] ?? 'index';
 
 // generate the correct controller path and check file exists?
-$controllerPath = __DIR__.'/controller/'.$controllerName.'_controller.php';
+$controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
 if(file_exists($controllerPath))
 {
@@ -45,15 +48,18 @@ if(file_exists($controllerPath))
 		}
 		else
 		{
-			header('Location: error404.php?c=errors&a=error404');
+			echo "Methode existiert nicht";
+			//header('Location: error404.php?c=errors&a=error404');
 		}
 	}
 	else
 	{
-		header('Location: error404.php?c=errors&a=error404');
+		echo "Klasse existiert nicht";
+		//header('Location: error404.php?c=errors&a=error404');
 	}
 }
 else
 {
-	header('Location: error404.php?c=errors&a=error404');
+	echo "Datei existiert nicht";
+	//header('Location: error404.php?c=errors&a=error404');
 }

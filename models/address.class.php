@@ -1,8 +1,8 @@
 <?php
 
-class Addresses extends \protec\core\models
+class Address extends \protec\core\model
 {
-    const TABLE_NAME = '`Addresses`';
+    const TABLE_NAME = '`Address`';
 
     protected $scheme = 
     [
