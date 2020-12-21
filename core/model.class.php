@@ -226,6 +226,58 @@ abstract class Model
         return count($occuringErrors) <0 ? $occuringErrors : true;
     }
 
-    //TODO: Update() and Insert()
+    public function insert($values) 
+    {
+        
+        $db=$GLOBALS['db'];
+        $columnList='';
+        $valueList=implode(',', $values); //takes values of an array and converts them into string in scheme: "Value, Value, Value, ..."
+
+        foreach($this->scheme as $key =>$schemeOptions)
+        {
+            $columnList .= '`'.$key.'`,';
+        }
+
+        $columnList=trim($columnList,',');
+
+        try 
+        {
+            $sql='INSERT INTO ' . self::tablename() . $columnList . 'VALUES (' . $valueList . ')';
+            $statement = $db->prepare($sql);
+            $statement->execute();
+            
+            return true;
+
+        }
+        catch(\PDOException $e)
+        {
+            $errors[]='Error inserting '.get_called_class();
+        }
+        return false;
+    }
+
+    public function update ($values) //takes values of an array with entries in scheme "AttributeToBeChanged=Value" and converts them into string in scheme: "Attribute=Value, Attribute=Value, Attribute=Value, ..."
+     {
+        $db=$GLOBALS['db'];
+        $valueList=implode(',', $values);
+        
+        try
+        {
+            $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . 'WHERE id = ' . $this->data['id'];
+            
+            $statement = $db->prepare($sql);
+            $statement->execute();
+
+            return true;
+        }
+        catch(\PDOException $e)
+        {
+            $errors[]='Error updating '.get_called_class();
+
+        }
+        return false;
+     }
+
+    //TODO: Secure Update and Insert Methods
 }
 
