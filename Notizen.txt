@@ -1,0 +1,18 @@
+ echo "php_self";
+ echo time();
+echo $_SERVER['PHP_SELF'];
+echo "<br>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br>";
+echo $_SERVER['HTTP_REFERER'];
+echo "<br>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo $_SERVER['SCRIPT_NAME'];
+
+
+eventuell am Ende dann:
+
+<p>Alle Preise inkl. Mwst. zzgl. Versandkosten und Nachnahmegebühren (bei Auswahl)</p>
