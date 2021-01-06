@@ -19,6 +19,21 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
+//Arbeitsbereich wird dann noch ausgelagert in Funktion
+include_once 'views/pages/header.php';
+
+
+
+
+
+
+
+
+
+//Ende Arbeitsbereich
+
+
+
 if(file_exists($controllerPath))
 {
 	include_once $controllerPath;
@@ -55,3 +70,5 @@ else
 {
 	header('Location: error404.php?c=errors&a=error404');
 }
+
+include_once 'views/pages/footer.php';
