@@ -16,3 +16,9 @@ echo $_SERVER['SCRIPT_NAME'];
 eventuell am Ende dann:
 
 <p>Alle Preise inkl. Mwst. zzgl. Versandkosten und Nachnahmegebühren (bei Auswahl)</p>
+
+
+
+
+Für Header das LogoProtecTransparent
+<img id="slide" src="src/images/LogoProtecTransparent.png" alt="Logo" width="10%" height="10%"  />
