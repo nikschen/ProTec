@@ -100,7 +100,7 @@
 </div>
 </div>
 
-<p>Neue Navigation </p>
+
 <div class="navigationsContainer"> 
 
       
