@@ -118,6 +118,14 @@ body {
     display: block;
 }
 
+.Search input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-right: 16px;
+    margin-left: 50px;
+    font-size: 14px;
+}
+
 
 /* Main content */
 
@@ -144,7 +152,8 @@ body {
 }
 
 footer {
-    background-color: rgb(91, 170, 45);
+    background: rgb(246, 245, 255);
+    background: linear-gradient(90deg, rgba(246, 245, 255, 1) 0%, rgba(222, 192, 15, 1) 35%, rgba(0, 117, 255, 1) 100%);
     left: 0px;
     right: 0px;
     margin-top: 40px;
@@ -171,7 +180,7 @@ footer {
 }
 
 .flex-container-footer * {
-    margin: 15px;
+    margin: 10px;
 }
 
 footer tr th {
@@ -192,16 +201,8 @@ footer a {
 }
 
 footer a:hover {
-    background-color: rgb(175, 110, 49);
+    background-color: rgb(219, 196, 174);
     transition: 0.5s;
-}
-
-footer table {
-    background-color: burlywood;
-    width: 100%;
-    /* border-collapse: collapse;
-     /* border: 1px solid black;
-     border-width: 1px;*/
 }
 
 
@@ -216,6 +217,16 @@ footer table {
     }
     .navbar .LoginFields {
         float: none;
+    }
+    .navbar {
+        margin-top: 0px;
+        height: 15%;
+    }
+    .flex-container-footer {
+        flex-direction: column;
+    }
+    .flex-container-footer * {
+        margin: 5px;
     }
     .footer,
     table,

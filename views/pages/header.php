@@ -23,7 +23,6 @@
             <div class=dropdown-content>
                 <a href="./index.html">Kabel</a>
                 <a href="./index.html">Werkzeug</a>
-                <a href="./index.html">Verbinder</a>
                 <a href="./index.html">Bauteile</a>
                 <a href="./index.html">Zubehör</a>
             </div>
@@ -34,8 +33,7 @@
     <li> <a href="./text-formatieren.html">RaspberryPi</a> </li>
     
             <div class=dropdown-content>
-                <a href="./index.html">Pi-2/3/3b/4/4b</a>
-                <a href="./index.html">Pi-Zero</a>
+                <a href="./index.html">Pi-1/2/3//4/Zero</a>
                 <a href="./index.html">Gehäuse</a>
               
             </div>
@@ -46,9 +44,8 @@
     <li> <a href="./bilder-hinzufuegen.html">Computer</a> </li>
     
             <div class=dropdown-content>
-                <a href="./index.html">BananaPi</a>
                 <a href="./index.html">Barebones</a>
-                <a href="./index.html">Mainboards</a>
+                <a href="./index.html">Desktop-komplett</a>
                 <a href="./index.html">Arbeitsspeicher</a>
             </div>
         </li>
@@ -79,8 +76,11 @@
         </li>
 
     </div>
-
-
+<li>
+    <div class="Search">
+  <input type="text" placeholder="Produktsuche...">
+  </div>
+</li>
 
     
     
@@ -88,7 +88,7 @@
     
 </ul>
   </div>
-
+  
   <div class="LoginFields">
     <form action="FixedHeader.php">
       <label for="fname">Login:</label>
