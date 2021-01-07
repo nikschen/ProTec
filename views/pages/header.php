@@ -15,10 +15,10 @@
 
   <div class="navigation">
   
-<ul>
+    
     
     <div class="dropdown">
-        <li class="dropbtn"> <a href="./index.html">Elektronik</a>
+        <li class="dropbtn"> <a href="./index.html">Elektronik</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Kabel</a>
@@ -26,7 +26,7 @@
                 <a href="./index.html">Bauteile</a>
                 <a href="./index.html">Zubehör</a>
             </div>
-        </li>
+        
 
     </div>
     <div class="dropdown">
@@ -37,7 +37,7 @@
                 <a href="./index.html">Gehäuse</a>
               
             </div>
-        </li>
+        
 
     </div>
     <div class="dropdown">
@@ -48,7 +48,7 @@
                 <a href="./index.html">Desktop-komplett</a>
                 <a href="./index.html">Arbeitsspeicher</a>
             </div>
-        </li>
+       
 
     </div>
     <div class="dropdown">
@@ -76,28 +76,24 @@
         </li>
 
     </div>
-<li>
+    <li>
     <div class="Search">
   <input type="text" placeholder="Produktsuche...">
   </div>
+    </li>
+    <li id="Login-Smart">
+    <a href="./index.html">Login</a>
 </li>
 
     
     
     
     
-</ul>
+    
+    
   </div>
   
-  <div class="LoginFields">
-    <form action="FixedHeader.php">
-      <label for="fname">Login:</label>
-      <input type="text" id="E-Mail" name="fname" placeholder="Username or E-Mail"><br><br>
-      <label for="lname">Password:</label>
-      <input type="text" id="Password" name="lname" placeholder="Password"><br><br>
-      <button type="submit" id="LoginButton">Login</button> 
-  </form> 
-</div>
+  
 </div>
 
 

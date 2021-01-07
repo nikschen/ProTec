@@ -22,3 +22,38 @@ eventuell am Ende dann:
 
 Für Header das LogoProtecTransparent
 <img id="slide" src="src/images/LogoProtecTransparent.png" alt="Logo" width="10%" height="10%"  />
+
+
+
+.navbar #Login {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: right;
+    /*margin-top: 10px;*/
+    /* margin-right: 20px;
+     */
+    /* padding: 14px 16px;*/
+    text-decoration: none;
+}
+
+.navbar .LoginFields {
+    text-align: right;
+    /*display: block;*/
+    color: rgb(50, 54, 63);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    /* padding: 14px 16px;*/
+}
+
+
+<div class="LoginFields">
+    <form action="FixedHeader.php">
+      <label for="fname">Login:</label>
+      <input type="text" id="E-Mail" name="fname" placeholder="Username or E-Mail"><br><br>
+      <label for="lname">Password:</label>
+      <input type="text" id="Password" name="lname" placeholder="Password"><br><br>
+      <button type="submit" id="LoginButton">Login</button> 
+  </form> 
+    </div>
