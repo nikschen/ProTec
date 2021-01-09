@@ -1,5 +1,5 @@
 <?php
-
+namespace protec\controller;
 
 class PagesController extends \protec\core\Controller
 {
@@ -59,6 +59,11 @@ class PagesController extends \protec\core\Controller
 		{
 			header('Location: index.php');
 		}
+	}
+
+	protected function setParam($key, $value = null)
+	{
+		$this->params[$key] = $value;
 	}
 
 

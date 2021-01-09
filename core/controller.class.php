@@ -21,7 +21,8 @@ class Controller
 		
 		// get viewpath via name of the controller and wanted action
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
-
+		print_r("view " . $viewPath);
+		//exit(1);	
 		extract($this->viewParams); //Import variables into the current symbol table from an array
 		
 		// can not be used as key in params and will overwritten here as safety
@@ -34,9 +35,11 @@ class Controller
 				include $viewPath;
 			}
 			$body = ob_get_clean();
+			print_r($body);
 		}
 
 		include __DIR__.'/../views/pages/index.php';
+		
 		
 	}
 
