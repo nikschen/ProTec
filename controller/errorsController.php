@@ -5,6 +5,13 @@ class ErrorsController extends \protec\core\Controller
 {
     public function actionError404()
 	{
-		header('Location: error404.php');
+		print_r("actionError404 aufgerufen");
+		//exit(1);
+		header('Location: views/errors/error404.php');
+		
 	}
 }
+
+
+
+?>

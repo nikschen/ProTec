@@ -9,9 +9,11 @@
 <?php include 'views/pages/header.php';?>
 </header>
 <body>
-    <img id="logo" src="src/images/protec.png">
+    <img id="logo" src="src/images/protec.png" width="20%">
     <br>
-    <?=$myValue?>
+    <?
+    //$myValue
+    ?>
 
 </body>
 <footer>

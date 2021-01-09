@@ -18,11 +18,12 @@ class Controller
 
 	public function renderHTML()
 	{
+		
 		// get viewpath via name of the controller and wanted action
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
 
 		extract($this->viewParams); //Import variables into the current symbol table from an array
-
+		
 		// can not be used as key in params and will overwritten here as safety
 		$body = '';
 

@@ -19,8 +19,16 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
-//Arbeitsbereich wird dann noch ausgelagert in Funktion
-include_once 'views/pages/header.php';
+
+
+
+//Basis Debuggin START ***************************************************************
+print_r("ControllerPath: " . $controllerPath ." <br> ");
+print_r("ControllerName: " .$controllerName . "<br>");
+print_r("actionName: ". $actionName . "<br>");
+//exit(1);
+
+//Basis Debuggin END***************************************************************
 
 
 
@@ -30,7 +38,9 @@ include_once 'views/pages/header.php';
 
 
 
-//Ende Arbeitsbereich
+
+
+
 
 
 
@@ -41,34 +51,42 @@ if(file_exists($controllerPath))
 	// example of included controller name is PagesController in default
 	$controllerClassName = ucfirst($controllerName).'Controller';
 
+	print_r("className: ". $controllerClassName . "<br>");
+	//exit(1);
+
 	// is the class name a valid name in our context?
 	if(class_exists($controllerClassName))
 	{
 		// create instance of the wanted controller to work with
 		$controllerInstance = new $controllerClassName($actionName, $controllerName);
-
+		print_r($controllerInstance);
+		//exit(1);
 		// fetches the wanted method
 		$actionMethodName = 'action'.ucfirst($actionName);
-
+		print_r("actionMethodName: ". $actionMethodName . "<br>");
+		
 		if(method_exists($controllerInstance, $actionMethodName))
 		{
+		print_r("method exists " . $actionMethodName . "<br>");
+			
+		
 			// calls the wanted method and the controller defined HTML render method
 			$controllerInstance->{$actionMethodName}();
+			//exit(1);
 			$controllerInstance->renderHTML();
 		}
 		else
 		{
-			header('Location: error404.php?c=errors&a=error404');
+			header('Location: index.php?c=errors&a=error404');
 		}
 	}
 	else
 	{
-		header('Location: error404.php?c=errors&a=error404');
+		header('Location: index.php?c=errors&a=error404');
 	}
 }
 else
 {
-	header('Location: error404.php?c=errors&a=error404');
+	header('Location: index.php?c=errors&a=error404');
 }
 
-include_once 'views/pages/footer.php';

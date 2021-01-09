@@ -7,7 +7,7 @@ class PagesController extends \protec\core\Controller
 	public function actionIndex()
 	{
 		$myValue = 'This is the Index page. If Martin did it right, you won\'t see me in the final version.';
-
+		print_r("actionIndex started...");
 		$this->viewParams['myValue'] = $myValue;
 	}
 
