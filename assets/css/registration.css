@@ -3,6 +3,10 @@ h2 {
     margin-bottom: 0px;
 }
 
+form {
+    text-align: center;
+}
+
 .registrationform input[type=text],
 [type=password],
 #selectgender {
@@ -13,6 +17,7 @@ h2 {
     border: 1px solid rgb(134, 133, 133);
     border-radius: 10px;
     box-sizing: border-box;
+    align-items: center;
 }
 
 .registrationform input[type=submit] {
@@ -24,4 +29,5 @@ h2 {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    align-items: center;
 }

@@ -57,3 +57,26 @@ Für Header das LogoProtecTransparent
       <button type="submit" id="LoginButton">Login</button> 
   </form> 
     </div>
+
+
+
+
+POST ARRAY im SIGNUP 
+
+
+    Array
+(
+    [lastName] => sdfsdf
+    [firstName] => Thomas
+    [Anrede] => male
+    [title] => dfsfsd
+    [email] => sdafsd
+    [passwort] => sdfsdfg
+    [passwort-repeat] => sdgsdg
+    [streetinfo] => sdfsfd
+    [additionaladdressinfo] => 
+    [zipcode] => asdas
+    [city] => asda
+    [country] => asd
+    [submit] => Absenden
+)

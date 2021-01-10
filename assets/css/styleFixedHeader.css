@@ -198,6 +198,14 @@ footer a:hover {
     transition: 0.5s;
 }
 
+#Login-Smart {
+    background-color: rgb(255, 125, 32);
+}
+
+#Login-Smart:hover {
+    background-color: rgb(255, 191, 146);
+}
+
 
 /*As a hiding element when you scroll down*/
 

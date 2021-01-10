@@ -96,67 +96,6 @@
 </div>
 
 
-<div class="navigationContainer"> 
-
-
-
-<div class="dropdown">
-         <a href="./index.html">Elektronik</a>
-    
-            <div class=dropdown-content>
-                <a href="./index.html">Kabel</a>
-                <a href="./index.html">Werkzeug</a>
-                <a href="./index.html">Bauteile</a>
-                <a href="./index.html">Zubehör</a>
-            </div>
-        
-
-    </div>
-    <div class="dropdown">
-    <a href="./text-formatieren.html">RaspberryPi</a> 
-    
-            <div class=dropdown-content>
-                <a href="./index.html">Pi-1/2/3//4/Zero</a>
-                <a href="./index.html">Gehäuse</a>
-              
-            </div>
-        
-
-    </div>
-    <div class="dropdown">
-     <a href="./bilder-hinzufuegen.html">Computer</a> 
-    
-            <div class=dropdown-content>
-                <a href="./index.html">Barebones</a>
-                <a href="./index.html">Desktop-komplett</a>
-                <a href="./index.html">Arbeitsspeicher</a>
-            </div>
-       
-
-    </div>
-<div class="dropdown">
-     <a href="./links-erstellen.html">Neu</a> 
-    
-            <div class=dropdown-content>
-                <a href="./index.html">Kabel</a>
-                <a href="./index.html">Werkzeug</a>
-                <a href="./index.html">Verbinder</a>
-                <a href="./index.html">Bauteile</a>
-                <a href="./index.html">Zubehör</a>
-            </div>
-        
-
-    </div>
-<div class="dropdown">
-    <a href="./listen-erstellen.html">Sensoren</a>
-    
-            <div class=dropdown-content>
-                <a href="./index.html">Temperatursensoren</a>
-                <a href="./index.html">Bewegungsmelder</a>
-                <a href="./index.html">Strommesser</a>
-                <a href="./index.html">GyroSensor</a>
-            </div>
-</div>
 
 
 

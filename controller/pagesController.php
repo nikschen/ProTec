@@ -1,5 +1,6 @@
 <?php
 
+namespace protec\core;
 
 class PagesController extends \protec\core\Controller
 {
@@ -61,7 +62,10 @@ class PagesController extends \protec\core\Controller
 		}
 	}
 
-
+	public function setParam($key, $value= null)
+	{
+		$this->params[$key] =$value;
+	}
 
 
 }
