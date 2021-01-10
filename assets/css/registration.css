@@ -1,0 +1,27 @@
+h2 {
+    color: rgb(1, 12, 5);
+    margin-bottom: 0px;
+}
+
+.registrationform input[type=text],
+[type=password],
+#selectgender {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid rgb(134, 133, 133);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.registrationform input[type=submit] {
+    width: 30%;
+    background-color: #428eb9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
