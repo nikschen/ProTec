@@ -1,6 +1,6 @@
 <?php
 
-namespace protec\core;
+//namespace protec\core;
 
 class PagesController extends \protec\core\Controller
 {
