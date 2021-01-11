@@ -12,7 +12,8 @@
     <img id="logo" src="src/images/protec.png" width="20%">
     <br>
     <?
-    echo $myValue
+    echo $myValue;
+    echo $info;    
     ?>
 
 </body>

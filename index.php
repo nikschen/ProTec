@@ -61,7 +61,8 @@ if(file_exists($controllerPath))
 			// calls the wanted method and the controller defined HTML render method
 			//$controllerInstance->{$actionMethodName}();
 			//exit(1);
-			$controllerInstance->renderHTML();
+			$controllerInstance->{$actionMethodName}();
+			
 		}
 		else
 		{
@@ -89,11 +90,9 @@ else
 </head>
 <body>
 	<?php 
-		include 'views/pages/header.php';
+		
+		$controllerInstance->renderHTML();
 	
-		$controller->renderHTML();
-	
-		include 'views/pages/footer.php';
 	?>
 
 	
