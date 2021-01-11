@@ -71,7 +71,7 @@ if(file_exists($controllerPath))
 			
 		
 			// calls the wanted method and the controller defined HTML render method
-			$controllerInstance->{$actionMethodName}();
+			//$controllerInstance->{$actionMethodName}();
 			//exit(1);
 			$controllerInstance->renderHTML();
 		}

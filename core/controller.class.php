@@ -35,7 +35,11 @@ class Controller
 				include $viewPath;
 			}
 			$body = ob_get_clean();
-			print_r($body);
+			if($this->actionName !=='index')
+			{
+				print_r($this->actionName);
+				print_r($body);
+			}
 		}
 
 		include __DIR__.'/../views/pages/index.php';
