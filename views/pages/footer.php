@@ -13,7 +13,7 @@
     <div class="flex-container-content">
       <p>Allgemeine Informationen</p>
       <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>   
-      <a href="">Widerrufsrecht</a>
+      <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
       <a href="">Datenschutzbestimmungen</a>
       <a href="">AGB</a>
       <a href="">Impressum</a>

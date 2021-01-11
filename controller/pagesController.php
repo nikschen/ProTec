@@ -69,6 +69,11 @@ class PagesController extends \protec\core\Controller
 		
 	}
 
+	public function actionRightOfWithdrawal()
+	{
+		
+	}
+
 	
 
 
