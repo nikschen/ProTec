@@ -3,7 +3,7 @@
   <div class="flex-container-footer">
     <div class="flex-container-content">
       <p>Wir babbeln über uns</p>
-      <p>Protec</p>     
+      <p>ProTec</p>     
       <p>sponsored by PiFoundation</p>
       <p>Wiemuthgasse 21</p>
       <p>47623 Kevelaer</p>
@@ -12,7 +12,7 @@
     </div>    
     <div class="flex-container-content">
       <p>Allgemeine Informationen</p>
-      <a href="">Versand- und Zahlungsbedingungen</a>   
+      <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>   
       <a href="">Widerrufsrecht</a>
       <a href="">Datenschutzbestimmungen</a>
       <a href="">AGB</a>
