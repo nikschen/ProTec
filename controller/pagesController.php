@@ -23,7 +23,7 @@ class PagesController extends \protec\core\Controller
 				$email    = $_POST['email'] ?? null;
 				$password = $_POST['password'] ?? null;
 
-				if($email === 'max@fh-erfurt.de' && $password === '12345678')
+				if($email === 'user' && $password === '12345678')
 				{
 					$_SESSION['loggedIn'] = true;
 					header('Location: index.php');

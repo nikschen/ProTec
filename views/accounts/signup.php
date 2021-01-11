@@ -24,7 +24,6 @@
     <? endif;?>
     
         <h2>Ihre Anmeldedaten</h2>
-
         <hr>
         <form method="POST">
             <?//PostArray elemnente behalten ohne Placeholder mit null zu überschreiben -> in meiner Lösung ist die Shorthand nicht verwendbar?>
@@ -37,9 +36,9 @@
                 <option value="heli">ApacheHelicopter</option>
             </select><br>
 
-            <input type="text" name="title" placeholder="Titel"><br>
-            <input type="text" name="email" placeholder="Ihre E-Mail-Adresse*" required><br>
-            <input type="text" name="title" placeholder="Telefon oder Mobilnummer:" required><br>
+            <input type="text" name="title" placeholder="Titel" <?if (isset($_POST['title'])){echo "value=".htmlspecialchars($_POST['title']);};?>><br>
+            <input type="text" name="email" placeholder="Ihre E-Mail-Adresse*" <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?>required><br>
+            <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
             <input type="password" name="passwort" placeholder="Ihr Passwort*" required>
             <input type="password" name="passwort-repeat" placeholder="Ihr Passwort wiederholt*" required>
 
@@ -48,13 +47,13 @@
             <h2>Ihre Adresse</h2>
             <hr>
 
-            <input type="text" name="streetinfo" placeholder="Straße und Nr.*" required><br>
-            <input type="text" name="additionaladdressinfo" placeholder="Adresszusatz"><br>
-            <input type="text" name="zipcode" placeholder="PLZ*" required>
-            <input type="text" name="city" placeholder="Ort*" required><br>
-            <input type="text" name="country" placeholder="Land*" required><br><br>
+            <input type="text" name="streetinfo" placeholder="Straße und Nr.*" <?if (isset($_POST['streetinfo'])){echo "value=".htmlspecialchars($_POST['streetinfo']);};?> required><br>
+            <input type="text" name="address2" placeholder="Adresszusatz" <?if (isset($_POST['address2'])){echo "value=".htmlspecialchars($_POST['address2']);};?>><br>
+            <input type="text" name="zipcode" placeholder="PLZ*" <?if (isset($_POST['zipcode'])){echo "value=".htmlspecialchars($_POST['zipcode']);};?>required>
+            <input type="text" name="city" placeholder="Ort*" <?if (isset($_POST['city'])){echo "value=".htmlspecialchars($_POST['city']);};?>required><br>
+            <input type="text" name="country" placeholder="Land*" <?if (isset($_POST['country'])){echo "value=".htmlspecialchars($_POST['country']);};?>required><br><br>
 
-            <input type="submit" name="submit" value="Absenden"></button>
+            <input type="submit" name="submit" value="Absenden"></input>
 
         </form>
 
