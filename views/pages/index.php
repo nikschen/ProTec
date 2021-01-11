@@ -9,7 +9,7 @@
 
 <body class="Site">
     <main class="Site-content">
-        <img id="logo" src="src/images/protec.png" width="20%">
+        <img id="logo" src="src/icons/protec_transparent_weiß_umrandet.png" width="20%">
             <br>
             <?=$myValue?>
             <br>

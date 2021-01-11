@@ -12,7 +12,7 @@
 <div class="border"></div>
 <div class="navbar">
 
-<a href="index.php?c=pages&a=index"><img id="logo" src="src/images/protec.png" alt="Logo" height=50px/></a>
+<a href="index.php?c=pages&a=index"><img id="logo" src="src/icons/protec_transparent_weiß_umrandet.png" alt="Logo" height=50px/></a>
   <div class="navigation">
   
     <div class="dropdown">
