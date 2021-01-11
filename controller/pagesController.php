@@ -62,6 +62,11 @@ class PagesController extends \protec\core\Controller
 		}
 	}
 
+	public function actionPaymentAndShippingDetails()
+	{
+		
+	}
+
 	public function setParam($key, $value= null)
 	{
 		$this->params[$key] =$value;

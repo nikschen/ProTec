@@ -12,6 +12,7 @@
 <div class="border"></div>
 <div class="navbar">
 
+  <img id="logo" src="src/images/protec.png" height=50px>
   <div class="navigation">
   
     
@@ -72,16 +73,19 @@
                 <a href="./index.html">Strommesser</a>
                 <a href="./index.html">GyroSensor</a>
             </div>
-        
+        </li>
 
     </div>
     <li>
     <div class="Search">
-  <input type="text" placeholder="Produktsuche...">
-  </div>
+        <form method="post">
+            <input type="text" placeholder="Produktsuche...">
+            <input type="submit" name="submit" value="Go">
+        </form>
+     </div>
     </li>
     <li id="Login-Smart">
-    <a href="./index.html">Login</a>
+    <a href="index.php?c=pages&a=login">Login</a>
 </li>
 
     
@@ -96,8 +100,9 @@
 </div>
 
 
+<div class="navigationsContainer"> 
 
-
+      
 
 
 
