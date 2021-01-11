@@ -12,11 +12,9 @@
 <div class="border"></div>
 <div class="navbar">
 
-  <img id="logo" src="src/images/protec.png" height=50px>
+<a href="index.php?c=pages&a=index"><img id="logo" src="src/images/protec.png" alt="Logo" height=50px/></a>
   <div class="navigation">
   
-    
-    
     <div class="dropdown">
         <li class="dropbtn"> <a href="./index.html">Elektronik</a></li>
     
