@@ -11,7 +11,7 @@ class PagesController extends \protec\core\Controller
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
 		print_r("actionIndex started...");
 		$this->setParam('myValue',$myValue,);
-		$this->setParam('This is the Homepage. There will be a lot of fun to buy. Stay tuned.',$info);
+		$this->setParam('info',$info);
 	}
 
 	public function actionLogin()

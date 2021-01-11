@@ -24,25 +24,32 @@ class Controller
 		print_r("view " . $viewPath);
 		//exit(1);	
 		extract($this->viewParams); //Import variables into the current symbol table from an array
-		
+
 		// can not be used as key in params and will overwritten here as safety
 		$body = '';
-
-		if(file_exists($viewPath))
+		if(!file_exists($viewPath))
 		{
-			ob_start();
-			{
-				include $viewPath;
-			}
-			$body = ob_get_clean();
-			if($this->actionName !=='index')
-			{
-				print_r($this->actionName);
-				print_r($body);
-			}
+			// redirect to error page 404 because not found
+			header('Location: index.php?c=errors&a=error404&error=viewpath');
+			exit(0);
 		}
 
-		include __DIR__.'/../views/pages/index.php';
+		// if(file_exists($viewPath))
+		// {
+		// 	ob_start();
+		// 	{
+		// 		include $viewPath;
+		// 	}
+		// 	$body = ob_get_clean();
+		// 	if($this->actionName !=='index')
+		// 	{
+		// 		print_r($this->actionName);
+		// 		print_r($body);
+		// 	}
+		//  }
+		include 'views/pages/header.php';	
+		include $viewPath;
+		include 'views/pages/footer.php';
 		
 		
 	}
