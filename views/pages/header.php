@@ -81,7 +81,7 @@
   </div>
     </li>
     <li id="Login-Smart">
-    <a href="./index.html">Login</a>
+    <a href="<?=$_SERVER['SCRIPT_NAME']        ?>?c=pages&a=login"  >Login</a>
 </li>
 
     
