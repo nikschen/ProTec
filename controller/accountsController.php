@@ -36,16 +36,16 @@ class AccountsController extends \protec\core\Controller
 		//Überprüfung der Eingaben in den SignUp Forms wird per JS geprüft (zusätzlich!!! da es ja auch ohne gehen soll)
 		//null Prüfung entfällt da required gesetzt wird im html form
 
-		if(mb_strlen($firstName)<2 || preg_match('/[0-9]/',$firstName))
+		if(mb_strlen($firstName)<2 || mb_strlen($firstName)>46 || preg_match('/[0-9]/',$firstName))
 		{
 			echo "<br>";
-			echo "Vorname entspricht nicht den Anforderungen -> mind. 2 Zeichen, keine Zahlen oder Sonderzeichen";
+			echo "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeichen";
 			$errors['firstName'] = "Vorname zu kurz";
 		}
-		if(mb_strlen($lastName)<2 || preg_match('/[0-9]/',$lastName))
+		if(mb_strlen($lastName)<2 || mb_strlen($firstName)>100 ||preg_match('/[0-9]/',$lastName))
 		{
 			echo "<br>";
-			echo "Name entspricht nicht den Anforderungen -> mind. 2 Zeichen, keine Zahlen oder Sonderzeichen";
+			echo "Name entspricht nicht den Anforderungen -> mind. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
 			$errors['lastName'] = "Vorname zu kurz";
 		}
 		if(isset($_POST['title']) && mb_strlen($title)<2)
