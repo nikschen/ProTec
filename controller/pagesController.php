@@ -10,8 +10,8 @@ class PagesController extends \protec\core\Controller
 		$myValue = 'This is the Index page. If Martin did it right, you won\'t see me in the final version.';
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
 		print_r("actionIndex started...");
-		$this->setParam($myValue,'myValue',);
-		$this->setParam($info,'This is the Homepage. There will be a lot of fun to buy. Stay tuned.');
+		$this->setParam('myValue',$myValue,);
+		$this->setParam('This is the Homepage. There will be a lot of fun to buy. Stay tuned.',$info);
 	}
 
 	public function actionLogin()
@@ -69,10 +69,7 @@ class PagesController extends \protec\core\Controller
 		
 	}
 
-	public function setParam($key, $value= null)
-	{
-		$this->viewParams[$key] =$value;
-	}
+	
 
 
 }

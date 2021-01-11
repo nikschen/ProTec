@@ -6,12 +6,11 @@
     <title>Versand- und Zahlungsbedingungen</title>
 </head>
 <header>
-<?php include 'views/pages/header.php';?>
 </header>
 <body>
 <h3>Versandkosten</h3>
-    <table class="ShippingDetails">
-        <thead>
+    <table class="ShippingDetails" width="50%">
+        <thead style="text-align: left">
         <tr>
             <th>Versandarten</th>
             <th>Kosten</th>
@@ -60,7 +59,6 @@ Ihre Bestellung wird sofort nach Eingang der Zahlung versandt (sofern lieferbar)
 Ihre Bestellung wird sofort versandt (sofern lieferbar) und Sie zahlen den Nachnahmebetrag direkt an den Zusteller. Zusätzlich zu den Versandkosten berechnen wir Ihnen einen Nachnahme-Gebührenanteil in Höhe von 6,00 € (Deutschland).</p> 
 </body>
 <footer>
-<?php include 'views/pages/footer.php';?>
 </footer>
     
 </html>

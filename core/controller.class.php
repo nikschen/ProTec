@@ -51,4 +51,17 @@ class Controller
 	{
 		return __DIR__.'/../views/'.$controllerName.'/'.$actionName.'.php';
 	}
+
+	protected function setParam($key, $value= null)
+	{
+		$this->viewParams[$key] =$value;
+	}
+
+	public function __destruct()
+	{
+		$this->controllerName=null;
+		$this->actionName=null;
+		$this->viewParams=null;
+
+	}
 }
