@@ -12,11 +12,11 @@
 <div class="border"></div>
 <div class="navbar">
 
-<a href="index.php?c=pages&a=index"><img id="logo" src="src/icons/protec_transparent_weiß_umrandet.png" alt="Logo" height=50px/></a>
+<a class="ProtecLogo" href="index.php?c=pages&a=index"><img id="logo" src="src/icons/protec_transparent_weiß_umrandet.png" alt="Logo" height=50px></a>
   <div class="navigation">
   
     <div class="dropdown">
-        <li class="dropbtn"> <a href="./index.html">Elektronik</a></li>
+        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/elektronikIcon.png" alt="Elek." > Elektronik</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Kabel</a>
@@ -28,7 +28,7 @@
 
     </div>
     <div class="dropdown">
-    <li> <a href="./text-formatieren.html">RaspberryPi</a> </li>
+        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/raspberryPiIcon.png" alt="RasPi." > RaspberryPi</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Pi-1/2/3//4/Zero</a>
@@ -39,18 +39,18 @@
 
     </div>
     <div class="dropdown">
-    <li> <a href="./bilder-hinzufuegen.html">Computer</a> </li>
+        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/computerIcon.png" alt="Comp." > Computer</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Barebones</a>
-                <a href="./index.html">Desktop-komplett</a>
+                <a href="./index.html">KomplettPCs</a>
                 <a href="./index.html">Arbeitsspeicher</a>
             </div>
        
 
     </div>
     <div class="dropdown">
-    <li> <a href="./links-erstellen.html">NeuEingetroffen</a> </li>
+        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" > Neu</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Kabel</a>
@@ -63,7 +63,7 @@
 
     </div>
     <div class="dropdown">
-    <li> <a href="./listen-erstellen.html">Sensoren</a> </li>
+        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/sensorenIcon.png" alt="Sens." > Sensoren</a></li>
     
             <div class=dropdown-content>
                 <a href="./index.html">Temperatursensoren</a>
@@ -78,7 +78,8 @@
     <div class="Search">
         <form method="post">
             <input type="text" placeholder="Produktsuche...">
-            <input type="submit" name="submit" value="Go">
+            <button type="submit"><img src="src/icons/searchIcon.png" height="15em" /> Go</button>
+
         </form>
      </div>
     </li>

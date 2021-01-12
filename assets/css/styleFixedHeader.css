@@ -20,6 +20,8 @@ body {
     -moz-box-shadow: 0px 4px 2px #27272780;
     justify-content: center;
     flex-wrap: nowrap;
+
+    font-size: 2em;
 }
 
 
@@ -126,7 +128,13 @@ body {
     margin-left: 50px;
     font-size: 14px;
 }
-
+.categoryLogo{
+    width : 1em;
+    height: 1em;
+}
+.ProtecLogo{
+    height: 1.2em;
+}
 
 /* Main content */
 
@@ -201,6 +209,7 @@ footer a:hover {
 
 #Login-Smart {
     background-color: rgb(255, 125, 32);
+    font-size: 0.8em;
 }
 
 #Login-Smart:hover {
@@ -217,11 +226,13 @@ footer a:hover {
     flex: 1;
 }
 
+
+
 /*As a hiding element when you scroll down*/
 
 @media screen and (max-width: 800px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: row;
     }
     .navbar {
         margin: 0px;

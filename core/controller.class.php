@@ -31,7 +31,7 @@ class Controller
 		if(!file_exists($viewPath))
 		{
 			// redirect to error page 404 because not found
-			header('Location: index.php?c=errors&a=error404&error=viewpath');
+			header('Location: index.php?c=errors&a=error404');
 			exit(0);
 		}
 
