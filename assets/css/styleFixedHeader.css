@@ -26,6 +26,7 @@ body {
 /* Links inside the navbar */
 
 .navbar a {
+    font-size: large;
     float: left;
     flex-direction: column;
     color: rgb(50, 54, 63);

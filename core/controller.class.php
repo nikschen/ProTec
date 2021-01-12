@@ -21,7 +21,7 @@ class Controller
 		
 		// get viewpath via name of the controller and wanted action
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
-		print_r("view " . $viewPath);
+		//print_r("view " . $viewPath);
 		//exit(1);	
 		extract($this->viewParams); //Import variables into the current symbol table from an array
 
