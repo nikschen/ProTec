@@ -115,7 +115,13 @@ class AccountsController extends \protec\core\Controller
 		}
 		if(count($errors)===0)
 		{
-			
+			//wenn keine Fehler sind dann prüfen ob in Datenbank nicht schon was vorhanden ist.
+
+
+
+
+
+
 
 		if(true) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
 		{
