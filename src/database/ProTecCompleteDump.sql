@@ -1,33 +1,151 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Erstellungszeit: 12. Jan 2021 um 12:40
--- Server-Version: 10.4.17-MariaDB
--- PHP-Version: 7.4.13
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Datenbank: `protecdb`
---
+CREATE DATABASE IF NOT EXISTS `protecdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `protecdb`;
 
--- --------------------------------------------------------
+CREATE TABLE `account` (
+  `accountID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `username` varchar(150) NOT NULL,
+  `passwordHash` varchar(255) NOT NULL,
+  `validated` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `address` (
+  `addressID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `street` varchar(255) NOT NULL,
+  `streetNumber` varchar(10) NOT NULL,
+  `zipCode` varchar(12) NOT NULL,
+  `city` varchar(60) NOT NULL,
+  `country` varchar(60) NOT NULL,
+  `additionalInformation` varchar(60) DEFAULT NULL,
+  `phone` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `address` (`addressID`, `createdAt`, `updatedAt`, `street`, `streetNumber`, `zipCode`, `city`, `country`, `additionalInformation`, `phone`) VALUES
+(1, '2021-01-12 14:37:42', NULL, 'Bamberger Straße', '5', '99089', 'Erfurt', 'Deutschland', 'HinterHof', '0176600700'),
+(2, '2021-01-12 14:37:42', NULL, 'Probantenteststraße', '115a', '07749', 'Jena', 'Deutschland', NULL, NULL),
+(3, '2021-01-12 14:37:42', NULL, 'Muldenweg', '1', '00145', 'Buxbaum', 'Österreich', 'Über Oma Hilde', '03451666111'),
+(4, '2021-01-12 14:37:42', NULL, 'An der Klinge', '3', '99680', 'Klosterstedt', 'Deutschland', NULL, NULL),
+(5, '2021-01-12 14:37:42', NULL, 'Lange Straße ', '39', '99610', 'Elstern', 'Deutschland', NULL, NULL),
+(6, '2021-01-12 14:37:42', NULL, 'Wiemuth Weg', '17', '12345', 'Deuna', 'Deutschland', 'Eichsfeld links', '0190 76 76 76'),
+(7, '2021-01-12 14:37:42', NULL, 'Lagergasse', '41', '07799', 'Göschwitz', 'Deutschland', NULL, NULL),
+(8, '2021-01-12 14:37:42', NULL, 'Bergweg', '7', '14055', 'Trondheim', 'Norwegen', 'Das Haus am See', NULL);
 
---
--- Daten für Tabelle `product`
---
+CREATE TABLE `customer` (
+  `customerID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `firstName` varchar(45) NOT NULL,
+  `lastName` varchar(100) NOT NULL,
+  `birthDate` date NOT NULL,
+  `eMail` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail`) VALUES
+(1, '2021-01-12 14:35:52', NULL, 'Niklas', 'Wiefurcht', '1991-03-18', 'LordyMcViva@googlemail.com'),
+(2, '2021-01-12 14:35:52', NULL, 'Thomas', 'Messer', '1986-11-04', 'Bigtommycool@web.de'),
+(3, '2021-01-12 14:35:52', NULL, 'Klaus', 'Leber', '1980-01-01', 'FreeWilly@gmx.de'),
+(4, '2021-01-12 14:35:52', NULL, 'Ludwig', 'Loberstutter', '1999-08-02', 'KleinerLu@yahoo.com'),
+(5, '2021-01-12 14:35:52', NULL, 'Selen', 'Konquistator', '2000-04-14', 'Selen@giga.com'),
+(6, '2021-01-12 14:35:52', NULL, 'Maximilian', 'Gruber', '1911-11-11', 'OldMax@aol.de'),
+(7, '2021-01-12 14:35:52', NULL, 'Hans', 'Gruber', '1950-09-14', 'OldMaxJr@aol.de'),
+(8, '2021-01-12 14:35:52', NULL, 'Jim', 'Dragon', '1985-08-07', 'DragonFly@gmx.de'),
+(9, '2021-01-12 14:35:52', NULL, 'Betrand', 'Russel', '2000-12-04', 'RusselBer@arcor.de');
+
+CREATE TABLE `paydetail` (
+  `payDetailsID` int(11) NOT NULL,
+  `billingAddressID` int(11) NOT NULL,
+  `customerID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `paymentMethod` enum('IBAN','PayPal','Invoice') NOT NULL,
+  `paymentNumber` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pricing` (
+  `pricingID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `amount` decimal(7,2) UNSIGNED NOT NULL,
+  `currency` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `pricing` (`pricingID`, `createdAt`, `updatedAt`, `amount`, `currency`) VALUES
+(1, '2021-01-12 14:52:09', NULL, '2.20', 'Euro'),
+(2, '2021-01-12 14:52:09', NULL, '1.60', 'Euro'),
+(3, '2021-01-12 14:52:09', NULL, '4.90', 'Euro'),
+(4, '2021-01-12 14:52:09', NULL, '3.90', 'Euro'),
+(5, '2021-01-12 14:52:09', NULL, '5.75', 'Euro'),
+(6, '2021-01-12 14:52:09', NULL, '10.60', 'Euro'),
+(7, '2021-01-12 14:52:09', NULL, '3.90', 'Euro'),
+(8, '2021-01-12 14:52:09', NULL, '12.30', 'Euro'),
+(9, '2021-01-12 14:52:09', NULL, '0.04', 'Euro'),
+(10, '2021-01-12 14:52:09', NULL, '0.03', 'Euro'),
+(11, '2021-01-12 14:52:09', NULL, '0.06', 'Euro'),
+(12, '2021-01-12 14:52:09', NULL, '2.43', 'Euro'),
+(13, '2021-01-12 14:52:09', NULL, '0.06', 'Euro'),
+(14, '2021-01-12 14:52:09', NULL, '1.75', 'Euro'),
+(15, '2021-01-12 14:52:09', NULL, '0.25', 'Euro'),
+(16, '2021-01-12 14:52:09', NULL, '0.05', 'Euro'),
+(17, '2021-01-12 14:52:09', NULL, '0.03', 'Euro'),
+(18, '2021-01-12 14:52:09', NULL, '0.18', 'Euro'),
+(19, '2021-01-12 14:52:09', NULL, '21.90', 'Euro'),
+(20, '2021-01-12 14:52:09', NULL, '35.20', 'Euro'),
+(21, '2021-01-12 14:52:09', NULL, '24.30', 'Euro'),
+(22, '2021-01-12 14:52:09', NULL, '37.80', 'Euro'),
+(23, '2021-01-12 14:52:09', NULL, '39.90', 'Euro'),
+(24, '2021-01-12 14:52:09', NULL, '57.80', 'Euro'),
+(25, '2021-01-12 14:52:09', NULL, '77.00', 'Euro'),
+(26, '2021-01-12 14:52:09', NULL, '15.19', 'Euro'),
+(27, '2021-01-12 14:52:09', NULL, '11.13', 'Euro'),
+(28, '2021-01-12 14:52:09', NULL, '48.11', 'Euro'),
+(29, '2021-01-12 14:52:09', NULL, '13.90', 'Euro'),
+(30, '2021-01-12 14:52:09', NULL, '3.90', 'Euro'),
+(31, '2021-01-12 14:52:09', NULL, '4.50', 'Euro'),
+(32, '2021-01-12 14:52:09', NULL, '280.00', 'Euro'),
+(33, '2021-01-12 14:52:09', NULL, '508.00', 'Euro'),
+(34, '2021-01-12 14:52:09', NULL, '307.00', 'Euro'),
+(35, '2021-01-12 14:52:09', NULL, '159.90', 'Euro'),
+(36, '2021-01-12 14:52:09', NULL, '2049.00', 'Euro'),
+(37, '2021-01-12 14:52:09', NULL, '2989.00', 'Euro'),
+(38, '2021-01-12 14:52:09', NULL, '756.00', 'Euro'),
+(39, '2021-01-12 14:52:09', NULL, '779.00', 'Euro'),
+(40, '2021-01-12 14:52:09', NULL, '75.90', 'Euro'),
+(41, '2021-01-12 14:52:09', NULL, '139.90', 'Euro'),
+(42, '2021-01-12 14:52:09', NULL, '101.90', 'Euro'),
+(43, '2021-01-12 14:52:09', NULL, '1.15', 'Euro'),
+(44, '2021-01-12 14:52:09', NULL, '4.60', 'Euro'),
+(45, '2021-01-12 14:52:09', NULL, '3.65', 'Euro'),
+(46, '2021-01-12 14:52:09', NULL, '1.49', 'Euro'),
+(47, '2021-01-12 14:52:09', NULL, '2.15', 'Euro'),
+(48, '2021-01-12 14:52:09', NULL, '2.40', 'Euro'),
+(49, '2021-01-12 14:52:09', NULL, '1.14', 'Euro'),
+(50, '2021-01-12 14:52:09', NULL, '1.40', 'Euro'),
+(51, '2021-01-12 14:52:09', NULL, '2.70', 'Euro'),
+(52, '2021-01-12 14:52:09', NULL, '2.85', 'Euro'),
+(53, '2021-01-12 14:52:09', NULL, '2.30', 'Euro'),
+(54, '2021-01-12 14:52:09', NULL, '0.90', 'Euro'),
+(55, '2021-01-12 14:52:09', NULL, '1.95', 'Euro');
+
+CREATE TABLE `product` (
+  `productID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `quantityStored` int(11) DEFAULT NULL,
+  `prodName` varchar(100) NOT NULL,
+  `prodDescription` varchar(10000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `product` (`productID`, `createdAt`, `updatedAt`, `quantityStored`, `prodName`, `prodDescription`) VALUES
 (1, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'GPIO Kabel 26pin Rainbow für Raspberry Pi', '-26pin (2x 13)\n- Female (Buchse) <-> Female (Buchse)\n- Farbe: Rainbow\n- 2,54mm Pinabstand (Pitch)\n- Bleifrei sowie RoHs kompatibel'),
@@ -69,8 +187,7 @@ INSERT INTO `product` (`productID`, `createdAt`, `updatedAt`, `quantityStored`, 
 (37, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'ASUS ProArt PA90-M9158ZN, Mini-PC', 'Der ASUS ProArt PA90-M9158ZN ist ein leistungsstarker Mini-PC für Content-Ersteller. Er besitzt einen Intel® Core™ i9-9900K Prozessor (3,6 GHz), eine NVIDIA Quadro P4000 Grafikkarte mit 8 GB GDDR5 Grafikspeicher sowie eine 512 GB SSD (M.2,PCie). 32 GB DDR4 Arbeitsspeicher und zahlreiche Anschlussmöglichkeiten sowie Gigabit-LAN und ac-WLAN runden die Ausstattung des ASUS ProArt PA90-M9158ZN ab.\n\n\n\nArt-Nr. S4IA0O\n\nTypMini-PC\nFarbeblau\nEAN4718017664073\nHersteller-Nr.90MS01J1-M01580\nSerieProArt PA90\nProzessorBezeichnungIntel® Core™ i9-9900K\nAnzahl Prozessorkerne8 Kerne\nAnzahl Threads16\nTaktfrequenz3600 MHz\nBoost-Takt5000 MHz\nCacheL316384 KB\nSockel-Typ1151\nChipsatzIntel® Z390\nArbeitsspeicherKapazitätGesamt32 GB (davon 32 GB eingebaut )\nmax. unterstützt64 GB DDR 4 (davon 64 GB austauschbar)\nTypDDR 4\nSpeichersteckplätze4 Speicherbänke davon belegt 2 Speicherbänke\nDatenspeicherAnzahl1\nGesamtkapazität512 GB\nDatenspeicher 1Kapazität512 GB [SSD]\nGrafikTypNVIDIA Quadro P4000\nSpeicherGesamt8.192 MB\ndavonintegriert: 8.192 MB\nAnschlüsse4x DisplayPort (DisplayPort Version: 1.4)\nMainboardAnschlüsse1x RJ-45, 2x Thunderbolt 3, 2x USB-A 3.2 (5 Gbit/s), 2x USB-A 3.2 (10 Gbit/s)\nHinweis:Die Bezeichnung USB 3.2 Gen 1 entspricht den früheren Bezeichnungen USB 3.1 Gen 1 bzw. USB 3.0.\nDie Bezeichnung USB 3.2 Gen 2 entspricht den früheren Bezeichnungen USB 3.1 Gen 2 bzw. USB 3.1.\nOptische LaufwerkeTypnicht vorhanden\nAudioAnschlüsse1x Mikrofon, 1x Line-Out, 1x Kopfhörer\nKonnektivitätLANLAN 10/100/1000 MBit/s\nWLANWi-Fi 5 (802.11ac)\nBluetoothBluetooth 5.0\nNetzteilLeistung230 Watt\nBetriebssystemMicrosoft Windows 10 Pro 64-Bit\nAbmessungenBreite: 176 mm x Höhe: 365 mm x Tiefe/Länge: 176 mm\nGewicht5,2 kg'),
 (38, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'Fujitsu ESPRIMO Q558 (VFY:Q0558PP587DE), PC-System', 'Der Fujitsu ESPRIMO Q558 (VFY:Q0558PP587DE) ist ein äußerst kompakter Mini-PC mit viel Leistung für die Arbeit oder zu Hause. Dank seines kleinen Gehäuses findet er fast überall Platz und bietet mit seinem Intel® Core™ i5-9400T Prozessor, 8 Gigabyte DDR4-Arbeitsspeicher sowie einer integrierten Intel® UHD Graphics 630 Grafikeinheit und einer 512 GB großen SSD solide Leistung. Dabei ist er mit Gigabit-LAN vernetzbar, verfügt über einen DVD-Brenner und hat außerdem acht USB-Anschlüsse mit an Bord. Der ESPRIMO Q558 bietet damit volle Leistung mit kleinem Gehäuse, die dank der Zero-Noise-Funktionalität akustisch stets dezent im Hintergrund bleibt.\n\n\n\nArt-Nr. S1IF9O\n\nTypPC-System\nFarbeschwarz\nEAN4063872026420\nHersteller-Nr.VFY:Q0558PP587DE\nSerieESPRIMO Q\nGehäuseFormfaktorDesktop\nProzessorBezeichnungIntel® Core™ i5-9400T\nAnzahl Prozessorkerne6 Kerne\nAnzahl Threads6\nTaktfrequenz1800 MHz\nBoost-Takt3400 MHz\nCacheL39216 KB\nChipsatzIntel® H310\nArbeitsspeicherKapazitätGesamt8 GB (davon 8 GB eingebaut )\nTypDDR 4 (2666 MHz)\nDatenspeicherAnzahl1\nGesamtkapazität512 GB\nDatenspeicher 1Kapazität512 GB [M.2, via PCIe, SSD]\nGrafikTypIntel® UHD Graphics 630\nAnschlüsse2x DisplayPort, 1x DVI\nMainboardAnschlüsse1x RJ-45, 4x USB-A 2.0, 4x USB-A 3.2 (5 Gbit/s)\nHinweis:Die Bezeichnung USB 3.2 Gen 1 entspricht den früheren Bezeichnungen USB 3.1 Gen 1 bzw. USB 3.0.\nOptische LaufwerkeTypDVD-Brenner\nFormateLesenCD-R, CD-RW, DVD+R DL, DVD+R, DVD+RW, DVD-R, DVD-R DL, DVD-RAM, DVD-RW\nSchreibenCD-R, CD-RW, DVD+R DL, DVD+R, DVD+RW, DVD-R, DVD-R DL, DVD-RAM, DVD-RW\nAudioChipsatzRealtek ALC671, High Definition Audio\nAnschlüsse1x Line-Out\nKonnektivitätLANLAN 10/100/1000 MBit/s\nBetriebssystemMicrosoft Windows 10 Pro 64-Bit\nFeatureKensington-Schloss-Unterstützung | Öse für Vorhängeschloss | Kabelabdeckung | integrierte Sicherheit (TPM 2.0) | bereit für Credential Guard und Device Guard fähig (Windows 10, v. 1809) | Schutz vor Bootsektor-Viren | Schreibschutzoption für den Flash-EPROM | Steuerung aller USB-Schnittstellen | externe USB-Anschlüsse können einzeln deaktiviert werden, Steuerung der externen Schnittstellen\nAbmessungenBreite: 54 mm x Höhe: 185 mm x Tiefe/Länge: 190 mm\nGewicht1,6 kg'),
 (39, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'MSI Cubi 5 10M-047, Mini-PC', 'Der MSI Cubi 5 10M-019 ist ein leistungsstarker Desktop-PC im Miniatur-Format. Er eignet sich als praktischer HTPC und um alle Medienanwendungen zu Hause zu steuern oder auch als Office-Rechner und für kommerzielle Projekte. Dank seines kompakten Formats benötigt der Cubi 5 keinen festen Platz oder einen eigenen Tisch, sondern kann überall dort eingesetzt werden, wo er gerade gebraucht wird. Ausgestattet mit einem Intel® Core™ i7-10510U Prozessor (1,8 GHz), 8 GB DDR4 Arbeitsspeicher und integrierter Intel® UHD Graphics Grafikeinheit, besitzt der Cubi 5 10M die nötige Leistung. Als Datenträger kommt eine 256 GB SSD zum Einsatz und zur Kommunikation stehen G-LAN, ac-WLAN und Bluetooth 5.1 zur Verfügung.\n\n\n\nArt-Nr. S1IM5R\n\nTypMini-PC\nFarbeschwarz\nEAN4719072726744\nHersteller-Nr.00B18311-047\nSerieCubi 5 10M\nGehäuseFormfaktorHTPC\nProzessorBezeichnungIntel® Core™ i7-10510U\nAnzahl Prozessorkerne4 Kerne\nAnzahl Threads8\nTaktfrequenz1800 MHz\nBoost-Takt4900 MHz\nCacheL38192 KB\nSockel-Typ1528\nArbeitsspeicherKapazitätGesamt8 GB (davon 8 GB eingebaut )\nmax. unterstützt64 GB DDR 4 (davon 64 GB austauschbar)\nTypDDR 4 (2666 MHz)\nSpeichersteckplätze2 Speicherbänke davon belegt 1 Speicherbank\nSO-DIMMJa\nDatenspeicherAnzahl1\nGesamtkapazität256 GB\nDatenspeicher 1Kapazität256 GB [M.2, via PCIe, SSD]\nGrafikTypIntel® UHD Graphics\nAnschlüsse1x DisplayPort (DisplayPort Version: 1.2), 1x HDMI (HDMI Version: 1.4)\nMainboardAnschlüsse1x RJ-45, 2x USB-A 2.0, 3x USB-A 3.2 (5 Gbit/s), 1x USB-C 3.2 (5 Gbit/s)\nHinweis:Die Bezeichnung USB 3.2 Gen 1 entspricht den früheren Bezeichnungen USB 3.1 Gen 1 bzw. USB 3.0.\nSchnittstellen2x M.2\nOptische LaufwerkeTypnicht vorhanden\nAudioAnschlüsse1x Mikrofon, 1x Kopfhörer\nKonnektivitätLANLAN 10/100/1000 MBit/s\nWLANWi-Fi 5 (802.11ac)\nBluetoothBluetooth 5.1\nNetzteilLeistung65 Watt\nBetriebssystemMicrosoft Windows 10 Pro 64-Bit\nSchutzfunktionenGegen DiebstahlBuchse für Kabelschloss der Marke Kensington\nAbmessungenBreite: 124 mm x Höhe: 53,7 mm x Tiefe/Länge: 124 mm'),
-(40, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'G.Skill DIMM 16 GB DDR4-3200 Kit, Arbeitsspeicher', 'Das G.Skill F4-3200C16D-16GIS ist ein Kit aus zwei 8-GB-DDR4-3200-Speichermodulen (PC4-25600) der Aegis-Serie von G.Skill. Die Gesamtkapazität beträgt 16 GB. Die Module sind auf Latenzen von 16-18-18-38 bei 3200 MHz programmiert und benötigen eine Spannung von 1,35 Volt. Intels XMP 2.0 wird unterstützt.\n\n\n\nArt-Nr. IEIGGU2L\n\nTypSDRAM-DDR4\nEAN4713294224385\nHersteller-Nr.F4-3200C16D-16GIS\nSerieAegis\nKapazität16 GB (2 x 8.192 MB)\nAnzahl2 Stück\nBauformDIMM\nAnschluss288-Pin\nSpannung1,35 Volt (von 1,2 bis 1,35 Volt)\nStandardDDR4-3200 (PC4-25600)\nPhysikalischer Takt1600 MHz\nTimingsCAS Latency (CL)16\nRAS-to-CAS-Delay (tRCD)18\nRAS-Precharge-Time (tRP)18\nRow-Active-Time (tRAS)38\nFeatureXMP 2.0\nWeitere InformationenDDR4 ist die Weiterentwicklung von DDR3 und bietet gegenüber dem Vorgänger eine Reihe von Neuerungen und Vorzügen wie z.B. ein bis zu 40% niedrigerer Energieverbrauch, höhere Geschwindigkeiten, höhere Datendichte (ermöglicht Speichermodule mit einer Kapazität von bis zu 128 GB, zukünftig bis 512 GB) sowie verbesserte Stabilität im Betrieb durch fortschrittliche Fehlerkorrekturtechniken wie CRC (Cyclic Redundancy Check), CMD/ADD (On-chip parity detection) und \"Per DRAM Adressability\".\nGewicht36 Gramm');
-INSERT INTO `product` (`productID`, `createdAt`, `updatedAt`, `quantityStored`, `prodName`, `prodDescription`) VALUES
+(40, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'G.Skill DIMM 16 GB DDR4-3200 Kit, Arbeitsspeicher', 'Das G.Skill F4-3200C16D-16GIS ist ein Kit aus zwei 8-GB-DDR4-3200-Speichermodulen (PC4-25600) der Aegis-Serie von G.Skill. Die Gesamtkapazität beträgt 16 GB. Die Module sind auf Latenzen von 16-18-18-38 bei 3200 MHz programmiert und benötigen eine Spannung von 1,35 Volt. Intels XMP 2.0 wird unterstützt.\n\n\n\nArt-Nr. IEIGGU2L\n\nTypSDRAM-DDR4\nEAN4713294224385\nHersteller-Nr.F4-3200C16D-16GIS\nSerieAegis\nKapazität16 GB (2 x 8.192 MB)\nAnzahl2 Stück\nBauformDIMM\nAnschluss288-Pin\nSpannung1,35 Volt (von 1,2 bis 1,35 Volt)\nStandardDDR4-3200 (PC4-25600)\nPhysikalischer Takt1600 MHz\nTimingsCAS Latency (CL)16\nRAS-to-CAS-Delay (tRCD)18\nRAS-Precharge-Time (tRP)18\nRow-Active-Time (tRAS)38\nFeatureXMP 2.0\nWeitere InformationenDDR4 ist die Weiterentwicklung von DDR3 und bietet gegenüber dem Vorgänger eine Reihe von Neuerungen und Vorzügen wie z.B. ein bis zu 40% niedrigerer Energieverbrauch, höhere Geschwindigkeiten, höhere Datendichte (ermöglicht Speichermodule mit einer Kapazität von bis zu 128 GB, zukünftig bis 512 GB) sowie verbesserte Stabilität im Betrieb durch fortschrittliche Fehlerkorrekturtechniken wie CRC (Cyclic Redundancy Check), CMD/ADD (On-chip parity detection) und \"Per DRAM Adressability\".\nGewicht36 Gramm'),
 (41, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'G.Skill DIMM 32 GB DDR4-3200 Kit, Arbeitsspeicher', 'Dieses Dual-Channel-Kit besteht aus zwei 16-GB-DDR4-3200-Speichermodulen (PC4-25600) der Ripjaws V-Serie von G.Skill. Die Gesamtkapazität beträgt 32 GB. Die Module sind auf Latenzen von 16-18-18-38 bei 3200 MHz programmiert und besitzen vergoldete Kontakte. Die Dual-Channel DDR4 Module aus der Ripjaws V Serie wurden für maximale Kompatibilität und Performance mit Intel-Prozessoren entwickelt. Die Version 2.0 von Intels Memory Profile XMP wird unterstützt.\n\n\n\nArt-Nr. IFIGGU23\n\nTypSDRAM-DDR4\nFarbeschwarz\nEAN4719692007018\nHersteller-Nr.F4-3200C16D-32GVK\nSerieRipjaws V\nKapazität32 GB (2 x 16.384 MB)\nAnzahl2 Stück\nBauformDIMM\nBestückungzweiseitig\nAnschluss288-Pin\nSpannung1,35 Volt\nStandardDDR4-3200 (PC4-25600)\nPhysikalischer Takt1600 MHz\nTimingsCAS Latency (CL)16\nRAS-to-CAS-Delay (tRCD)18\nRAS-Precharge-Time (tRP)18\nRow-Active-Time (tRAS)38\nFeatureXMP 2.0\nWeitere InformationenDDR4 ist die Weiterentwicklung von DDR3 und bietet gegenüber dem Vorgänger eine Reihe von Neuerungen und Vorzügen wie z.B. ein bis zu 40% niedrigerer Energieverbrauch, höhere Geschwindigkeiten, höhere Datendichte (ermöglicht Speichermodule mit einer Kapazität von bis zu 128 GB, zukünftig bis 512 GB) sowie verbesserte Stabilität im Betrieb durch fortschrittliche Fehlerkorrekturtechniken wie CRC (Cyclic Redundancy Check), CMD/ADD (On-chip parity detection) und \"Per DRAM Adressability\".\nGewicht119 Gramm'),
 (42, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'Corsair DIMM 32 GB DDR4-3600 Kit, Arbeitsspeicher', 'Das Corsair CMW32GX4M2Z3600C18 ist ein Kit aus zwei 16-GB-DDR4-3600-Speichermodulen (PC4-28800) aus der Vengeance RGB PRO Serie. Die Gesamtkapazität beträgt 32 GB. Die 288-Pin Module unterstützen eine Latenz von 18-22-22-42 bei 3600 MHz und benötigen 1,35 Volt Spannung. Die Vengeance RGB PRO Serie verfügt über maßgeschneiderte Hochleistungs-Kühlkörper mit einstellbarer LED-Beleuchtung. Intels XMP Version 2.0 wird unterstützt.\n\n\n\nArt-Nr. IFIG5Z2U\n\nTypSDRAM-DDR4\nFarbeschwarz\nEAN0840006621003\nHersteller-Nr.CMW32GX4M2Z3600C18\nSerieVengeance RGB PRO\nKapazität32 GB (2 x 16.384 MB)\nAnzahl2 Stück\nBauformDIMM\nAnschluss288-Pin\nSpannung1,35 Volt\nStandardDDR4-3600 (PC4-28800)\nPhysikalischer Takt1800 MHz\nTimingsCAS Latency (CL)18\nRAS-to-CAS-Delay (tRCD)22\nRAS-Precharge-Time (tRP)22\nRow-Active-Time (tRAS)42\nHinweisDiese Arbeitsspeicher sind für AMD optimiert und werden auf AMD-Plattformen gründlich getestet. Sie verfügen über eine höhere Basis-SPD, da die AMD-Plattformen dies unterstützen können.\nFeatureXMP 2.0\nWeitere InformationenDDR4 ist die Weiterentwicklung von DDR3 und bietet gegenüber dem Vorgänger eine Reihe von Neuerungen und Vorzügen wie z.B. ein bis zu 40% niedrigerer Energieverbrauch, höhere Geschwindigkeiten, höhere Datendichte (ermöglicht Speichermodule mit einer Kapazität von bis zu 128 GB, zukünftig bis 512 GB) sowie verbesserte Stabilität im Betrieb durch fortschrittliche Fehlerkorrekturtechniken wie CRC (Cyclic Redundancy Check), CMD/ADD (On-chip parity detection) und \"Per DRAM Adressability\".\nGewicht248 Gramm'),
 (43, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'DS18B20 IC digitaler Temperatursensor', 'Technische Daten (Auszug):\nPROGRAMMIERBARER DIGITALSENSOR, 18B20\nIC Outputtyp: Digital\nFühlgenauigkeitsbereich: ± 0.5°C\nMinimale Abtastungstemperatur: -55°C\nMaximale Abtastungstemperatur: +125°C\nBauform: TO-92\nAnzahl der Pins: 3\nAuflösung, Bit-: 12bit\nStromversorgung: 1mA\nSensor / Transducertyp: Temperatur\nStrom, Ausgang: 4mA\nVersorgungsspannung: 3V bis 5.5V'),
@@ -87,4 +204,99 @@ INSERT INTO `product` (`productID`, `createdAt`, `updatedAt`, `quantityStored`, 
 (54, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'SW-420 Vibrationssensor Modul', 'Dieser Vibrationssensor mit LM393 Chip eignet sich ideal für den Einsatz mit dem Raspberry Pi oder Arduino.\nViele Anwendungsmöglichkeiten sind denkbar: Beispielsweise automatisches Ein- und Ausschalten von Geräten bei Vibration oder Erschütterung, oder als digitaler Sensor, um die Aktivierung eines Gerätes zu überwachen (Garagentor, Waschmaschine, etc).\n\nEs handelt sich um ein Modul mit digitalem Ausgang (HIGH oder LOW). Die Empfindlichkeit kann über das Potentiometer eingestellt werden.\n\nTechnische Daten:\n- Chipsatz: LM393\n- Eingangsspannung: 3-5 V\n- 3mm Montagebohrung\n- Status LED\n- Abmessungen inkl. Stiftleiste: ca. 40 x 14 x 7 mm'),
 (55, '2021-01-07 16:56:42', '2021-01-07 16:57:22', 10, 'ADXL345 digitales 3-Achsen Gyroskop', 'Das GY-291 Modul ist ein kompakter und sehr stromsparender 3-Achsen-Gyroskop Beschleunigungssensor. Er eignet sich perfekt für tragbare Geräte und ist ideal für Microcontroller-Projekte mit einem Arduino, Raspberry Pi uvm. Das Modul besitzt einen ADXL345 Chip welcher die statische Beschleunigung der Schwerkraft in der Neigungsmessung, sowie die dynamische Beschleunigung durch Bewegung oder Erschütterung misst. Der Sensor hat eine hohe Auflösung von 3.9mg/LSB um genaue Messungen der Neigungsveränderung mit bis zu 1° zu erkennen. Außerdem besitzt das Modul verschiedene Spezialmessungen wie:\n\n- Aktivität und Inaktivitäts-Funktion um das Vorhandensein oder Fehlen von Bewegung festzustellen\n- \"Freefall sensing\"-Funktion um zu erkennen wenn sich das Modul im freien Fall befindet\n- Diese sowie weitere Funktionen lassen sich über die beiden Interrupt- und Output-Pins einstellen.\n\nTechnische Daten:\n- Modell: GY-291\n- Chip: ADXL345\n- Stromversorgung: 3 - 5V DC\n- Kommunikation: I2C / SPI\n- Messreichweite: ± 2g ± 16g\n- Mit Freifall-Erkennungsfunktion\n- Erkennt die Überschreitung von eingestellten Grenzwerten\n- Messungen von weniger als 1 Grad Neigungswinkelveränderungen\n- Geringer Stromverbrauch\n- Abmessungen: ca. 21 x 15 x 3 mm\n- Lieferung inkl. Stiftleiste (unbestückt)');
 
-commit
+CREATE TABLE `productbasket` (
+  `productBasketID` int(11) NOT NULL,
+  `quantityWanted` int(11) NOT NULL,
+  `productID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `purchase` (
+  `purchaseID` int(11) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `custID` int(11) NOT NULL,
+  `shippingAddressID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`accountID`),
+  ADD UNIQUE KEY `username_UNIQUE` (`username`),
+  ADD KEY `fk_Accounts_Customers1_idx` (`accountID`);
+
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`addressID`),
+  ADD UNIQUE KEY `AddressID_UNIQUE` (`addressID`);
+
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customerID`),
+  ADD UNIQUE KEY `CustID_UNIQUE` (`customerID`);
+
+ALTER TABLE `paydetail`
+  ADD PRIMARY KEY (`payDetailsID`,`billingAddressID`,`customerID`),
+  ADD UNIQUE KEY `Paymentid_UNIQUE` (`payDetailsID`),
+  ADD UNIQUE KEY `PaymentNumber_UNIQUE` (`paymentNumber`),
+  ADD KEY `fk_PayDetails_Customer_idx` (`customerID`),
+  ADD KEY `fk_PayDetails_Address1_idx` (`billingAddressID`);
+
+ALTER TABLE `pricing`
+  ADD PRIMARY KEY (`pricingID`),
+  ADD KEY `fk_Pricing_Products1_idx` (`pricingID`);
+
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`productID`),
+  ADD UNIQUE KEY `ProdName_UNIQUE` (`prodName`);
+
+ALTER TABLE `productbasket`
+  ADD PRIMARY KEY (`productBasketID`,`productID`),
+  ADD UNIQUE KEY `ProductID_UNIQUE` (`productID`),
+  ADD KEY `fk_ProductBasket_Purchases1_idx` (`productBasketID`),
+  ADD KEY `fk_ProductBasket_Products1_idx` (`productID`);
+
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`purchaseID`,`custID`,`shippingAddressID`),
+  ADD KEY `fk_Purchases_Customers1_idx` (`custID`),
+  ADD KEY `fk_Purchases_Address1_idx` (`shippingAddressID`);
+
+
+ALTER TABLE `address`
+  MODIFY `addressID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+ALTER TABLE `customer`
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+ALTER TABLE `paydetail`
+  MODIFY `payDetailsID` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `pricing`
+  MODIFY `pricingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+ALTER TABLE `product`
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+ALTER TABLE `purchase`
+  MODIFY `purchaseID` int(11) NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `account`
+  ADD CONSTRAINT `fk_Accounts_Customers1` FOREIGN KEY (`accountID`) REFERENCES `customer` (`customerID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `paydetail`
+  ADD CONSTRAINT `fk_PayDetails_Address1` FOREIGN KEY (`billingAddressID`) REFERENCES `address` (`addressID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_PayDetails_Customer` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `pricing`
+  ADD CONSTRAINT `fk_Pricing_Products1` FOREIGN KEY (`pricingID`) REFERENCES `product` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `productbasket`
+  ADD CONSTRAINT `fk_ProductBasket_Products1` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_ProductBasket_Purchases1` FOREIGN KEY (`productBasketID`) REFERENCES `purchase` (`purchaseID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `fk_Purchases_Address1` FOREIGN KEY (`shippingAddressID`) REFERENCES `address` (`addressID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Purchases_Customers1` FOREIGN KEY (`custID`) REFERENCES `customer` (`customerID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
