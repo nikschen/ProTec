@@ -1,7 +1,7 @@
 <?php
 
 
-//namespace protec\core;
+namespace protec\core;
 
 abstract class Model 
 {
