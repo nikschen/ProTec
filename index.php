@@ -22,13 +22,6 @@ $controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
 
 
-//Basis Debuggin START ***************************************************************
-print_r("ControllerPath: " . $controllerPath ." <br> ");
-print_r("ControllerName: " .$controllerName . "<br>");
-print_r("actionName: ". $actionName . "<br>");
-//exit(1);
-
-//Basis Debuggin END***************************************************************
 
 
 
@@ -39,28 +32,21 @@ if(file_exists($controllerPath))
 	// example of included controller name is PagesController in default
 	$controllerClassName = ucfirst($controllerName).'Controller';
 
-	print_r("className: ". $controllerClassName . "<br>");
-	//exit(1);
 
 	// is the class name a valid name in our context?
 	if(class_exists($controllerClassName))
 	{
 		// create instance of the wanted controller to work with
 		$controllerInstance = new $controllerClassName($actionName, $controllerName);
-		print_r($controllerInstance);
-		//exit(1);
+
 		// fetches the wanted method
 		$actionMethodName = 'action'.ucfirst($actionName);
-		print_r("actionMethodName: ". $actionMethodName . "<br>");
 		
 		if(method_exists($controllerInstance, $actionMethodName))
 		{
-		print_r("method exists " . $actionMethodName . "<br>");
-			
 		
 			// calls the wanted method and the controller defined HTML render method
 			$controllerInstance->{$actionMethodName}();
-			//exit(1);
 			
 		}
 		else

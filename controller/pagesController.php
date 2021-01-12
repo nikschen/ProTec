@@ -10,7 +10,7 @@ class PagesController extends \protec\core\Controller
 	{
 		$myValue = 'This is the Index page. If Martin did it right, you won\'t see me in the final version.';
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
-		print_r("actionIndex started...");
+
 		$this->setParam('myValue',$myValue);
 		$this->setParam('info',$info);
 	}

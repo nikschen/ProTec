@@ -226,17 +226,19 @@ abstract class Model
         return count($occuringErrors) <0 ? $occuringErrors : true;
     }
 
-    public function insert($values) 
+    public function insert($values, $toBeChanged)
     {
         
         $db=$GLOBALS['db'];
-        $columnList='';
-        $valueList=implode(',', $values); //takes values of an array and converts them into string in scheme: "Value, Value, Value, ..."
+        $columnList='(`';
+        $columnList.=implode('`, `', $toBeChanged); //takes values of an array and converts them into string in scheme: "attribute, attribute, attribute, ..."
+        $valueList=implode(', ', $values); //takes values of an array and converts them into string in scheme: "Value, Value, Value, ..."
+        $columnList.='`)';
 
-        foreach($this->scheme as $key =>$schemeOptions)
-        {
-            $columnList .= '`'.$key.'`,';
-        }
+//        foreach($this->scheme as $key =>$schemeOptions)
+//        {
+//            $columnList .= '`'.$key.'`,';
+//        }
 
         $columnList=trim($columnList,',');
 
