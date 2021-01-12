@@ -22,7 +22,6 @@
         </ul>
     </div>
     <? endif;?>
-    <?=$success?>
     <? if($success === true ) : ?>
     <div class="success-message">
     Ihr Konto wurde angelegt. Sie werden in auf die Login-Seite weitergeleitet...
