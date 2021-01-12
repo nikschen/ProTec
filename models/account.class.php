@@ -1,6 +1,5 @@
 <?php
 
-namespace protec\core;
 
 class Account extends \protec\core\Model
 {

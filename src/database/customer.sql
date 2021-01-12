@@ -23,19 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Tabellenstruktur für Tabelle `customer`
---
-
-CREATE TABLE `customer` (
-  `customerID` int(11) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
-  `firstName` varchar(45) NOT NULL,
-  `lastName` varchar(100) NOT NULL,
-  `birthDate` date NOT NULL,
-  `eMail` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `customer`
@@ -56,22 +43,7 @@ INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `la
 -- Indizes der exportierten Tabellen
 --
 
---
--- Indizes für die Tabelle `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customerID`),
-  ADD UNIQUE KEY `CustID_UNIQUE` (`customerID`);
 
---
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `customer`
---
-ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
