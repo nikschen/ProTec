@@ -6,15 +6,12 @@
     <link rel="stylesheet" href="assets/css/styleFixedHeader.css">
 </head>
 
-<body>
-   
-<div class="square"></div>
-<div class="border"></div>
+<header>
 <div class="navbar">
 
-<a class="ProtecLogo" href="index.php?c=pages&a=index"><img id="logo" src="src/icons/protec_transparent_weiß_umrandet.png" alt="Logo" height=50px></a>
+<a class="ProtecLogo" href="index.php?c=pages&a=index"><img class="ProtecLogo" "id="ProtecLogo" src="src/icons/protec_transparent_schwarz_umrandet.png" alt="Logo"></a>
   <div class="navigation">
-  
+
     <div class="dropdown">
         <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/elektronikIcon.png" alt="Elek." > Elektronik</a></li>
     
@@ -99,20 +96,9 @@
 </div>
 
 
-<div class="navigationsContainer"> 
-
-      
-
-
-
-
-
-
-
-
-
-
+<div class="navigationsContainer">
 
 
 </div>
 
+</header>

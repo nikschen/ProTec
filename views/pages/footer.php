@@ -26,7 +26,7 @@
       <a href="">Geschäftskundenrabatte</a>
       <a href="">Newsletter abonnieren</a>
       <a href="">Kontaktformular</a>
-    </div>    
+    </div>
     <div class="flex-container-content">
       <p>Unsere Partner</p>
 
@@ -34,17 +34,5 @@
 
   </div>
 
-
-
-
-
-
-    
- 
-  
-
   </footer>
-</body>
-    
-    
 </html>
