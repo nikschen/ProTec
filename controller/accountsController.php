@@ -113,10 +113,21 @@ class AccountsController extends \protec\core\Controller
 			echo "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
 			$errors['country'] = "Landeingabe fehlerhaft";
 		}
+
+
+		$Customer=	new \protec\model\Customer;
+		$UserEmail= $Customer->findOne();
+		
+		echo "<pre>";
+		print_r($UserEmail);
+		echo "</pre>";
+		
+		
+
+
 		if(count($errors)===0)
 		{
 			//wenn keine Fehler sind dann prüfen ob in Datenbank nicht schon was vorhanden ist.
-
 
 
 
@@ -127,7 +138,8 @@ class AccountsController extends \protec\core\Controller
 		{
 			$success = true;
 			$this->setParam('success', $success);
-			//$this->setParam()
+			
+			
 		}
 
 		}
