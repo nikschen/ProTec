@@ -9,6 +9,7 @@ class Controller
 	private $controllerName = null; 
 
 	protected $viewParams = []; //parameters for related Views
+	public $success = false;
 
 	public function __construct($actionName = null, $controllerName = null)
 	{

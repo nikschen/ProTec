@@ -113,12 +113,13 @@ class AccountsController extends \protec\core\Controller
 		}
 		if(count($errors)===0)
 		{
+			
+
 		if(true) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
 		{
 			$success = true;
-			//header('Location: index.php?c=pages&a=login');
-			//exit(0);
-			$this->setParam('true', $success);
+			$this->setParam('success', $success);
+			//$this->setParam()
 		}
 
 		}
