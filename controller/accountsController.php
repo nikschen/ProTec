@@ -105,6 +105,8 @@ class AccountsController extends \protec\core\Controller
 			echo "Stadt entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
 			$errors['city'] = "Stadteingabe falsch";
 		}
+		
+
 		if(mb_strlen($country)<2 || mb_strlen($country)>60 )
 		{
 			echo "<br>";

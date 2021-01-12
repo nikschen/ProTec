@@ -115,7 +115,7 @@ abstract class Model
 
         try
         {
-            $nameOfIDAttribute= lcfirst(self::tablename().toString());  //name of the table, but with lower case on first letter
+            $nameOfIDAttribute= lcfirst(self::tablename());  //name of the table, but with lower case on first letter
             $sql = 'DELETE FROM '. self::tablename() . ' WHERE ' . $nameOfIDAttribute . ' = ' . $this->ID;
             $db->exec($sql);
             return true;
