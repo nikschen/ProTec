@@ -9,6 +9,7 @@ class Controller
 	private $controllerName = null; 
 
 	protected $viewParams = []; //parameters for related Views
+	public $success = false;
 
 	public function __construct($actionName = null, $controllerName = null)
 	{
@@ -21,7 +22,7 @@ class Controller
 		
 		// get viewpath via name of the controller and wanted action
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
-		print_r("view " . $viewPath);
+		//print_r("view " . $viewPath);
 		//exit(1);	
 		extract($this->viewParams); //Import variables into the current symbol table from an array
 

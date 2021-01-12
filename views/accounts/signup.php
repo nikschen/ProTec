@@ -22,12 +22,18 @@
         </ul>
     </div>
     <? endif;?>
-    
+    <?=$success?>
+    <? if($success === true ) : ?>
+    <div class="success-message">
+    Ihr Konto wurde angelegt. Sie werden in auf die Login-Seite weitergeleitet...
+    <meta http-equiv="refresh" content="5; URL=index.php?c=pages&a=login">
+    </div>
+    <? else : ?>
         <h2>Ihre Anmeldedaten</h2>
         <hr>
         <form method="POST">
-            <?//PostArray elemnente behalten ohne Placeholder mit null zu überschreiben -> in meiner Lösung ist die Shorthand nicht verwendbar?>
-            <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST['lastName']);};?> required ><br>
+            
+            <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST["lastName"]);};?> required ><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value=".htmlspecialchars($_POST['firstName']);};?> required ><br>
             
             <select name="Anrede" id="selectgender">
@@ -39,7 +45,7 @@
             <input type="text" name="title" placeholder="Titel" <?if (isset($_POST['title'])){echo "value=".htmlspecialchars($_POST['title']);};?>><br>
             <input type="text" name="email" placeholder="Ihre E-Mail-Adresse*" <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required ><br>
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
-            <input type="password" name="passwort" placeholder="Ihr Passwort*" required>
+            <input type="password" name="password" placeholder="Ihr Passwort*" required>
             <input type="password" name="passwort-repeat" placeholder="Ihr Passwort wiederholt*" required>
 
 
@@ -47,7 +53,8 @@
             <h2>Ihre Adresse</h2>
             <hr>
 
-            <input type="text" name="streetinfo" placeholder="Straße und Nr.*" <?if (isset($_POST['streetinfo'])){echo "value=".htmlspecialchars($_POST['streetinfo']);};?> required ><br>
+            <input type="text" name="streetInfo" placeholder="Straße*" <?if (isset($_POST['streetInfo'])){echo "value=".htmlspecialchars($_POST['streetInfo']);};?> required >
+            <input type="text" name="streetNo" placeholder="Hausnummer*" <?if (isset($_POST['streetNo'])){echo "value=".htmlspecialchars($_POST['streetNo']);};?> required ><br>
             <input type="text" name="address2" placeholder="Adresszusatz" <?if (isset($_POST['address2'])){echo "value=".htmlspecialchars($_POST['address2']);};?>><br>
             <input type="text" name="zipcode" placeholder="PLZ*" <?if (isset($_POST['zipcode'])){echo "value=".htmlspecialchars($_POST['zipcode']);};?> required >
             <input type="text" name="city" placeholder="Ort*" <?if (isset($_POST['city'])){echo "value=".htmlspecialchars($_POST['city']);};?> required ><br>
@@ -58,5 +65,5 @@
         </form>
 
     </div>
-
+    <? endif;?>
 </body>
