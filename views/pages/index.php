@@ -1,8 +1,4 @@
-<head>
-    <title>ProTec</title>
-</head>
 
-<body class="Site">
     <main class="Site-content">
 
             <br>
@@ -13,4 +9,4 @@
 
     </main>
 
-</body>   
+

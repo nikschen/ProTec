@@ -1,7 +1,3 @@
-<head>
-    <title>Login>ProTec</title>
-</head>
-
 <body class="Site">
     <main class="Site-content">
         <h1>Login</h1>

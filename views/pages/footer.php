@@ -1,3 +1,4 @@
+</body>
 <footer class="footer">
   <div class="flex-container-footer">
     <div class="flex-container-content">
@@ -15,7 +16,7 @@
       <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
       <a href="index.php?c=pages&a=privacyGuidelines">Datenschutzbestimmungen</a>
       <a href="index.php?c=pages&a=agb">AGB</a>
-      <a href="">Impressum</a>
+      <a href="index.php?c=pages&a=impressum">Impressum</a>
       <a href="">Jobangebote</a>
     </div>    
     <div class="flex-container-content">

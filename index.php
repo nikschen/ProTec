@@ -20,10 +20,10 @@ $actionName = $_GET['a'] ?? 'index';
 $controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
 
-//$data = new \protec\models\Customer;
-//$Customer= \protec\model\Customer::findOne();
+//$data = new Customer;
+//$Customer= Customer::findOne();
 //;
-
+//
 //$data = $this->findOne();
 //print_r($data);
 //exit(0);
@@ -70,22 +70,7 @@ else
 	header('Location: index.php?c=errors&a=error404');
 }
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ProTec</title>
-</head>
-<body>
-	<?php 
 		
 		$controllerInstance->renderHTML();
-	
-	?>
 
 	
-</body>
-</html>
