@@ -18,6 +18,8 @@ class AccountsController extends \protec\core\Controller
 		$errors = [];
 		$success = false;
 
+	
+
 		if(isset($_POST['submit']))
 		{
 		echo "<pre>";
@@ -115,12 +117,7 @@ class AccountsController extends \protec\core\Controller
 		}
 
 
-		$Customer=	new \protec\model\Customer;
-		$UserEmail= $Customer->findOne();
-		
-		echo "<pre>";
-		print_r($UserEmail);
-		echo "</pre>";
+	
 		
 		
 

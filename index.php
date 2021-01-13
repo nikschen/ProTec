@@ -20,7 +20,13 @@ $actionName = $_GET['a'] ?? 'index';
 $controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
 
 
+//$data = new \protec\models\Customer;
+//$Customer= \protec\model\Customer::findOne();
+//;
 
+//$data = $this->findOne();
+//print_r($data);
+//exit(0);
 
 
 
