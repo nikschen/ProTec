@@ -29,6 +29,7 @@
     </div>
     <div class="flex-container-content">
       <p>Unsere Partner</p>
+     <a href="https://www.berrybase.de/"> <img class="partnerLogo" id="berrybaselogo" src="src\icons\partner\berrybase.png" alt="Logo Berrybase" ></a>  
 
     </div>  
 

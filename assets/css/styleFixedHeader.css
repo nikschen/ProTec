@@ -20,8 +20,7 @@ header {
     -moz-box-shadow: 0 4px 2px #27272780;
     justify-content: center;
     flex-wrap: nowrap;
-    height:1.5em;
-
+    height: 1.5em;
     font-size: 3em;
 }
 
@@ -41,7 +40,6 @@ header {
 .navbar .navigation {
     flex-direction: column;
     font-size: 1.2em;
-
 }
 
 
@@ -60,7 +58,7 @@ header {
     margin-bottom: 0;
 }
 
-.navigationContainer .ProtecLogo{
+.navigationContainer .ProtecLogo {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -101,7 +99,6 @@ header {
 .dropdown {
     position: relative;
     display: inline-block;
-
 }
 
 .dropdown-content {
@@ -131,39 +128,41 @@ header {
     margin-left: 50px;
     font-size: 14px;
 }
-.categoryLogo{
-    width : 1.4em;
+
+.categoryLogo {
+    width: 1.4em;
     height: 1.4em;
 }
-.ProtecLogo{
+
+.ProtecLogo {
     height: 3em;
 }
 
+
 /* Main content */
 
-body{
+body {
     flex: 1;
 }
+
 .Site {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
 }
 
-main{
+main {
     flex: 1;
 }
+
 .Site-content {
     padding-top: 3.5em;
     flex: 1;
 }
 
 
-
-
-
 /*Footer*/
+
 footer {
     background-color: rgb(53, 142, 219);
     margin-top: 40px;
@@ -217,6 +216,11 @@ footer a:hover {
     transition: 0.5s;
 }
 
+.partnerLogo {
+    width: 80px;
+    height: 40px;
+}
+
 #Login-Smart {
     background-color: rgb(255, 125, 32);
     font-size: 0.8em;
@@ -225,9 +229,6 @@ footer a:hover {
 #Login-Smart:hover {
     background-color: rgb(255, 191, 146);
 }
-
-
-
 
 
 /*As a hiding element when you scroll down*/
@@ -266,4 +267,3 @@ footer a:hover {
         flex-direction: column;
     }
 }
-
