@@ -45,7 +45,6 @@ header {
 .navbar .navigation {
     flex-direction: column;
     font-size: 1.2em;
-
 }
 
 
@@ -64,7 +63,7 @@ header {
     margin-bottom: 0;
 }
 
-.navigationContainer .ProtecLogo{
+.navigationContainer .ProtecLogo {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -136,13 +135,16 @@ header {
     margin-left: 50px;
     font-size: 14px;
 }
-.categoryLogo{
-    width : 1.4em;
+
+.categoryLogo {
+    width: 1.4em;
     height: 1.4em;
 }
-.ProtecLogo{
+
+.ProtecLogo {
     height: 3em;
 }
+
 
 /* Main content */
 
@@ -158,11 +160,11 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-
 main{
     flex: 1;
     font-family: 'Open Sans', sans-serif;
 }
+
 .Site-content {
 
     padding-top: 1em;
@@ -171,10 +173,8 @@ main{
 }
 
 
-
-
-
 /*Footer*/
+
 footer {
     background-color: rgb(53, 142, 219);
     font-family: 'Open Sans', sans-serif;
@@ -206,7 +206,6 @@ footer {
 footer tr th {
     /*border: 1px solid black;*/
     text-align: left;
-    padding: 0px;
 }
 
 footer tr:first-of-type {
@@ -225,6 +224,11 @@ footer a:hover {
     transition: 0.5s;
 }
 
+.partnerLogo {
+    width: 80px;
+    height: 40px;
+}
+
 #Login-Smart {
     background-color: rgb(255, 125, 32);
     font-size: 0.8em;
@@ -233,9 +237,6 @@ footer a:hover {
 #Login-Smart:hover {
     background-color: rgb(255, 191, 146);
 }
-
-
-
 
 
 /*As a hiding element when you scroll down*/
@@ -274,4 +275,3 @@ footer a:hover {
         flex-direction: column;
     }
 }
-
