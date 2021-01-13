@@ -72,7 +72,11 @@ class PagesController extends \protec\core\Controller
 	{
 		
 	}
-    public function actionprivacyGuidelines()
+    public function actionPrivacyGuidelines()
+    {
+
+    }
+    public function actionAgb()
     {
 
     }

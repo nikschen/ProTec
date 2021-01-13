@@ -14,7 +14,7 @@
       <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>   
       <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
       <a href="index.php?c=pages&a=privacyGuidelines">Datenschutzbestimmungen</a>
-      <a href="">AGB</a>
+      <a href="index.php?c=pages&a=agb">AGB</a>
       <a href="">Impressum</a>
       <a href="">Jobangebote</a>
     </div>    
