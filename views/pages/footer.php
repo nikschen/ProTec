@@ -26,11 +26,11 @@
       <a href="">Newsletter abonnieren</a>
       <a href="">Kontaktformular</a>
     </div>
-    <div class="flex-container-content">
+    <div class="flex-container-content" id="partners">
       <p>Unsere Partner</p>
-     <a href="https://www.berrybase.de/"> <img class="partnerLogo" id="berrybaseLogo" src="src\icons\partner\berrybase.png" alt="Logo Berrybase" ></a>  
-     <a href="https://www.dhl.de/de/privatkunden.html"> <img class="partnerLogo" id="dhlLogo" src="src\icons\partner\dhllogo.png" alt="Logo DHL" ></a>  
-     <a href="https://opensource.org/"> <img class="partnerLogo" id="opensourceLogo" src="src\icons\partner\opensourcelogo.png" alt="Logo OpenSource" ></a>  
+     <a href=""> <img class="partnerLogo" id="berrybaseLogo" src="src\icons\partner\berrybase.png" alt="Logo Berrybase" ></a>  
+     <a href=""> <img class="partnerLogo" id="dhlLogo" src="src\icons\partner\dhllogo.png" alt="Logo DHL" ></a>  
+     <a href=""> <img class="partnerLogo" id="opensourceLogo" src="src\icons\partner\opensourcelogo.png" alt="Logo OpenSource" ></a>  
     </div>  
 
   </div>

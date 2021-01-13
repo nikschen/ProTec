@@ -223,6 +223,10 @@ footer a:hover {
     transition: 0.5s;
 }
 
+#partner>a {
+    align-items: center;
+}
+
 .partnerLogo {
     width: 100px;
     height: 40px;
@@ -234,8 +238,8 @@ footer a:hover {
 }
 
 #opensourceLogo {
-    width: 60px;
-    height: 200px;
+    width: 1.8em;
+    height: 1.6em;
 }
 
 #Login-Smart {
