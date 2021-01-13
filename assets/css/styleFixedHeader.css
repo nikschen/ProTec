@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
 /* The navigation bar */
-*{
+
+* {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -24,8 +26,7 @@ header {
     -moz-box-shadow: 0 4px 2px #27272780;
     justify-content: center;
     flex-wrap: nowrap;
-    height:1.8em;
-
+    height: 1.8em;
     font-size: 3em;
 }
 
@@ -105,7 +106,6 @@ header {
     position: relative;
     display: inline-block;
     font-family: 'Nanum Gothic', sans-serif;
-
 }
 
 .dropdown-content {
@@ -148,10 +148,10 @@ header {
 
 /* Main content */
 
-body{
-
+body {
     font-family: 'Open Sans', sans-serif;
 }
+
 .Site {
     display: flex;
     min-height: 100vh;
@@ -160,13 +160,12 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
-main{
+main {
     flex: 1;
     font-family: 'Open Sans', sans-serif;
 }
 
 .Site-content {
-
     padding-top: 1em;
     flex: 1;
     font-family: 'Open Sans', sans-serif;
@@ -225,8 +224,18 @@ footer a:hover {
 }
 
 .partnerLogo {
-    width: 80px;
+    width: 100px;
     height: 40px;
+}
+
+#dhlLogo {
+    width: 100px;
+    height: 60px;
+}
+
+#opensourceLogo {
+    width: 60px;
+    height: 200px;
 }
 
 #Login-Smart {

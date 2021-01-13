@@ -28,8 +28,9 @@
     </div>
     <div class="flex-container-content">
       <p>Unsere Partner</p>
-     <a href="https://www.berrybase.de/"> <img class="partnerLogo" id="berrybaselogo" src="src\icons\partner\berrybase.png" alt="Logo Berrybase" ></a>  
-
+     <a href="https://www.berrybase.de/"> <img class="partnerLogo" id="berrybaseLogo" src="src\icons\partner\berrybase.png" alt="Logo Berrybase" ></a>  
+     <a href="https://www.dhl.de/de/privatkunden.html"> <img class="partnerLogo" id="dhlLogo" src="src\icons\partner\dhllogo.png" alt="Logo DHL" ></a>  
+     <a href="https://opensource.org/"> <img class="partnerLogo" id="opensourceLogo" src="src\icons\partner\opensourcelogo.png" alt="Logo OpenSource" ></a>  
     </div>  
 
   </div>
