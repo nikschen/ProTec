@@ -24,13 +24,11 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-		echo "<pre>";
-		print_r($_POST);
-		echo "</pre>";
 
 		#prepare to save to DB
 		$email = $_POST['email'] ?? null; //
 		$password = $_POST['password'] ?? null;//
+		$password_repeat = $_POST['password-repeat'] ?? null;
 		$telefon= $_POST['fon'] ?? null;//
 		$title = $_POST['title'] ?? null;//
 		$firstName = $_POST['firstName'] ?? null;//
@@ -72,6 +70,13 @@ class AccountsController extends \protec\core\Controller
 			echo "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
 			$errors['password'] = "Vorname zu kurz";
 		}
+		if($password !== $password_repeat)
+		{
+			echo "<br>";
+			echo "Die Passworteingaben sind leider nicht identisch!";
+		}
+
+
 		if(mb_strlen($email)<4 || !filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
 			echo "<br>";

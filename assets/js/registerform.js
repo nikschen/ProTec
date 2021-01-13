@@ -1,17 +1,9 @@
 var password1 = document.getElementById('password1');
 var password2 = document.getElementById('password2');
+
 console.log(password1);
+console.log(password2);
 
-var checkPasswordValidity = function() {
-    if (password1.value != password2.value) {
-        password2.setCustomValidity('Passwörter müssen übereinstimmen!');
-    } else {
-        password2.setCustomValidity('');
-    }
-};
-
-password1.addEventListener('change', checkPasswordValidity);
-password2.addEventListener('change', checkPasswordValidity);
 
 
 
@@ -20,4 +12,39 @@ function changeColor() {
     Words.style.backgroundColor = "green";
 }
 
-changeColor();
+
+
+
+function Start() {
+
+    var para = document.createElement("DIV"); // Create a <div> element
+    para.setAttribute("id", "calculatorBox")
+    para.style.width = "320px";
+    para.style.height = "500px";
+    para.style.border = "thin solid grey"
+    para.style.backgroundColor = "#e0c4be"
+    para.style.position = "relative"
+    para.style.textAlign = "center";
+    para.style.margin = "100px"
+    para.style.boxShadow = "10px 10px 5px grey"
+        //para.style.display = "table-cell"
+
+
+    document.getElementsByTagName("BODY")[0].appendChild(para);
+}
+
+
+var checkPassword = function() {
+    if (document.getElementById("password1").value ==
+        document.getElementById("password2").value) {
+
+        var borderColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("borderColor");
+        var backgroundColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("backgroundColor");
+
+        document.getElementById("password2").style.borderColor = borderColorSource;
+        document.getElementById("password2").style.backgroundColor = backgroundColorSource;
+    } else {
+        document.getElementById("password2").style.borderColor = "red";
+        document.getElementById("password2").style.backgroundColor = "LightCoral";
+    }
+}

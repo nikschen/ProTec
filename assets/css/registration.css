@@ -4,10 +4,11 @@ h2 {
 }
 
 form {
-    text-align: center;
+    text-align: left;
+    padding-left: 2%;
 }
 
-input[type=text],
+.registrationForm input[type=text],
 [type=password],
 #selectgender {
     width: 30%;
@@ -30,4 +31,12 @@ input[type=text],
     border-radius: 4px;
     cursor: pointer;
     align-items: center;
+}
+
+.registrationForm .oneLine {
+    max-width: 15%;
+}
+
+.registrationForm>h2 {
+    text-align: left;
 }
