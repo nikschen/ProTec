@@ -3,7 +3,7 @@
         <div class="navigationsContainer">
 
             <div class="navbar">
-                <div class="protecLogo">
+                <div class="protecLogoContainer">
                     <a class="protecLogo" href="index.php?c=pages&a=index"><img class="protecLogo"  src="src/icons/protec_transparent_schwarz_umrandet.png" alt="Logo"></a>
                 </div>
                 <div class="navigation">
@@ -23,9 +23,12 @@
                             <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/raspberryPiIcon.png" alt="RasPi." > RaspberryPi</a></li>
 
                                 <div class=dropdown-content>
-                                    <a href="./index.html">Pi-1/2/3//4/Zero</a>
-                                    <a href="./index.html">Gehäuse</a>
-
+                                    <div class=dropdownContentElement>
+                                        <a href="./index.html">Pi-1/2/3/4/Zero</a>
+                                    </div>
+                                    <div class=dropdownContentElement>
+                                        <a href="./index.html">Gehäuse</a>
+                                    </div>
                                 </div>
 
 
@@ -67,19 +70,17 @@
 
                     </div>
               </div>
-              <div class="navigation">
-                <li>
-                <div class="Search">
-                    <form method="post">
+                <div class="searchNavContainer">
+                    <div class="searchContainer">
+                        <form method="post">
                         <input type="text" placeholder="Produktsuche...">
-                        <button type="submit"><img src="src/icons/searchIcon.png" height="15em" /> Go</button>
-                    </form>
-                 </div>
-                </li>
-                <li id="Login-Smart">
-                <a href="<?=$_SERVER['SCRIPT_NAME']        ?>?c=pages&a=login"  >Login</a>
-                </li>
-              </div>
+                        <button type="submit"><img src="src/icons/searchIcon.png"/></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="loginContainer">
+                <a  href="<?=$_SERVER['SCRIPT_NAME']?>?c=pages&a=login"  ><img class="loginSymbol" src="src/icons/loginIcon.png"> Login</a>
+                </div>
             </div>
         </div>
     </div>
