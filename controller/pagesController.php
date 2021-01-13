@@ -1,7 +1,5 @@
 <?php
 
-//namespace protec\core;
-
 class PagesController extends \protec\core\Controller
 {
 	
@@ -74,6 +72,14 @@ class PagesController extends \protec\core\Controller
 	{
 		
 	}
+    public function actionPrivacyGuidelines()
+    {
+
+    }
+    public function actionAgb()
+    {
+
+    }
 
 	
 

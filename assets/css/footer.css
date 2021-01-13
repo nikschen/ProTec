@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
+
+footer {
+    background-color: rgb(53, 142, 219);
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0px 4px 2px #27272780;
+    -webkit-box-shadow: 0px 4px 2px #27272780;
+    -moz-box-shadow: 0px 4px 2px #27272780;
+}
+
+.flex-container-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-container-footer .flex-container-content {
+    flex-direction: column;
+    margin: 1.8em;
+}
+
+.flex-container-content>p:first-of-type {
+    text-decoration-line: underline;
+    font-weight: 600;
+}
+
+.flex-container-footer * {
+    margin: 5px;
+}
+
+footer tr th {
+    /*border: 1px solid black;*/
+    text-align: left;
+}
+
+footer tr:first-of-type {
+    font-size: large;
+    text-decoration-line: underline;
+}
+
+footer a {
+    display: block;
+    text-decoration-line: none;
+    color: black;
+}
+
+footer a:hover {
+    background-color: rgb(219, 196, 174);
+    transition: 0.5s;
+}
+
+.partnerLogo {
+    width: 80px;
+    height: 40px;
+}
+

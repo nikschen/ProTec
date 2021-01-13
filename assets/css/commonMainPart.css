@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
+
+body{
+
+    font-family: 'Open Sans', sans-serif;
+}
+.Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-top: 3.5em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main{
+    flex: 1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.Site-content {
+
+    padding-top: 1em;
+    flex: 1;
+    font-family: 'Open Sans', sans-serif;
+}

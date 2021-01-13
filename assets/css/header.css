@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-/* The navigation bar */
-*{
-    font-family: 'Open Sans', sans-serif;
-}
 
 header {
     background-color: rgb(215, 218, 230);
+    font-family: 'Nanum Gothic', sans-serif;
+
 }
 
 .navbar {
@@ -145,90 +142,6 @@ header {
     height: 3em;
 }
 
-
-/* Main content */
-
-body{
-
-    font-family: 'Open Sans', sans-serif;
-}
-.Site {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    padding-top: 3.5em;
-    font-family: 'Open Sans', sans-serif;
-}
-
-main{
-    flex: 1;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.Site-content {
-
-    padding-top: 1em;
-    flex: 1;
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-/*Footer*/
-
-footer {
-    background-color: rgb(53, 142, 219);
-    font-family: 'Open Sans', sans-serif;
-    box-shadow: 0px 4px 2px #27272780;
-    -webkit-box-shadow: 0px 4px 2px #27272780;
-    -moz-box-shadow: 0px 4px 2px #27272780;
-}
-
-.flex-container-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.flex-container-footer .flex-container-content {
-    flex-direction: column;
-    margin: 1.8em;
-}
-
-.flex-container-content>p:first-of-type {
-    text-decoration-line: underline;
-    font-weight: 600;
-}
-
-.flex-container-footer * {
-    margin: 5px;
-}
-
-footer tr th {
-    /*border: 1px solid black;*/
-    text-align: left;
-}
-
-footer tr:first-of-type {
-    font-size: large;
-    text-decoration-line: underline;
-}
-
-footer a {
-    display: block;
-    text-decoration-line: none;
-    color: black;
-}
-
-footer a:hover {
-    background-color: rgb(219, 196, 174);
-    transition: 0.5s;
-}
-
-.partnerLogo {
-    width: 80px;
-    height: 40px;
-}
-
 #Login-Smart {
     background-color: rgb(255, 125, 32);
     font-size: 0.8em;
@@ -236,42 +149,4 @@ footer a:hover {
 
 #Login-Smart:hover {
     background-color: rgb(255, 191, 146);
-}
-
-
-/*As a hiding element when you scroll down*/
-
-@media screen and (max-width: 800px) {
-    .navbar {
-        flex-direction: row;
-    }
-    .navbar {
-        margin: 0px;
-        position: relative;
-        /*height: 15%;*/
-    }
-    .navbar .navigation {
-        display: flex;
-        text-align: center;
-        align-items: center;
-    }
-    .border {
-        display: none;
-    }
-    .flex-container-footer {
-        flex-direction: column;
-    }
-    .flex-container-footer * {
-        margin: 5px;
-        text-align: center;
-    }
-    .footer,
-    table,
-    tr,
-    th {
-        display: block;
-    }
-    .headlines {
-        flex-direction: column;
-    }
 }

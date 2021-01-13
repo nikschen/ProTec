@@ -33,7 +33,8 @@ class Controller
 			exit(0);
 		}
 
-		include 'views/pages/header.php';	
+        include 'views/pages/head.php';
+		include 'views/pages/header.php';
 		include $viewPath;
 		include 'views/pages/footer.php';
 		
