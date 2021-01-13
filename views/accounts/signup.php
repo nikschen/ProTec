@@ -1,8 +1,9 @@
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/registration.css">
-    <script type="text/javascript" src="..\..\assets\js\registerform.js"></script>
+    <script type="text/javascript" src="assets/js/registerform.js"></script>
 </head>
 
 <body>
@@ -13,22 +14,11 @@
 
     <div class="registrationForm">
 
-    <?//show Errors on RegistrationBoard
-    if (isset($errors) && count($errors)>0) :        ?>
-    <div class="error-message">
-        <ul>
-        <? foreach($errors as $key => $value)  :     ?>
-            <li><?$value ?></li>
-        <?endforeach?>
+   
         </ul>
     </div>
-    <? endif;?>
-    <? if($success === true ) : ?>
-    <div class="success-message">
-    Ihr Konto wurde angelegt. Sie werden in auf die Login-Seite weitergeleitet...
-    <meta http-equiv="refresh" content="5; URL=index.php?c=pages&a=login">
-    </div>
-    <? else : ?>
+    
+  
         <h2>Ihre Anmeldedaten</h2>
         <hr>
         <form method="POST">
@@ -63,7 +53,13 @@
             <input type="submit" name="submit" value="Absenden"></input>
 
         </form>
-
+        <div id="test">
+        <? echo "JavaScript geladen? : " ;
+        if (file_exists("assets/js/registerform.js")){
+            echo " ja ist geladen";} else { echo " nicht zu finden";}
+        ?>
     </div>
-    <? endif;?>
+    </div>
+
 </body>
+

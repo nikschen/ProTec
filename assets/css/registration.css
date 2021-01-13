@@ -7,7 +7,7 @@ form {
     text-align: center;
 }
 
-.registrationform input[type=text],
+.registrationForm input[type=text],
 [type=password],
 #selectgender {
     width: 30%;
@@ -20,7 +20,7 @@ form {
     align-items: center;
 }
 
-.registrationform input[type=submit] {
+.registrationForm input[type=submit] {
     width: 30%;
     background-color: #428eb9;
     color: white;

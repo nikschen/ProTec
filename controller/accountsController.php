@@ -15,6 +15,8 @@ class AccountsController extends \protec\core\Controller
 
 	public function actionSignup() 
 	{
+		$title='ProTec > SignUp';
+		$this->setParam('title', $title);
 		$errors = [];
 		$success = false;
 
