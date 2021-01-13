@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 /* The navigation bar */
+*{
+    font-family: 'Open Sans', sans-serif;
+}
 
 header {
     background-color: rgb(215, 218, 230);
-    font-family: sans-serif;
 }
 
 .navbar {
@@ -20,7 +24,7 @@ header {
     -moz-box-shadow: 0 4px 2px #27272780;
     justify-content: center;
     flex-wrap: nowrap;
-    height:1.5em;
+    height:1.8em;
 
     font-size: 3em;
 }
@@ -101,6 +105,7 @@ header {
 .dropdown {
     position: relative;
     display: inline-block;
+    font-family: 'Nanum Gothic', sans-serif;
 
 }
 
@@ -142,21 +147,27 @@ header {
 /* Main content */
 
 body{
-    flex: 1;
+
+    font-family: 'Open Sans', sans-serif;
 }
 .Site {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
+    padding-top: 3.5em;
+    font-family: 'Open Sans', sans-serif;
 }
+
 
 main{
     flex: 1;
+    font-family: 'Open Sans', sans-serif;
 }
 .Site-content {
-    padding-top: 3.5em;
+
+    padding-top: 1em;
     flex: 1;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -166,10 +177,7 @@ main{
 /*Footer*/
 footer {
     background-color: rgb(53, 142, 219);
-    margin-top: 40px;
-    margin-bottom: 10px;
-    left: 0px;
-    right: 0px;
+    font-family: 'Open Sans', sans-serif;
     box-shadow: 0px 4px 2px #27272780;
     -webkit-box-shadow: 0px 4px 2px #27272780;
     -moz-box-shadow: 0px 4px 2px #27272780;
@@ -183,7 +191,7 @@ footer {
 
 .flex-container-footer .flex-container-content {
     flex-direction: column;
-    margin: 15px;
+    margin: 1.8em;
 }
 
 .flex-container-content>p:first-of-type {
@@ -192,13 +200,13 @@ footer {
 }
 
 .flex-container-footer * {
-    margin: 10px;
+    margin: 5px;
 }
 
 footer tr th {
     /*border: 1px solid black;*/
     text-align: left;
-    padding: 5px;
+    padding: 0px;
 }
 
 footer tr:first-of-type {

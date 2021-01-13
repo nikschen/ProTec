@@ -1,5 +1,4 @@
 <footer class="footer">
-  <p>Flexbox-Version</p>
   <div class="flex-container-footer">
     <div class="flex-container-content">
       <p>Wir babbeln über uns</p>
@@ -14,7 +13,7 @@
       <p>Allgemeine Informationen</p>
       <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>   
       <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
-      <a href="">Datenschutzbestimmungen</a>
+      <a href="index.php?c=pages&a=privacyGuidelines">Datenschutzbestimmungen</a>
       <a href="">AGB</a>
       <a href="">Impressum</a>
       <a href="">Jobangebote</a>
