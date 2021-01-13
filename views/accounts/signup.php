@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/registration.css">
+    <script type="text/javascript" src="..\..\assets\js\registerform.js"></script>
 </head>
 
 <body>
@@ -44,8 +45,8 @@
             <input type="text" name="title" placeholder="Titel" <?if (isset($_POST['title'])){echo "value=".htmlspecialchars($_POST['title']);};?>><br>
             <input type="text" name="email" placeholder="Ihre E-Mail-Adresse*" <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required ><br>
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
-            <input type="password" name="password" placeholder="Ihr Passwort*" required>
-            <input type="password" name="passwort-repeat" placeholder="Ihr Passwort wiederholt*" required>
+            <input type="password" id="password1" name="password" placeholder="Ihr Passwort*" required>
+            <input type="password" id="password2" name="passwort-repeat" placeholder="Ihr Passwort wiederholt*" required>
 
 
 
