@@ -7,7 +7,7 @@ form {
     text-align: center;
 }
 
-.registrationForm input[type=text],
+input[type=text],
 [type=password],
 #selectgender {
     width: 30%;
