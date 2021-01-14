@@ -51,10 +51,6 @@
         flex: 1;
     }
     
-    .Site-content {
-        /*border: dotted;*/
-    }
-    
     .contentWrapper {
         display: flex;
         flex-direction: row;

@@ -8,7 +8,7 @@
                 </div>
                 <div class="navigation">
                     <div class="dropdown">
-                            <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/elektronikIcon.png" alt="Elek." > Elektronik</a></li>
+                            <li class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="src/icons/categories/elektronikIcon.png" alt="Elek." > Elektronik</a></li>
 
                                 <div class=dropdown-content>
                                     <a href="./index.html">Kabel</a>

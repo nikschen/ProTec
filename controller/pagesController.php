@@ -136,7 +136,13 @@ class PagesController extends \protec\core\Controller
     {
         $title='ProTec > RaspberryPi';
         $this->setParam('title', $title);
+	}
+	public function actioncategoryElectronic()
+    {
+        $title='ProTec > Elektronik';
+        $this->setParam('title', $title);
     }
+
 
 
 
