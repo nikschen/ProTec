@@ -8,7 +8,7 @@
         <div class="element">
         <a href="index.php?c=pages&a=categoryRaspi">
         <img src="src\images\19.png" alt="RaspberryPi Abbildung" >
-        <p>RaspberryPi-Boards von 1 bis Zero</p></a>
+        <p>RaspberryPi-Boards von One bis Zero</p></a>
         </div>
         <div class="element">
         <a href="index.php?c=pages&a=categoryRaspi">

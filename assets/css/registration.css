@@ -63,11 +63,16 @@
         align-items: flex-end;
     }
     
+    .contentWrapper a {
+        text-decoration: none;
+        color: black;
+    }
+    
     .element {
         /*border: double;*/
         text-align: center;
     }
     
     .element:hover {
-        box-shadow: 0 4px 2px -2px gray;
+        box-shadow: 5px 10px 18px #888888;
     }
