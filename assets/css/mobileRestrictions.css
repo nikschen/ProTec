@@ -1,15 +1,17 @@
 @media screen and ( max-width: 900px) {
 
     .flex-container-footer .footerItems{
-        display: block;
+        display: list-item;
         justify-content: center;
+        height: inherit;
     }
     .collapsible .collapsed {
         font-size: 0;
-        margin: 0;
         opacity: 0;
         padding: 0;
         /* fade out, then shrink */
         transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s, padding 0.5s 0.25s;
+
     }
+
 }

@@ -61,7 +61,6 @@ footer a:hover {
 
 .collapsible {
     display: block;
-    margin-bottom: 1rem;
 }
 .collapsible input {
     position: absolute;
@@ -73,12 +72,17 @@ footer a:hover {
 .collapsible .collapser {
     cursor: pointer;
     border: 1px transparent dotted;
-}
-
-.collapsible .collapser p{
     text-decoration-line: underline;
     font-weight: 600;
-    text-align: center;
+
+}
+.collapser .footerItemsTitle{
+    text-align:center;
+    margin:0;
+}
+
+.collapser .collapsed {
+    margin:0;
 }
 
 

@@ -2,11 +2,11 @@
 <footer class="footer">
   <div class="flex-container-footer">
       <ul class="footerItems">
-        <li>
+        <li class="footerItem1">
           <div class="flex-container-content">
               <label class="collapsible">
                   <input type="checkbox" />
-                  <span class="collapser"><p>Wir babbeln über uns</p></span>
+                  <span class="collapser"><span class="footerItemsTitle">Wir babbeln über uns</span></span>
                   <div class="collapsed">
                       <p>ProTec</p>
                       <p>sponsored by PiFoundation</p>
@@ -18,11 +18,11 @@
               </label>
           </div>
         </li>
-        <li>
+        <li class="footerItem2">
             <div class="flex-container-content">
                 <label class="collapsible">
                     <input type="checkbox" />
-                    <span class="collapser"><p>Allgemeine Informationen</p></span>
+                    <span class="collapser"><span class="footerItemsTitle">Allgemeine Informationen</span></span>
                     <div class="collapsed">
                         <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>
                         <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
@@ -34,11 +34,11 @@
                 </label>
             </div>
         </li>
-        <li>
+        <li class="footerItem3">
             <div class="flex-container-content">
                 <label class="collapsible">
                     <input type="checkbox" />
-                    <span class="collapser"><p>Service</p></span>
+                    <span class="collapser"><span class="footerItemsTitle">Service</span></span>
                     <div class="collapsed">
                         <a href="index.php?c=pages&a=customerpromotion">Kunden werben Kunden</a>
                         <a href="index.php?c=pages&a=trustpoints">Treuepunkte</a>
@@ -49,11 +49,11 @@
                 </label>
             </div>
         </li>
-        <li>
+        <li class="footerItem4">
             <div class="flex-container-content" id="partners">
                 <label class="collapsible">
                     <input type="checkbox" />
-                    <span class="collapser"><p>Unsere Partner</p></span>
+                    <span class="collapser"><span class="footerItemsTitle">Unsere Partner</span></span>
                     <div class="collapsed">
                         <a class="partnerLogoAlign" href=""> <img class="partnerLogo" id="berrybaseLogo" src="<?=ICONSPATH?>partner\berrybase.png" alt="Logo Berrybase" ></a>
                         <a class="partnerLogoAlign" href=""> <img class="partnerLogo" id="dhlLogo" src="<?=ICONSPATH?>partner\dhllogo.png" alt="Logo DHL" ></a>

@@ -1,4 +1,4 @@
-<header>
+<header class="header">
     <div class="headerContainer">
         <div class="navigationsContainer">
 
