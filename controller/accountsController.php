@@ -48,83 +48,61 @@ class AccountsController extends \protec\core\Controller
 
 		if(mb_strlen($firstName)<2 || mb_strlen($firstName)>46 || preg_match('/[0-9]/',$firstName))
 		{
-			echo "<br>";
-			echo "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeichen";
-			$errors['firstName'] = "Vorname zu kurz";
+			$errors['firstName'] = "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeiche";
 		}
 		if(mb_strlen($lastName)<2 || mb_strlen($firstName)>100 ||preg_match('/[0-9]/',$lastName))
 		{
-			echo "<br>";
-			echo "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
-			$errors['lastName'] = "Vorname zu kurz";
+			$errors['lastName'] = "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
 		}
 		if(mb_strlen($title)>0 && mb_strlen($title)<2)
 		{
-			echo "<br>";
-			echo "Titel ist zu kurz";
-			$errors['title'] = "Vorname zu kurz";
+			$errors['title'] = "Titel zu kurz";
 		}
 		if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
 		{
-			echo "<br>";
-			echo "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
-			$errors['password'] = "Vorname zu kurz";
+			$errors['password'] = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
 		}
 		if($password !== $password_repeat)
 		{
-			echo "<br>";
-			echo "Die Passworteingaben sind leider nicht identisch!";
+			$errors['password-ident'] = "Die Passworteingaben sind leider nicht identisch!";
 		}
-
 
 		if(mb_strlen($email)<4 || !filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-			echo "<br>";
-			echo "Email entspricht nicht den Vorgaben";
-			$errors['email'] = "Vorname zu kurz";
+			$errors['email'] = "Email entspricht nicht den Vorgaben";
 		}
+
 		if( !is_numeric($telefon))
 		{
-			echo "<br>";
-			echo "Bitte geben Sie Ihre Telefonnummer ohne Sonderzeichen/Leerzeichen an";
+			$errors['fon'] = "Bitte geben Sie Ihre Telefonnummer ohne Sonderzeichen/Leerzeichen an";
 		}
 
 		if(mb_strlen($streetInfo)<2 || mb_strlen($streetInfo)>255 )
 		{
-			echo "<br>";
-			echo "Straßenangabe entspricht nicht den Anforderungen min. 2 max. 255 Zeichen";
-			$errors['streetInfo'] = "Hausnummerfehler";
+			$errors['streetInfo'] = "Straßenangabe entspricht nicht den Anforderungen min. 2 max. 255 Zeichen";
 		}
 
 		if(mb_strlen($streetNo)<1 || mb_strlen($streetNo)>10 )
 		{
-			echo "<br>";
-			echo "Hausnummereingabe entspricht nicht den Anforderungen min. 1 max. 10 Zeichen";
-			$errors['streetNo'] = "Hausnummerfehler";
+			$errors['streetNo'] = "Hausnummereingabe entspricht nicht den Anforderungen min. 1 max. 10 Zeichen";
 		}
 		if(mb_strlen($zipcode)<3 || mb_strlen($zipcode)>12 )
 		{
-			echo "<br>";
-			echo "PLZ entspricht nicht den Anforderungen min. 3 max. 12 Zeichen";
-			$errors['zipcode'] = "PLZ FEHLER";
+			$errors['zipcode'] = "PLZ entspricht nicht den Anforderungen min. 3 max. 12 Zeichen";
 		}
 		if(mb_strlen($city)<2 || mb_strlen($city)>60 )
 		{
-			echo "<br>";
-			echo "Stadt entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
-			$errors['city'] = "Stadteingabe falsch";
+			$errors['city'] = "Stadt entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
 		}
 		
-
 		if(mb_strlen($country)<2 || mb_strlen($country)>60 )
 		{
-			echo "<br>";
-			echo "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
-			$errors['country'] = "Landeingabe fehlerhaft";
+			$errors['country'] = "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+			
 		}
 
 
-	
+		$this->setParam('errors', $errors);
 		
 		
 

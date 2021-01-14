@@ -7,8 +7,15 @@
 </head>
 
 <body>
-
-
+    <?php if(isset($errors) && count($errors) > 0) : ?>
+     <div class="error-message" style ="border: 1px dottet red">
+     <ul>
+         <?php foreach($errors as $key => $value) : ?>
+            <li><?=$value?></li>   
+            <?php endforeach?>
+         </ul>
+         </div>
+         <?php endif; ?>
     
 
     <div class="registrationForm">
