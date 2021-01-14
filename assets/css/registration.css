@@ -8,7 +8,7 @@
         padding-left: 2%;
     }
     
-    .registrationForm input[type=text],
+    a .registrationForm input[type=text],
     [type=password],
     #selectgender {
         width: 30%;
@@ -52,8 +52,7 @@
     }
     
     .Site-content {
-        border: dotted;
-        /*box-sizing: border-box;*/
+        /*border: dotted;*/
     }
     
     .contentWrapper {
@@ -61,9 +60,14 @@
         flex-direction: row;
         width: 25%;
         height: 25%;
+        align-items: flex-end;
     }
     
     .element {
-        border: double;
-        align-items: flex-end;
+        /*border: double;*/
+        text-align: center;
+    }
+    
+    .element:hover {
+        box-shadow: 0 4px 2px -2px gray;
     }

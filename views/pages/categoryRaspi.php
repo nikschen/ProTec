@@ -15,11 +15,6 @@
         <img src="src\images\28.png" alt="RaspberryPi Gehäuse" >
         <p>RaspberryPi-Gehäuse für alle Boards</p></a>
         </div>
-        <div class="element">
-        <a href="index.php?c=pages&a=categoryRaspi">
-        <img src="src\images\28.png" alt="RaspberryPi Gehäuse" >
-        <p>RaspberryPi-Gehäuse für alle Boards</p></a>
-        </div>
         
     </div>
 
