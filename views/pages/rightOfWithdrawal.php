@@ -5,7 +5,7 @@
             Als Verbraucher steht Ihnen ein gesetzliches Widerrufsrecht zu. Ein Verbraucher ist gemäß § 13 BGB jede natürliche Person, die ein Rechtsgeschäft zu Zwecken abschließt,
             die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.<br> <br>
             1. Widerrufsbelehrung für Warenlieferungen<br>
-            2. Musterwiderrufsformular <a href="src/documents/Widerrufsformular.pdf" target="_blank" >Download als PDF Datei</a><br> <br>
+            2. Musterwiderrufsformular <a href="<?=DOCUMENTSPATH?>/Widerrufsformular.pdf" target="_blank" >Download als PDF Datei</a><br> <br>
 
             <strong>1. Widerrufsbelehrung für Warenlieferungen</strong><br><br>
             <strong>Widerrufsbelehrung</strong><br><br>
@@ -38,7 +38,7 @@
 
 
             <strong>2. Musterwiderrufsformular</strong><br><br>
-            <a href="src/documents/Widerrufsformular.pdf" target="_blank" >Download als PDF Datei</a><br> <br>
+            <a href="<?=DOCUMENTSPATH?>/Widerrufsformular.pdf" target="_blank" >Download als PDF Datei</a><br> <br>
         </p>
     </main>
 </body>
