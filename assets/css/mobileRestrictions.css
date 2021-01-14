@@ -1,53 +1,15 @@
-@media screen and (max-width: 900px) {
-    .navbar {
-        flex-direction: column;
-    }
+@media screen and ( max-width: 900px) {
 
-    .navbar {
-        margin: 0px;
-        position: relative;
-        /*height: 15%;*/
-    }
-
-    .navbar .navigation {
-        display: flex;
-        text-align: center;
-        align-items: center;
-    }
-
-    .border {
-        display: none;
-    }
-
-    .flex-container-footer {
-        flex-direction: column;
-    }
-
-    .flex-container-footer * {
-        margin: 5px;
-        text-align: center;
-    }
-
-    .footer,
-    table,
-    tr,
-    th {
+    .flex-container-footer .footerItems{
         display: block;
-    }
-
-    .headlines {
-        flex-direction: column;
-    }
-
-    .navigationContainer {
-        display: flex;
         justify-content: center;
-        flex-direction: column;
     }
-
-    .headerContainer {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+    .collapsible .collapsed {
+        font-size: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        /* fade out, then shrink */
+        transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s, padding 0.5s 0.25s;
     }
 }

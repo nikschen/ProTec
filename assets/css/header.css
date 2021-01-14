@@ -117,6 +117,11 @@ header {
     width: inherit;
 }
 
+.categoryLogo  {
+    width: 2em;
+    height: 2em;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -128,7 +133,7 @@ header {
 }
 
 .dropbtn a {
-    font-size: 1.5em;
+    font-size: 1.67em;
     height: inherit;
 }
 
@@ -169,16 +174,14 @@ header {
 
 .searchContainer a {
     height: inherit;
+    margin-bottom: 0.3em;
 }
 
 .searchContainer a #text {
     font-size: 4.5em;
 }
 
-.categoryLogo {
-    width: 2em;
-    height: 2em;
-}
+
 
 textarea:focus,
 input:focus {
