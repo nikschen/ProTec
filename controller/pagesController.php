@@ -97,7 +97,35 @@ class PagesController extends \protec\core\Controller
         $title='ProTec > Impressum';
         $this->setParam('title', $title);
     }
+	public function actionCustomerpromotion()
+    {
+        $title='ProTec > CustomerPromotion';
+        $this->setParam('title', $title);
+	}
 	
+	public function actionTrustpoints()
+    {
+        $title='ProTec > Treuepunkte';
+        $this->setParam('title', $title);
+	}
+	
+	public function actionBusinessrabatt()
+    {
+        $title='ProTec > Geschäftskundenrabatte';
+        $this->setParam('title', $title);
+	}
+	
+	public function actionNewsletter()
+    {
+        $title='ProTec > Newsletter';
+        $this->setParam('title', $title);
+	}
+	public function actioncontactForm()
+    {
+        $title='ProTec > Kontaktformular';
+        $this->setParam('title', $title);
+    }
+
 
 
 }

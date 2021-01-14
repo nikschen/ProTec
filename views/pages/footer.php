@@ -21,11 +21,11 @@
     </div>    
     <div class="flex-container-content">
       <p>Service</p>
-      <a href="">Kunden werben Kunden</a>   
-      <a href="">Treuepunkte</a>
-      <a href="">Geschäftskundenrabatte</a>
-      <a href="">Newsletter abonnieren</a>
-      <a href="">Kontaktformular</a>
+      <a href="index.php?c=pages&a=customerpromotion">Kunden werben Kunden</a>   
+      <a href="index.php?c=pages&a=trustpoints">Treuepunkte</a>
+      <a href="index.php?c=pages&a=businessrabatt">Geschäftskundenrabatte</a>
+      <a href="index.php?c=pages&a=newsletter">Newsletter abonnieren</a>
+      <a href="index.php?c=pages&a=contactform">Kontaktformular</a>
     </div>
     <div class="flex-container-content" id="partners">
       <p>Unsere Partner</p>

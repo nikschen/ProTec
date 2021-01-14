@@ -9,8 +9,7 @@
 <body>
 
 
-    <h1>Registrieren Sie sich als neuer Kunde von ProTec</h1>
-    <p>Willkommen in der Welt von Morgen...heute schon.</p>
+    
 
     <div class="registrationForm">
 
@@ -22,6 +21,8 @@
         
         
         <form method="POST">
+        <h1>Registrieren Sie sich als neuer Kunde von ProTec</h1>
+        <p>Willkommen in der Welt von Morgen...heute schon.</p>
         <h2>Ihre Anmeldedaten</h2>
         <hr>
         <select name="Anrede" id="selectgender">
@@ -51,7 +52,7 @@
             <input class="oneLine" type="text" name="zipcode" placeholder="PLZ*" <?if (isset($_POST['zipcode'])){echo "value=".htmlspecialchars($_POST['zipcode']);};?> required >
             <input class="oneLine" type="text" name="city" placeholder="Ort*" <?if (isset($_POST['city'])){echo "value=".htmlspecialchars($_POST['city']);};?> required ><br>
             <input type="text" name="country" placeholder="Land*" <?if (isset($_POST['country'])){echo "value=".htmlspecialchars($_POST['country']);};?> required ><br><br>
-
+            <p>Die mit * markierten Felder sind Pflichtfelder</p>
             <input type="submit" name="submit" value="Absenden"></input>
 
         </form>

@@ -63,8 +63,8 @@
                             <div class=dropdown-content>
                                 <a href="./index.html">Temperatursensoren</a>
                                 <a href="./index.html">Bewegungsmelder</a>
-                                <a href="./index.html">Strommesser</a>
-                                <a href="./index.html">GyroSensor</a>
+                                <a href="./index.html" style="width:92%">Strommesser</a>
+                                <a href="./index.html" style="width:92%">GyroSensor</a>
                             </div>
                         </li>
 
