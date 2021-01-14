@@ -23,7 +23,7 @@ footer {
 
 .flex-container-footer .flex-container-content {
     flex-direction: row;
-    margin: 1.8em;
+    margin: inherit;
 }
 
 .flex-container-content>p:first-of-type {
@@ -34,6 +34,7 @@ footer {
 .flex-container-footer * {
     margin: 5px;
 }
+
 
 footer tr th {
     /*border: 1px solid black;*/
@@ -56,14 +57,10 @@ footer a:hover {
     transition: 0.5s;
 }
 
-.partnerLogo {
-    width: 80px;
-    height: 40px;
-}
+
 
 .collapsible {
     display: block;
-    margin-bottom: 1rem;
 }
 .collapsible input {
     position: absolute;
@@ -75,11 +72,17 @@ footer a:hover {
 .collapsible .collapser {
     cursor: pointer;
     border: 1px transparent dotted;
-}
-
-.collapsible .collapser p{
     text-decoration-line: underline;
     font-weight: 600;
+
+}
+.collapser .footerItemsTitle{
+    text-align:center;
+    margin:0;
+}
+
+.collapser .collapsed {
+    margin:0;
 }
 
 
@@ -92,9 +95,17 @@ footer a:hover {
     transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
 }
 
-.arrow {
-    height:20px;
-    margin-top:0.8em ;
+.footerItems li{
+    height:inherit;
 }
 
+.collapsed .partnerLogo {
+    height: 40px;
+}
 
+.collapsed a {
+    text-align: left;
+}
+.collapsed .partnerLogoAlign{
+    text-align: center;
+}

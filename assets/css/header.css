@@ -2,6 +2,7 @@
 header {
     background-color: #d7dae6;
     font-family: 'Nanum Gothic', sans-serif;
+    height: 4.5em;
 }
 
 .headerContainer {
@@ -25,7 +26,7 @@ header {
     -moz-box-shadow: 0 4px 2px #27272780;
     justify-content: center;
     flex-wrap: nowrap;
-    height: 4.5em;
+    height: inherit;
 }
 
 
@@ -42,7 +43,7 @@ header {
 }
 
 .navbar .navigation {
-    flex-direction: column;
+    flex-direction: row;
 }
 
 
@@ -153,6 +154,7 @@ header {
     background-color: #FFFFFF;
     border: none;
     margin: 1.25em 0em;
+    display:block;
 }
 
 .searchContainer input[type=text] {

@@ -109,7 +109,7 @@ class PagesController extends \protec\core\Controller
         $this->setParam('title', $title);
 	}
 	
-	public function actionBusinessrabatt()
+	public function actionBusinessdiscount()
     {
         $title='ProTec > Geschäftskundenrabatte';
         $this->setParam('title', $title);
