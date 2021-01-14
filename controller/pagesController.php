@@ -97,6 +97,13 @@ class PagesController extends \protec\core\Controller
         $title='ProTec > Impressum';
         $this->setParam('title', $title);
     }
+
+    public function actionJobs()
+    {
+        $title='ProTec > Jobs';
+        $this->setParam('title', $title);
+    }
+
 	
 
 

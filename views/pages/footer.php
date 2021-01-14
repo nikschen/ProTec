@@ -17,7 +17,7 @@
       <a href="index.php?c=pages&a=privacyGuidelines">Datenschutzbestimmungen</a>
       <a href="index.php?c=pages&a=agb">AGB</a>
       <a href="index.php?c=pages&a=impressum">Impressum</a>
-      <a href="">Jobangebote</a>
+      <a href="index.php?c=pages&a=jobs">Jobangebote</a>
     </div>    
     <div class="flex-container-content">
       <p>Service</p>
