@@ -141,6 +141,21 @@ class PagesController extends \protec\core\Controller
     {
         $title='ProTec > Elektronik';
         $this->setParam('title', $title);
+	}
+	public function actioncategoryComputer()
+    {
+        $title='ProTec > Computer';
+        $this->setParam('title', $title);
+	}
+	public function actioncategoryNew()
+    {
+        $title='ProTec > Computer';
+        $this->setParam('title', $title);
+	}
+	public function actioncategorySensors()
+    {
+        $title='ProTec > Computer';
+        $this->setParam('title', $title);
     }
 
 

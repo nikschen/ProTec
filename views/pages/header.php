@@ -34,7 +34,7 @@
 
                         </div>
                     <div class="dropdown">
-                            <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/computerIcon.png" alt="Comp." > Computer</a></li>
+                            <li class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="src/icons/categories/computerIcon.png" alt="Comp." > Computer</a></li>
 
                                 <div class=dropdown-content>
                                     <a href="./index.html">Barebones</a>
@@ -45,7 +45,7 @@
 
                         </div>
                     <div class="dropdown">
-                            <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" > Neu</a></li>
+                            <li class="dropbtn"> <a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" > Neu</a></li>
 
                                 <div class=dropdown-content>
                                     <a href="./index.html">Kabel</a>
@@ -58,7 +58,7 @@
 
                         </div>
                     <div class="dropdown">
-                        <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/sensorenIcon.png" alt="Sens." > Sensoren</a></li>
+                        <li class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="src/icons/categories/sensorenIcon.png" alt="Sens." > Sensoren</a></li>
 
                             <div class=dropdown-content>
                                 <a href="./index.html">Temperatursensoren</a>
