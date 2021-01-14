@@ -23,7 +23,7 @@ footer {
 
 .flex-container-footer .flex-container-content {
     flex-direction: row;
-    margin: 1.8em;
+    margin: inherit;
 }
 
 .flex-container-content>p:first-of-type {
@@ -34,6 +34,7 @@ footer {
 .flex-container-footer * {
     margin: 5px;
 }
+
 
 footer tr th {
     /*border: 1px solid black;*/
@@ -90,9 +91,8 @@ footer a:hover {
     transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
 }
 
-.arrow {
-    height:20px;
-    margin-top:0.8em ;
+.footerItems li{
+    height:inherit;
 }
 
 .collapsed .partnerLogo {
@@ -100,5 +100,8 @@ footer a:hover {
 }
 
 .collapsed a {
+    text-align: left;
+}
+.collapsed .partnerLogoAlign{
     text-align: center;
 }
