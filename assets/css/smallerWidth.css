@@ -1,0 +1,16 @@
+@media screen and (max-width: 1500px) and (min-width: 900px){
+
+
+    .protecLogo {
+        height:3.5em;
+    }
+
+    .loginSymbol{
+        height: 2em;
+    }
+    .loginContainer a {
+        height: 2em;
+        font-size: 1em;
+        margin-top: 0.8em;
+    }
+}

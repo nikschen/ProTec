@@ -13,9 +13,16 @@ footer {
     flex-direction: row;
     justify-content: center;
 }
+.flex-container-footer .footerItems{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+    padding:0;
+}
 
 .flex-container-footer .flex-container-content {
-    flex-direction: column;
+    flex-direction: row;
     margin: 1.8em;
 }
 
@@ -53,4 +60,41 @@ footer a:hover {
     width: 80px;
     height: 40px;
 }
+
+.collapsible {
+    display: block;
+    margin-bottom: 1rem;
+}
+.collapsible input {
+    position: absolute;
+    left: -9999px;
+}
+.collapsible input:focus ~ .collapser {
+    border-color: grey;
+}
+.collapsible .collapser {
+    cursor: pointer;
+    border: 1px transparent dotted;
+}
+
+.collapsible .collapser p{
+    text-decoration-line: underline;
+    font-weight: 600;
+}
+
+
+.collapsible input:checked ~ .collapsed {
+    font-size: 16px;
+    opacity: 1;
+    height: auto;
+    padding: 5px 0;
+    /* grow, then fade in */
+    transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
+}
+
+.arrow {
+    height:20px;
+    margin-top:0.8em ;
+}
+
 
