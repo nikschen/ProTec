@@ -44,3 +44,26 @@
     p {
         font-size: small;
     }
+    
+    img {
+        max-width: 9em;
+        max-height: 9em;
+        flex: 1;
+    }
+    
+    .Site-content {
+        border: dotted;
+        /*box-sizing: border-box;*/
+    }
+    
+    .contentWrapper {
+        display: flex;
+        flex-direction: row;
+        width: 25%;
+        height: 25%;
+    }
+    
+    .element {
+        border: double;
+        align-items: flex-end;
+    }

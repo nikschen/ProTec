@@ -131,6 +131,11 @@ class PagesController extends \protec\core\Controller
     {
         $title='ProTec > Kontaktformular';
         $this->setParam('title', $title);
+	}
+	public function actioncategoryRaspi()
+    {
+        $title='ProTec > RaspberryPi';
+        $this->setParam('title', $title);
     }
 
 

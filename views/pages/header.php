@@ -20,7 +20,7 @@
 
                         </div>
                     <div class="dropdown">
-                            <li class="dropbtn"> <a href="./index.html"><img class="categoryLogo" id="logo" src="src/icons/categories/raspberryPiIcon.png" alt="RasPi." > RaspberryPi</a></li>
+                            <li class="dropbtn"> <a href="index.php?c=pages&a=categoryRaspi"><img class="categoryLogo" id="logo" src="src/icons/categories/raspberryPiIcon.png" alt="RasPi." > RaspberryPi</a></li>
 
                                 <div class=dropdown-content>
                                     <div class=dropdownContentElement>
