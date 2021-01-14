@@ -38,7 +38,7 @@
             <div class="flex-container-content" id="partners">
                 <label class="collapsible">
                     <input type="checkbox" />
-                    <span class="collapser"><p>Unsere Partner <img class="arrow" src="<?=ICONSPATH?>doubleArrowDown.png"></p></span>
+                    <span class="collapser"><p>Unsere Partner</p></span>
                     <div class="collapsed">
                         <a href=""> <img class="partnerLogo" id="berrybaseLogo" src="<?=ICONSPATH?>partner\berrybase.png" alt="Logo Berrybase" ></a>
                         <a href=""> <img class="partnerLogo" id="dhlLogo" src="<?=ICONSPATH?>partner\dhllogo.png" alt="Logo DHL" ></a>
