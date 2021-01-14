@@ -13,7 +13,7 @@ abstract class Model
     const TYPE_ENUM     = 'enum';
     
     protected $scheme = [];
-    protected $data=[];
+    private $data=[];//geändert von Protected auf private im Rahmen der Fehlersuche
 
     private $values = [];
     
@@ -133,9 +133,11 @@ abstract class Model
         if(array_key_exists($key,$this->scheme))
         {
             $this->data[$key] = $value;
-            return;
         }
-        throw new \Exception('You can not write to property "'.$key.'"" for the class "'.get_called_class());
+        else
+        {
+        throw new \Exception('You can not write to property "'.$key.'"" for the class "'.get_called_class()); 
+        }
     }
 
     public function __get($key)
@@ -145,7 +147,10 @@ abstract class Model
         {
             return $this->data[$key];
         }
+        else
+        {
         throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
+        }
     }
 
 

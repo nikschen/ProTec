@@ -1,5 +1,9 @@
 <?php
 
+
+
+//fresh changed
+
 class Customer extends \protec\core\Model
 {
     const TABLENAME = '`Customer`';

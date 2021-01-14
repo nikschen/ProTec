@@ -6,9 +6,11 @@ require_once 'init/database.php';
 require_once 'init/imports.php';
 require_once 'init/staticPaths.php';
 
+
+
 foreach(glob('models/*.php') as $modelclass) //including all present models
 {
-    require_once $modelclass;
+	require_once $modelclass;
 }
 
 // checks for presence of wanted controller; if not present, uses pages controller as default
@@ -21,6 +23,9 @@ $actionName = $_GET['a'] ?? 'index';
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
 
+/*$email= new \protec\model\Customer(['firstName' => 'Brigitte']);
+print_r($email);
+exit(0);*/
 //$data = new Customer;
 //$Customer= Customer::findOne();
 //;
