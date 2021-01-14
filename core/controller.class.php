@@ -33,17 +33,17 @@ class Controller
 			header('Location: index.php?c=errors&a=error404');
 			exit(0);
 		}
-        include 'views/pages/head.php';
-		include 'views/pages/header.php';
+        include VIEWSPATH.'pages/head.php';
+		include VIEWSPATH.'pages/header.php';
 		include $viewPath;
-		include 'views/pages/footer.php';
+		include VIEWSPATH.'pages/footer.php';
 		
 		
 	}
 
 	protected function viewPath($controllerName, $actionName)
 	{
-		return __DIR__.'/../views/'.$controllerName.'/'.$actionName.'.php';
+		return VIEWSPATH.$controllerName.'/'.$actionName.'.php';
 	}
 
 	protected function setParam($key, $value= null)

@@ -4,6 +4,7 @@ session_start();
 
 require_once 'init/database.php';
 require_once 'init/imports.php';
+require_once 'init/staticPaths.php';
 
 foreach(glob('models/*.php') as $modelclass) //including all present models
 {
@@ -17,7 +18,7 @@ $controllerName = $_GET['c'] ?? 'pages';
 $actionName = $_GET['a'] ?? 'index';
 
 // generate path for base controller file
-$controllerPath = __DIR__.'/controller/'.$controllerName.'Controller.php';
+$controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
 
 //$data = new Customer;

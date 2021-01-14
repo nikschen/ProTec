@@ -47,8 +47,7 @@
 
         <h4>Nachnahme</h4>
         <p>Bezahlen Sie erst bei Erhalt der Bestellung.
-
-Ihre Bestellung wird sofort versandt (sofern lieferbar) und Sie zahlen den Nachnahmebetrag direkt an den Zusteller. Zusätzlich zu den Versandkosten berechnen wir Ihnen einen Nachnahme-Gebührenanteil in Höhe von 6,00 € (Deutschland).</p> 
+           Ihre Bestellung wird sofort versandt (sofern lieferbar) und Sie zahlen den Nachnahmebetrag direkt an den Zusteller. Zusätzlich zu den Versandkosten berechnen wir Ihnen einen Nachnahme-Gebührenanteil in Höhe von 6,00 € (Deutschland).</p>
     </main>
 </body>
 
