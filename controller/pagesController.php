@@ -165,19 +165,21 @@ class PagesController extends \protec\core\Controller
         $products=protec\model\Product::find('category="Kabel"');
         foreach($products as  $productID=>$products['productID'])
         {
-
             array_push($prodID,$productID);
         }
-        foreach($products as  $prodName => $products['prodName'])
-        {
+//        foreach($products as  $prodName => $products['prodName'])
+//        {
+//            array_push($prodNames,$prodName);
+//        }
 
-            array_push($prodNames,$prodName);
-        }
+        $arrayInhalt="<pre>$products<pre>";
+
         $title='ProTec > Elektronik > Kabel';
         $this->setParam('title', $title);
         $this->setParam('products', $products);
         $this->setParam('prodID', $prodID);
         $this->setParam('prodNames', $prodNames);
+        $this->setParam('arrayInhalt', $arrayInhalt);
     }
 
 
