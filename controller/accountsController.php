@@ -100,8 +100,6 @@ class AccountsController extends \protec\core\Controller
 			$errors['country'] = "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
 			
 		}
-
-
 		$this->setParam('errors', $errors);
 		
 		

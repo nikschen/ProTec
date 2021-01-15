@@ -26,17 +26,17 @@
     
     
   
-        <?
+        <?/*
         $email= \protec\model\Customer::find();
         $firstName = "Niklas";
-        $email1 = \protec\model\Customer::findOne();
+        $email1 = \protec\model\Customer::findOne('firstName = "Thomas" ');
         echo "<pre>";
         print_r($email);
         echo "</pre>";
         echo "<pre>";
         print_r($email1);
         echo "</pre>";
-        //exit(0);
+        //exit(0);*/
         ?>
         
         
