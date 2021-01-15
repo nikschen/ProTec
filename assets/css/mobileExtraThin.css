@@ -1,5 +1,10 @@
 @media screen and (max-width: 600px) {
 
+    .Site-content {
+
+        min-height: calc(100vh - 7.474em - 8.938em);
+    }
+
     .protecLogoMinimal{
         display: block;
         height:3.2em;
@@ -28,13 +33,13 @@
         position: fixed;
         right: 0;
         left: 0;
+        top:4em;
         box-shadow: 0 4px 2px #27272780;
         -webkit-box-shadow: 0 4px 2px #27272780;
         -moz-box-shadow: 0 4px 2px #27272780;
         justify-content: center;
         flex-wrap: nowrap;
         height: 2.8em;
-        margin-top:1.5em;
 
     }
     .searchNavContainerMinimal form{
@@ -70,7 +75,7 @@
     }
 
     .Site-content{
-        margin-top: 1em;
+        margin-top: 2.5em;
     }
 
 }
