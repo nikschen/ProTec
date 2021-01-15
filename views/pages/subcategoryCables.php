@@ -8,12 +8,12 @@
             <li>
                     <div class="element">
                         <a href="index.php?c=pages&a=categoryElectronic">
-                            <img src="\src\images\1.png\" alt="Bild Zubehör">
-                            <p><?=$prodName?></p></a>
+                            <img src="\src\images\1<?=$prodID?>.png" alt="Bild Zubehör">
+                            <p><?$prodName?></p></a>
                     </div>
             </li>
             </div>
-            ;
+
 
         <? };?>
 

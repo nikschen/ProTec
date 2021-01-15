@@ -160,15 +160,17 @@ class PagesController extends \protec\core\Controller
     }
     public function actionSubcategoryCables()
     {
+        $prodID=[];
+        $prodNames=[];
         $products=protec\model\Product::find('category="Kabel"');
-        foreach($products as $products['productID'] =>$productID)
+        foreach($products as  $productID=>$products['productID'])
         {
-            $prodID=[];
+
             array_push($prodID,$productID);
         }
-        foreach($products as $products['prodName'] =>$prodName)
+        foreach($products as  $prodName => $products['prodName'])
         {
-            $prodNames=[];
+
             array_push($prodNames,$prodName);
         }
         $title='ProTec > Elektronik > Kabel';
