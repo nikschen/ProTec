@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 header {
-    background-color: #d7dae6;
+
+    height:inherit;
     font-family: 'Nanum Gothic', sans-serif;
-    height: 4.5em;
 }
 
 .headerContainer {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    height:inherit;
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
     background-color: #358edb;
-    /*background: linear-gradient(45deg, #FFD700, #FF0000);*/
     position: fixed;
     /* Set the navbar to fixed position */
     right: 0;
@@ -39,7 +39,7 @@ header {
     text-align: center;
     padding: 6px 10px;
     text-decoration: none;
-    height: 1.6rem;
+    height: inherit;
 }
 
 .navbar .navigation {
@@ -96,6 +96,25 @@ header {
     transition: 0.3s;
 }
 
+.protecLogoContainer {
+    height: inherit;
+}
+
+.protecLogoContainer a {
+    height: 3.5em;
+}
+
+.protecLogo {
+    height: 4.5em;
+}
+
+.protecLogoMinimal{
+    display:none;
+}
+
+
+
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -136,11 +155,23 @@ header {
 .dropbtn a {
     font-size: 1.67em;
     height: inherit;
+
 }
+
 
 .dropdown-content .dropdownContentElement {
     display: block;
     min-width: inherit;
+}
+
+.categoryTitle{
+    font-size: inherit;
+    margin-left: 0.2em;
+    text-align: center;
+    display:inline-list-item;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
 }
 
 .searchNavContainer {
@@ -155,6 +186,8 @@ header {
     border: none;
     margin: 1.25em 0em;
     display:block;
+
+    width:fit-content;
 }
 
 .searchContainer input[type=text] {
@@ -183,24 +216,20 @@ header {
     font-size: 4.5em;
 }
 
+.searchNavContainerMinimal{
+    display:none;
+}
 
 
 textarea:focus,
 input:focus {
     outline: none;
 }
-
-.protecLogoContainer {
-    height: inherit;
+input:focus::placeholder {
+    color: transparent;
 }
 
-.protecLogoContainer a {
-    height: 3.5em;
-}
 
-.protecLogo {
-    height: 4.5em;
-}
 
 .loginSymbol {
     height: 2em;
@@ -208,11 +237,13 @@ input:focus {
 
 .loginContainer {
     height: 4.5em;
+
 }
 
 .loginContainer a {
-    height: 2.5em;
-    font-size: 1.5em;
+    height: 2em;
+    font-size: 1em;
+    margin-top: 0.5em;
 }
 
 #Login-Smart {
