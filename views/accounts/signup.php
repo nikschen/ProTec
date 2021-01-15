@@ -1,4 +1,5 @@
-<body>
+<body class="Site">
+<main class="Site-content">
     <?php if(isset($errors) && count($errors) > 0) : ?>
      <div class="error-message" style ="border: 1px dottet red">
      <ul>
@@ -71,6 +72,6 @@
        
     
     </div>
-
+</main>
 </body>
 
