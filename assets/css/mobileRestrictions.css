@@ -1,4 +1,4 @@
-@media screen and ( max-width: 900px) {
+@media screen and ( max-width: 1050px) {
 
     .flex-container-footer .footerItems{
         display: list-item;
@@ -13,5 +13,35 @@
         transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s, padding 0.5s 0.25s;
 
     }
+    .collapsed{
+        height:0px;
+    }
+    .collapsible input:checked ~ .collapsed {
+        font-size: 16px;
+        opacity: 1;
+        height: auto;
+        padding: 5px 0;
+        /* grow, then fade in */
+        transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
+    }
+
+    .Site-content{
+        height:max-content;
+        flex-grow: 1;
+    }
+
+    .categoryTitle{
+        display:none;
+    }
+
+
+    .loginSymbol{
+        margin-top: 0.5em;
+    }
+
+    .loginText{
+        display:none;
+    }
+
 
 }

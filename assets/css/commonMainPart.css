@@ -19,7 +19,38 @@ main{
 
 .Site-content {
 
-    padding-top: 1em;
     flex: 1;
     font-family: 'Open Sans', sans-serif;
+}
+
+.element p {
+    font-size: small;
+}
+
+img {
+    max-width: 9em;
+    max-height: 9em;
+    flex: 1;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    height: 25%;
+    align-items: flex-end;
+}
+
+.contentWrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.element {
+    /*border: double;*/
+    text-align: center;
+}
+
+.element:hover {
+    box-shadow: 5px 10px 18px #888888;
 }

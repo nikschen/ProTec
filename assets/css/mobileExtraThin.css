@@ -1,0 +1,76 @@
+@media screen and (max-width: 600px) {
+
+    .protecLogoMinimal{
+        display: block;
+        height:3.2em;
+    }
+    .protecLogo{
+        display:none;
+        height:inherit;
+    }
+
+    .navbar{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+    }
+
+    .searchNavContainer{
+        display:none;
+    }
+
+    .searchNavContainerMinimal{
+
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        background-color: #358edb;
+        position: fixed;
+        right: 0;
+        left: 0;
+        box-shadow: 0 4px 2px #27272780;
+        -webkit-box-shadow: 0 4px 2px #27272780;
+        -moz-box-shadow: 0 4px 2px #27272780;
+        justify-content: center;
+        flex-wrap: nowrap;
+        height: 2.8em;
+        margin-top:1.5em;
+
+    }
+    .searchNavContainerMinimal form{
+        height:2em;
+        width:inherit;
+        background-color: #FFFFFF;
+    }
+
+    .searchContainerMinimal{
+
+        background-color:#358edb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+        padding:0;
+        border:0;
+    }
+
+    .searchContainerMinimal input[type=text] {
+        border: none;
+        font-size: 1em;
+    }
+
+    .searchContainerMinimal button[type=submit] {
+        font-size: 1em;
+        background-color: #FFFFFF;
+        border: none;
+        height: inherit;
+    }
+    .searchContainerMinimal button[type=submit] img {
+        height: 1em;
+    }
+
+    .Site-content{
+        margin-top: 1em;
+    }
+
+}
