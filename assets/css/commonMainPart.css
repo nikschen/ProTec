@@ -49,6 +49,11 @@ img {
     color: black;
 }
 
+.contentWrapper .element{
+    margin-left: 0.313em;
+    margin-right: 0.313em;
+}
+
 .element {
     /*border: double;*/
     text-align: center;
