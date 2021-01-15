@@ -82,18 +82,22 @@ header {
     color: black;
     text-decoration: none;
     display: block;
+    width:inherit;
+    min-width: 10em;
 }
 
 .navigationContainer .dropdown-content a:hover {
     background-color: rgb(73, 168, 223);
     color: black;
     transition: 0.3s;
+    width:inherit;
 }
 
 .navigationContainer .dropdown:hover {
     background-color: rgb(73, 168, 223);
     color: black;
     transition: 0.3s;
+    width:inherit;
 }
 
 .protecLogoContainer {
@@ -119,31 +123,34 @@ header {
     position: relative;
     display: inline-block;
     font-family: 'Nanum Gothic', sans-serif;
+
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 2;
     font-family: 'Open Sans', sans-serif;
+    width: inherit;
 }
 
 .dropdown-content a {
     font-size: 1.3em;
     font-family: 'Open Sans', sans-serif;
-    width: inherit;
+    width: 100%;
+    text-align: center;
 }
 
 .categoryLogo  {
-    width: 2em;
-    height: 2em;
+    width: 1.8em;
+    height: 1.8em;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+    width: inherit;
 }
 
 .dropdown-content li {
