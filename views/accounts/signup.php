@@ -18,9 +18,15 @@
     
     
   
-        <?$email= \protec\model\Customer::findOne();
+        <?
+        $email= \protec\model\Customer::find();
+        $firstName = "Niklas";
+        $email1 = \protec\model\Customer::findOne();
         echo "<pre>";
         print_r($email);
+        echo "</pre>";
+        echo "<pre>";
+        print_r($email1);
         echo "</pre>";
         //exit(0);
         ?>

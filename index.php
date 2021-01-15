@@ -23,9 +23,7 @@ $actionName = $_GET['a'] ?? 'index';
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
 
-/*$email= new \protec\model\Customer(['firstName' => 'Brigitte']);
-print_r($email);
-exit(0);*/
+
 //$data = new Customer;
 //$Customer= Customer::findOne();
 //;
