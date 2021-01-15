@@ -1,25 +1,21 @@
-<head>
-    <link rel="stylesheet" href="assets/css/registration.css">
-    <script type="text/javascript" src="assets\js\registerform.js"></script><body class="Site">
-
-</head>
+<body class="Site">
 <main class="Site-content">
+
     <?php if(isset($errors) && count($errors) > 0) : ?>
      <div class="error-message" style ="border: 1px dottet red">
      <ul>
          <?php foreach($errors as $key => $value) : ?>
-            <li><?=$value?></li>   
+            <li><?=$value?></li>
             <?php endforeach?>
          </ul>
          </div>
          <?php endif; ?>
-    
+
    
 
     <div class="registrationForm">
 
-   
-        </ul>
+
     
     
   
@@ -73,8 +69,6 @@
             <input type="submit" name="submit" value="Absenden"></input>
 
         </form>
-       
-    
     </div>
 </main>
 </body>

@@ -53,7 +53,7 @@
             E-Mail: mail@verbraucher-schlichter.de<br>
             Webseite: www.verbraucher-schlichter.de<br><br>
 
-            Die ProTec GmbH beteiligt sich <u>nicht</u> an Verbraucherschlichtungsverfahren vor der zuvor genannten Verbraucherschlichtungsstelle nach dem Verbraucherstreitbeilegungsgesetz.<br><br>
+            <p>Die ProTec GmbH beteiligt sich <u>nicht</u> an Verbraucherschlichtungsverfahren vor der zuvor genannten Verbraucherschlichtungsstelle nach dem Verbraucherstreitbeilegungsgesetz.</p><br><br>
 
 </main>
 </body>
