@@ -106,3 +106,7 @@ img {
     padding-left: 2%;
     padding-bottom: 20px;
 }
+
+.itemList{
+    list-style-type: none;
+}

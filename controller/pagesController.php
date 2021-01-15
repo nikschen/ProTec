@@ -1,5 +1,6 @@
 <?php
 
+
 class PagesController extends \protec\core\Controller
 {
 	
@@ -127,35 +128,54 @@ class PagesController extends \protec\core\Controller
         $title='ProTec > Newsletter';
         $this->setParam('title', $title);
 	}
-	public function actioncontactForm()
+	public function actionContactForm()
     {
         $title='ProTec > Kontaktformular';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryRaspi()
+	public function actionCategoryRaspi()
     {
         $title='ProTec > RaspberryPi';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryElectronic()
+	public function actionCategoryElectronic()
     {
         $title='ProTec > Elektronik';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryComputer()
+	public function actionCategoryComputer()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryNew()
+	public function actionCategoryNew()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
 	}
-	public function actioncategorySensors()
+	public function actionCategorySensors()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
+    }
+    public function actionSubcategoryCables()
+    {
+        $products=protec\model\Product::find('category="Kabel"');
+        foreach($products as $products['productID'] =>$productID)
+        {
+            $prodID=[];
+            array_push($prodID,$productID);
+        }
+        foreach($products as $products['prodName'] =>$prodName)
+        {
+            $prodNames=[];
+            array_push($prodNames,$prodName);
+        }
+        $title='ProTec > Elektronik > Kabel';
+        $this->setParam('title', $title);
+        $this->setParam('products', $products);
+        $this->setParam('prodID', $prodID);
+        $this->setParam('prodNames', $prodNames);
     }
 
 
