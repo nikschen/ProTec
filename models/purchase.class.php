@@ -1,5 +1,6 @@
 <?php
-
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 class Purchase extends \protec\core\Model
 {
     const TABLENAME = '`Purchase`';
@@ -7,11 +8,11 @@ class Purchase extends \protec\core\Model
     protected $scheme = 
     [
 
-        'productID'         => ['type' => Model::TYPE_INT],
-        'createdAt'         => ['type' => Model::TYPE_STRING],
-        'updatedAt'         => ['type' => Model::TYPE_STRING],
-        'custID'            => ['type' => Model::TYPE_INT], //Foreign Key auf Customers
-        'shippingAddressID' => ['type' => Model::TYPE_INT] //Foreign Key auf Addresses
+        'productID'         => ['type' => M::TYPE_INT],
+        'createdAt'         => ['type' => M::TYPE_STRING],
+        'updatedAt'         => ['type' => M::TYPE_STRING],
+        'custID'            => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'shippingAddressID' => ['type' => M::TYPE_INT] //Foreign Key auf Addresses
 
     ];
 }

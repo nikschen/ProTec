@@ -2,8 +2,8 @@
 
 
 
-//fresh changed
-
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 class Customer extends \protec\core\Model
 {
     const TABLENAME = '`Customer`';
@@ -11,13 +11,14 @@ class Customer extends \protec\core\Model
     protected $scheme = 
     [
 
-        'custID'      => ['type' => Model::TYPE_INT],
-        'createdAt'   => ['type' => Model::TYPE_STRING],
-        'updatedAt'   => ['type' => Model::TYPE_STRING],
-        'firstName'   => ['type' => Model::TYPE_STRING, 'max'=>45],
-        'lastName'    => ['type' => Model::TYPE_STRING, 'max'=>100],
-        'birthDate'   => ['type' => Model::TYPE_DATE],
-        'eMail'       => ['type' => Model::TYPE_STRING, 'max'=>150]
+        'custID'      => ['type' => M::TYPE_INT],
+        'createdAt'   => ['type' => M::TYPE_STRING],
+        'updatedAt'   => ['type' => M::TYPE_STRING],
+        'firstName'   => ['type' => M::TYPE_STRING, 'max'=>45],
+        'lastName'    => ['type' => M::TYPE_STRING, 'max'=>100],
+        'birthDate'   => ['type' => M::TYPE_DATE],
+        'eMail'       => ['type' => M::TYPE_STRING, 'max'=>150]
 
     ];
 }
+

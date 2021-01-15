@@ -1,5 +1,6 @@
 <?php
-
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 class ProductBasket extends \protec\core\Model
 {
     const TABLENAME = '`ProductBasket`';
@@ -7,9 +8,9 @@ class ProductBasket extends \protec\core\Model
     protected $scheme = 
     [
 
-        'purchaseID'        => ['type' => Model::TYPE_INT], //Foreign Key auf Purchases
-        'quantityWanted'    => ['type' => Model::TYPE_INT],
-        'productID'         => ['type' => Model::TYPE_INT] //Foreign Key auf Products
+        'purchaseID'        => ['type' => M::TYPE_INT], //Foreign Key auf Purchases
+        'quantityWanted'    => ['type' => M::TYPE_INT],
+        'productID'         => ['type' => M::TYPE_INT] //Foreign Key auf Products
 
     ];
 }

@@ -1,5 +1,6 @@
 <?php
-
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 class PayDetail extends \protec\core\Model
 {
     const TABLENAME = '`PayDetail`';
@@ -7,13 +8,13 @@ class PayDetail extends \protec\core\Model
     protected $scheme = 
     [
 
-        'paymentID'         => ['type' => Model::TYPE_INT], 
-        'billingAddressID'  => ['type' => Model::TYPE_INT], //Foreign Key auf Addresses
-        'custID'            => ['type' => Model::TYPE_INT], //Foreign Key auf Customers
-        'createdAt'         => ['type' => Model::TYPE_STRING],
-        'updatedAt'         => ['type' => Model::TYPE_STRING],
-        'paymentMethod'     => ['type' => Model::TYPE_ENUM,'values' => ['IBAN','PayPal','Invoice']],
-        'paymentNumber'     => ['type' => Model::TYPE_STRING, 'max'=>150]
+        'paymentID'         => ['type' => M::TYPE_INT], 
+        'billingAddressID'  => ['type' => M::TYPE_INT], //Foreign Key auf Addresses
+        'custID'            => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'createdAt'         => ['type' => M::TYPE_STRING],
+        'updatedAt'         => ['type' => M::TYPE_STRING],
+        'paymentMethod'     => ['type' => M::TYPE_ENUM,'values' => ['IBAN','PayPal','Invoice']],
+        'paymentNumber'     => ['type' => M::TYPE_STRING, 'max'=>150]
 
     ];
 }

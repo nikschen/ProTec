@@ -1,5 +1,6 @@
 <?php
-
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 class Address extends \protec\core\Model
 {
     const TABLENAME = '`Address`';
@@ -7,14 +8,14 @@ class Address extends \protec\core\Model
     protected $scheme = 
     [
 
-        'addressID'     => ['type' => Model::TYPE_INT],
-        'createdAt'     => ['type' => Model::TYPE_STRING],
-        'updatedAt'     => ['type' => Model::TYPE_STRING],
-        'street'        => ['type' => Model::TYPE_STRING, 'max'=>255],
-        'streetNumber'  => ['type' => Model::TYPE_STRING, 'max'=>10],
-        'zipCode'       => ['type' => Model::TYPE_STRING, 'max'=>12],
-        'city'          => ['type' => Model::TYPE_STRING, 'max'=>60],
-        'country'       => ['type' => Model::TYPE_STRING, 'max'=>60]
+        'addressID'     => ['type' => M::TYPE_INT],
+        'createdAt'     => ['type' => M::TYPE_STRING],
+        'updatedAt'     => ['type' => M::TYPE_STRING],
+        'street'        => ['type' => M::TYPE_STRING, 'max'=>255],
+        'streetNumber'  => ['type' => M::TYPE_STRING, 'max'=>10],
+        'zipCode'       => ['type' => M::TYPE_STRING, 'max'=>12],
+        'city'          => ['type' => M::TYPE_STRING, 'max'=>60],
+        'country'       => ['type' => M::TYPE_STRING, 'max'=>60]
 
     ];
 }

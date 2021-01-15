@@ -1,6 +1,7 @@
 <?php
 
-//namespace protec\core;
+namespace protec\model;//fresh changed
+use \protec\core\Model as M;
 
 class Account extends \protec\core\Model
 {
@@ -9,12 +10,12 @@ class Account extends \protec\core\Model
     protected $scheme = 
     [
 
-        'custID'        => ['type' => Model::TYPE_INT], //Foreign Key auf Customers
-        'createdAt'     => ['type' => Model::TYPE_STRING],
-        'updatedAt'     => ['type' => Model::TYPE_STRING],
-        'username'      => ['type' => Model::TYPE_STRING,'max'=>150], //Foreign Key auf eMail in Customers
-        'passwordHash'  => ['type' => Model::TYPE_STRING, 'max'=>255],
-        'validated'     => ['type' => Model::TYPE_BOOL]  //tinyint(1) in mysql
+        'custID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'createdAt'     => ['type' => M::TYPE_STRING],
+        'updatedAt'     => ['type' => M::TYPE_STRING],
+        'username'      => ['type' => M::TYPE_STRING,'max'=>150], //Foreign Key auf eMail in Customers
+        'passwordHash'  => ['type' => M::TYPE_STRING, 'max'=>255],
+        'validated'     => ['type' => M::TYPE_BOOL]  //tinyint(1) in mysql
 
     ];
 }
