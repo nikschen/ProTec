@@ -1,3 +1,7 @@
+<head>
+
+
+<head>
 <body class="Site">
 <main class="Site-content">
     <?php if(isset($errors) && count($errors) > 0) : ?>
