@@ -21,7 +21,7 @@ main{
 
 .Site-content {
 
-    min-height: calc(100vh - 4.675em - 13.375em);
+    min-height: calc(100vh - 4.675em - 14.438em);
     flex: 1;
     font-family: 'Open Sans', sans-serif;
 }

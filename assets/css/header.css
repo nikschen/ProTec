@@ -60,45 +60,7 @@ header {
     position: relative;
 }
 
-.navigationContainer {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
 
-.navigationContainer .dropdown {
-    margin: 10px;
-    text-decoration: none;
-    padding: 5px 7px;
-}
-
-.navigationContainer .dropdown>a {
-    text-decoration: none;
-    position: relative;
-    color: rgb(50, 54, 63);
-}
-
-.navigationContainer .dropdown-content a {
-    color: black;
-    text-decoration: none;
-    display: block;
-    width:inherit;
-    min-width: 10em;
-}
-
-.navigationContainer .dropdown-content a:hover {
-    background-color: rgb(73, 168, 223);
-    color: black;
-    transition: 0.3s;
-    width:inherit;
-}
-
-.navigationContainer .dropdown:hover {
-    background-color: rgb(73, 168, 223);
-    color: black;
-    transition: 0.3s;
-    width:inherit;
-}
 
 .protecLogoContainer {
     height: inherit;
@@ -133,7 +95,7 @@ header {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 2;
     font-family: 'Open Sans', sans-serif;
-    width: inherit;
+    width: 100%;
 }
 
 .dropdown-content a {
