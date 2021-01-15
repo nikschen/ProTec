@@ -38,7 +38,7 @@
         
         
         <form method="POST">
-        <h1>Registrieren Sie sich als neuer Kunde von ProTec</h1>
+        <h1>Registrieren Sie sich als neuer Kunde von ProTec!</h1>
         <p>Willkommen in der Welt von Morgen...heute schon.</p>
         <h2>Ihre Anmeldedaten</h2>
         <hr>
