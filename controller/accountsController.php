@@ -42,6 +42,11 @@ class AccountsController extends \protec\core\Controller
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
 
+			///
+		
+		//
+
+
 
 		//Überprüfung der Eingaben in den SignUp Forms wird per JS geprüft (zusätzlich!!! da es ja auch ohne gehen soll)
 		//null Prüfung entfällt da required gesetzt wird im html form
@@ -108,9 +113,22 @@ class AccountsController extends \protec\core\Controller
 		if(count($errors)===0)
 		{
 			//wenn keine Fehler sind dann prüfen ob in Datenbank nicht schon was vorhanden ist.
+			$db = $GLOBALS['db'];
+			print_r($email);
+			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 			
-
-
+			if(count($emailFromDataBase) !== 0)
+			{
+				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
+			}
+			else 
+			{
+			print_r("keine übereinstimmung");
+			}
+			print_r($emailFromDataBase);
+			exit(0);
+		
+		$this->setParam('errors', $errors);
 
 
 
