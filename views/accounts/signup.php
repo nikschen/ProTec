@@ -26,6 +26,12 @@
     
     
   
+        <?$email= \protec\model\Customer::findOne();
+        echo "<pre>";
+        print_r($email);
+        echo "</pre>";
+        //exit(0);
+        ?>
         
         
         <form method="POST">

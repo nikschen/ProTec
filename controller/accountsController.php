@@ -126,7 +126,6 @@ class AccountsController extends \protec\core\Controller
 
 		}
 		}
-		//$this->setParams('errors', $errors); //weiß leider nicht, warum ich dem keinen setParams übergeben kann
 		$this->setParam('success', $success);
 	}
 }

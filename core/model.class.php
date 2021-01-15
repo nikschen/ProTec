@@ -13,7 +13,7 @@ abstract class Model
     const TYPE_ENUM     = 'enum';
     
     protected $scheme = [];
-    private $data=[];//geändert von Protected auf private im Rahmen der Fehlersuche
+    protected $data=[];//geändert von Protected auf private im Rahmen der Fehlersuche
 
     private $values = [];
     
@@ -53,7 +53,7 @@ abstract class Model
         }
     }
 
-    public static function find($where='')
+    public static function find($where='1')
     {
         
         
@@ -79,7 +79,7 @@ abstract class Model
         
     }
 
-    public static function findOne($where='')
+    public static function findOne($where='1')
     {
         
         $db=$GLOBALS['db'];

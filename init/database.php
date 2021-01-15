@@ -10,11 +10,11 @@ $options    = [
 ];
 
 
-$database = null;
+$db = null;
 
 try
 {
-	$database = new PDO($dns, $dbuser, $dbpassword, $options);
+	$db= new PDO($dns, $dbuser, $dbpassword, $options);
 }
 catch(\PDOException $e)
 {
