@@ -7,7 +7,6 @@ footer {
     -webkit-box-shadow: 0px 4px 2px #27272780;
     -moz-box-shadow: 0px 4px 2px #27272780;
     background-size: 100%;
-
 }
 
 
@@ -110,6 +109,4 @@ footer a:hover {
 .collapsed a {
     text-align: left;
 }
-.collapsed .partnerLogoAlign{
-    text-align: center;
-}
+

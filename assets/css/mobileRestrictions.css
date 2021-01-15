@@ -1,5 +1,10 @@
 @media screen and ( max-width: 1050px) {
 
+    .Site-content {
+
+        min-height: calc(100vh - 4.675em - 8.938em);
+    }
+
     .flex-container-footer .footerItems{
         display: list-item;
         justify-content: center;
@@ -14,13 +19,13 @@
 
     }
     .collapsed{
-        height:0px;
+        height:0;
     }
     .collapsible input:checked ~ .collapsed {
-        font-size: 16px;
+        font-size: 1em;
         opacity: 1;
-        height: auto;
-        padding: 5px 0;
+        height: inherit;
+        padding: 0.313em 0;
         /* grow, then fade in */
         transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
     }
@@ -43,5 +48,13 @@
         display:none;
     }
 
+    .collapsed .partnerLogoAlign{
+        text-align: center;
+        height:0;
+    }
+
+    .collapsible input:checked ~ .collapsed .partnerLogoAlign{
+        height: inherit;
+    }
 
 }
