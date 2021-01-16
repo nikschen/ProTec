@@ -30,11 +30,7 @@ main{
     font-size: small;
 }
 
-img {
-    max-width: 9em;
-    max-height: 9em;
-    flex: 1;
-}
+
 
 .contentWrapper {
     display: flex;
@@ -52,6 +48,11 @@ img {
 .contentWrapper .element{
     margin-left: 0.313em;
     margin-right: 0.313em;
+}
+.contentWrapper .element img{
+    max-width: 9em;
+    max-height: 9em;
+    flex: 1;
 }
 
 .element {

@@ -2,9 +2,8 @@
     padding:0;
     display: flex;
     flex-direction: row;
-    width: 25%;
-    height: 25%;
     align-items: flex-end;
+    flex-wrap: wrap;
 }
 .subcategoryContent a {
     text-decoration: none;
@@ -12,11 +11,24 @@
 }
 
 .subcategoryContent .element{
-    margin-left: 0.313em;
-    margin-right: 0.313em;
+
     text-align: center;
+    width:300px;
+
+}
+.subcategoryContent .element img{
+    max-width: 9em;
+    max-height: 9em;
+    flex: 1;
+
 
 }
 .subcategoryContent .element:hover {
     box-shadow: 5px 10px 18px #888888;
+}
+
+.subcategoryContent .element p {
+    display:block;
+    flex-wrap: wrap;
+    text-align: center;
 }
