@@ -161,6 +161,7 @@ class PagesController extends \protec\core\Controller
     public function actionSubcategory()
     {
         $category = $_GET['cat'];
+        $subcategory = $_GET['subcat'];
         $prodIDs=[];
         $prodNames=[];
         $categoryToBeSearchedFor='category='.'"'.$category.'"';
@@ -175,7 +176,7 @@ class PagesController extends \protec\core\Controller
 
 
 
-        $title='ProTec > Elektronik > '.$category;
+        $title='ProTec > '.$subcategory.' > '.$category;
         $this->setParam('title', $title);
         $this->setParam('products', $products);
         $this->setParam('prodIDs', $prodIDs);

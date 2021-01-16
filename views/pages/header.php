@@ -10,10 +10,10 @@
                     <li class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="src/icons/categories/elektronikIcon.png" alt="Elek." ><span class="categoryTitle">Elektronik</span></a></li>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&cat=Kabel">Kabel</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Werkzeug">Werkzeug</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Bauteile">Bauteile</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Zubehör">Zubehör</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Kabel">Kabel</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Werkzeug">Werkzeug</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Bauteile">Bauteile</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Zubehör">Zubehör</a>
                     </div>
 
 
@@ -23,10 +23,10 @@
 
                     <div class=dropdown-content>
                         <div class=dropdownContentElement>
-                            <a href="index.php?c=pages&a=subcategory&cat=Pi-1/2/3/4/Zero">Pi-1/2/3/4/Zero</a>
+                            <a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Pi-1/2/3/4/Zero">Pi-1/2/3/4/Zero</a>
                         </div>
                         <div class=dropdownContentElement>
-                            <a href="index.php?c=pages&a=subcategory&cat=Gehäuse">Gehäuse</a>
+                            <a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Gehäuse">Gehäuse</a>
                         </div>
                     </div>
 
@@ -36,9 +36,9 @@
                     <li class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="src/icons/categories/computerIcon.png" alt="Comp." ><span class="categoryTitle">Computer</span></a></li>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&cat=Barebones">Barebones</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Komplett-PCs">Komplett-PCs</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Arbeitsspeicher">Arbeitsspeicher</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Barebones">Barebones</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Komplett-PCs">Komplett-PCs</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Arbeitsspeicher">Arbeitsspeicher</a>
                     </div>
 
 
@@ -47,11 +47,11 @@
                     <li class="dropbtn"> <a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></li>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&cat=Kabel">Kabel</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Werkzeug">Werkzeug</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Verbinder">Verbinder</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Bauteile">Bauteile</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Zubehör">Zubehör</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Kabel">Kabel</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Werkzeug">Werkzeug</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Verbinder">Verbinder</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Bauteile">Bauteile</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Zubehör">Zubehör</a>
                     </div>
                     </li>
 
@@ -60,10 +60,10 @@
                     <li class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="src/icons/categories/sensorenIcon.png" alt="Sens." ><span class="categoryTitle">Sensoren</span></a></li>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&cat=Temperatursensoren">Temperatursensoren</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Bewegungsmelder">Bewegungsmelder</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=Strommesser">Strommesser</a>
-                        <a href="index.php?c=pages&a=subcategory&cat=GyroSensor">GyroSensor</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">Temperatursensoren</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Bewegungsmelder">Bewegungsmelder</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Strommesser">Strommesser</a>
+                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a>
                     </div>
                     </li>
 

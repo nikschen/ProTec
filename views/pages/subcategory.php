@@ -10,7 +10,7 @@
 
             <li class="categoryItem">
                     <div class="element">
-                        <a href="index.php?c=pages&a=category&cat=cables&pid=<?=$prodID?>">
+                        <a href="index.php?c=pages&a=product&pid=<?=$prodID?>">
                             <img src="\src\images\<?=$prodID?>.png">
                             <p><?=$prodName?></p></a>
                     </div>
