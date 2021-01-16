@@ -10,7 +10,7 @@ class Account extends \protec\core\Model
     protected $scheme = 
     [
 
-        'custID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'customerID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
         'createdAt'     => ['type' => M::TYPE_STRING],
         'updatedAt'     => ['type' => M::TYPE_STRING],
         'username'      => ['type' => M::TYPE_STRING,'max'=>150], //Foreign Key auf eMail in Customers
