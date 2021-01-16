@@ -20,6 +20,7 @@ abstract class Model
     public static function tablename()
     {
         $class = get_called_class();
+        print_r("callingclass: " . $class);
         if(defined($class.'::TABLENAME'))
         {
             return $class::TABLENAME;
@@ -29,16 +30,25 @@ abstract class Model
     
     public function __construct($values)
     {
-        foreach ($this->scheme as $key => $value)
+        try
         {
-            if(isset($values[$key]))
+            foreach($this->scheme as $key => $value)
             {
-                $this->{$key}=$values[$key];
+                if(isset($values[$key]))
+                {
+                    $this->$key = $values[$key];
+                }
+                else
+                {
+                    $this->$key = null;
+                }
             }
-            else
-            {
-                $this->{$key}=null;
-            }
+            
+        }
+        catch(\Exception $error)
+        {
+            print_r($error);
+            exit(1);
         }
     }
 
@@ -130,26 +140,28 @@ abstract class Model
     public function __set($key, $value)
     {
         
-        if(array_key_exists($key,$this->scheme))
+        if(isset($this->scheme[$key]))
         {
-            $this->data[$key] = $value;
+            $this->values[$key] = $value;
         }
         else
         {
-        throw new \Exception('You can not write to property "'.$key.'"" for the class "'.get_called_class()); 
+            $className = get_called_class();
+            throw new \Exception(`${key} does not exists in this class ${className}`);
         }
     }
 
     public function __get($key)
     {
     
-        if(array_key_exists($key,$this->data))
+        if(isset($this->scheme[$key]))
         {
-            return $this->data[$key];
+            return $this->values[$key];
         }
         else
         {
-        throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
+            $className = get_called_class();
+            throw new \Exception(`${key} does not exists in this class ${className}`);
         }
     }
 
@@ -231,38 +243,45 @@ abstract class Model
         return count($occuringErrors) <0 ? $occuringErrors : true;
     }
 
-    public function insert($values, $toBeChanged)
+    public function insert()
     {
         
-        $db=$GLOBALS['db'];
-        $columnList='(`';
-        $columnList.=implode('`, `', $toBeChanged); //takes values of an array and converts them into string in scheme: "attribute, attribute, attribute, ..."
-        $valueList=implode(', ', $values); //takes values of an array and converts them into string in scheme: "Value, Value, Value, ..."
-        $columnList.='`)';
-
-//        foreach($this->scheme as $key =>$schemeOptions)
-//        {
-//            $columnList .= '`'.$key.'`,';
-//        }
-
-        $columnList=trim($columnList,',');
-
-        try 
-        {
-            $sql='INSERT INTO ' . self::tablename() . $columnList . 'VALUES (' . $valueList . ')';
-            $statement = $db->prepare($sql);
-            $statement->execute();
-            
-            return true;
-
-        }
-        catch(\PDOException $e)
-        {
-            $errors[]='Error inserting '.get_called_class();
-        }
-        return false;
+             // TODO: Implement insert
+             $db = $GLOBALS['db'];
+             $tableName = self::tablename();
+             $sqlStr = "INSERT INTO `${tableName}` (";
+             $valuesStr = "(";
+             foreach($this->scheme as $key => $value)
+             {
+                 $sqlStr.=$key.',';
+                 $valuesStr.=':'.$key.',';
+             }
+     
+             $sqlStr = rtrim($sqlStr, ',');
+             $valuesStr = rtrim($valuesStr, ',');
+     
+             $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+     
+             try
+             {
+                 $stmt=$db->prepare($sqlStr);
+                 $stmt->execute($this->values);
+                 $this->id = $db->lastInsertId();
+             }
+             catch(\PDOException $e)
+             {
+                 print_r($e);
+             }
     }
 
+
+
+
+
+
+
+
+    
     public function update ($values) //takes values of an array with entries in scheme "AttributeToBeChanged=Value" and converts them into string in scheme: "Attribute=Value, Attribute=Value, Attribute=Value, ..."
      {
         $db=$GLOBALS['db'];

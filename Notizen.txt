@@ -80,3 +80,72 @@ POST ARRAY im SIGNUP
     [country] => asd
     [submit] => Absenden
 )
+
+
+Altes Insert
+
+public function insert($values, $toBeChanged)
+    {
+        
+        $db=$GLOBALS['db'];
+        $columnList='(`';
+        $columnList.=implode('`, `', $toBeChanged); //takes values of an array and converts them into string in scheme: "attribute, attribute, attribute, ..."
+        $valueList=implode(', ', $values); //takes values of an array and converts them into string in scheme: "Value, Value, Value, ..."
+        $columnList.='`)';
+        
+
+//        foreach($this->scheme as $key =>$schemeOptions)
+//        {
+//            $columnList .= '`'.$key.'`,';
+//        }
+        print_r("valueList: " . $valueList);
+        $columnList=trim($columnList,',');
+
+        try 
+        {
+            $sql='INSERT INTO ' . self::tablename() . $columnList . 'VALUES (' . $valueList . ')';
+            print_r("Ihr SQL STATEMENT" . $sql);
+            $statement = $db->prepare($sql);
+            $statement->execute();
+            
+            return true;
+
+        }
+        catch(\PDOException $e)
+        {
+            $errors[]='Error inserting '.get_called_class();
+        }
+        return false;
+    }
+
+//zweite Version unserer
+      $db = $GLOBALS['db'];
+        //print_r("Datenbank: " . $db);
+        $tableName = self::tablename();
+        print("Tabellenname: " . $tableName) . " ";
+        $sqlStr = "INSERT INTO `${tableName}` (";
+        $valuesStr = "(";
+        foreach($this->scheme as $key => $value)
+        {
+            $sqlStr.=$key.',';
+            $valuesStr.=':'.$key.',';
+        }
+
+        $sqlStr = rtrim($sqlStr, ',');
+        $valuesStr = rtrim($valuesStr, ',');
+       
+        
+        $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+        echo "<pre>";
+        print_r("SQL: ".$sqlStr . "END SQL STATEMENT");
+        echo "</pre>";
+        try
+        {
+            $stmt=$db->prepare($sqlStr);
+            $stmt->execute($this->values);
+            $this->id = $db->lastInsertId();
+        }
+        catch(\PDOException $e)
+        {
+            print_r($e);
+        }

@@ -6,11 +6,10 @@ namespace protec\model;//fresh changed
 use \protec\core\Model as M;
 class Customer extends \protec\core\Model
 {
-    const TABLENAME = '`Customer`';
+    const TABLENAME = 'Customer';
 
     protected $scheme = 
     [
-
         'custID'      => ['type' => M::TYPE_INT],
         'createdAt'   => ['type' => M::TYPE_STRING],
         'updatedAt'   => ['type' => M::TYPE_STRING],

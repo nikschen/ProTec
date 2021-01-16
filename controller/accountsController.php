@@ -121,12 +121,14 @@ class AccountsController extends \protec\core\Controller
 			{
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
-			else 
-			{
-			print_r("keine übereinstimmung");
+			else{
+			
+
+
+				
 			}
-			print_r($emailFromDataBase);
-			exit(0);
+		
+		
 		
 		$this->setParam('errors', $errors);
 

@@ -21,15 +21,40 @@
   
         <?
         //$email= \protec\model\Customer::find();
-        /*$email = "FreeWilly@gmx.de";
-        $email = \protec\model\Customer::findOne("eMail = \"$email\"" );
+        $email1 = "FreeWilly2000@gmx.de";
+        $db = $GLOBALS['db'];
+        $firstName = "Bernd";
+        $lastName = "Nachname Jr";
+        $birthDate ="1000-03-03";
+        $email = new \protec\model\Customer(['eMail' => $email1 , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => $birthDate]);//,['firstName' => $firstName ],['lastName' => $lastName ],['birthDate' => $birthDate ]);
+        $changing = ['bernd@gmx.de', 'Bernd', 'Nachmany', '1000-02-02'];
+        
         echo "<pre>";
         print_r($email);
         echo "</pre>";
-        echo "<pre>";
+        
+       // $email->insert($email);
+        
+        
+        
+        //Working Insert Beispiel
+        
+        
+        //insert von Hand zum Testen
+        /*
+        $sql="INSERT INTO customer ( firstName, lastName, birthDate ) VALUES (\"Bernd\",\"Stelter\",\"1000-02-02\" )";
+        print_r($sql);
+        $statement = $db->prepare($sql);
+        $statement->execute();
+         */
+
+
+
+
+        /*echo "<pre>";
         print_r($email1);
-        echo "</pre>";
-        exit(0);*/
+        echo "</pre>";*/
+        exit(0);
         ?>
         
         
