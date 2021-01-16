@@ -7,7 +7,7 @@ class PagesController extends \protec\core\Controller
 
 	public function actionIndex()
 	{
-		$myValue = 'This is the Index page. If Martin did it right, you won\'t see me in the final version.';
+		$myValue = 'This is the Index page. If we did it right, you won\'t see me in the final version.';
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
         $title='ProTec > Home';
 
@@ -20,28 +20,65 @@ class PagesController extends \protec\core\Controller
 	{
 		$title='ProTec > Login';
         $this->setParam('title', $title);
+      
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
 			if(isset($_POST['submit']))
 			{
 				$email    = $_POST['email'] ?? null;
-				$password = $_POST['password'] ?? null;
+                $password = $_POST['password'] ?? null;
+                
+                //Debug
+                $errors['email'] = "Email: " . $email;
+                $errors['Password'] = "PW: " . $password;
+                
 
-				if($email === 'user' && $password === '12345678')
-				{
-					$_SESSION['loggedIn'] = true;
-					header('Location: index.php');
-				}
-				else
-				{
-					$_SESSION['loggedIn'] = false;
-				}
+                //Gibt es den Nutzer und ist das PW korrekt?
+                //1. Prüfen ob Nutzer vorhanden    check
+                //2. Herausbekommen der ID des Nutzers, wenn vorhanden
+                //3. Mit ID nach Account suchen
+                //4. Account Password mit Eingabe überprüfen
+                $db = $GLOBALS['db'];
+
+                $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
+                $loginID = $login->customerID;
+                $errors['ID'] = "Customer-ID = " . $loginID;
+                $errors['lastName'] = "Nachname des Nutzers = " . $login->lastName;
+                
+                if($login !== null)
+                {
+                    $errors['login'] = "E-Mail in Datenbank vorhanden";
+                    $account= \protec\model\Account::findOne('accountID = ' . $loginID);
+                    $PWHash = $account->passwordHash;
+                    $errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
+                    if (password_verify($password , $PWHash))
+                    {
+                        $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
+                        $_SESSION['loggedIn']= true;
+                        //header('Location: index.php');
+                    }
+                    else
+                    {
+                        $errors['Passwortüberprüfung'] = "Passwortstatus: nicht korrekt";
+                        $_SESSION['loggedIn']= false;
+                    }
+                }
+                else
+                {
+                    $errors['login'] = 'EMail existiert nicht! in Datenbank';
+                }
+                
+                
+
+			
 			}
-		}
-		else
+        }
+        $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+        $this->setParam('errors', $errors);
+		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
 			header('Location: index.php');
-		}
+		}*/
 	}
 
 	public function actionLogout()
@@ -53,8 +90,8 @@ class PagesController extends \protec\core\Controller
 			$_SESSION['loggedIn'] = false;
 		}
 
-		header('Location: index.php');
-		exit();
+		header('Location: index.php?c=pages&a=login');
+		
 	}
 
 

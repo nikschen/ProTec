@@ -19,7 +19,7 @@ class AccountsController extends \protec\core\Controller
 		$this->setParam('title', $title);
 		$errors = [];
 		$success = false;
-
+		
 	
 
 		if(isset($_POST['submit']))
@@ -33,6 +33,7 @@ class AccountsController extends \protec\core\Controller
 		$title = $_POST['title'] ?? null;//
 		$firstName = $_POST['firstName'] ?? null;//
 		$lastName = $_POST['lastName'] ?? null;// check warum ab Leerzeichen getrennt wird
+		$birthDate = $_POST['birthDate'] ?? null;
 		$salutation = $_POST['Anrede'] ?? null; //
 
 		$streetInfo= $_POST['streetInfo'] ?? null; //
@@ -117,20 +118,33 @@ class AccountsController extends \protec\core\Controller
 			print_r($email);
 			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 			
-			if(count($emailFromDataBase) !== 0)
+			if($emailFromDataBase !== null)
 			{
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
 			else{
-			
-
-
-				
+				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => $birthDate, ]);
+				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
+				$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => $password ]);
+				$NewUser->insert();
+				$NewAddress->insert();
+				$NewAccount->insert();
 			}
 		
 		
 		
 		$this->setParam('errors', $errors);
+
+
+				
+				
+
+
+
+
+
+
+
 
 
 

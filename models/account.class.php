@@ -5,12 +5,11 @@ use \protec\core\Model as M;
 
 class Account extends \protec\core\Model
 {
-    const TABLENAME = '`Account`';
+    const TABLENAME = 'Account';
 
     protected $scheme = 
     [
-
-        'custID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'accountID'    => ['type' => M::TYPE_INT], //Foreign Key auf Customers
         'createdAt'     => ['type' => M::TYPE_STRING],
         'updatedAt'     => ['type' => M::TYPE_STRING],
         'username'      => ['type' => M::TYPE_STRING,'max'=>150], //Foreign Key auf eMail in Customers

@@ -20,7 +20,6 @@ abstract class Model
     public static function tablename()
     {
         $class = get_called_class();
-        print_r("callingclass: " . $class);
         if(defined($class.'::TABLENAME'))
         {
             return $class::TABLENAME;
@@ -67,24 +66,25 @@ abstract class Model
     {
         
         
-        $db=$GLOBALS['db'];
-        $results=null;
-        
-        try 
+        $db = $GLOBALS['db'];
+        $sqlStr = 'SELECT * FROM `'.self::tablename().'` WHERE '.$where.';';
+        $results = [];
+        try
         {
-            $sql='SELECT * FROM ' . self::tablename();
-            
-            if(!empty($where))
-            {
-                $sql .= ' WHERE ' . $where . ';';
+            echo "SQL STATEMENT:       " .$sqlStr;
+            $results = $db->query($sqlStr)->fetchAll();
+            $count = count($results);
+            for ($i=0; $i < $count; ++$i)
+            { 
+                $class = get_called_class();
+                $results[$i] = new $class($results[$i]);
             }
-
-            $results=$db->query($sql)->fetchAll();;
         }
-        catch(\PDOException $e)
+        catch(\PDOException $error)
         {
-            die('Select statement failed: ' . $e->getMessage());
+            print_r($error);
         }
+
         return $results;
         
     }
@@ -92,30 +92,14 @@ abstract class Model
     public static function findOne($where='1')
     {
         
-        $db=$GLOBALS['db'];
-        $result=null;
+        $results = self::find($where);
 
-        try 
+        if(count($results) > 0)
         {
-            $sql='SELECT * FROM ' . self::tablename();
-            
-            if(!empty($where))
-            {
-                $sql .= ' WHERE ' . $where . ';';
-            }
+            return $results[0];
+        }
 
-            $result=$db->query($sql)->fetchAll();;
-            if(count($result)>1)
-            {
-                $result = $result[0];
-            }
-        
-        }
-        catch(\PDOException $e)
-        {
-            die('Select statement failed: ' . $e->getMessage());
-        }
-        return $result;
+        return null;
         
     }
 
@@ -139,6 +123,14 @@ abstract class Model
     
     public function __set($key, $value)
     {
+        /*echo "KEY: ";
+        echo "<pre>";
+        echo $key;
+        echo "</pre>";
+        echo "VALUES: ";
+        echo "<pre>";
+        echo $value;
+        echo "</pre>";*/
         
         if(isset($this->scheme[$key]))
         {
@@ -147,7 +139,7 @@ abstract class Model
         else
         {
             $className = get_called_class();
-            throw new \Exception(`${key} does not exists in this class ${className}`);
+            throw new \Exception(`${key} does not exist in this class ${className}`);
         }
     }
 
@@ -261,6 +253,7 @@ abstract class Model
              $valuesStr = rtrim($valuesStr, ',');
      
              $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
+             echo "EINFÜGEN BEFEHL: " . $sqlStr;
      
              try
              {

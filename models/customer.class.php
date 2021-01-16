@@ -10,7 +10,7 @@ class Customer extends \protec\core\Model
 
     protected $scheme = 
     [
-        'custID'      => ['type' => M::TYPE_INT],
+        'customerID'  => ['type' => M::TYPE_INT],
         'createdAt'   => ['type' => M::TYPE_STRING],
         'updatedAt'   => ['type' => M::TYPE_STRING],
         'firstName'   => ['type' => M::TYPE_STRING, 'max'=>45],

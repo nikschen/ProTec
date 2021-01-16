@@ -21,10 +21,11 @@
   
         <?
         //$email= \protec\model\Customer::find();
+        /*
         $email1 = "FreeWilly2000@gmx.de";
         $db = $GLOBALS['db'];
         $firstName = "Bernd";
-        $lastName = "Nachname Jr";
+        $lastName = "Hallelujah";
         $birthDate ="1000-03-03";
         $email = new \protec\model\Customer(['eMail' => $email1 , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => $birthDate]);//,['firstName' => $firstName ],['lastName' => $lastName ],['birthDate' => $birthDate ]);
         $changing = ['bernd@gmx.de', 'Bernd', 'Nachmany', '1000-02-02'];
@@ -33,8 +34,8 @@
         print_r($email);
         echo "</pre>";
         
-       // $email->insert($email);
-        
+        $email->insert();
+        */
         
         
         //Working Insert Beispiel
@@ -54,7 +55,7 @@
         /*echo "<pre>";
         print_r($email1);
         echo "</pre>";*/
-        exit(0);
+        //exit(0);
         ?>
         
         
@@ -73,6 +74,7 @@
 
             <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST["lastName"]);};?> required ><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value=".htmlspecialchars($_POST['firstName']);};?> required ><br>
+            <input type="text" name="birthDate" placeholder="Geburtsdatum*" <?if (isset($_POST['birthDate'])){echo "value=".htmlspecialchars($_POST['birthDate']);};?> required ><br>
             
             <input type="text" id="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required ><pre id="message"></pre><br>
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
