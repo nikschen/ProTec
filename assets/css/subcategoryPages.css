@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: flex-end;
     flex-wrap: wrap;
+    align-self: center;
 }
 .subcategoryContent a {
     text-decoration: none;
@@ -31,4 +32,11 @@
     display:block;
     flex-wrap: wrap;
     text-align: center;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
 }
