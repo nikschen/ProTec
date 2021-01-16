@@ -7,11 +7,6 @@ class PagesController extends \protec\core\Controller
 
 	public function actionIndex()
 	{
-<<<<<<< HEAD
-		$myValue = 'This is the Index page. If we did it right, you won\'t see me in the final version.';
-=======
-
->>>>>>> e9d854c5d4c7c4b4991d06fa2ed48aab79eb2d38
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
         $title='ProTec > Home';
 
