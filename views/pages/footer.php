@@ -24,12 +24,12 @@
                     <input type="checkbox" />
                     <span class="collapser"><span class="footerItemsTitle">Allgemeine Informationen</span></span>
                     <div class="collapsed">
-                        <a href="index.php?c=pages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>
-                        <a href="index.php?c=pages&a=rightOfWithdrawal">Widerrufsrecht</a>
-                        <a href="index.php?c=pages&a=privacyGuidelines">Datenschutzbestimmungen</a>
-                        <a href="index.php?c=pages&a=agb">AGB</a>
-                        <a href="index.php?c=pages&a=impressum">Impressum</a>
-                        <a href="index.php?c=pages&a=jobs">Jobangebote</a>
+                        <a href="index.php?c=infopages&a=paymentAndShippingDetails">Versand- und Zahlungsbedingungen</a>
+                        <a href="index.php?c=infopages&a=rightOfWithdrawal">Widerrufsrecht</a>
+                        <a href="index.php?c=infopages&a=privacyGuidelines">Datenschutzbestimmungen</a>
+                        <a href="index.php?c=infopages&a=agb">AGB</a>
+                        <a href="index.php?c=infopages&a=impressum">Impressum</a>
+                        <a href="index.php?c=infopages&a=jobs">Jobangebote</a>
                     </div>
                 </label>
             </div>
@@ -40,11 +40,11 @@
                     <input type="checkbox" />
                     <span class="collapser"><span class="footerItemsTitle">Service</span></span>
                     <div class="collapsed">
-                        <a href="index.php?c=pages&a=customerpromotion">Kunden werben Kunden</a>
-                        <a href="index.php?c=pages&a=trustpoints">Treuepunkte</a>
-                        <a href="index.php?c=pages&a=businessdiscount">Geschäftskundenrabatte</a>
-                        <a href="index.php?c=pages&a=newsletter">Newsletter abonnieren</a>
-                        <a href="index.php?c=pages&a=contactform">Kontaktformular</a>
+                        <a href="index.php?c=servicepages&a=customerpromotion">Kunden werben Kunden</a>
+                        <a href="index.php?c=servicepages&a=trustpoints">Treuepunkte</a>
+                        <a href="index.php?c=servicepages&a=businessdiscount">Geschäftskundenrabatte</a>
+                        <a href="index.php?c=servicepages&a=newsletter">Newsletter abonnieren</a>
+                        <a href="index.php?c=servicepages&a=contactform">Kontaktformular</a>
                     </div>
                 </label>
             </div>

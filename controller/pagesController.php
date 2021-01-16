@@ -7,13 +7,16 @@ class PagesController extends \protec\core\Controller
 
 	public function actionIndex()
 	{
+<<<<<<< HEAD
 		$myValue = 'This is the Index page. If we did it right, you won\'t see me in the final version.';
+=======
+
+>>>>>>> e9d854c5d4c7c4b4991d06fa2ed48aab79eb2d38
 		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
         $title='ProTec > Home';
 
         $this->setParam('title', $title);
-		$this->setParam('myValue',$myValue);
-		$this->setParam('info',$info);
+		$this->setParam('info', $info);
 	}
 
 	public function actionLogin()
@@ -109,67 +112,7 @@ class PagesController extends \protec\core\Controller
 		}
 	}
 
-	public function actionPaymentAndShippingDetails()
-	{
-        $title='ProTec > Versand- und Zahlungsbedingungen';
-        $this->setParam('title', $title);
-	}
 
-	public function actionRightOfWithdrawal()
-	{
-        $title='ProTec > Widerrufsrecht';
-        $this->setParam('title', $title);
-	}
-    public function actionPrivacyGuidelines()
-    {
-        $title='ProTec > Datenschutz';
-        $this->setParam('title', $title);
-    }
-    public function actionAgb()
-    {
-        $title='ProTec > AGB';
-        $this->setParam('title', $title);
-    }
-    public function actionImpressum()
-    {
-        $title='ProTec > Impressum';
-        $this->setParam('title', $title);
-    }
-	public function actionCustomerpromotion()
-    {
-        $title='ProTec > CustomerPromotion';
-        $this->setParam('title', $title);
-	}
-	
-	public function actionTrustpoints()
-    {
-        $title='ProTec > Treuepunkte';
-        $this->setParam('title', $title);
-	}
-	
-	public function actionBusinessdiscount()
-    {
-        $title='ProTec > Geschäftskundenrabatte';
-        $this->setParam('title', $title);
-	}
-
-    public function actionJobs()
-    {
-        $title='ProTec > Jobs';
-        $this->setParam('title', $title);
-    }
-
-	
-	public function actionNewsletter()
-    {
-        $title='ProTec > Newsletter';
-        $this->setParam('title', $title);
-	}
-	public function actionContactForm()
-    {
-        $title='ProTec > Kontaktformular';
-        $this->setParam('title', $title);
-	}
 	public function actionCategoryRaspi()
     {
         $title='ProTec > RaspberryPi';
@@ -198,6 +141,7 @@ class PagesController extends \protec\core\Controller
     public function actionSubcategory()
     {
         $category = $_GET['cat'];
+        $subcategory = $_GET['subcat'];
         $prodIDs=[];
         $prodNames=[];
         $categoryToBeSearchedFor='category='.'"'.$category.'"';
@@ -212,7 +156,7 @@ class PagesController extends \protec\core\Controller
 
 
 
-        $title='ProTec > Elektronik > '.$category;
+        $title='ProTec > '.$subcategory.' > '.$category;
         $this->setParam('title', $title);
         $this->setParam('products', $products);
         $this->setParam('prodIDs', $prodIDs);

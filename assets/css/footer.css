@@ -114,4 +114,9 @@ footer a:hover {
     text-align: left;
 }
 
+.partnerLogoList{
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
 

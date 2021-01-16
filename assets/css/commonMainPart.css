@@ -21,7 +21,7 @@ main{
 
 .Site-content {
 
-    min-height: calc(100vh - 4.675em - 14.438em);
+    min-height: calc(100vh - 4.674em - 14.5em);
     flex: 1;
     font-family: 'Open Sans', sans-serif;
 }
@@ -30,11 +30,7 @@ main{
     font-size: small;
 }
 
-img {
-    max-width: 9em;
-    max-height: 9em;
-    flex: 1;
-}
+
 
 .contentWrapper {
     display: flex;
@@ -52,6 +48,11 @@ img {
 .contentWrapper .element{
     margin-left: 0.313em;
     margin-right: 0.313em;
+}
+.contentWrapper .element img{
+    max-width: 9em;
+    max-height: 9em;
+    flex: 1;
 }
 
 .element {
