@@ -18,15 +18,30 @@
 
 }
 .subcategoryContent .element img{
-    max-width: 9em;
-    max-height: 9em;
+    max-width: 12.5em;
+    max-height: 12.5em;
     flex: 1;
 
 
 }
 .subcategoryContent .element:hover {
     box-shadow: 5px 10px 18px #888888;
+    max-width: 20em;
+    max-height: 20em;
+    overflow: visible;
+    flex: 1;
 }
+
+.subcategoryContent .element:hover img {
+    max-width: 20em;
+    max-height: 20em;
+    overflow: visible;
+    flex: 1;
+    width:300px;
+    margin-bottom: 1em;
+}
+
+
 
 .subcategoryContent .element p {
     display:block;
