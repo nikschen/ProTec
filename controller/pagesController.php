@@ -158,28 +158,29 @@ class PagesController extends \protec\core\Controller
         $title='ProTec > Computer';
         $this->setParam('title', $title);
     }
-    public function actionSubcategoryCables()
+    public function actionSubcategory()
     {
-        $prodID=[];
+        $category = $_GET['cat'];
+        $prodIDs=[];
         $prodNames=[];
-        $products=protec\model\Product::find('category="Kabel"');
-        foreach($products as  $productID=>$products['productID'])
+        $categoryToBeSearchedFor='category='.'"'.$category.'"';
+
+        $products=protec\model\Product::find($categoryToBeSearchedFor);
+
+        foreach($products as $key=>$value)
         {
-            array_push($prodID,$productID);
+            $prodIDs[$key]=$value['productID'];
+            $prodNames[$key]=$value['prodName'];
         }
-//        foreach($products as  $prodName => $products['prodName'])
-//        {
-//            array_push($prodNames,$prodName);
-//        }
 
-        $arrayInhalt="<pre>$products<pre>";
 
-        $title='ProTec > Elektronik > Kabel';
+
+        $title='ProTec > Elektronik > '.$category;
         $this->setParam('title', $title);
         $this->setParam('products', $products);
-        $this->setParam('prodID', $prodID);
+        $this->setParam('prodIDs', $prodIDs);
         $this->setParam('prodNames', $prodNames);
-        $this->setParam('arrayInhalt', $arrayInhalt);
+        $this->setParam('category', $category);
     }
 
 
