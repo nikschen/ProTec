@@ -13,7 +13,8 @@ class Product extends \protec\core\Model
         'updatedAt'         => ['type' => M::TYPE_STRING],
         'quantityStored'    => ['type' => M::TYPE_INT],
         'prodName'          => ['type' => M::TYPE_STRING, 'max'=>100],
-        'prodDescription'   => ['type' => M::TYPE_STRING, 'max'=>1000]
+        'prodDescription'   => ['type' => M::TYPE_STRING, 'max'=>1000],
+        'category'          => ['type' => M::TYPE_STRING]
 
     ];
 }

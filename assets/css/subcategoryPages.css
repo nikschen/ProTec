@@ -1,0 +1,10 @@
+.itemList{
+    padding:0;
+    display:flex;
+}
+
+
+
+categoryItem{
+    display:inline;
+}

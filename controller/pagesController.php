@@ -1,5 +1,6 @@
 <?php
 
+
 class PagesController extends \protec\core\Controller
 {
 	
@@ -127,35 +128,59 @@ class PagesController extends \protec\core\Controller
         $title='ProTec > Newsletter';
         $this->setParam('title', $title);
 	}
-	public function actioncontactForm()
+	public function actionContactForm()
     {
         $title='ProTec > Kontaktformular';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryRaspi()
+	public function actionCategoryRaspi()
     {
         $title='ProTec > RaspberryPi';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryElectronic()
+	public function actionCategoryElectronic()
     {
         $title='ProTec > Elektronik';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryComputer()
+	public function actionCategoryComputer()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
 	}
-	public function actioncategoryNew()
+	public function actionCategoryNew()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
 	}
-	public function actioncategorySensors()
+	public function actionCategorySensors()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
+    }
+    public function actionSubcategory()
+    {
+        $category = $_GET['cat'];
+        $prodIDs=[];
+        $prodNames=[];
+        $categoryToBeSearchedFor='category='.'"'.$category.'"';
+
+        $products=protec\model\Product::find($categoryToBeSearchedFor);
+
+        foreach($products as $key=>$value)
+        {
+            $prodIDs[$key]=$value['productID'];
+            $prodNames[$key]=$value['prodName'];
+        }
+
+
+
+        $title='ProTec > Elektronik > '.$category;
+        $this->setParam('title', $title);
+        $this->setParam('products', $products);
+        $this->setParam('prodIDs', $prodIDs);
+        $this->setParam('prodNames', $prodNames);
+        $this->setParam('category', $category);
     }
 
 
