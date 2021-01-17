@@ -35,9 +35,9 @@ main{
 .contentWrapper {
     display: flex;
     flex-direction: row;
-    width: 25%;
-    height: 25%;
-    align-items: flex-end;
+    width: inherit;
+    height: inherit;
+    align-items: center;
 }
 
 .contentWrapper a {
