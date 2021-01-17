@@ -4,8 +4,8 @@
     <div class="contentContainer">
         <div class="product">
                 <div class="productElement">
-                    <img src="\src\images\<?=$prodID=$product->productID?>.png">
-                    <p><?=$prodName=$product->prodName?></p></a>
+                    <img src="\src\images\<?=$product->productID?>.png">
+                    <p><?=$product->prodName?></p></a>
                 </div>
         </div>
     </div>
