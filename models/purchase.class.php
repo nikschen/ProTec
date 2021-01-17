@@ -3,7 +3,7 @@ namespace protec\model;//fresh changed
 use \protec\core\Model as M;
 class Purchase extends \protec\core\Model
 {
-    const TABLENAME = '`Purchase`';
+    const TABLENAME = 'Purchase';
 
     protected $scheme = 
     [
@@ -11,7 +11,7 @@ class Purchase extends \protec\core\Model
         'productID'         => ['type' => M::TYPE_INT],
         'createdAt'         => ['type' => M::TYPE_STRING],
         'updatedAt'         => ['type' => M::TYPE_STRING],
-        'custID'            => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'customerID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
         'shippingAddressID' => ['type' => M::TYPE_INT] //Foreign Key auf Addresses
 
     ];

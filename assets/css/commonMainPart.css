@@ -20,13 +20,13 @@ main{
 }
 
 .Site-content {
-
-    min-height: calc(100vh - 4.674em - 14.5em);
+    min-height: calc(100vh - 4.674em - 15.68em - 0.5em);
     flex: 1;
     font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0.5em;
 }
 
 .element p {
@@ -53,8 +53,8 @@ main{
     margin-right: 0.313em;
 }
 .contentWrapper .element img{
-    max-width: 9em;
-    max-height: 9em;
+    max-width: 200px;
+    max-height: 200px;
     flex: 1;
 }
 

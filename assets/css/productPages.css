@@ -1,0 +1,42 @@
+.productName{
+    font-size: 2em;
+    margin:0.25em;
+}
+
+.productContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productImage{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.productImage img{
+    width: 300px;
+    height: 300px;
+}
+
+.productShortInfos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:2em;
+}
+.productPrice{
+    font-size: 3em;
+}
+
+.taxesAndShippingInfo{
+    font-size: 1.2em;
+    color: #888888;
+}
+
+
+.descriptionContainer{
+    max-width: calc(50vw);
+}

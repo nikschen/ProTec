@@ -2,8 +2,16 @@
 
     .Site-content {
 
-        min-height: calc(100vh - 7.474em - 8.938em);
-        margin-top: 2.5em;
+        min-height: calc(100vh - 7em - 14.868em - 0.5em);
+
+
+    }
+    .headerContainer{
+        height:7em;
+    }
+
+    .header{
+        height:7em;
     }
 
     .protecLogoMinimal{
@@ -85,12 +93,14 @@
     .footerItemsPartOneContainer{
         display: flex;
         flex-direction: column;
+        margin:0;
 
     }
 
     .footerItemsPartTwoContainer{
         display: flex;
         flex-direction: column;
+        margin:0;
 
     }
 }

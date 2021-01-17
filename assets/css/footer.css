@@ -126,3 +126,51 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
 }
+
+.footerItem4 .collapser{
+    margin:0.2em;
+}
+.footerItem4 img{
+    margin:0.2em;
+}
+
+
+.footerItemsPartOne {
+    display:flex;
+    flex-direction: row;
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.footerItemsPartTwo {
+    display:flex;
+    flex-direction: row;
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.footerItems{
+    display: flex;
+    flex-direction: row;
+    margin:0;
+}
+
+.flex-container-footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.footerItem1 {
+    margin:0.2em;
+}
+.footerItem2 {
+    margin:0.2em;
+}
+.footerItem3 {
+    margin:0.2em;
+}
+.footerItem4 {
+    margin:0.2em;
+}
