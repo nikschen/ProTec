@@ -158,11 +158,13 @@ class PagesController extends \protec\core\Controller
     public function actionProduct()
     {
         $productIDToBeSearchedFor = $_GET['pid'];
+
         $product=protec\model\Product::findOne($productIDToBeSearchedFor);
 
         $title='ProTec > '.$product->category.' > '.$product->prodName;
         $this->setParam('title', $title);
         $this->setParam('product', $product);
+        $product=null;
     }
 
 

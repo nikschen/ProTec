@@ -81,4 +81,16 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .footerItemsPartOneContainer{
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .footerItemsPartTwoContainer{
+        display: flex;
+        flex-direction: column;
+
+    }
 }

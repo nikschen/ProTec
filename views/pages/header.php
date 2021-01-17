@@ -44,16 +44,7 @@
 
                 </div>
                 <div class="dropdown">
-                    <li class="dropbtn"> <a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></li>
-
-                    <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Kabel">Kabel</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Werkzeug">Werkzeug</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Verbinder">Verbinder</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Bauteile">Bauteile</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Neu&cat=Zubehör">Zubehör</a>
-                    </div>
-                    </li>
+                    <li class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="src/icons/categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></li></li>
 
                 </div>
                 <div class="dropdown">

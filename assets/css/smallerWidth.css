@@ -46,5 +46,30 @@
         margin-right: 0.6em;
     }
 
+    .footerItemsPartOne {
+        display:flex;
+        flex-direction: row;
+        list-style: none;
+        padding:0;
+        margin:0;
+    }
 
+    .footerItemsPartTwo {
+        display:flex;
+        flex-direction: row;
+        list-style: none;
+        padding:0;
+        margin:0;
+    }
+
+    .footerItems{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .flex-container-footer{
+        display: flex;
+        flex-direction: row;
+    }
 }

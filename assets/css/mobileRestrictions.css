@@ -59,4 +59,39 @@
         height: inherit;
     }
 
+    .footerItems .collapser{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerItemsPartOne {
+        display:flex;
+        flex-direction: column;
+        list-style: none;
+        padding:0;
+        margin:0;
+    }
+
+    .footerItemsPartTwo {
+        display:flex;
+        flex-direction: column;
+        list-style: none;
+        padding:0;
+        margin:0;
+    }
+
+    .footerItemsPartOneContainer{
+        display: inline-flex;
+        flex-direction: row;
+
+    }
+
+    .footerItemsPartTwoContainer{
+        display: inline-flex;
+        flex-direction: row;
+
+    }
+
+
 }
