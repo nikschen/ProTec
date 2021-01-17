@@ -18,6 +18,7 @@ class PagesController extends \protec\core\Controller
 	{
 		$title='ProTec > Login';
         $this->setParam('title', $title);
+        
       
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
@@ -25,6 +26,9 @@ class PagesController extends \protec\core\Controller
 			{
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
+
+               
+                
                 
                 //Debug
                 $errors['email'] = "Email: " . $email;
@@ -72,6 +76,8 @@ class PagesController extends \protec\core\Controller
 			}
         }
         $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+        $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
         $this->setParam('errors', $errors);
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
