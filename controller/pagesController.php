@@ -27,7 +27,8 @@ class PagesController extends \protec\core\Controller
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
 
-               
+                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
                 
                 
                 //Debug
@@ -75,8 +76,8 @@ class PagesController extends \protec\core\Controller
 			
 			}
         }
-        $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
-        $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+        
+       
         
         $this->setParam('errors', $errors);
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
