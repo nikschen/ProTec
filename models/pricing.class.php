@@ -8,7 +8,7 @@ class Pricing extends \protec\core\Model
     protected $scheme = 
     [
 
-        'productID'         => ['type' => M::TYPE_INT], //Foreign Key auf Products
+        'pricingID'         => ['type' => M::TYPE_INT], //Foreign Key auf Products
         'createdAt'         => ['type' => M::TYPE_STRING],
         'updatedAt'         => ['type' => M::TYPE_STRING],
         'amount'            => ['type' => M::TYPE_DECIMAL],
