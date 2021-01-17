@@ -80,15 +80,7 @@
             <div class="loginContainer">
                 <a  href="<?=$_SERVER['SCRIPT_NAME']?>?c=pages&a=login"  ><img class="loginSymbol" src="src/icons/loginIcon.png"><br><span class="loginText">Login</span></a>
             </div>
-            <div class="loginStatus">
-            <?if(isset($_SESSION['loggedIn']))
-                {
-                    if($_SESSION['loggedIn']==1)
-                    {
-                        echo "<p>loggedIn</p>";
-                    }
-                };  ?>
-            </div>
+        
         </div>
         <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
