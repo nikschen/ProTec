@@ -3,10 +3,10 @@
     <h3><?=$category?></h3>
         <div class="contentContainer">
             <div class="subcategoryContent">
-            <?foreach($products as $key=>$value)
+            <?foreach($products as $product)
                 {
-                    $prodID=$value['productID'];
-                    $prodName=$value['prodName'];?>
+                    $prodID=$product->productID;
+                    $prodName=$product->prodName;?>
 
                     <div class="element">
                         <a href="index.php?c=pages&a=product&pid=<?=$prodID?>">

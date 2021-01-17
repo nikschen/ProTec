@@ -3,7 +3,7 @@ namespace protec\model;//fresh changed
 use \protec\core\Model as M;
 class Product extends \protec\core\Model
 {
-    const TABLENAME = '`Product`';
+    const TABLENAME = 'Product';
 
     protected $scheme = 
     [

@@ -147,19 +147,19 @@ class PagesController extends \protec\core\Controller
 
         $products=protec\model\Product::find($categoryToBeSearchedFor);
 
-        foreach($products as $key=>$value)
-        {
-            $prodIDs[$key]=$value['productID'];
-            $prodNames[$key]=$value['prodName'];
-        }
+//        foreach($products as $key=>$value)
+//        {
+//            $prodIDs[$key]=$value['productID'];
+//            $prodNames[$key]=$value['prodName'];
+//        }
 
 
 
         $title='ProTec > '.$subcategory.' > '.$category;
         $this->setParam('title', $title);
         $this->setParam('products', $products);
-        $this->setParam('prodIDs', $prodIDs);
-        $this->setParam('prodNames', $prodNames);
+//        $this->setParam('prodIDs', $prodIDs);
+//        $this->setParam('prodNames', $prodNames);
         $this->setParam('category', $category);
     }
 
