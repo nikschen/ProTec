@@ -71,12 +71,12 @@ class PagesController extends \protec\core\Controller
                     $errors['login'] = 'EMail existiert nicht! in Datenbank';
                 }
                 
-                
+                $this->setParam('errors', $errors);
 
 			
 			}
         }
-        $this->setParam('errors', $errors);
+        
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
 			header('Location: index.php');
