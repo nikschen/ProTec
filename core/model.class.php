@@ -71,7 +71,6 @@ abstract class Model
         $results = [];
         try
         {
-            echo "SQL STATEMENT:       " .$sqlStr;
             $results = $db->query($sqlStr)->fetchAll();
             $count = count($results);
             for ($i=0; $i < $count; ++$i)

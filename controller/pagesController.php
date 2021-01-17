@@ -76,9 +76,6 @@ class PagesController extends \protec\core\Controller
 			
 			}
         }
-        
-       
-        
         $this->setParam('errors', $errors);
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
