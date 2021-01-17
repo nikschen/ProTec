@@ -34,7 +34,12 @@ INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `la
 (8, '2021-01-12 14:35:52', NULL, 'Jim', 'Dragon', '1985-08-07', 'DragonFly@gmx.de'),
 (9, '2021-01-12 14:35:52', NULL, 'Betrand', 'Russel', '2000-12-04', 'RusselBer@arcor.de');
 
-
+INSERT INTO `account` (`accountID`, `createdAt`, `updatedAt`, `username`, `passwordHash`, `validated`) VALUES
+(1, '2021-01-17 08:22:01', NULL, 'LordyMcViva@googlemail.com', '$2y$10$TbDwUHYtwI93pgQjBg.HkOUNPiwo0DCUG4qXOD99QIR60k.5OAefW', NULL),
+(2, '2021-01-16 10:14:03', NULL, 'Bigtommycool@web.de', '$2y$10$EOPlskuIxUgoLB.hl5HKb.eHADG9A1prX3yQxn00x3y3.hlQeAEOm', NULL),
+(4, '2021-01-17 08:18:00', NULL, 'KleinerLu@yahoo.com', '$2y$10$w/c.zQx4.zrPmNtDxw01XeEEtJ4Ar4g/gBwIpdzTyB6gnP1g.a/9q', NULL),
+(5, '2021-01-17 08:19:46', NULL, 'Selen@giga.com', '$2y$10$g/Ts9BZ6BTac6u/zoSMK4ug7TrdSodLjK/L00c/tXqgUxiTnacUcm', NULL),
+(6, '2021-01-17 08:20:47', NULL, 'Oldmax@aol.de', '$2y$10$TbDwUHYtwI93pgQjBg.HkOUNPiwo0DCUG4qXOD99QIR60k.5OAefW', NULL);
 
 
 INSERT INTO `pricing` (`pricingID`, `createdAt`, `updatedAt`, `amount`, `currency`) VALUES
