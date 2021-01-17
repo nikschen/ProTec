@@ -89,3 +89,12 @@ Oldmax@aol.de = Leber123?
 LordyMcViva@googlemail.com = Makrophage1?
 
 
+    <div class="loginStatus">
+            <?if(isset($_SESSION['loggedIn']))
+                {
+                    if($_SESSION['loggedIn']==1)
+                    {
+                        echo "<p>loggedIn</p>";
+                    }
+                };  ?>
+            </div>
