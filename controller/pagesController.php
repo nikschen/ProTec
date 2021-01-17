@@ -44,7 +44,11 @@ class PagesController extends \protec\core\Controller
                 $db = $GLOBALS['db'];
 
                 $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
+
                 $loginID = $login->customerID;
+                $loginFirstName= $login->firstName;
+                $loginLastName= $login->lastName;
+
                 $errors['ID'] = "Customer-ID = " . $loginID;
                 $errors['lastName'] = "Nachname des Nutzers = " . $login->lastName;
                 
@@ -58,6 +62,7 @@ class PagesController extends \protec\core\Controller
                     {
                         $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
                         $_SESSION['loggedIn']= true;
+                        $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
                         //header('Location: index.php');
                     }
                     else

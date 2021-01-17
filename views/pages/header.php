@@ -81,6 +81,16 @@
                 <a  href="<?=$_SERVER['SCRIPT_NAME']?>?c=pages&a=login"  ><img class="loginSymbol" src="src/icons/loginIcon.png"><br><span class="loginText">Login</span></a>
             </div>
         
+    <div class="loginStatus">
+            <?if(isset($_SESSION['loggedIn']))
+                {
+                    if($_SESSION['loggedIn']==1)
+                    {
+                        echo "<log style= font-size:60%>Willkommen </log><br>";
+                        echo "<log style= font-size:60%>".$_SESSION['username'] .  "</log>";
+                    }
+                };  ?>
+            </div>
         </div>
         <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
