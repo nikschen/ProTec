@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/commonMainPart.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/homePage.css">
     <link rel="stylesheet" href="assets/css/subcategoryPages.css">
     <link rel="stylesheet" href="assets/css/productPages.css">
     <link rel="stylesheet" href="assets/css/smallerWidth.css">
