@@ -69,7 +69,31 @@
                 </div>
             </div>
             <div class="loginContainer">
-                <a  href="<?=$_SERVER['SCRIPT_NAME']?>?c=pages&a=login"  ><img class="loginSymbol" src="<?=ICONSPATH?>loginIcon.png"><br><span class="loginText">Login</span></a>
+            <?
+             if(isset($_SESSION['loggedIn']))
+                {
+                    if($_SESSION['loggedIn']==1)
+                    {
+                        $actionLink = "?c=pages&a=logout";
+                        $icon = "logoutIcon.png";
+                        $text = "Logout";
+                    }
+                    else 
+                    {
+                        $actionLink = "?c=pages&a=login";
+                        $icon = "loginIcon.png";
+                        $text = "Login";
+                    }
+                }
+                else
+                {
+                        $actionLink = "?c=pages&a=login";
+                        $icon = "loginIcon.png";
+                        $text = "Login";
+                }
+                    ?>
+                <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>"><br><span class="loginText"><?=$text?></span></a>
+            
             </div>
         
     <div class="loginStatus">
