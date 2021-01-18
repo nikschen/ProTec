@@ -2,6 +2,9 @@
     display:flex;
     flex-direction: row;
     padding: 0;
+    margin:0;
+    border: 0.5em solid #FDDA0F;
+    background-color: #FFFFFF;
 }
 .homeContainer a {
     height: inherit;
@@ -10,32 +13,25 @@
 .homeContainer ul{
     list-style: none;
     padding: 0;
+    margin:0;
 }
 
-.homeContainer img{
-    border: 0.5em #358edb;
-}
 
 .leftHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 0.5em)/4);
-    border: 0.5em #358edb;
+    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
 }
 .rightHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 0.5em)/4);
-    border: 0.5em #358edb;
+    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
 }
 .middleHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 0.5em)/4);
-    border: 0.5em #358edb;
+    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
 }
 .middleHomeColumnMiddlePartContainer img{
-    height:calc((100vh - 4.674em - 15.68em - 0.5em)/2);
-    border: 0.5em #358edb;
+    height:calc((100vh - 4.674em - 15.68em - 1em)/2);
 }
 
 .middleHomeColumnLowerPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 0.5em)/4);
-    border: 0.5em #358edb;
+    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
 }
 
 .middleHomeColumnUpperPartElements{
@@ -50,5 +46,192 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 0.65em;
+    justify-content: center;
+    padding-bottom: 0.6em;
+    height:calc((100vh - 4.674em - 15.68em)/2);
+    border: 0.25em solid #FDDA0F;
+}
+
+
+.exampleImageLeftUpperCorner{
+    border-color: #1872A4;
+    border-style: solid;
+    border-left-width: 0.5em;
+    border-right-width: 0.25em;
+    border-top-width: 0.5em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageLeftUpperMiddle{
+    border-color: #1872A4;
+    border-style: solid;
+    border-left-width: 0.5em;
+    border-right-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageLeftLowerMiddle{
+    border-color: #1872A4;
+    border-style: solid;
+    border-left-width: 0.5em;
+    border-right-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageLeftLowerCorner{
+    border-color: #1872A4;
+    border-style: solid;
+    border-left-width: 0.5em;
+    border-right-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.5em;
+}
+.exampleImageMiddleUpperLeft{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.25em;
+    border-left-width: 0.25em;
+    border-top-width: 0.5em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageMiddleUpperRight{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.25em;
+    border-left-width: 0.25em;
+    border-top-width: 0.5em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageMiddleLowerLeft{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.25em;
+    border-left-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.5em;
+}
+.exampleImageMiddleLowerRight{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.25em;
+    border-left-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.5em;
+}
+.exampleImageRightUpperCorner{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.5em;
+    border-left-width: 0.25em;
+    border-top-width: 0.5em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageRightUpperMiddle{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.5em;
+    border-left-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageRightLowerMiddle{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.5em;
+    border-left-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.25em;
+}
+.exampleImageRightLowerCorner{
+    border-color: #1872A4;
+    border-style: solid;
+    border-right-width: 0.5em;
+    border-left-width: 0.25em;
+    border-top-width: 0.25em;
+    border-bottom-width: 0.5em;
+}
+
+.exampleImageLeftUpperCorner:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+
+.exampleImageLeftUpperMiddle:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageLeftLowerMiddle:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageLeftLowerCorner:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageMiddleUpperLeft:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageMiddleUpperRight:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageMiddleLowerLeft:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageMiddleLowerRight:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageRightUpperCorner:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageRightUpperMiddle:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageRightLowerMiddle:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+}
+.exampleImageRightLowerCorner:hover{
+    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
+    box-shadow: 0 0 4em #FDDA0F;
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
 }

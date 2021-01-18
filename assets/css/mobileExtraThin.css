@@ -38,7 +38,7 @@
         align-items: center;
         display: flex;
         flex-direction: row;
-        background-color: #358edb;
+        background-color: var(--mainColor);
         position: fixed;
         right: 0;
         left: 0;
@@ -59,7 +59,7 @@
 
     .searchContainerMinimal{
 
-        background-color:#358edb;
+        background-color:var(--mainColor);
         display: flex;
         justify-content: center;
         align-items: center;

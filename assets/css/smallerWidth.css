@@ -36,10 +36,6 @@
         height: 2em;
     }
 
-    .loginContainer a {
-        height: inherit;
-        font-size: 1em;
-    }
 
     .searchNavContainer {
         margin-left: 0.6em;

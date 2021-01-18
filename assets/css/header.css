@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+:root {
+    --mainColor: #1872A4;
+    --hoverAccentColor:#5D9CBF;
+}
+
 header {
 
     height:4.674em;
@@ -15,7 +20,7 @@ header {
 .navbar {
     display: flex;
     flex-direction: row;
-    background-color: #358edb;
+    background-color: var(--mainColor);
     position: fixed;
     /* Set the navbar to fixed position */
     right: 0;
@@ -50,7 +55,7 @@ header {
 /* Change background on mouse-over */
 
 .navbar a:hover {
-    background: rgb(73, 168, 223);
+    background: var(--hoverAccentColor);
     color: black;
     transition: 0.3s;
 }
@@ -144,7 +149,7 @@ header {
 }
 
 .searchNavContainer {
-    background-color: #358edb;
+    background-color: var(--mainColor);
     border: none;
     margin-left: 0.2em;
 }
@@ -210,16 +215,13 @@ input:focus::placeholder {
 }
 
 .loginContainer a {
-    height: 2em;
-    font-size: 1em;
     margin-top: 0.5em;
 }
 
 #Login-Smart {
-    background-color: #358edb;
-    font-size: 1em;
+    background-color: var(--mainColor);
 }
 
 #Login-Smart:hover {
-    background-color: rgb(255, 191, 146);
+    background-color: var(--hoverAccentColor);
 }
