@@ -10,7 +10,7 @@
 
                     <div class="element">
                         <a href="index.php?c=pages&a=product&pid=<?=$prodID?>">
-                        <img src="\src\images\<?=$prodID?>.png">
+                        <img src="<?=IMAGESPATH?><?=$prodID?>.png">
                         <p><?=$prodName?></p></a>
                     </div>
             <?}?>

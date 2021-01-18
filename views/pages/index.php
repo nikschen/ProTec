@@ -1,9 +1,6 @@
 <body class="Site">
     <main class="Site-content">
-
-            <br>
-            <br>
-            <?=$info?>
+            <h3><?=$info?></h3>
 
 
     </main>

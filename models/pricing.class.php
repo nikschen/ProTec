@@ -3,12 +3,12 @@ namespace protec\model;//fresh changed
 use \protec\core\Model as M;
 class Pricing extends \protec\core\Model
 {
-    const TABLENAME = '`Pricing`';
+    const TABLENAME = 'Pricing';
 
     protected $scheme = 
     [
 
-        'productID'         => ['type' => M::TYPE_INT], //Foreign Key auf Products
+        'pricingID'         => ['type' => M::TYPE_INT], //Foreign Key auf Products
         'createdAt'         => ['type' => M::TYPE_STRING],
         'updatedAt'         => ['type' => M::TYPE_STRING],
         'amount'            => ['type' => M::TYPE_DECIMAL],
