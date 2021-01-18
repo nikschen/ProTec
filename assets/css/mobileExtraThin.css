@@ -2,7 +2,7 @@
 
     .Site-content {
 
-        min-height: calc(100vh - 7em - 14.868em - 0.5em);
+        min-height: calc(100vh - var(--navbarHeightMobile) - var(--footerHeightExtraThin) - 0.5em);
 
 
     }
