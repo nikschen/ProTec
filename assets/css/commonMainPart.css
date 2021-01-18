@@ -110,7 +110,7 @@ main {
 }
 
 .loginForm>h1 {
-    margin-bottom: 1px;
+    margin-bottom: 0px;
 }
 
 .loginForm #emailLogin,
