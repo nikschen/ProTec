@@ -32,8 +32,8 @@
 }
 
 .subcategoryContent .element:hover img {
-    max-width: 20em;
-    max-height: 20em;
+    max-width: 12.5em;
+    max-height: 12.5em;
     overflow: visible;
     flex: 1;
     width: 300px;
