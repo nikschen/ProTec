@@ -1,6 +1,7 @@
 <body class="Site">
     <main class="Site-content">
-        <div class="homeContainer">
+        <div class="homepageContainer">
+            <div class="homeContainer">
             <div class="leftHomeColumnContainer">
                 <ul class="leftHomeColumnElements">
                     <div class="leftHomeColumnUpperPartContainer">
@@ -86,7 +87,7 @@
                 </ul>
             </div>
         </div>
-
+        </div>
     </main>
 </body>
 

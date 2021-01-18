@@ -19,7 +19,7 @@ main {
 }
 
 .Site-content {
-    min-height: calc(100vh - 4.674em - 15.68em - 1em);
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - 15.68em - 1em);
     flex: 1;
     font-family: 'Open Sans', sans-serif;
     display: flex;
@@ -27,6 +27,16 @@ main {
     align-items: center;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+.homepageContainer{
+    display:block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    margin: auto
 }
 
 .element p {

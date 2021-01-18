@@ -2,12 +2,14 @@
 
     .Site-content {
 
-        min-height: calc(100vh - 4.674em - 8.172em - 0.5em);
+        min-height: calc(100vh - var(--navbarHeightMobile) - 8.172em - 0.5em);
         height:max-content;
         flex-grow: 1;
         flex-direction: column;
         align-items: center;
     }
+
+
 
     .flex-container-footer .footerItems{
         display: list-item;
@@ -47,7 +49,42 @@
         display:none;
     }
 
+    .leftHomeColumnUpperPartElements img{
+        width:calc(100vw/6);
+        height:calc(100vw/6);
+    }
+    .rightHomeColumnUpperPartElements img{
+        width:calc(100vw/6);
+        height:calc(100vw/6);
+    }
+    .middleHomeColumnUpperPartElements img{
+        width:calc(100vw/6);
+        height:calc(100vw/6);
+    }
+    .middleHomeColumnMiddlePartContainer img{
+        width:calc(100vw/3);
+        height:calc(100vw/3);
+    }
+    .middleHomeColumnLowerPartElements img{
+        width:calc(100vw/6);
+        height:calc(100vw/6);
+    }
 
+    .middleHomeColumnMiddlePartContainer{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:calc(100vw/3);
+        height:calc(100vw/3);
+        border: 0.25em solid #FDDA0F;
+    }
+
+    .middleHomeColumnElements li{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 
     .collapsed .partnerLogoAlign{
