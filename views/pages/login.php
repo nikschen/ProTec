@@ -13,10 +13,12 @@
          </ul>
          </div>
          <?php endif; ?>
+         <div class="loginForm">
         <h1>Login</h1>
+        <hr>
         <form method="post">
             <label for="email">E-Mail</label> <br />
-            <input type="email" id="email" name="email"  <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required ><br>
+            <input type="email" id="emailLogin" name="email"  <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required ><br>
             <label for="password">Passwort</label> <br />
             <input type="password" name="password" id="password" /><br />
             <br />
@@ -27,5 +29,6 @@
         </form>
 
         <a style="font-size:small" href="index.php?c=accounts&a=signup">Noch nicht registiert?</a>
+        </div>
     </main>
 </body>
