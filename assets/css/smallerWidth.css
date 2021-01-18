@@ -1,7 +1,7 @@
 @media screen and (max-width: 1500px) {
 
     main {
-        min-height: calc(100vh - 4.675em - 8.5em - 0.5em);
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - 8.5em - 0.5em);
     }
 
     .navbar a {
@@ -41,6 +41,7 @@
         margin-left: 0.6em;
         margin-right: 0.6em;
     }
+
 
     .footerItemsPartOne {
         display:flex;

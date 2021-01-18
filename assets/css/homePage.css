@@ -47,8 +47,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 0.6em;
-    height:calc((100vh - 4.674em - 15.68em)/2);
+    height:calc((100vh - 4.674em - 15.68em + 1.2em)/2);
     border: 0.25em solid #FDDA0F;
 }
 

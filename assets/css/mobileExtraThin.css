@@ -7,11 +7,11 @@
 
     }
     .headerContainer{
-        height:7em;
+        height:var(--navbarHeightMobile)
     }
 
     .header{
-        height:7em;
+        height:var(--navbarHeightMobile)
     }
 
     .protecLogoMinimal{
