@@ -1,29 +1,28 @@
-.subcategoryContent{
-    padding:0;
+.subcategoryContent {
+    padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     align-self: center;
 }
+
 .subcategoryContent a {
     text-decoration: none;
     color: black;
 }
 
-.subcategoryContent .element{
-
+.subcategoryContent .element {
     text-align: center;
-    width:300px;
-
+    width: 300px;
 }
-.subcategoryContent .element img{
+
+.subcategoryContent .element img {
     max-width: 12.5em;
     max-height: 12.5em;
     flex: 1;
-
-
 }
+
 .subcategoryContent .element:hover {
     box-shadow: 5px 10px 18px #888888;
     max-width: 20em;
@@ -37,19 +36,18 @@
     max-height: 20em;
     overflow: visible;
     flex: 1;
-    width:300px;
+    width: 300px;
+    transition: 0.7s;
     margin-bottom: 1em;
 }
 
-
-
 .subcategoryContent .element p {
-    display:block;
+    display: block;
     flex-wrap: wrap;
     text-align: center;
 }
 
-.contentContainer{
+.contentContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
