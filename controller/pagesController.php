@@ -96,8 +96,8 @@ class PagesController extends \protec\core\Controller
 		{
 			$_SESSION['loggedIn'] = false;
 		}
-
-		header('Location: index.php?c=pages&a=login');
+        session_destroy();
+		header('Location: index.php?c=pages&a=index');
 		
 	}
 

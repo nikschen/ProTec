@@ -2,7 +2,8 @@ var password1 = document.getElementById('password1');
 var password2 = document.getElementById('password2');
 //RFC5322 konform auch dokumentieren!!!!!!!!!!!!
 var EmailHighRegex = new RegExp("^(?=.*[@])([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|([]!#-[^-~ \t]|(\\[\t -~]))+)@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
-//var email = document.getElementById("email");
+var birthDateRegex = /^\d{2}([./-])\d{2}\1\d{4}$/
+    //var email = document.getElementById("email");
 
 var checkPassword = function() {
     if (document.getElementById("password1").value ==
@@ -34,6 +35,27 @@ var checkEmail = function() {
 
     } else {
         emailfield.style.backgroundColor = backgroundColorSource;
+
+        error.innerHTML = "";
+    }
+
+}
+
+var checkBirthDate = function() {
+    var birthDay = document.getElementById("birthDate").value
+    var birthDayfield = document.getElementById("birthDate")
+
+    var backgroundColorSource1 = window.getComputedStyle(birthDayfield, null).getPropertyValue("backgroundColor");
+    console.log(birthDay);
+    var error = document.getElementById("message")
+
+    if (birthDay != 0 && !birthDay.match(birthDateRegex)) {
+        birthDayfield.style.backgroundColor = "LightCoral";
+        console.log("Ungültiges Format");
+        error.innerHTML = "Fehler Geburtsdatum, Format nicht entsprechend Vorgabe. Bsp: 12.03.1986";
+
+    } else {
+        birthDayfield.style.backgroundColor = backgroundColorSource1;
 
         error.innerHTML = "";
     }

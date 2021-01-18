@@ -44,7 +44,7 @@ class AccountsController extends \protec\core\Controller
 		$country= $_POST['country'] ?? null;//
 
 			///
-		
+		//$errors['testdate'] = date('Y-m-d', strtotime($birthDate));
 		//
 
 
@@ -60,6 +60,16 @@ class AccountsController extends \protec\core\Controller
 		{
 			$errors['lastName'] = "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
 		}
+		if(mb_strlen($birthDate)<10 || mb_strlen($birthDate)>15 || !preg_match('/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/',$birthDate))
+		{
+			$errors['birthDate'] = "Geburtsdatum fehlerhaft: Das ist kein gültiges Datumsformat. Bsp: 12. März 2020 = 12.03.2020";
+			
+		}
+
+
+
+
+
 		if(mb_strlen($title)>0 && mb_strlen($title)<2)
 		{
 			$errors['title'] = "Titel zu kurz";
@@ -118,19 +128,20 @@ class AccountsController extends \protec\core\Controller
 			print_r($email);
 			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 			
+			
 			if($emailFromDataBase !== null)
 			{
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
 			else{
-				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => $birthDate, ]);
+				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
-				$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => $password ]);
+				$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 				$NewUser->insert();
 				$NewAddress->insert();
 				$NewAccount->insert();
 			}
-		
+			
 		
 		
 		$this->setParam('errors', $errors);
