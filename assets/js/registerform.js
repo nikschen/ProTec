@@ -47,17 +47,17 @@ var checkBirthDate = function() {
 
     var backgroundColorSource1 = window.getComputedStyle(birthDayfield, null).getPropertyValue("backgroundColor");
     console.log(birthDay);
-    //var error = document.getElementById("message")
+    var error = document.getElementById("message")
 
     if (birthDay != 0 && !birthDay.match(birthDateRegex)) {
         birthDayfield.style.backgroundColor = "LightCoral";
         console.log("Ungültiges Format");
-        //error.innerHTML = "Dies ist keine gültige E-Mail Adresse";
+        error.innerHTML = "Fehler Geburtsdatum, Format nicht entsprechend Vorgabe. Bsp: 12.03.1986";
 
     } else {
         birthDayfield.style.backgroundColor = backgroundColorSource1;
 
-        //error.innerHTML = "";
+        error.innerHTML = "";
     }
 
 }
