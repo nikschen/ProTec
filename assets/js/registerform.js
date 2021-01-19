@@ -11,7 +11,7 @@ var checkPassword = function() {
     var passwordToCheck = document.getElementById("password1").value
 
     if (!passwordToCheck.match(PasswordRegex)) {
-        error.innerHTML = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)"
+        error.innerHTML = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
     } else {
 
         if (document.getElementById("password1").value ==

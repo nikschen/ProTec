@@ -24,9 +24,9 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-			$db = $GLOBALS['db'];
+			/*$db = $GLOBALS['db'];
 			$statement =  $db->prepare("INSERT INTO `CUSTOMER` (firstName, lastName, birthDate, eMail) VALUES (:firstName , :lastName , :birthDate, :eMail)");
-			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'mailing@gmx.de'));
+			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'mailing@gmx.de'));*/
 
 		#prepare to save to DB
 		$email = $_POST['email'] ?? null; //
