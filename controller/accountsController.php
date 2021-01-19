@@ -24,6 +24,9 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
+			$db = $GLOBALS['db'];
+			$statement =  $db->prepare("INSERT INTO `CUSTOMER` (firstName, lastName, birthDate, eMail) VALUES (:firstName , :lastName , :birthDate, :eMail)");
+			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'mailing@gmx.de'));
 
 		#prepare to save to DB
 		$email = $_POST['email'] ?? null; //
@@ -129,17 +132,20 @@ class AccountsController extends \protec\core\Controller
 			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 			
 			
+		
+
+			
 			if($emailFromDataBase !== null)
 			{
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
 			else{
-				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+				/*$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
 				$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 				$NewUser->insert();
 				$NewAddress->insert();
-				$NewAccount->insert();
+				$NewAccount->insert();*/
 			}
 			
 		
