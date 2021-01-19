@@ -26,7 +26,7 @@ var checkEmail = function() {
 
     var backgroundColorSource = window.getComputedStyle(emailfield, null).getPropertyValue("backgroundColor");
     console.log(email);
-    var error = document.getElementById("message")
+    var error = document.getElementById("messageMail")
 
     if (email != 0 && !email.match(EmailHighRegex)) {
         emailfield.style.backgroundColor = "LightCoral";
@@ -47,7 +47,7 @@ var checkBirthDate = function() {
 
     var backgroundColorSource1 = window.getComputedStyle(birthDayfield, null).getPropertyValue("backgroundColor");
     console.log(birthDay);
-    var error = document.getElementById("message")
+    var error = document.getElementById("messageDate")
 
     if (birthDay != 0 && !birthDay.match(birthDateRegex)) {
         birthDayfield.style.backgroundColor = "LightCoral";
