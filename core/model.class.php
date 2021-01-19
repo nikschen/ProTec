@@ -258,7 +258,8 @@ abstract class Model
              {
                  $stmt=$db->prepare($sqlStr);
                  $stmt->execute($this->values);
-                 $this->id = $db->lastInsertId();
+
+                 $this->{(self::tablename().'id')} = $db->lastInsertId();
              }
              catch(\PDOException $e)
              {
