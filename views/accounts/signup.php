@@ -44,9 +44,9 @@
             <input type="text" id="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required >
             <p id="messageMail" style="display:inline-block"></p>
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
-            <input class="oneLine" type="password" id="password1" name="password" placeholder="Ihr Passwort*" onkeyup='checkPassword()'required>
-            <input class="oneLine" type="password" id="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onkeyup='checkPassword()'required>
-
+            <input class="oneLine" type="password" id="password1" name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'required>
+            <input class="oneLine" type="password" id="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'required>
+            <p id="messagePassword" style="display:inline-block"></p>
         
 
             <h2>Ihre Adresse</h2>

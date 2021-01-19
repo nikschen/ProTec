@@ -3,20 +3,34 @@ var password2 = document.getElementById('password2');
 //RFC5322 konform auch dokumentieren!!!!!!!!!!!!
 var EmailHighRegex = new RegExp("^(?=.*[@])([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|([]!#-[^-~ \t]|(\\[\t -~]))+)@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
 var birthDateRegex = /^\d{2}([./-])\d{2}\1\d{4}$/
-    //var email = document.getElementById("email");
+var PasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/
+
 
 var checkPassword = function() {
-    if (document.getElementById("password1").value ==
-        document.getElementById("password2").value) {
+    var error = document.getElementById("messagePassword");
+    var passwordToCheck = document.getElementById("password1").value
 
-        var borderColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("borderColor");
-        var backgroundColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("backgroundColor");
-
-        document.getElementById("password2").style.borderColor = borderColorSource;
-        document.getElementById("password2").style.backgroundColor = backgroundColorSource;
+    if (!passwordToCheck.match(PasswordRegex)) {
+        error.innerHTML = "Password ist zu schwach"
     } else {
-        document.getElementById("password2").style.borderColor = "red";
-        document.getElementById("password2").style.backgroundColor = "LightCoral";
+
+        if (document.getElementById("password1").value ==
+            document.getElementById("password2").value) {
+
+            var borderColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("borderColor");
+            var backgroundColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("backgroundColor");
+
+            document.getElementById("password2").style.borderColor = borderColorSource;
+            document.getElementById("password2").style.backgroundColor = backgroundColorSource;
+
+            error.innerHTML = "";
+
+        } else {
+            document.getElementById("password2").style.borderColor = "red";
+            document.getElementById("password2").style.backgroundColor = "LightCoral";
+
+            error.innerHTML = "Passwörte sind nicht identisch!";
+        }
     }
 }
 
