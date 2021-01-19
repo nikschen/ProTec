@@ -1,12 +1,27 @@
+.productPageContainer {
+    background-color: var(--contrastBackground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 0.8em);
+    max-width: calc(100vw/2);
+    margin: 0 0.4em;
+}
+
 .productName{
     font-size: 2em;
     margin:0.25em;
+    background-color: unset;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .productContainer{
     display:flex;
     flex-direction: column;
     align-items: center;
+    background-color: unset;
 }
 
 .productImage{
@@ -21,6 +36,17 @@
     height: 300px;
 }
 
+.productDescription{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productDescription p{
+    max-width:calc(100vw/3);
+}
+
+
 .productShortInfos{
     display: flex;
     flex-direction: column;
@@ -33,10 +59,14 @@
 
 .taxesAndShippingInfo{
     font-size: 1.2em;
-    color: #888888;
+    color: #3ca4ba;
 }
 
 
 .descriptionContainer{
     max-width: calc(50vw);
+}
+
+.quantityNumber{
+    color:var(--orangeAccentColor);
 }

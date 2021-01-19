@@ -103,4 +103,19 @@
         margin:0;
 
     }
+
+    .productDescription{
+        width:calc(100vw - 2em);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .productDescription p{
+        max-width:calc(100vw - 2em);
+    }
+
+    .productName{
+        font-size: 1.1em;
+    }
 }

@@ -1,8 +1,6 @@
 @media screen and (max-width: 1500px) {
 
-    main {
-        min-height: calc(100vh - var(--navbarHeightFullscreen) - 8.5em - 0.5em);
-    }
+
 
     .navbar a {
         padding: 6px 6px;
@@ -18,8 +16,9 @@
     }
 
     .dropdown {
-        margin-top: 0.9em;
+        margin-top: 0.5em;
         margin-bottom: 0.5em;
+        padding:0;
     }
 
 
@@ -68,6 +67,29 @@
     .flex-container-footer{
         display: flex;
         flex-direction: row;
+    }
+
+    .descriptionContainer{
+        max-width: unset;
+        width:inherit;
+    }
+
+    .productPageContainer{
+        max-width: unset;
+        width:inherit;
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
+    }
+
+    .productDescription{
+        width:calc((100vw/2) - 5em);
+    }
+
+    .productDescription p{
+        max-width:calc((100vw/2));
+    }
+
+    .subCategoryContentContainer{
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) );
     }
 
 

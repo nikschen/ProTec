@@ -3,8 +3,9 @@
     flex-direction: row;
     padding: 0;
     margin:0;
-    border: 0.5em solid #FDDA0F;
+    border: 0.5em solid var(--orangeAccentColor);
     background-color: #FFFFFF;
+    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em);
 }
 .homeContainer a {
     height: inherit;
@@ -17,21 +18,21 @@
 }
 
 
-.leftHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
+.leftHomeColumnUpperPartElements li a img{
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
 }
-.rightHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
+.rightHomeColumnUpperPartElements li a img{
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
 }
-.middleHomeColumnUpperPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
+.middleHomeColumnUpperPartElements li a img{
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
 }
 .middleHomeColumnMiddlePartContainer img{
-    height:calc((100vh - 4.674em - 15.68em - 1em)/2);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/2);
 }
 
-.middleHomeColumnLowerPartElements img{
-    height:calc((100vh - 4.674em - 15.68em - 1em)/4);
+.middleHomeColumnLowerPartElements li a img{
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
 }
 
 .middleHomeColumnUpperPartElements{
@@ -48,7 +49,7 @@
     align-items: center;
     justify-content: center;
     height:calc((100vh - 4.674em - 15.68em + 1.2em)/2);
-    border: 0.25em solid #FDDA0F;
+    border: 0.25em solid var(--orangeAccentColor);
 }
 
 
@@ -151,7 +152,7 @@
 
 .exampleImageLeftUpperCorner:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
@@ -159,77 +160,77 @@
 
 .exampleImageLeftUpperMiddle:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageLeftLowerMiddle:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageLeftLowerCorner:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleUpperLeft:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleUpperRight:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleLowerLeft:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleLowerRight:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightUpperCorner:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightUpperMiddle:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightLowerMiddle:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightLowerCorner:hover{
     height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
-    box-shadow: 0 0 4em #FDDA0F;
+    box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
