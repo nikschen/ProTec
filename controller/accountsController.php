@@ -20,13 +20,16 @@ class AccountsController extends \protec\core\Controller
 		$errors = [];
 		$success = false;
 		
+
+
+
 	
 
 		if(isset($_POST['submit']))
 		{
 			/*$db = $GLOBALS['db'];
-			$statement =  $db->prepare("INSERT INTO `CUSTOMER` (firstName, lastName, birthDate, eMail) VALUES (:firstName , :lastName , :birthDate, :eMail)");
-			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'mailing@gmx.de'));*/
+			$statement =  $db->prepare("INSERT INTO `CUSTOMER` (customerID, firstName, lastName, birthDate, eMail) VALUES (:customerID, :firstName , :lastName , :birthDate, :eMail)");
+			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'AnpassenmitCust@gmx.de' , 'customerID' => ''));*/
 
 		#prepare to save to DB
 		$email = $_POST['email'] ?? null; //
@@ -46,6 +49,16 @@ class AccountsController extends \protec\core\Controller
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
 
+		$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+		$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon , 'country' => $country]);
+		$NewAddress->insert();
+		$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
+		
+		$ObjectContent = get_class_vars(get_class($NewUser));
+		foreach ($ObjectContent as $name => $value) {
+			echo "$name : $value\n";
+		}
+		
 			///
 		//$errors['testdate'] = date('Y-m-d', strtotime($birthDate));
 		//
