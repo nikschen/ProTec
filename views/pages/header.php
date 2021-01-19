@@ -7,54 +7,57 @@
             </div>
             <div class="navigation">
                 <div class="dropdown">
-                    <li class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/elektronikIcon.png" alt="Elek." ><span class="categoryTitle">Elektronik</span></a></li>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/elektronikIcon.png" alt="Elek." ><span class="categoryTitle">Elektronik</span></a></div>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Kabel">Kabel</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Werkzeug">Werkzeug</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Bauteile">Bauteile</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Zubehör">Zubehör</a>
+                        <ul class="dropdownContentList">
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Kabel">Kabel</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Werkzeug">Werkzeug</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Bauteile">Bauteile</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Elektronik&cat=Zubehör">Zubehör</a></li>
+                        </ul>
                     </div>
 
 
                 </div>
                 <div class="dropdown">
-                    <li class="dropbtn"> <a href="index.php?c=pages&a=categoryRaspi"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/raspberryPiIcon.png" alt="RasPi." ><span class="categoryTitle">RaspberryPi</span></a></li>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryRaspi"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/raspberryPiIcon.png" alt="RasPi." ><span class="categoryTitle">RaspberryPi</span></a></div>
 
                     <div class=dropdown-content>
-                        <div class=dropdownContentElement>
-                            <a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Pi-1/2/3/4/Zero">Pi-1/2/3/4/Zero</a>
-                        </div>
-                        <div class=dropdownContentElement>
-                            <a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Gehäuse">Gehäuse</a>
-                        </div>
+                        <ul class="dropdownContentList">
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Pi-1/2/3/4/Zero">Pi-1/2/3/4/Zero</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=RaspberryPi&cat=Gehäuse">Gehäuse</a></li>
+                        </ul>
                     </div>
 
 
                 </div>
                 <div class="dropdown">
-                    <li class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/computerIcon.png" alt="Comp." ><span class="categoryTitle">Computer</span></a></li>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/computerIcon.png" alt="Comp." ><span class="categoryTitle">Computer</span></a></div>
 
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Barebones">Barebones</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Komplett-PCs">Komplett-PCs</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Arbeitsspeicher">Arbeitsspeicher</a>
+                        <ul class="dropdownContentList">
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Barebones">Barebones</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Komplett-PCs">Komplett-PCs</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Computer&cat=Arbeitsspeicher">Arbeitsspeicher</a></li>
+                        </ul>
                     </div>
 
 
                 </div>
                 <div class="dropdown">
-                    <li class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></li></li>
+                    <div class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></div></li>
 
                 </div>
                 <div class="dropdown">
-                    <li class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/sensorenIcon.png" alt="Sens." ><span class="categoryTitle">Sensoren</span></a></li>
-
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/sensorenIcon.png" alt="Sens." ><span class="categoryTitle">Sensoren</span></a></div>
                     <div class=dropdown-content>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">Temperatursensoren</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Bewegungsmelder">Bewegungsmelder</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Strommesser">Strommesser</a>
-                        <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a>
+                        <ul class="dropdownContentList">
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">Temperatursensoren</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Bewegungsmelder">Bewegungsmelder</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Strommesser">Strommesser</a></li>
+                            <li><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a></li>
+                        </ul>
                     </div>
                     </li>
 

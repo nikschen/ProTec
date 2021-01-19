@@ -2,7 +2,7 @@
 
     .Site-content {
 
-        min-height: calc(100vh - var(--navbarHeightMobile) - 8.172em - 0.5em);
+        min-height: calc(100vh - var(--navbarHeightMobile) - var(--footerHeightMobile) - 0.5em);
         height:max-content;
         flex-grow: 1;
         flex-direction: column;
