@@ -60,7 +60,6 @@
             <input type="text" name="country" placeholder="Land*" <?if (isset($_POST['country'])){echo "value=".htmlspecialchars($_POST['country']);};?> required ><br><br>
             <p>Die mit * markierten Felder sind Pflichtfelder</p>
             <input type="submit" name="submit" value="Absenden"></input>
-
         </form>
     </div>
 </main>
