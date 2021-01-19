@@ -153,12 +153,19 @@ class AccountsController extends \protec\core\Controller
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
 			else{
-				/*$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
-				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
-				$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
+				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 				$NewUser->insert();
+
+				//get new CustomerID From Database to set it for Account ID
+				$givenCustomerID = protec\model\Customer::findOne('eMail = '.$db->quote($email));
+				$newID = $givenCustomerID->customerID;
+				$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
+
+				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
+
 				$NewAddress->insert();
-				$NewAccount->insert();*/
+				$NewAccount->insert();
+				echo "DIE NEUE ID" . $email . " " . $newID;
 			}
 			
 		
@@ -168,14 +175,6 @@ class AccountsController extends \protec\core\Controller
 
 				
 				
-
-
-
-
-
-
-
-
 
 
 		if(true) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
