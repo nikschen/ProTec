@@ -23,16 +23,16 @@ INSERT INTO `address` (`addressID`, `createdAt`, `updatedAt`, `street`, `streetN
 
 
 
-INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail`) VALUES
-(1, '2021-01-12 14:35:52', NULL, 'Niklas', 'Wiefurcht', '1991-03-18', 'LordyMcViva@googlemail.com'),
-(2, '2021-01-12 14:35:52', NULL, 'Thomas', 'Messer', '1986-11-04', 'Bigtommycool@web.de'),
-(3, '2021-01-12 14:35:52', NULL, 'Klaus', 'Leber', '1980-01-01', 'FreeWilly@gmx.de'),
-(4, '2021-01-12 14:35:52', NULL, 'Ludwig', 'Loberstutter', '1999-08-02', 'KleinerLu@yahoo.com'),
-(5, '2021-01-12 14:35:52', NULL, 'Selen', 'Konquistator', '2000-04-14', 'Selen@giga.com'),
-(6, '2021-01-12 14:35:52', NULL, 'Maximilian', 'Gruber', '1911-11-11', 'OldMax@aol.de'),
-(7, '2021-01-12 14:35:52', NULL, 'Hans', 'Gruber', '1950-09-14', 'OldMaxJr@aol.de'),
-(8, '2021-01-12 14:35:52', NULL, 'Jim', 'Dragon', '1985-08-07', 'DragonFly@gmx.de'),
-(9, '2021-01-12 14:35:52', NULL, 'Betrand', 'Russel', '2000-12-04', 'RusselBer@arcor.de');
+INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail` , `accountID`) VALUES
+(1, '2021-01-12 14:35:52', NULL, 'Niklas', 'Wiefurcht', '1991-03-18', 'LordyMcViva@googlemail.com','1'),
+(2, '2021-01-12 14:35:52', NULL, 'Thomas', 'Messer', '1986-11-04', 'Bigtommycool@web.de','2'),
+(3, '2021-01-12 14:35:52', NULL, 'Klaus', 'Leber', '1980-01-01', 'FreeWilly@gmx.de','4'),
+(4, '2021-01-12 14:35:52', NULL, 'Ludwig', 'Loberstutter', '1999-08-02', 'KleinerLu@yahoo.com', '5'),
+(5, '2021-01-12 14:35:52', NULL, 'Selen', 'Konquistator', '2000-04-14', 'Selen@giga.com', '3'),
+(6, '2021-01-12 14:35:52', NULL, 'Maximilian', 'Gruber', '1911-11-11', 'OldMax@aol.de','6'),
+(7, '2021-01-12 14:35:52', NULL, 'Hans', 'Gruber', '1950-09-14', 'OldMaxJr@aol.de', '6'),
+(8, '2021-01-12 14:35:52', NULL, 'Jim', 'Dragon', '1985-08-07', 'DragonFly@gmx.de', '7'),
+(9, '2021-01-12 14:35:52', NULL, 'Betrand', 'Russel', '2000-12-04', 'RusselBer@arcor.de', '8');
 
 INSERT INTO `account` (`accountID`, `createdAt`, `updatedAt`, `username`, `passwordHash`, `validated`) VALUES
 (1, '2021-01-17 08:22:01', NULL, 'LordyMcViva@googlemail.com', '$2y$10$TbDwUHYtwI93pgQjBg.HkOUNPiwo0DCUG4qXOD99QIR60k.5OAefW', NULL),

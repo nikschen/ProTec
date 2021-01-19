@@ -153,6 +153,15 @@ class AccountsController extends \protec\core\Controller
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
 			}
 			else{
+
+
+				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
+				$NewAddress->insert();
+				
+				//Because lastinserID() was not working we get the highest value from "createdat" to get the newest entry, which we use to get the row and later its ID to create a connection to the customer
+
+				//$lastId = $getRowFromLastCreation->addressID;
+
 				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 				$NewUser->insert();
 
@@ -161,9 +170,7 @@ class AccountsController extends \protec\core\Controller
 				$newID = $givenCustomerID->customerID;
 				$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 
-				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon]);
-
-				$NewAddress->insert();
+				
 				$NewAccount->insert();
 				echo "DIE NEUE ID" . $email . " " . $newID;
 			}
