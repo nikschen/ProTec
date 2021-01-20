@@ -6,6 +6,7 @@
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 0.8em);
     max-width: calc(100vw/2);
     margin: 0 0.4em;
+
 }
 
 .productName{
@@ -15,6 +16,7 @@
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    color: #b3b2b2;
 }
 
 .productContainer{
@@ -28,6 +30,7 @@
     display:flex;
     flex-direction: row;
     align-items: center;
+    color: #b3b2b2;
 
 }
 
@@ -40,10 +43,12 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    color: #b3b2b2;
 }
 
 .productDescription p{
     max-width:calc(100vw/3);
+
 }
 
 
@@ -55,6 +60,7 @@
 }
 .productPrice{
     font-size: 3em;
+    color: var(--mainColor);
 }
 
 .taxesAndShippingInfo{

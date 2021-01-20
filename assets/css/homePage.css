@@ -1,3 +1,11 @@
+.homepageContainer{
+    display:block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 0;
+}
+
 .homeContainer{
     display:flex;
     flex-direction: row;
@@ -5,7 +13,7 @@
     margin:0;
     border: 0.5em solid var(--orangeAccentColor);
     background-color: #FFFFFF;
-    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em);
+    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em);
 }
 .homeContainer a {
     height: inherit;
@@ -18,21 +26,22 @@
 }
 
 
+
 .leftHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 .rightHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
 }
 .middleHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
 }
 .middleHomeColumnMiddlePartContainer img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/2);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2  - 0.5em);
 }
 
 .middleHomeColumnLowerPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1.8em)/4);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
 }
 
 .middleHomeColumnUpperPartElements{
@@ -48,7 +57,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height:calc((100vh - 4.674em - 15.68em + 1.2em)/2);
     border: 0.25em solid var(--orangeAccentColor);
 }
 
