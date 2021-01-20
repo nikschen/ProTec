@@ -16,7 +16,8 @@ class Customer extends \protec\core\Model
         'firstName'   => ['type' => M::TYPE_STRING, 'max'=>45],
         'lastName'    => ['type' => M::TYPE_STRING, 'max'=>100],
         'birthDate'   => ['type' => M::TYPE_DATE],
-        'eMail'       => ['type' => M::TYPE_STRING, 'max'=>150]
+        'eMail'       => ['type' => M::TYPE_STRING, 'max'=>150],
+        'addressID'   => ['type' => M::TYPE_INT]
 
     ];
 }

@@ -49,22 +49,9 @@ class AccountsController extends \protec\core\Controller
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
 
-		$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
-		$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon , 'country' => $country]);
-		$NewAddress->insert();
-		$NewAccount = new \protec\model\Account(['username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 		
-		$ObjectContent = get_class_vars(get_class($NewUser));
-		foreach ($ObjectContent as $name => $value) {
-			echo "$name : $value\n";
-		}
 		
-			///
-		//$errors['testdate'] = date('Y-m-d', strtotime($birthDate));
-		//
-
-
-
+	
 		//Überprüfung der Eingaben in den SignUp Forms wird per JS geprüft (zusätzlich!!! da es ja auch ohne gehen soll)
 		//null Prüfung entfällt da required gesetzt wird im html form
 
@@ -148,52 +135,43 @@ class AccountsController extends \protec\core\Controller
 		
 
 			
-			if($emailFromDataBase !== null)
-			{
+				if($emailFromDataBase !== null)
+				{
 				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
-			}
-			else{
-
-
-				$NewAddress = new \protec\model\Address(['street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
+				}
+				else
+				{
+				//If all UserInput has been verified, insert the address and get the ID of that insert				
+				$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
 				$NewAddress->insert();
+				$lastId = $db->lastInsertId();
 				
-				//Because lastinserID() was not working we get the highest value from "createdat" to get the newest entry, which we use to get the row and later its ID to create a connection to the customer
-
-				//$lastId = $getRowFromLastCreation->addressID;
-
-				$NewUser = new \protec\model\Customer(['eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+				//Use the ID of the Address Insert to connect it to the NewUser, so we know now where he lives
+				$NewUser = new \protec\model\Customer(['addressID' => $lastId, 'eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 				$NewUser->insert();
 
-				//get new CustomerID From Database to set it for Account ID
+				//get new CustomerID From Database to set it for Account ID -> to connect the user to its account
 				$givenCustomerID = protec\model\Customer::findOne('eMail = '.$db->quote($email));
 				$newID = $givenCustomerID->customerID;
 				$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
-
-				
 				$NewAccount->insert();
-				echo "DIE NEUE ID" . $email . " " . $newID;
-			}
-			
-		
-		
-		$this->setParam('errors', $errors);
+				$success=true;
+				
+				}
+				$this->setParam('errors', $errors);
 
 
 				
 				
 
 
-		if(true) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
-		{
-			$success = true;
-			$this->setParam('success', $success);
-			
-			
-		}
+				if($success) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
+				{
+				header( "refresh:4;url=index.php?c=pages&a=index");
+				}
 
 		}
 		}
-		$this->setParam('success', $success);
+		
 	}
 }
