@@ -118,4 +118,37 @@
     .productName{
         font-size: 1.1em;
     }
+
+    .subCategoryContentContainer{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:100vw;
+    }
+
+    .categoryContentContainer{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width:100vw;
+    }
+
+    .contentWrapper{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contentWrapper .element p{
+        font-size: 0.8em;
+    }
+
+    .contentWrapper .element a img{
+        max-height: 100px;
+        max-width: 100px;
+    }
+
+    .subcategoryContent .element p{
+        font-size: 0.8em;
+
+    }
 }

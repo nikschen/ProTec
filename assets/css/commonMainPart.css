@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
 Site {}
 
+h2{
+    color:var(--mainColor);
+    text-shadow: 0 0 2px black;
+}
+
 body {
     margin: 0;
     background-image: url('/src/background.jpg');
@@ -39,6 +44,8 @@ main {
 }
 .element p {
     font-size: 1.5em;
+    color:var(--lightGreyParagraphColor);
+    text-shadow: 0 0 2px black;
 }
 
 .contentWrapper {

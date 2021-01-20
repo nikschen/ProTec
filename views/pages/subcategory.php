@@ -1,7 +1,7 @@
 <body class="Site">
 <main class="Site-content">
     <div class="subCategoryContentContainer">
-        <h3><?=$category?></h3>
+        <h2><?=$category?></h2>
         <div class="contentContainer">
             <div class="subcategoryContent">
             <?foreach($products as $product)
