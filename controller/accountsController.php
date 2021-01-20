@@ -167,7 +167,7 @@ class AccountsController extends \protec\core\Controller
 
 				if($success) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
 				{
-				header( "refresh:4;url=index.php?c=pages&a=index");
+				header( "refresh:4;url=index.php?c=pages&a=login");
 				}
 
 		}
