@@ -62,6 +62,52 @@
             <input type="submit" name="submit" value="Absenden"></input>
         </form>
     </div>
+    <div class="testing">
+    <?
+    $db = $GLOBALS['db'];
+    
+    $streetFromDatabase = "\"Muldenweg\"";
+    $streetNoFromPost = "1";
+    $zipcodeFromPost = "00145";
+    $cityfromPost = "\"Buxbaum\"";
+    $countryFromPost = "\"Österreich\"";
+    $additionalFromPost="\"Über Oma Hilde\"";
+    $phonefromPost ="03451666111";
+    $PostArray['street'] = $streetFromDatabase;
+    $PostArray['streetNo'] = $streetNoFromPost;
+    print_r($PostArray);
+    foreach ($PostArray as $element)
+    {
+        echo $element . "\n";
+    }
+
+
+    $AllAddress = \protec\model\Address::findOne('street = '. $streetFromDatabase . " AND " . 'streetNumber = ' . $streetNoFromPost  . " AND " . 'zipCode = ' . $zipcodeFromPost . " AND " . 'city = '. $cityfromPost . " AND " . 'country = '. $countryFromPost . " AND " . 'additionalInformation = ' . $additionalFromPost);
+    echo "<pre>";
+    print_r($AllAddress);
+    echo "</pre>";
+
+    $NewAddress = new \protec\model\Address(['addressID' => '', 'street' => 'Magnus-Poser-Strasse' , 'streetNumber' => '21']);
+    echo "<pre>";
+    echo($NewAddress->street . "<br>");
+    echo($NewAddress->streetNumber);
+    echo "</pre>";
+    echo "<pre>";
+    var_dump($NewAddress);
+    echo "</pre>";
+
+    //Models sind protected daher keine Iteration ohne Funktion möglich.
+    foreach ($NewAddress as $element => $value)
+    {
+        echo "Hundilein";
+        echo $element . $value . "\n";
+    }
+  
+
+
+
+?>
+    </div>
 </main>
 </body>
 

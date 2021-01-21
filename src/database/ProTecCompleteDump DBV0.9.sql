@@ -23,7 +23,7 @@ INSERT INTO `address` (`addressID`, `createdAt`, `updatedAt`, `street`, `streetN
 
 
 
-INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail` , `accountID`) VALUES
+INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail` , `addressID`) VALUES
 (1, '2021-01-12 14:35:52', NULL, 'Niklas', 'Wiefurcht', '1991-03-18', 'LordyMcViva@googlemail.com','1'),
 (2, '2021-01-12 14:35:52', NULL, 'Thomas', 'Messer', '1986-11-04', 'Bigtommycool@web.de','2'),
 (3, '2021-01-12 14:35:52', NULL, 'Klaus', 'Leber', '1980-01-01', 'FreeWilly@gmx.de','4'),
