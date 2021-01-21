@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `protecdb`.`Customer` (
   `lastName` VARCHAR(100) NOT NULL,
   `birthDate` DATE NOT NULL,
   `eMail` VARCHAR(150) NULL,
-  `accountID` INT NOT NULL,
+  `addressID` INT NOT NULL,
   PRIMARY KEY (`customerID`),
   UNIQUE INDEX `CustID_UNIQUE` (`customerID` ASC));
 

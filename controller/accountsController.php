@@ -59,28 +59,27 @@ class AccountsController extends \protec\core\Controller
 		{
 			$errors['firstName'] = "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeiche";
 		}
+	
 		if(mb_strlen($lastName)<2 || mb_strlen($firstName)>100 ||preg_match('/[0-9]/',$lastName))
 		{
 			$errors['lastName'] = "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
 		}
+	
 		if(mb_strlen($birthDate)<10 || mb_strlen($birthDate)>15 || !preg_match('/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/',$birthDate))
 		{
 			$errors['birthDate'] = "Geburtsdatum fehlerhaft: Das ist kein gültiges Datumsformat. Bsp: 12. März 2020 = 12.03.2020";
-			
 		}
-
-
-
-
-
+	
 		if(mb_strlen($title)>0 && mb_strlen($title)<2)
 		{
 			$errors['title'] = "Titel zu kurz";
 		}
+	
 		if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
 		{
 			$errors['password'] = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
 		}
+	
 		if($password !== $password_repeat)
 		{
 			$errors['password-ident'] = "Die Passworteingaben sind leider nicht identisch!";
@@ -128,47 +127,39 @@ class AccountsController extends \protec\core\Controller
 		{
 			//wenn keine Fehler sind dann prüfen ob in Datenbank nicht schon was vorhanden ist.
 			$db = $GLOBALS['db'];
-			print_r($email);
 			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
+
+			if($emailFromDataBase !== null)
+			{
+			$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
+			}
+			else
+			{
+			//If all UserInput has been verified, insert the address and get the ID of that insert, but if this address is already inside the database just get the id.				
 			
 			
-		
-
 			
-				if($emailFromDataBase !== null)
-				{
-				$errors['IsMailused'] = "Die Mailadresse kann nicht verwendet werden.";
-				}
-				else
-				{
-				//If all UserInput has been verified, insert the address and get the ID of that insert				
-				$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
-				$NewAddress->insert();
-				$lastId = $db->lastInsertId();
+			$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
+			$NewAddress->insert();
+			$lastId = $db->lastInsertId();
 				
-				//Use the ID of the Address Insert to connect it to the NewUser, so we know now where he lives
-				$NewUser = new \protec\model\Customer(['addressID' => $lastId, 'eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
-				$NewUser->insert();
+			//Use the ID of the Address Insert to connect it to the NewUser, so we know now where he lives
+			$NewUser = new \protec\model\Customer(['addressID' => $lastId, 'eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+			$NewUser->insert();
 
-				//get new CustomerID From Database to set it for Account ID -> to connect the user to its account
-				$givenCustomerID = protec\model\Customer::findOne('eMail = '.$db->quote($email));
-				$newID = $givenCustomerID->customerID;
-				$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
-				$NewAccount->insert();
-				$success=true;
-				
-				}
-				$this->setParam('errors', $errors);
+			//get new CustomerID From Database to set it for Account ID -> to connect the user to its account
+			$givenCustomerID = protec\model\Customer::findOne('eMail = '.$db->quote($email));
+			$newID = $givenCustomerID->customerID;
+			$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
+			$NewAccount->insert();
+			$success=true;
+			}
+		$this->setParam('errors', $errors);
 
-
-				
-				
-
-
-				if($success) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
-				{
-				header( "refresh:4;url=index.php?c=pages&a=login");
-				}
+			if($success) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
+			{
+			header( "refresh:4;url=index.php?c=pages&a=login");
+			}
 
 		}
 		}
