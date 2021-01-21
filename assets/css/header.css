@@ -57,7 +57,8 @@ header {
 .navbar a:hover {
     background: var(--hoverAccentColor);
     color: black;
-    transition: 0.3s;
+
+    max-width:calc(100vw/3);
 }
 
 .navbar .navigation li {
@@ -143,6 +144,16 @@ header {
     justify-items: center;
     width:100%;
 }
+
+.dropdownContentList:hover{
+    background-color:var(--mainColor);
+
+}
+.dropdownContentListElement:hover {
+    background-color:var(--mainColor);
+
+}
+
 
 .dropdownContentListElement a{
     height:2em;

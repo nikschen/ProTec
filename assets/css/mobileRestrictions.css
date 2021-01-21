@@ -178,4 +178,16 @@
         align-items: center;
     }
 
+    .categoryContentContainer{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contentWrapper{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 }
