@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0.5em 0;
 }
 
 .homeContainer{
@@ -13,7 +12,7 @@
     margin:0;
     border: 0.5em solid var(--orangeAccentColor);
     background-color: #FFFFFF;
-    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em);
+    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) + 0.25em);
 }
 .homeContainer a {
     height: inherit;
@@ -29,19 +28,24 @@
 
 .leftHomeColumnUpperPartElements li a img{
     height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
+    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 .rightHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
+    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 .middleHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
+    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 .middleHomeColumnMiddlePartContainer img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2  - 0.5em);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 - 0.125em);
+    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 - 0.5em);
 }
 
 .middleHomeColumnLowerPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4  - 0.5em);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
+    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 
 .middleHomeColumnUpperPartElements{
@@ -57,7 +61,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 0.25em solid var(--orangeAccentColor);
+    border: 0.25em solid var(--mainColor);
 }
 
 
@@ -158,8 +162,15 @@
     border-bottom-width: 0.5em;
 }
 
+.middleHomeColumnMiddlePartContainer:hover{
+    box-shadow: 0 0 4em var(--orangeAccentColor);
+    transition: 0.7s;
+    overflow: visible;
+    flex: 1;
+
+}
+
 .exampleImageLeftUpperCorner:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
@@ -167,77 +178,66 @@
 }
 
 .exampleImageLeftUpperMiddle:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageLeftLowerMiddle:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageLeftLowerCorner:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleUpperLeft:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleUpperRight:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleLowerLeft:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageMiddleLowerRight:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightUpperCorner:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightUpperMiddle:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightLowerMiddle:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 .exampleImageRightLowerCorner:hover{
-    height:calc(((100vh - 4.674em - 15.68em - 1em)/4)+ 0.5em);
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;

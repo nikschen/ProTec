@@ -73,7 +73,7 @@ header {
 }
 
 .protecLogoContainer a {
-    height: 3.5em;
+    height: var(--navbarHeightFullscreen);
 }
 
 .protecLogo {

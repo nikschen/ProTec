@@ -25,6 +25,7 @@
 .subcategoryContent .element {
     text-align: center;
     width: 300px;
+    align-items: center;
 }
 
 .subcategoryContent .element img {
@@ -42,8 +43,8 @@
 }
 
 .subcategoryContent .element:hover img {
-    max-width: 12.5em;
-    max-height: 12.5em;
+    max-width: 14em;
+    max-height: 14em;
     overflow: visible;
     flex: 1;
     width: 300px;
@@ -52,10 +53,11 @@
 }
 
 .subcategoryContent .element p {
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     text-align: center;
     font-size: 1.2em;
+    margin: 0 !important;
 }
 
 .contentContainer {
