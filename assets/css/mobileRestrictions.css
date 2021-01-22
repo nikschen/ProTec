@@ -1,5 +1,8 @@
 @media screen and ( max-width: 1050px) {
 
+/*
+###################################################### Allgemein #######################################################
+*/
     .Site-content {
 
         min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
@@ -9,9 +12,21 @@
         align-items: center;
     }
 
+/*
+###################################################### Kategorien #######################################################
+*/
+
     .dropdown{
         margin-top: 0.5em;
     }
+
+    .categoryTitle{
+        display:none;
+    }
+
+/*
+#################################################### Warenkorb #########################################################
+*/
 
     .productBasketText{
         display:none;
@@ -24,6 +39,10 @@
         margin-top: 0.35em;
     }
 
+
+/*
+###################################################### Footer ##########################################################
+*/
 
     .flex-container-footer .footerItems{
         display: list-item;
@@ -40,6 +59,7 @@
     .collapsed{
         height:0;
     }
+
     .collapsible input:checked ~ .collapsed {
         font-size: 1em;
         opacity: 1;
@@ -47,46 +67,6 @@
         padding: 0.313em 0;
         transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
     }
-
-    .categoryTitle{
-        display:none;
-    }
-
-
-    .loginSymbol{
-
-    }
-
-    .loginText{
-        display:none;
-    }
-
-    .leftHomeColumnUpperPartElements li a img,.rightHomeColumnUpperPartElements li a img,
-    .middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-    }
-    .middleHomeColumnMiddlePartContainer img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 + 0.125em);
-        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.5em);
-    }
-
-    .homeContainer{
-        height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
-        width: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1em);
-    }
-
-    .homepageContainer {
-        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
-    }
-
-
-    .middleHomeColumnElements li{
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
 
     .collapsed .partnerLogoAlign{
         text-align: center;
@@ -131,6 +111,51 @@
 
     }
 
+/*
+###################################################### Login ###########################################################
+*/
+    .loginSymbol{
+
+    }
+
+    .loginText{
+        display:none;
+    }
+
+/*
+###################################################### Homepage ########################################################
+*/
+
+    .leftHomeColumnUpperPartElements li a img,.rightHomeColumnUpperPartElements li a img,
+    .middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
+        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
+        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
+    }
+    .middleHomeColumnMiddlePartContainer img{
+        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 + 0.125em);
+        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.5em);
+    }
+
+    .homeContainer{
+        height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
+        width: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1em);
+    }
+
+    .homepageContainer {
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
+    }
+
+
+    .middleHomeColumnElements li{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+/*
+################################################### Produktseiten ######################################################
+*/
+
     .productPageContainer{
         min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile)  - 0.8em);
         max-width: unset;
@@ -170,11 +195,19 @@
         align-items: center;
     }
 
+/*
+############################################### Unterkategorieseiten ###################################################
+*/
     .subCategoryContentContainer{
         display:flex;
         flex-direction: column;
         align-items: center;
     }
+
+
+/*
+################################################ Oberkategorieseiten ###################################################
+*/
 
     .categoryContentContainer{
         display:flex;
@@ -193,9 +226,13 @@
 
 
 }
+
+
 @media screen and ( max-width: 825px) {
 
-
+/*
+###################################################### Homepage ########################################################
+*/
 
     .homepageContainer{
         display:flex;

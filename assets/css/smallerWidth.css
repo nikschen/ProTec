@@ -1,21 +1,25 @@
 @media screen and (max-width: 1500px) {
 
-
-
-    .navbar a {
-        padding: 0.375em 0.375em;
-    }
-
+/*
+################################################### ProTec Logo ########################################################
+*/
     .protecLogo {
         height: calc(var(--navbarHeightFullscreen) - 1em);
         padding: 0;
     }
 
-    .protecLogoContainer a{
+    .protecLogoContainer a {
         padding: 0.5em 0 0;
         height: calc(var(--navbarHeightFullscreen) - 0.5em);
     }
 
+
+/*
+###################################################### Kategorien #######################################################
+*/
+    .navbar a {
+        padding: 0.375em 0.375em;
+    }
 
     .dropbtn {
         font-size: 0.75em;
@@ -24,92 +28,119 @@
     .dropdown {
         margin-top: 0.5em;
         margin-bottom: 0.5em;
-        padding:0;
+        padding: 0;
     }
 
-    span.categoryTitle{
+    span.categoryTitle {
         font-size: 0.75em;
     }
-
 
     .categoryLogo {
         width: 1.6em;
         height: 1.6em;
     }
 
-    .searchContainer input[type=text] {
-        width: 6.2em;
-    }
 
-    .loginSymbol {
-        height: 2em;
-    }
-
-    .loginText{
-        font-size: 0.75em;
-    }
-
-    .productBasketText{
-        font-size: 0.75em;
-    }
-
-
+/*
+###################################################### Suche ###########################################################
+*/
 
     .searchNavContainer {
         margin-left: 0.6em;
         margin-right: 0.6em;
     }
 
-
-    .footerItemsPartOne {
-        display:flex;
-        flex-direction: row;
-        list-style: none;
-        padding:0;
-        margin:0;
+    .searchContainer input[type=text] {
+        width: 6.2em;
     }
 
-    .footerItemsPartTwo {
-        display:flex;
-        flex-direction: row;
-        list-style: none;
-        padding:0;
-        margin:0;
+
+/*
+###################################################### Login ###########################################################
+*/
+
+
+    .loginSymbol {
+        height: 2em;
     }
 
-    .footerItems{
-        display: flex;
-        flex-direction: row;
-
+    .loginText {
+        font-size: 0.75em;
     }
 
-    .flex-container-footer{
-        display: flex;
-        flex-direction: row;
+/*
+#################################################### Warenkorb #########################################################
+*/
+
+    .productBasketText {
+        font-size: 0.75em;
     }
 
-    .descriptionContainer{
+
+
+/*
+################################################### Produktseiten ######################################################
+*/
+
+
+    .descriptionContainer {
         max-width: unset;
-        width:inherit;
+        width: inherit;
     }
 
-    .productPageContainer{
+    .productPageContainer {
         max-width: unset;
-        width:inherit;
+        width: inherit;
         min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
     }
 
-    .productDescription{
-        width:calc((100vw/2) - 5em);
+    .productDescription {
+        width: calc((100vw / 2) - 5em);
     }
 
-    .productDescription p{
-        max-width:calc((100vw/2));
+    .productDescription p {
+        max-width: calc((100vw / 2));
     }
 
-    .subCategoryContentContainer{
-        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) );
+/*
+############################################### Unterkategorieseiten ###################################################
+*/
+
+    .subCategoryContentContainer {
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
     }
 
+/*
+###################################################### Footer ##########################################################
+*/
+
+
+
+    .footerItemsPartOne {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footerItemsPartTwo {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footerItems {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .flex-container-footer {
+        display: flex;
+        flex-direction: row;
+    }
 
 }

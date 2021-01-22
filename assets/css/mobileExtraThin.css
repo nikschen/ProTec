@@ -1,18 +1,18 @@
 @media screen and (max-width: 620px) {
 
+/*
+###################################################### Allgemein #######################################################
+*/
     .Site-content {
 
         min-height: calc(100vh - var(--navbarHeightMobile) - var(--footerHeightExtraThin) - 0.5em);
 
 
     }
-    .headerContainer{
-        height:var(--navbarHeightMobile)
-    }
 
-    .header{
-        height:var(--navbarHeightMobile)
-    }
+/*
+################################################### ProTec Logo ########################################################
+*/
 
     .protecLogoMinimal{
         display: block;
@@ -23,11 +23,28 @@
         height:inherit;
     }
 
+/*
+###################################################### Kategorien #######################################################
+*/
+
+    .headerContainer{
+        height:var(--navbarHeightMobile)
+    }
+
+    .header{
+        height:var(--navbarHeightMobile)
+    }
+
+
     .navbar{
         box-shadow: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
     }
+
+/*
+###################################################### Suche ###########################################################
+*/
 
     .searchNavContainer{
         display:none;
@@ -90,10 +107,10 @@
 
 
 
-    .subcategoryContent{
-        flex-direction: column;
-        align-items: center;
-    }
+/*
+###################################################### Footer ##########################################################
+*/
+
 
     .footerItemsPartOneContainer{
         display: flex;
@@ -108,6 +125,11 @@
         margin:0;
 
     }
+
+/*
+################################################### Produktseiten ######################################################
+*/
+
 
     .productDescription{
         width:calc(100vw - 2em);
@@ -124,12 +146,33 @@
         font-size: 1.1em;
     }
 
+/*
+############################################### Unterkategorieseiten ###################################################
+*/
+
+
+    .subcategoryContent{
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
     .subCategoryContentContainer{
         display:flex;
         flex-direction: column;
         align-items: center;
         width:100vw;
     }
+
+    .subcategoryContent .element p{
+        font-size: 1em;
+
+    }
+
+/*
+################################################ Oberkategorieseiten ###################################################
+*/
 
     .categoryContentContainer{
         display:flex;
@@ -152,10 +195,9 @@
         max-width: 6.25em;
     }
 
-    .subcategoryContent .element p{
-        font-size: 1em;
-
-    }
+/*
+###################################################### Homepage ########################################################
+*/
 
 
     .homepageContainer{

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-
+/*
+###################################################### Allgemein #######################################################
+*/
 header {
 
     height:4.674em;
@@ -13,6 +15,30 @@ header {
     flex-direction: column;
     height:inherit;
 }
+
+/*
+################################################### ProTec Logo ########################################################
+*/
+
+.protecLogoContainer {
+    height: var(--navbarHeightFullscreen);
+}
+
+.protecLogoContainer a {
+    height: var(--navbarHeightFullscreen);
+}
+
+.protecLogo {
+    height: calc(var(--navbarHeightFullscreen) - 0.5em);
+}
+
+.protecLogoMinimal{
+    display:none;
+}
+
+/*
+###################################################### Kategorien #######################################################
+*/
 
 .navbar {
     display: flex;
@@ -31,12 +57,10 @@ header {
 }
 
 
-/* Links inside the navbar */
-
 .navbar a {
     float: left;
     flex-direction: column;
-    color: rgb(50, 54, 63);
+    color: black;
     text-align: center;
     text-decoration: none;
     height: var(--navbarHeightFullscreen);
@@ -52,7 +76,6 @@ header {
 
 }
 
-/* Change background on mouse-over */
 
 .navbar a:hover {
     background: var(--hoverAccentColor);
@@ -65,26 +88,6 @@ header {
     display: inline-flex;
     position: relative;
 }
-
-
-
-.protecLogoContainer {
-    height: var(--navbarHeightFullscreen);
-}
-
-.protecLogoContainer a {
-    height: var(--navbarHeightFullscreen);
-}
-
-.protecLogo {
-    height: calc(var(--navbarHeightFullscreen) - 0.5em);
-}
-
-.protecLogoMinimal{
-    display:none;
-}
-
-
 
 
 .dropdown {
@@ -212,6 +215,12 @@ span.categoryTitle{
     margin-bottom: 0.5em;
 }
 
+
+
+/*
+###################################################### Suche ###########################################################
+*/
+
 .searchNavContainer {
     background-color: var(--mainColor);
     border: none;
@@ -267,7 +276,9 @@ input:focus::placeholder {
     color: transparent;
 }
 
-
+/*
+###################################################### Login ###########################################################
+*/
 
 .loginSymbol {
     height: 2em;
@@ -284,6 +295,10 @@ input:focus::placeholder {
     max-height: calc(var(--navbarHeightFullscreen) - 0.35em);
 
 }
+
+/*
+#################################################### Warenkorb #########################################################
+*/
 
 .productBasketIcon{
     height: 2em;
