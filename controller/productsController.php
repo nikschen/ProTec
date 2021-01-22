@@ -24,10 +24,7 @@ class ProductsController extends \protec\core\Controller
 
     public function actionProductBasket()
     {
-        if(isset($_POST['submit']))
-        {
-            session_destroy();
-        }
+
         $title='ProTec > Ihr Warenkorb';
         $this->setParam('title', $title);
         $this->setParam('productBasket', $_SESSION['productBasket']);
@@ -45,8 +42,6 @@ class ProductsController extends \protec\core\Controller
                 'quantityWanted'=>$quantityWanted];
             $productBasketEntry=new \protec\model\ProductBasketEntry($values);
             array_push($_SESSION['productBasket'],$productBasketEntry);
-
-
             $amountOfBasketEntries=count($_SESSION['productBasket']);
             $this->setParam('productID',$productID);
             $this->setParam('quantityWanted',$quantityWanted);

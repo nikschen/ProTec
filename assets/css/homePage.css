@@ -26,33 +26,20 @@
 
 
 
-.leftHomeColumnUpperPartElements li a img{
+.leftHomeColumnUpperPartElements li a img,.rightHomeColumnUpperPartElements li a img,
+.middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
     height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
     width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
-.rightHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-}
-.middleHomeColumnUpperPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-}
+
 .middleHomeColumnMiddlePartContainer img{
     height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 + 0.15em);
     width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 - 0.5em);
 }
 
-.middleHomeColumnLowerPartElements li a img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-    width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
-}
 
-.middleHomeColumnUpperPartElements{
-    display:flex;
-    flex-direction: row;
-}
-.middleHomeColumnLowerPartElements{
+
+.middleHomeColumnUpperPartElements,.middleHomeColumnLowerPartElements{
     display:flex;
     flex-direction: row;
 }
@@ -64,182 +51,102 @@
     border: 0.25em solid var(--mainColor);
 }
 
-
-.exampleImageLeftUpperCorner{
+.exampleImageLeftUpperCorner,.exampleImageLeftUpperMiddle,
+.exampleImageLeftLowerMiddle,.exampleImageLeftLowerCorner,
+.exampleImageMiddleUpperLeft,.exampleImageMiddleUpperRight,
+.exampleImageMiddleLowerLeft,.exampleImageMiddleLowerRight,
+.exampleImageRightUpperCorner,.exampleImageRightUpperMiddle,
+.exampleImageRightLowerMiddle,.exampleImageRightLowerCorner{
     border-color: #1872A4;
     border-style: solid;
+}
+
+.exampleImageLeftUpperCorner{
     border-left-width: 0.5em;
     border-right-width: 0.25em;
     border-top-width: 0.5em;
     border-bottom-width: 0.25em;
 }
 .exampleImageLeftUpperMiddle{
-    border-color: #1872A4;
-    border-style: solid;
     border-left-width: 0.5em;
     border-right-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.25em;
 }
 .exampleImageLeftLowerMiddle{
-    border-color: #1872A4;
-    border-style: solid;
     border-left-width: 0.5em;
     border-right-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.25em;
 }
 .exampleImageLeftLowerCorner{
-    border-color: #1872A4;
-    border-style: solid;
     border-left-width: 0.5em;
     border-right-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.5em;
 }
 .exampleImageMiddleUpperLeft{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.25em;
     border-left-width: 0.25em;
     border-top-width: 0.5em;
     border-bottom-width: 0.25em;
 }
 .exampleImageMiddleUpperRight{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.25em;
     border-left-width: 0.25em;
     border-top-width: 0.5em;
     border-bottom-width: 0.25em;
 }
 .exampleImageMiddleLowerLeft{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.25em;
     border-left-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.5em;
 }
 .exampleImageMiddleLowerRight{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.25em;
     border-left-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.5em;
 }
 .exampleImageRightUpperCorner{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.5em;
     border-left-width: 0.25em;
     border-top-width: 0.5em;
     border-bottom-width: 0.25em;
 }
 .exampleImageRightUpperMiddle{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.5em;
     border-left-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.25em;
 }
 .exampleImageRightLowerMiddle{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.5em;
     border-left-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.25em;
 }
 .exampleImageRightLowerCorner{
-    border-color: #1872A4;
-    border-style: solid;
     border-right-width: 0.5em;
     border-left-width: 0.25em;
     border-top-width: 0.25em;
     border-bottom-width: 0.5em;
 }
 
-.middleHomeColumnMiddlePartContainer:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-
-}
-
-.exampleImageLeftUpperCorner:hover{
+.exampleImageLeftUpperCorner:hover,.exampleImageLeftUpperMiddle:hover,
+.exampleImageLeftLowerMiddle:hover,.exampleImageLeftLowerCorner:hover,
+.exampleImageMiddleUpperLeft:hover,.exampleImageMiddleUpperRight:hover,
+.exampleImageMiddleLowerLeft:hover,.exampleImageMiddleLowerRight:hover,
+.exampleImageRightUpperCorner:hover,.exampleImageRightUpperMiddle:hover,
+.exampleImageRightLowerMiddle:hover,.exampleImageRightLowerCorner:hover,
+.middleHomeColumnMiddlePartContainer:hover {
     box-shadow: 0 0 4em var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;
 }
 
-.exampleImageLeftUpperMiddle:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageLeftLowerMiddle:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageLeftLowerCorner:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageMiddleUpperLeft:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageMiddleUpperRight:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageMiddleLowerLeft:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageMiddleLowerRight:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageRightUpperCorner:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageRightUpperMiddle:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageRightLowerMiddle:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
-.exampleImageRightLowerCorner:hover{
-    box-shadow: 0 0 4em var(--orangeAccentColor);
-    transition: 0.7s;
-    overflow: visible;
-    flex: 1;
-}
+
+
+

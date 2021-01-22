@@ -10,3 +10,27 @@
     align-items: center;
     color:var(--lightGreyParagraphColor);
 }
+
+.productBasketContent{
+    min-width:60vw;
+}
+
+.productBasketElement{
+    display:flex;
+}
+.productBasketElement::marker{
+    padding-right:4em;
+}
+
+.columnHeaderQuantity,.columnContentQuantity{
+    width:4em;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.columnHeaderProduct, .columnContentProduct{
+    border-left:solid black;
+   padding-left:1em;
+}

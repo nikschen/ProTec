@@ -164,15 +164,8 @@
     }
 
 
-    .leftHomeColumnUpperPartElements li a img{
-        height:calc(100vw/4 - 1em);
-        width:calc(100vw/4 - 1em);
-    }
-    .rightHomeColumnUpperPartElements li a img{
-        height:calc(100vw/4 - 1em);
-        width:calc(100vw/4 - 1em);
-    }
-    .middleHomeColumnUpperPartElements li a img{
+    .leftHomeColumnUpperPartElements li a img,.rightHomeColumnUpperPartElements li a img,
+    .middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
         height:calc(100vw/4 - 1em);
         width:calc(100vw/4 - 1em);
     }
@@ -181,9 +174,5 @@
         width:calc(100vw/2 - 1.5em);
     }
 
-    .middleHomeColumnLowerPartElements li a img{
-        height:calc(100vw/4 - 1em);
-        width:calc(100vw/4 - 1em);
-    }
 
 }
