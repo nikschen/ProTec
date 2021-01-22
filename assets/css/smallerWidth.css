@@ -7,15 +7,16 @@
     }
 
     .protecLogo {
-        height: 3.2em;
-        margin-top: 0.2em;
+        height: calc(var(--navbarHeightFullscreen) - 1em);
+        padding: 0;
     }
 
-    .protecLogo a{
-        height: inherit;
-        font-size: 3.2em;
-        margin-top: 0.2em;
+    .protecLogoContainer a{
+        padding:0;
+        padding-top:0.5em;
+        height: calc(var(--navbarHeightFullscreen) - 0.5em);
     }
+
 
     .dropbtn {
         font-size: 0.75em;

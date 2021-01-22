@@ -10,7 +10,7 @@ class PayDetail extends \protec\core\Model
 
         'paymentID'         => ['type' => M::TYPE_INT], 
         'billingAddressID'  => ['type' => M::TYPE_INT], //Foreign Key auf Addresses
-        'custID'            => ['type' => M::TYPE_INT], //Foreign Key auf Customers
+        'customerID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
         'createdAt'         => ['type' => M::TYPE_STRING],
         'updatedAt'         => ['type' => M::TYPE_STRING],
         'paymentMethod'     => ['type' => M::TYPE_ENUM,'values' => ['IBAN','PayPal','Invoice']],

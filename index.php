@@ -21,7 +21,7 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
-
+$_SESSION['productBasket']=new \protec\model\ProductBasket();
 
 //$data = new Customer;
 //$Customer= Customer::findOne();

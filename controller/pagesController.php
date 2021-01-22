@@ -7,11 +7,9 @@ class PagesController extends \protec\core\Controller
 
 	public function actionIndex()
 	{
-		$info='This is the Homepage. There will be a lot of fun to buy. Stay tuned.';
-        $title='ProTec > Home';
 
+        $title='ProTec > Home';
         $this->setParam('title', $title);
-		$this->setParam('info', $info);
 	}
 
 	public function actionLogin()
@@ -166,6 +164,14 @@ class PagesController extends \protec\core\Controller
         $this->setParam('title', $title);
         $this->setParam('product', $product);
         $this->setParam('productPrice',$productPrice);
+    }
+
+    public function actionProductBasket()
+    {
+        $productBasket=&$_SESSION['productBasket'];
+        $title='ProTec > Ihr Warenkorb';
+        $this->setParam('title', $title);
+        $this->setParam('productBasket', $productBasket);
     }
 
 
