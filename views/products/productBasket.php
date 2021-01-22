@@ -13,6 +13,9 @@
                     </li>
                 <?endforeach?>
                 </ol>
+                <form type="post">
+                    <button type="submit" name="submit" value="submit"> Warenkorb leeren</button>
+                </form>
             </div>
         </div>
     </div>

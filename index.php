@@ -1,7 +1,4 @@
 <?php
-session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
-
-
 
 require_once 'init/database.php';
 require_once 'init/imports.php';
