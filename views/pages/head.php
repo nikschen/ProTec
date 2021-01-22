@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/categoryPages.css">
     <link rel="stylesheet" href="assets/css/subcategoryPages.css">
     <link rel="stylesheet" href="assets/css/productPages.css">
+    <link rel="stylesheet" href="assets/css/productBasket.css">
     <link rel="stylesheet" href="assets/css/smallerWidth.css">
     <link rel="stylesheet" href="assets/css/mobileRestrictions.css">
     <link rel="stylesheet" href="assets/css/mobileExtraThin.css">
