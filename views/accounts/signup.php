@@ -2,7 +2,7 @@
 <main class="Site-content">
 
     <?php if(isset($errors) && count($errors) > 0) : ?>
-     <div class="error-message" style ="border: 1px dottet red">
+     <div class="error-message" style ="border-radius:5px;background-color: red; color: white">
      <ul>
          <?php foreach($errors as $key => $value) : ?>
             <li><?=$value?></li>
@@ -11,7 +11,7 @@
          </div>
          <?php endif; ?>
 
-   
+    
 
     <div class="registrationForm">
 
@@ -19,14 +19,17 @@
     
     
   
-        <?
-       
-        ?>
+    <?php if(isset($success) && $success) : ?>
+        <div class="success-message" style="border-radius:5px;background-color:green; color: white">
+        <p>Erfolgreich angemeldet!</p>
+        </div>
+        <?php endif; ?>
         
         
         <form method="POST">
         <h1>Registrieren Sie sich als neuer Kunde von ProTec!</h1>
         <p>Willkommen in der Welt von Morgen...heute schon.</p>
+       
         <h2>Ihre Anmeldedaten</h2>
         <hr>
         <select name="Anrede" id="selectgender">

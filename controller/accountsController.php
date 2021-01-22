@@ -125,7 +125,7 @@ class AccountsController extends \protec\core\Controller
 
 		if(count($errors)===0)
 		{
-			//wenn keine Fehler sind dann prüfen ob in Datenbank nicht schon was vorhanden ist.
+			//if there are no errors with all the entries above, start to check if there is already a customer using that Mail-Address, if not proceed with database-entry.
 			$db = $GLOBALS['db'];
 			$emailFromDataBase = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 
@@ -159,6 +159,7 @@ class AccountsController extends \protec\core\Controller
 			$searchStringEnd =  rtrim($searchString,$connectionString);
     		$allAddress = \protec\model\Address::findOne($searchStringEnd);
 			
+			//set MailAdressID from Database if Address already existing, else: insert the data inside the database, and give the created ID to the New User
 			if($allAddress !== null)
 			{
 				$connectedId = $allAddress->addressID;
@@ -181,6 +182,7 @@ class AccountsController extends \protec\core\Controller
 			$NewAccount->insert();
 
 			$success=true;
+			$this->setParam('success', $success);
 			}
 		$this->setParam('errors', $errors);
 
