@@ -1,6 +1,6 @@
 <?php
 session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
-session_start();
+
 
 
 require_once 'init/database.php';
@@ -23,6 +23,8 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
+
+session_start();
 if(!ISSET($_SESSION['productBasket']))
 {
     $_SESSION['productBasket']=array();

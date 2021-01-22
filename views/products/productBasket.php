@@ -4,11 +4,10 @@
         <h2>Ihr Warenkorb</h2>
         <div class="productBasketContainer">
             <div class="productBasketContent">
-                <?foreach($_SESSION['productBasket'] as $entry):?>
+                <?foreach($productBasket as $entry):?>
 
-                    <div class="element">
-                        <img src="<?=IMAGESPATH?><?=$entry->productID?>.png">
-                        <p><?=$entry->prodName?><?=$entry->quantityWanted?></p></a>
+                    <div class="productBasketElement">
+                        <p>Produkt: <?=\protec\model\Product::findOne($entry->productID)->prodName?>  |  Anzahl: <?=$entry->quantityWanted?></p>
                     </div>
                 <?endforeach?>
             </div>
@@ -16,5 +15,3 @@
     </div>
 </main>
 </body>
-
-$_SESSION['productBasket']
