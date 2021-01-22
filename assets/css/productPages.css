@@ -17,7 +17,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     color: var(--mainColor);
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 0.125em black;
 }
 
 .productContainer{
@@ -36,8 +36,8 @@
 }
 
 .productImage img{
-    width: 300px;
-    height: 300px;
+    width: 18.75em;
+    height: 18.75em;
 }
 
 .productDescription{
@@ -45,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     color: #b3b2b2;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 0.125em black;
 }
 
 .productDescription p{
@@ -63,13 +63,13 @@
 .productPrice{
     font-size: 3em;
     color: var(--mainColor);
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 0.125em black;
 }
 
 .taxesAndShippingInfo{
     font-size: 1em;
     color: #3ca4ba;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 0.125em black;
 }
 
 

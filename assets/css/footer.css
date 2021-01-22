@@ -3,9 +3,9 @@
 footer {
     background-color: var(--mainColor);
     font-family: 'Open Sans', sans-serif;
-    box-shadow: 0px 4px 2px #27272780;
-    -webkit-box-shadow: 0px 4px 2px #27272780;
-    -moz-box-shadow: 0px 4px 2px #27272780;
+    box-shadow: 0 0.25em 0.125em #27272780;
+    -webkit-box-shadow: 0 0.25em 0.125em #27272780;
+    -moz-box-shadow: 0 0.25em 0.125em #27272780;
     background-size: 100%;
 }
 
@@ -36,12 +36,11 @@ footer {
 }
 
 .flex-container-footer * {
-    margin: 5px;
+    margin: 0.3125em;
 }
 
 
 footer tr th {
-    /*border: 1px solid black;*/
     text-align: left;
 }
 
@@ -68,7 +67,7 @@ footer a:hover {
 }
 .collapsible input {
     position: absolute;
-    left: -9999px;
+    left: -624.9375em;
 }
 
 .collapsible input:focus ~ .collapser {
@@ -76,7 +75,7 @@ footer a:hover {
 }
 .collapsible .collapser {
     cursor: pointer;
-    border: 1px transparent dotted;
+    border: 0.0625em transparent dotted;
     text-decoration-line: underline;
     font-weight: 600;
 
@@ -95,10 +94,10 @@ footer a:hover {
 }
 
 .collapsible input:checked ~ .collapsed {
-    font-size: 16px;
+    font-size: 1em;
     opacity: 1;
     height: auto;
-    padding: 5px 0;
+    padding: 0.3125em 0;
     /* grow, then fade in */
     transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
 }
@@ -108,7 +107,7 @@ footer a:hover {
 }
 
 .collapsed .partnerLogo {
-    height: 40px;
+    height: 2.5em;
 }
 
 .collapsed a {

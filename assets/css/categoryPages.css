@@ -10,8 +10,8 @@
 .element p {
     font-size: 1.5em;
     color:var(--lightGreyParagraphColor);
-    text-shadow: 0 0 2px black;
-    max-width: 250px;
+    text-shadow: 0 0 0.125em black;
+    max-width: 15.625em;
 }
 
 .contentWrapper {
@@ -59,7 +59,7 @@
 
 
 .contentWrapper .element:hover {
-    box-shadow: 0px 10px 18px #FDDA0F;
+    box-shadow: 0 0.625em 1.125em #FDDA0F;
 
 }
 
@@ -68,7 +68,7 @@
     max-height: 14em;
     overflow: hidden;
     flex: 1;
-    width: 300px;
+    width: 18.75em;
     transition: 0.7s;
     margin-bottom: 1em;
 }

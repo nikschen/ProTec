@@ -39,7 +39,7 @@
 }
 
 .subcategoryContent .element:hover {
-    box-shadow: 0px 10px 18px #FDDA0F;
+    box-shadow: 0 0.625em 1.125em #FDDA0F;
     max-width: 20em;
     max-height: 20em;
     overflow: visible;
@@ -51,7 +51,7 @@
     max-height: 13em;
     overflow: visible;
     flex: 1;
-    width: 300px;
+    width: 18.75em;
     transition: 0.7s;
     margin-bottom: 1em;
 }

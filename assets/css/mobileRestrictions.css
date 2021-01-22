@@ -34,7 +34,6 @@
         font-size: 0;
         opacity: 0;
         padding: 0;
-        /* fade out, then shrink */
         transition: opacity 0.25s, margin 0.5s 0.25s, font-size 0.5s 0.25s, padding 0.5s 0.25s;
 
     }
@@ -46,7 +45,6 @@
         opacity: 1;
         height: inherit;
         padding: 0.313em 0;
-        /* grow, then fade in */
         transition: margin 0.25s, padding 0.25s, font-size 0.25s, opacity 0.5s 0.25s;
     }
 
@@ -63,26 +61,14 @@
         display:none;
     }
 
-    .leftHomeColumnUpperPartElements li a img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-    }
-    .rightHomeColumnUpperPartElements li a img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-    }
-    .middleHomeColumnUpperPartElements li a img{
+    .leftHomeColumnUpperPartElements li a img,.rightHomeColumnUpperPartElements li a img,
+    .middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
         height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
         width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
     }
     .middleHomeColumnMiddlePartContainer img{
         height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 + 0.125em);
         width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.5em);
-    }
-
-    .middleHomeColumnLowerPartElements li a img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
-        width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
     }
 
     .homeContainer{
@@ -156,8 +142,8 @@
     }
 
     .productImage img{
-        width: 250px;
-        height: 250px;
+        width: 15.625em;
+        height: 15.625em;
     }
 
     .productImage{
@@ -225,26 +211,15 @@
         width: inherit;
     }
 
-    .leftHomeColumnUpperPartElements li a img{
+    .leftHomeColumnUpperPartElements li a img, .rightHomeColumnUpperPartElements li a img,
+    .middleHomeColumnUpperPartElements li a img,.middleHomeColumnLowerPartElements li a img{
         height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
         width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
     }
-    .rightHomeColumnUpperPartElements li a img{
-        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
-        width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
-    }
-    .middleHomeColumnUpperPartElements li a img{
-        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
-        width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
-    }
+
     .middleHomeColumnMiddlePartContainer img{
         height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile))/2)/1.5);
         width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.25em)/1.5);
-    }
-
-    .middleHomeColumnLowerPartElements li a img{
-        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
-        width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
     }
 
 

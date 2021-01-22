@@ -43,9 +43,9 @@
         right: 0;
         left: 0;
         top:4em;
-        box-shadow: 0 4px 2px #27272780;
-        -webkit-box-shadow: 0 4px 2px #27272780;
-        -moz-box-shadow: 0 4px 2px #27272780;
+        box-shadow: 0 0.25em 0.125em #27272780;
+        -webkit-box-shadow: 0 0.25em 0.125em #27272780;
+        -moz-box-shadow: 0 0.25em 0.125em #27272780;
         justify-content: center;
         flex-wrap: nowrap;
         height: 2.8em;
@@ -66,7 +66,12 @@
         margin:0;
         padding:0;
         border:0;
+
     }
+    .searchContainerMinimal form, .searchContainerMinimal button{
+        border-radius: 0.25em;
+    }
+
 
     .searchContainerMinimal input[type=text] {
         border: none;
@@ -143,8 +148,8 @@
     }
 
     .contentWrapper .element a img{
-        max-height: 100px;
-        max-width: 100px;
+        max-height: 6.25em;
+        max-width: 6.25em;
     }
 
     .subcategoryContent .element p{

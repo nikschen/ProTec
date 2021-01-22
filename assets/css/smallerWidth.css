@@ -3,7 +3,7 @@
 
 
     .navbar a {
-        padding: 6px 6px;
+        padding: 0.375em 0.375em;
     }
 
     .protecLogo {
@@ -12,8 +12,7 @@
     }
 
     .protecLogoContainer a{
-        padding:0;
-        padding-top:0.5em;
+        padding: 0.5em 0 0;
         height: calc(var(--navbarHeightFullscreen) - 0.5em);
     }
 
