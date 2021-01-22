@@ -177,7 +177,7 @@
         width:calc(100vw/4 - 1em);
     }
     .middleHomeColumnMiddlePartContainer img{
-        height:calc(100vw/2 - 1.125em);
+        height:calc(100vw/2 - 0.875em);
         width:calc(100vw/2 - 1.5em);
     }
 

@@ -65,7 +65,7 @@
         width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em);
     }
     .middleHomeColumnMiddlePartContainer img{
-        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.125em);
+        height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 + 0.125em);
         width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.5em);
     }
 
@@ -75,8 +75,12 @@
     }
 
     .homeContainer{
-        height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 0.25em);
+        height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
         width: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1em);
+    }
+
+    .homepageContainer {
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) + 0.25em);
     }
 
 
@@ -204,7 +208,7 @@
     }
 
     .homeContainer{
-        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/1.5) + 1.9em);
+        height:inherit;
         width: inherit;
     }
 
@@ -221,7 +225,7 @@
         width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/4 - 0.5em)/1.5);
     }
     .middleHomeColumnMiddlePartContainer img{
-        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 0.9em)/2)/1.5);
+        height:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile))/2)/1.5);
         width:calc(((100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile) - 1.5em)/2 - 0.25em)/1.5);
     }
 

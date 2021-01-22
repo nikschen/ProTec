@@ -12,7 +12,7 @@
     margin:0;
     border: 0.5em solid var(--orangeAccentColor);
     background-color: #FFFFFF;
-    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) + 0.25em);
+    height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) + 0.75em);
 }
 .homeContainer a {
     height: inherit;
@@ -39,7 +39,7 @@
     width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/4 - 0.5em);
 }
 .middleHomeColumnMiddlePartContainer img{
-    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 - 0.125em);
+    height:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 + 0.15em);
     width:calc((100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 1em)/2 - 0.5em);
 }
 

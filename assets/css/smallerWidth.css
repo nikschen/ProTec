@@ -11,6 +11,12 @@
         margin-top: 0.2em;
     }
 
+    .protecLogo a{
+        height: inherit;
+        font-size: 3.2em;
+        margin-top: 0.2em;
+    }
+
     .dropbtn {
         font-size: 0.75em;
     }
