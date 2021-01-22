@@ -195,6 +195,10 @@
         align-items: center;
     }
 
+    .addToBasketButton img {
+        height: 0.5em;
+        width: 0.5em;
+    }
 /*
 ############################################### Unterkategorieseiten ###################################################
 */

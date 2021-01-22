@@ -24,10 +24,10 @@ class ProductsController extends \protec\core\Controller
 
     public function actionProductBasket()
     {
-
         $title='ProTec > Ihr Warenkorb';
         $this->setParam('title', $title);
         $this->setParam('productBasket', $_SESSION['productBasket']);
+
     }
 
     public function actionAddProduct()

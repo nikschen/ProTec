@@ -12,25 +12,72 @@
 }
 
 .productBasketContent{
-    min-width:60vw;
+    min-width:75vw;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .productBasketElement{
     display:flex;
-}
-.productBasketElement::marker{
-    padding-right:4em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.columnHeaderQuantity,.columnContentQuantity{
-    width:4em;
+
+.columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
+.columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
+    width:6em;
+}
+
+.columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity{
     display:flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
-.columnHeaderProduct, .columnContentProduct{
+.columnHeaderPricing, .columnContentPricing,
+.columnHeaderPricing, .columnContentPricing,.columnSummaryPricing{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+
+.columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
+.columnContentPricing, .columnSummaryPricing{
     border-left:solid black;
-   padding-left:1em;
+}
+
+.columnHeaderProduct, .columnHeaderQuantity, .columnHeaderPricing{
+    border-bottom:solid black;
+}
+
+
+.columnHeaderProduct, .columnContentProduct, .columnSummaryProduct{
+    width:28.125em;
+}
+
+.columnSummaryQuantity , .columnSummaryProduct ,.columnSummaryPricing{
+    border-top:solid black;
+}
+
+.columnSummaryProduct{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.columnSummaryQuantity, .columnSummaryPricing{
+    text-decoration: underline var(--hoverAccentColor);
+    color: var(--orangeAccentColor);
+}
+
+.clearProductBasket{
+    background:white;
+    border:none;
+    border-radius:0.25em;
+    color:var(--mainColor);
+    font-size: 1em;
 }

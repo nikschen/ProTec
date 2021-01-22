@@ -117,3 +117,8 @@ main {
     border: 0.25em dotted green;
     background-color: rgb(164, 204, 103);
 }
+
+.errorContainer{
+    background:white;
+    min-height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+}
