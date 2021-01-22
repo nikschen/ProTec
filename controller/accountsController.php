@@ -136,15 +136,42 @@ class AccountsController extends \protec\core\Controller
 			else
 			{
 			//If all UserInput has been verified, insert the address and get the ID of that insert, but if this address is already inside the database just get the id.				
+			//SETUP ADDRESS ARRAY
+			$addressArray['street'] = $streetInfo;
+			$addressArray['streetNumber'] = $streetNo;
+			$addressArray['city'] = $city;
+			$addressArray['country'] = $country;
+			$addressArray['additionalInformation'] = $address2;
+			$addressArray['zipCode'] = $zipcode;
+			$addressArray['phone'] = $telefon;
+
+			//Build the WHERE-String for the SQL Statement to use in the findOne-method
+			$searchString = "";
+    		$connectionString = " AND ";
+
+			foreach ($addressArray as $element => $value)
+    		{
+				if($value!="")
+				{
+					$searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
+				}
+    		}
+			$searchStringEnd =  rtrim($searchString,$connectionString);
+    		$allAddress = \protec\model\Address::findOne($searchStringEnd);
 			
-			
-			
+			if($allAddress !== null)
+			{
+				$connectedId = $allAddress->addressID;
+			}
+			else
+			{
 			$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
 			$NewAddress->insert();
-			$lastId = $db->lastInsertId();
-				
+			$connectedId = $db->lastInsertId();
+			}
+
 			//Use the ID of the Address Insert to connect it to the NewUser, so we know now where he lives
-			$NewUser = new \protec\model\Customer(['addressID' => $lastId, 'eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+			$NewUser = new \protec\model\Customer(['addressID' => $connectedId, 'eMail' => $email , 'firstName' => $firstName, 'lastName' => $lastName, 'birthDate' => date('Y-m-d', strtotime($birthDate))]);
 			$NewUser->insert();
 
 			//get new CustomerID From Database to set it for Account ID -> to connect the user to its account
@@ -152,13 +179,14 @@ class AccountsController extends \protec\core\Controller
 			$newID = $givenCustomerID->customerID;
 			$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 			$NewAccount->insert();
+
 			$success=true;
 			}
 		$this->setParam('errors', $errors);
 
 			if($success) // hier kommt dann später die Frage, ob es keinen Fehler gab, wenn ja, dann Datenbank-Eintrag erstellen.
 			{
-			header( "refresh:4;url=index.php?c=pages&a=login");
+			//header( "refresh:4;url=index.php?c=pages&a=login");
 			}
 
 		}

@@ -7,7 +7,6 @@ class Address extends \protec\core\Model
 
     protected $scheme = 
     [
-
         'addressID'     => ['type' => M::TYPE_INT],
         'createdAt'     => ['type' => M::TYPE_STRING],
         'updatedAt'     => ['type' => M::TYPE_STRING],
@@ -15,7 +14,8 @@ class Address extends \protec\core\Model
         'streetNumber'  => ['type' => M::TYPE_STRING, 'max'=>10],
         'zipCode'       => ['type' => M::TYPE_STRING, 'max'=>12],
         'city'          => ['type' => M::TYPE_STRING, 'max'=>60],
-        'country'       => ['type' => M::TYPE_STRING, 'max'=>60]
+        'country'       => ['type' => M::TYPE_STRING, 'max'=>60],
+        'phone'         => ['type' => M::TYPE_STRING, 'max'=>60]
 
     ];
 }

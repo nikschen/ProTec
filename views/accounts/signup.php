@@ -63,7 +63,7 @@
         </form>
     </div>
     <div class="testing">
-    <?
+    <?/*
     $db = $GLOBALS['db'];
     
     $streetFromDatabase = "\"Muldenweg\"";
@@ -74,28 +74,38 @@
     $additionalFromPost="\"Über Oma Hilde\"";
     $phonefromPost ="03451666111";
     $PostArray['street'] = $streetFromDatabase;
-    $PostArray['streetNo'] = $streetNoFromPost;
+    $PostArray['streetNumber'] = $streetNoFromPost;
+    $PostArray['city'] = $cityfromPost;
+    $PostArray['country'] = $countryFromPost;
+    $PostArray['additionalInformation'] = $additionalFromPost;
+    $PostArray['zipCode'] = $zipcodeFromPost;
     print_r($PostArray);
-    foreach ($PostArray as $element)
+    echo "<br>";
+    //CONCAT FINDONE() STRING
+    $searchString = "";
+    $connectionString = " AND ";
+    foreach ($PostArray as $element => $value)
     {
-        echo $element . "\n";
+        $searchString .= $element ." = " . $value . $connectionString ;
     }
+    
+    echo $searchString;
+    echo "<br>";
+    $searchStringEnd =  rtrim($searchString,$connectionString);
+    echo "<br>";
 
-
-    $AllAddress = \protec\model\Address::findOne('street = '. $streetFromDatabase . " AND " . 'streetNumber = ' . $streetNoFromPost  . " AND " . 'zipCode = ' . $zipcodeFromPost . " AND " . 'city = '. $cityfromPost . " AND " . 'country = '. $countryFromPost . " AND " . 'additionalInformation = ' . $additionalFromPost);
+    $AllAddress = \protec\model\Address::findOne($searchStringEnd);
     echo "<pre>";
     print_r($AllAddress);
     echo "</pre>";
+    echo $AllAddress->addressID;
 
     $NewAddress = new \protec\model\Address(['addressID' => '', 'street' => 'Magnus-Poser-Strasse' , 'streetNumber' => '21']);
     echo "<pre>";
     echo($NewAddress->street . "<br>");
     echo($NewAddress->streetNumber);
     echo "</pre>";
-    echo "<pre>";
-    var_dump($NewAddress);
-    echo "</pre>";
-
+   
     //Models sind protected daher keine Iteration ohne Funktion möglich.
     foreach ($NewAddress as $element => $value)
     {
@@ -105,7 +115,7 @@
   
 
 
-
+*/
 ?>
     </div>
 </main>
