@@ -8,10 +8,10 @@ class ProductBasketEntry extends \protec\core\Model
     protected $scheme =
         [
 
-            'productBasketEntryID' => ['type' => M::TYPE_INT],
-            'productBasketID'    => ['type' => M::TYPE_INT],//Foreign Key auf ProductBasket
-            'productID'         => ['type' => M::TYPE_INT], //Foreign Key auf Products
-            'quantityWanted'         => ['type' => M::TYPE_INT]
+            'productBasketEntryID'  => ['type' => M::TYPE_INT],
+            'purchaseID'            => ['type' => M::TYPE_INT],//Foreign Key auf Purchase
+            'productID'             => ['type' => M::TYPE_INT], //Foreign Key auf Product
+            'quantityWanted'        => ['type' => M::TYPE_INT]
 
         ];
 }
