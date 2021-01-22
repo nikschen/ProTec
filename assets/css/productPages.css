@@ -79,3 +79,29 @@
 .quantityNumber{
     color:var(--orangeAccentColor);
 }
+
+.quantityWantedLabel{
+    font-size: 1em;
+    color:black;
+}
+
+.addToBasketButton img{
+    height:0.5em;
+    width:0.5em;
+}
+
+
+
+.addToBasketContainer {
+    background-color:white;
+    width:8em;
+}
+.addToBasketContainer button{
+    border: none;
+    background: none;
+    padding-bottom: 0.4em;
+}
+.addToBasketContainer select{
+    border: none;
+    background: none;
+}

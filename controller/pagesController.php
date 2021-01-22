@@ -153,26 +153,9 @@ class PagesController extends \protec\core\Controller
         $this->setParam('products', $products);
         $this->setParam('category', $category);
     }
-    public function actionProduct()
-    {
-        $productIDToBeSearchedFor = 'productID='.'"'.$_GET['pid'].'"';
-        $product=protec\model\Product::findOne($productIDToBeSearchedFor);
-        $pricingIDToBeSearchedFor='pricingID='.'"'.$_GET['pid'].'"';
-        $pricingEntry=protec\model\Pricing::findOne($pricingIDToBeSearchedFor);
-        $productPrice=$pricingEntry->amount.' '.$pricingEntry->currency;
-        $title=$product->prodName;
-        $this->setParam('title', $title);
-        $this->setParam('product', $product);
-        $this->setParam('productPrice',$productPrice);
-    }
 
-    public function actionProductBasket()
-    {
-        $productBasket=&$_SESSION['productBasket'];
-        $title='ProTec > Ihr Warenkorb';
-        $this->setParam('title', $title);
-        $this->setParam('productBasket', $productBasket);
-    }
+
+
 
 
 

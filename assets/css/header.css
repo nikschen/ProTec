@@ -273,7 +273,6 @@ input:focus::placeholder {
 }
 
 .loginContainer {
-    height: var(--navbarHeightFullscreen);
     padding-left:0.8em;
     padding-right: 0.8em;
     margin-top: 0.35em;

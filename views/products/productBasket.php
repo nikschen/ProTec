@@ -4,12 +4,11 @@
         <h2>Ihr Warenkorb</h2>
         <div class="productBasketContainer">
             <div class="productBasketContent">
-                <?foreach($products as $product):?>
+                <?foreach($_SESSION['productBasket'] as $entry):?>
 
                     <div class="element">
-                        <a href="index.php?c=pages&a=product&pid=<?=$product->productID?>">
-                            <img src="<?=IMAGESPATH?><?=$product->productID?>.png">
-                            <p><?=$product->prodName?></p></a>
+                            <img src="<?=IMAGESPATH?><?=$entry->productID?>.png">
+                            <p><?=$entry->prodName?><?=$entry->quantityWanted?></p></a>
                     </div>
                 <?endforeach?>
             </div>

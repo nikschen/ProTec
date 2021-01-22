@@ -135,7 +135,7 @@ class AccountsController extends \protec\core\Controller
 			}
 			else
 			{
-			//If all UserInput has been verified, insert the address and get the ID of that insert, but if this address is already inside the database just get the id.				
+			//If+ all UserInput has been verified, insert the address and get the ID of that insert, but if this address is already inside the database just get the id.
 			//SETUP ADDRESS ARRAY
 			$addressArray['street'] = $streetInfo;
 			$addressArray['streetNumber'] = $streetNo;

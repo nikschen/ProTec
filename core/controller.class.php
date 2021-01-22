@@ -25,6 +25,7 @@ class Controller
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
 		extract($this->viewParams); //Import variables into the current symbol table from an array
 
+        $this->setParam('amountOfBasketEntries',0);
 		// can not be used as key in params and will overwritten here as safety
 		$body = '';
 		if(!file_exists($viewPath))

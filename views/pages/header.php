@@ -99,7 +99,7 @@
             
             </div>
             <div class="productBasketContainer">
-                <a href="index.php?c=pages&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png"><br> Warenkorb</a>
+                <a href="index.php?c=pages&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png"><br><span class="productBasketText">Warenkorb</span><span class="productBasketText"> (<?=$amountOfBasketEntries?>)</span></a>
             </div>
         
     <div class="loginStatus">

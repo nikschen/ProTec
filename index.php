@@ -1,5 +1,7 @@
 <?php
+session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
 session_start();
+
 
 require_once 'init/database.php';
 require_once 'init/imports.php';
@@ -21,7 +23,8 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
-$_SESSION['productBasket']=new \protec\model\ProductBasket();
+
+$_SESSION['productBasket']=array();
 
 //$data = new Customer;
 //$Customer= Customer::findOne();

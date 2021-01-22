@@ -28,6 +28,10 @@
         padding:0;
     }
 
+    .categoryTitle{
+        font-size: 0.75em;
+    }
+
 
     .categoryLogo {
         width: 1.6em;
@@ -41,6 +45,15 @@
     .loginSymbol {
         height: 2em;
     }
+
+    .loginText{
+        font-size: 0.75em;
+    }
+
+    .productBasketText{
+        font-size: 0.75em;
+    }
+
 
 
     .searchNavContainer {
