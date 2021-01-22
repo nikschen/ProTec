@@ -7,8 +7,8 @@
                 <?foreach($_SESSION['productBasket'] as $entry):?>
 
                     <div class="element">
-                            <img src="<?=IMAGESPATH?><?=$entry->productID?>.png">
-                            <p><?=$entry->prodName?><?=$entry->quantityWanted?></p></a>
+                        <img src="<?=IMAGESPATH?><?=$entry->productID?>.png">
+                        <p><?=$entry->prodName?><?=$entry->quantityWanted?></p></a>
                     </div>
                 <?endforeach?>
             </div>

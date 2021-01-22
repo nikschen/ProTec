@@ -23,8 +23,11 @@ $actionName = $_GET['a'] ?? 'index';
 // generate path for base controller file
 $controllerPath = CONTROLLERPATH.$controllerName.'Controller.php';
 
+if(!ISSET($_SESSION['productBasket']))
+{
+    $_SESSION['productBasket']=array();
+}
 
-$_SESSION['productBasket']=array();
 
 //$data = new Customer;
 //$Customer= Customer::findOne();
