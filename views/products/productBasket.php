@@ -13,8 +13,8 @@
                     </li>
                 <?endforeach?>
                 </ol>
-                <form type="post">
-                    <button type="submit" name="submit" value="submit"> Warenkorb leeren</button>
+                <form action="index.php?c=pages&a=logout" method="post">
+                    <input type="submit" name="submitLogout" value="Session beenden">
                 </form>
             </div>
         </div>
