@@ -66,7 +66,15 @@
         </form>
     </div>
     <div class="testing">
-    <?/*
+    <?
+
+    
+    
+    
+    
+    
+    
+    /*
     $db = $GLOBALS['db'];
     
     $streetFromDatabase = "\"Muldenweg\"";
