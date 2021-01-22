@@ -67,7 +67,7 @@
                 <div class="searchContainer">
                     <form method="post">
                         <input type="text" placeholder="Produktsuche...">
-                        <button type="submit"><img src="src/icons/searchIcon.png"/></button>
+                        <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                     </form>
                 </div>
             </div>
@@ -98,6 +98,9 @@
                 <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>"><br><span class="loginText"><?=$text?></span></a>
             
             </div>
+            <div class="productBasketContainer">
+                <a href="index.php?c=pages&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png"><br> Warenkorb</a>
+            </div>
         
     <div class="loginStatus">
             <?if(isset($_SESSION['loggedIn']))
@@ -110,6 +113,7 @@
                 };  ?>
             </div>
         </div>
+
         <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
                 <form method="post">

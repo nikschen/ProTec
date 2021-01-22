@@ -5,7 +5,7 @@
     align-items: center;
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
     max-width: inherit;
-    min-width: calc(100vw/1.8);
+    min-width: 80vw;
 }
 .element p {
     font-size: 1.5em;
@@ -18,30 +18,40 @@
     display: flex;
     flex-direction: row;
     height: inherit;
-    align-items: center;
+    justify-content: space-around;
     background-color: unset;
+    max-width:100%;
+    min-width: 80%;
 }
 
 .contentWrapper a {
     text-decoration: none;
     color: black;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
+
+
+
 .contentWrapper .element {
-    margin-left: 0.313em;
-    margin-right: 0.313em;
     background-color: unset;
+    margin: 0 0.5em;
 }
 
 .contentWrapper .element img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 12.5em;
+    max-height: 12.5em;
     flex: 1;
 }
 
 
 
 .element {
+    display:flex;
+    flex-direction: column;
     text-align: center;
     background-color: unset;
 }
@@ -50,16 +60,13 @@
 
 .contentWrapper .element:hover {
     box-shadow: 0px 10px 18px #FDDA0F;
-    max-width: 20em;
-    max-height: 20em;
-    overflow: visible;
-    flex: 1;
+
 }
 
 .contentWrapper .element:hover img {
     max-width: 14em;
     max-height: 14em;
-    overflow: visible;
+    overflow: hidden;
     flex: 1;
     width: 300px;
     transition: 0.7s;

@@ -15,6 +15,10 @@
     align-items: center;
     flex-wrap: wrap;
     align-self: center;
+    justify-content: space-around;
+    background-color: unset;
+    max-width:100%;
+    min-width: 80%;
 }
 
 .subcategoryContent a {
@@ -24,7 +28,7 @@
 
 .subcategoryContent .element {
     text-align: center;
-    width: 300px;
+    width: 15em;
     align-items: center;
 }
 
@@ -43,8 +47,8 @@
 }
 
 .subcategoryContent .element:hover img {
-    max-width: 14em;
-    max-height: 14em;
+    max-width: 13em;
+    max-height: 13em;
     overflow: visible;
     flex: 1;
     width: 300px;
@@ -57,7 +61,6 @@
     flex-wrap: wrap;
     text-align: center;
     font-size: 1.2em;
-    margin: 0 !important;
 }
 
 .contentContainer {

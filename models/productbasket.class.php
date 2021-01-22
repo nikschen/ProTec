@@ -9,8 +9,7 @@ class ProductBasket extends \protec\core\Model
     [
 
         'purchaseID'        => ['type' => M::TYPE_INT], //Foreign Key auf Purchases
-        'quantityWanted'    => ['type' => M::TYPE_INT],
-        'productID'         => ['type' => M::TYPE_INT] //Foreign Key auf Products
+        'productBasketID'    => ['type' => M::TYPE_INT],
 
     ];
 }

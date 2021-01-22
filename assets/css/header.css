@@ -274,7 +274,8 @@ input:focus::placeholder {
 
 .loginContainer {
     height: var(--navbarHeightFullscreen);
-    margin-left: 0.8em;
+    padding-left:0.8em;
+    padding-right: 0.8em;
     margin-top: 0.35em;
 
 }
@@ -282,6 +283,13 @@ input:focus::placeholder {
 .loginContainer a{
     max-height: calc(var(--navbarHeightFullscreen) - 0.35em);
 
+}
+
+.productBasketIcon{
+    height: 2em;
+    padding-left:0.8em;
+    padding-right: 0.8em;
+    margin-top: 0.35em;
 }
 
 
