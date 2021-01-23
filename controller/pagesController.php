@@ -16,7 +16,16 @@ class PagesController extends \protec\core\Controller
 	{
 		$title='ProTec > Login';
         $this->setParam('title', $title);
-        
+
+        if(isset($_COOKIE["email"])){
+
+            $_SESSION['email']=$_COOKIE["email"];
+
+            header("Location: index.php?c=pages&a=index");
+
+            exit();
+
+        }
       
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
@@ -78,6 +87,11 @@ class PagesController extends \protec\core\Controller
 
 			
 			}
+            $year = time() + 31536000;
+            if($_POST['RememberMe']) {
+                setcookie('email', $_SESSION['email'], $year);
+            }
+
         }
         
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------

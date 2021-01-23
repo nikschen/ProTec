@@ -22,7 +22,8 @@
             <label for="password">Passwort</label> <br />
             <input type="password" name="password" id="password" /><br />
             <br />
-            <input type="submit" name="submit" value="Einloggen" /><br />
+            <button type="submit" name="submit" value="Einloggen">Einloggen</button>
+            <span class="loginRememberMe"><label><input class=loginRememberMe type="checkbox" name="RememberMe" value="RememberMe">Eingeloggt bleiben? </input></label></span>
         </form>
         <form action="index.php?c=pages&a=logout" method="post">
             <input type="submit" name="submitLogout" value="Logout Testbutton">
