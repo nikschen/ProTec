@@ -16,7 +16,8 @@
                     <div class="columnContentPricing">-.--</div>
                 </div>
             <?endif?>
-                <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
+            <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
+            <?if ($_SESSION['productBasket']!=null):?>
                 <?foreach($_SESSION['productBasket'] as $productBasketEntry):?>
                     <?$product=\protec\model\Product::findOne("productID=".$productBasketEntry->productID);
                     $pricing=\protec\model\Pricing::findOne("pricingID=".$productBasketEntry->productID)?>
@@ -28,6 +29,7 @@
                     </div>
 
                 <?endforeach?>
+            <?endif?>
                 <div class="productBasketElement">
                     <div class="columnSummaryProduct">Gesamt: </div>
                     <div class="columnSummaryQuantity"><?=$summedUpQuantity?></div>
@@ -36,8 +38,8 @@
 
             </div>
         </div>
-        <form class="clearProductBasketForm" action="index.php?c=pages&a=logout" method="post">
-            <button class="clearProductBasket" type="submit" name="clearProductBasket" value="clearProductBasket">Warenkorb leeren</button>
+        <form class="clearProductBasketForm" method="post">
+            <button class="clearProductBasket" type="submit" name="submit" value="submit">Warenkorb leeren</button>
         </form>
     </div>
 </main>

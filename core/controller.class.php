@@ -25,7 +25,14 @@ class Controller
 		$viewPath = $this->viewPath($this->controllerName, $this->actionName);
 		extract($this->viewParams); //Import variables into the current symbol table from an array
 
-        $amountOfBasketEntries=count($_SESSION['productBasket']);
+        if(isset($_SESSION['productBasket']))
+        {
+            $amountOfBasketEntries=count($_SESSION['productBasket']);
+        }
+        else
+        {
+            $amountOfBasketEntries=0;
+        }
         $this->setParam('amountOfBasketEntries',$amountOfBasketEntries);
 
 		// can not be used as key in params and will overwritten here as safety

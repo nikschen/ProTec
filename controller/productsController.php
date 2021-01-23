@@ -24,11 +24,16 @@ class ProductsController extends \protec\core\Controller
 
     public function actionProductBasket()
     {
+        if(isset($_POST['submit']))
+        {
+            $_SESSION['productBasket']=null;
+        }
         $title='ProTec > Ihr Warenkorb';
         $this->setParam('title', $title);
         $this->setParam('productBasket', $_SESSION['productBasket']);
 
     }
+
 
     public function actionAddProduct()
     {
