@@ -10,14 +10,6 @@ body {
     margin: 0;
 }
 
-
-input,
-select,
-button {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9em;
-}
-
 main {
     flex: 1;
     font-family: 'Open Sans', sans-serif;
@@ -101,8 +93,8 @@ main {
     align-items: center;
 }
 
-.loginForm [type=submit]{
-    width: 35%;
+.loginForm [type=submit] {
+    width: 70%;
     background-color: #428eb9;
     color: white;
     padding: 0.875em 1.25em;
@@ -112,18 +104,6 @@ main {
     cursor: pointer;
     align-items: center;
 }
-
-span.loginRememberMe{
-    background-color: #428eb9;
-    color: white;
-    padding: 0.7em 0.5em;
-    border: none;
-    border-radius: 0.25em;
-    cursor: pointer;
-    align-items: center;
-    height:2.762em;
-}
-
 
 .itemList {
     list-style-type: none;
