@@ -61,6 +61,17 @@ class Controller
 		$this->viewParams[$key] =$value;
 	}
 
+	function rememberMe($email, $password)
+	{
+    $duration = time() + 3600*24*30;
+    setcookie('email', $email, $duration, '/');
+    setcookie('password', $password, $duration, '/'); //beide Werte über Array auch in einem Cookie Speicherbar 
+    //(Anmerkung: PW sollten nicht in Cookie gespeichert werden)
+	}
+
+
+
+
 	public function __destruct()
 	{
 		$this->controllerName=null;

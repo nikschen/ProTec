@@ -53,12 +53,12 @@
         echo "<br>";
         echo "RememberMe Status: " . $status ;
         echo "<br>";
-        if(!isset($_COOKIE['email'])){
+        if(isset($_COOKIE['email'])){
         echo "COOKIE EMAIL: " . $_COOKIE['email'];
         }
         else {echo "cookie email is not set";}
         echo "<br>";
-        if(!isset($_COOKIE['password'])){
+        if(isset($_COOKIE['password'])){
             echo "COOKIE PWHASH: " . $_COOKIE['password'];
             }
         else {echo "cookie PW Hash is not set";}

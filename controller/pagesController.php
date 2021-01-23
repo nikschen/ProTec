@@ -29,6 +29,10 @@ class PagesController extends \protec\core\Controller
       
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
+            //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
+
+
+
 			if(isset($_POST['submit']))
 			{
 				$email    = $_POST['email'] ?? null;
@@ -74,12 +78,11 @@ class PagesController extends \protec\core\Controller
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
 
                         //START AUSLAGERN IN REMEMBER FUNKTION
-                        $errors['SettingCookie'] = "here ist where the cookie should be set!!!!!";
-                        
-                        $duration = time() + 3600*24*30;
-                        setcookie('email', $email, $duration, '/');
-                        setcookie('password', $PWHash, $duration, '/');
-                        
+
+                        if($rememberMe=="on")
+                        {
+                        $this->rememberMe($email, $PWHash);
+                        }
 
                         //END
                      //header('Location: index.php');
@@ -119,7 +122,10 @@ class PagesController extends \protec\core\Controller
 	    if($_SESSION['loggedIn'] === true)
 		{
 			$_SESSION['loggedIn'] = false;
-		}
+        }
+        setcookie('email','',-1,'/');
+        setcookie('password','',-1,'/');
+        unset($_SESSION['username']);
         session_destroy();
 		header('Location: index.php?c=pages&a=index');
 		
