@@ -17,7 +17,7 @@ class PagesController extends \protec\core\Controller
 		$title='ProTec > Login';
         $this->setParam('title', $title);
 
-        if(isset($_COOKIE["email"])){
+        /*if(isset($_COOKIE["email"])){
 
             $_SESSION['email']=$_COOKIE["email"];
 
@@ -25,7 +25,7 @@ class PagesController extends \protec\core\Controller
 
             exit();
 
-        }
+        }*/
       
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
@@ -33,15 +33,17 @@ class PagesController extends \protec\core\Controller
 			{
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
+                $rememberMe = $_POST['Remember'] ?? null;
 
-                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
-                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+                
                 
                 
                 //Debug
+                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $errors['email'] = "Email: " . $email;
                 $errors['Password'] = "PW: " . $password;
-                
+                $errors['rememberMe'] = "Status RememberME: " . $rememberMe;
 
                 //Gibt es den Nutzer und ist das PW korrekt?
                 //1. Prüfen ob Nutzer vorhanden    check
@@ -70,7 +72,17 @@ class PagesController extends \protec\core\Controller
                         $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
-                        //header('Location: index.php');
+
+                        //START AUSLAGERN IN REMEMBER FUNKTION
+                        $errors['SettingCookie'] = "here ist where the cookie should be set!!!!!";
+                        
+                        $duration = time() + 3600*24*30;
+                        setcookie('email', $email, $duration, '/');
+                        setcookie('password', $PWHash, $duration, '/');
+                        
+
+                        //END
+                     //header('Location: index.php');
                     }
                     else
                     {
