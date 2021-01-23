@@ -10,4 +10,8 @@
     --orangeAccentColor:#FDDA0F;
     --lightGreyParagraphColor: #858585;
 
+    background-image: url('../../src/images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }

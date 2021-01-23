@@ -28,6 +28,16 @@
 #################################################### Warenkorb #########################################################
 */
 
+    .productBasketContentContainer {
+
+        min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
+        min-width: 100vw;
+    }
+
+    .productBasketContent{
+        min-width:95vw;
+    }
+
     .productBasketText{
         display:none;
     }

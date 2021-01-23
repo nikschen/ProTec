@@ -13,10 +13,10 @@
                 <div class="productBasketElement">
                     <div class="columnContentProduct">------------</div>
                     <div class="columnContentQuantity">-</div>
-                    <div class="columnContentPricing">-,--Euro</div>
+                    <div class="columnContentPricing">-.--</div>
                 </div>
             <?endif?>
-                <?$summedUpQuantity=0; $summedUpPricing=0.0?>
+                <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
                 <?foreach($_SESSION['productBasket'] as $productBasketEntry):?>
                     <?$product=\protec\model\Product::findOne("productID=".$productBasketEntry->productID);
                     $pricing=\protec\model\Pricing::findOne("pricingID=".$productBasketEntry->productID)?>
@@ -24,14 +24,14 @@
                     <div class="productBasketElement">
                          <div class="columnContentProduct"><?=$product->prodName?></div>
                          <div class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></div><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
-                        <div class="columnContentPricing"><?=$pricing->amount?> <?=$pricing->currency?></div><?$summedUpPricing+=$pricing->amount?>
+                        <div class="columnContentPricing"><?=$pricing->amount?> <?=$pricing->currency?></div><?$summedUpPricing+=$pricing->amount; $currency=$pricing->currency;?>
                     </div>
 
                 <?endforeach?>
                 <div class="productBasketElement">
                     <div class="columnSummaryProduct">Gesamt: </div>
                     <div class="columnSummaryQuantity"><?=$summedUpQuantity?></div>
-                    <div class="columnSummaryPricing"><?=$summedUpPricing?> Euro</div>
+                    <div class="columnSummaryPricing"><?=number_format($summedUpPricing,2)?> <?=$currency?></div>
                 </div>
 
             </div>

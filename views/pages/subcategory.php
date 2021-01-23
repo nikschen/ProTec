@@ -8,8 +8,8 @@
 
                     <div class="element">
                         <a href="index.php?c=products&a=product&pid=<?=$product->productID?>">
-                        <img src="<?=IMAGESPATH?><?=$product->productID?>.png">
-                        <p><?=$product->prodName?></p></a>
+                        <img src="<?=IMAGESPATH?><?=$product->productID?>.png"></a>
+                        <p><?=$product->prodName?></p>
                     </div>
             <?endforeach?>
             </div>

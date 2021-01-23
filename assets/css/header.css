@@ -97,6 +97,7 @@ header {
     align-items: center;
     font-family: 'Nanum Gothic', sans-serif;
     padding: 0.375em 0.625em;
+    font-size: 1em;
 
 }
 
@@ -296,6 +297,10 @@ input:focus::placeholder {
 
 }
 
+span.loginText{
+    font-size: 1em;
+}
+
 /*
 #################################################### Warenkorb #########################################################
 */
@@ -305,6 +310,11 @@ input:focus::placeholder {
     padding-left:0.8em;
     padding-right: 0.8em;
     margin-top: 0.35em;
+
+}
+
+span.productBasketText{
+    font-size: 1em;
 }
 
 

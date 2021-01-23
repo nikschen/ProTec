@@ -16,9 +16,11 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    font-size:1em;
 }
 
 .productBasketElement{
+    width:100%;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,7 +30,7 @@
 
 .columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
 .columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
-    width:6em;
+    width:12.5vw;
 }
 
 .columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity{
@@ -37,16 +39,15 @@
     justify-content: center;
 }
 
-.columnHeaderPricing, .columnContentPricing,
 .columnHeaderPricing, .columnContentPricing,.columnSummaryPricing{
     display:flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 
-.columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
-.columnContentPricing, .columnSummaryPricing{
+.columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity,
+.columnHeaderPricing, .columnContentPricing, .columnSummaryPricing{
     border-left:solid black;
 }
 
@@ -56,7 +57,7 @@
 
 
 .columnHeaderProduct, .columnContentProduct, .columnSummaryProduct{
-    width:28.125em;
+    width:50vw;
 }
 
 .columnSummaryQuantity , .columnSummaryProduct ,.columnSummaryPricing{
@@ -69,10 +70,11 @@
     justify-content: flex-end;
 }
 
-.columnSummaryQuantity, .columnSummaryPricing{
-    text-decoration: underline var(--hoverAccentColor);
+.columnSummaryQuantity, .columnSummaryPricing, .columnSummaryProduct{
     color: var(--orangeAccentColor);
 }
+
+
 
 .clearProductBasket{
     background:white;

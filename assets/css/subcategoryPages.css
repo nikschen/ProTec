@@ -29,7 +29,9 @@
 .subcategoryContent .element {
     text-align: center;
     width: 15em;
+    height:21.8em;
     align-items: center;
+    justify-content: space-around;
 }
 
 .subcategoryContent .element img {
@@ -40,20 +42,14 @@
 
 .subcategoryContent .element:hover {
     box-shadow: 0 0.625em 1.125em #FDDA0F;
-    max-width: 20em;
-    max-height: 20em;
-    overflow: visible;
-    flex: 1;
 }
 
 .subcategoryContent .element:hover img {
     max-width: 13em;
     max-height: 13em;
-    overflow: visible;
+    overflow: hidden;
     flex: 1;
-    width: 18.75em;
     transition: 0.7s;
-    margin-bottom: 1em;
 }
 
 .subcategoryContent .element p {
@@ -61,6 +57,7 @@
     flex-wrap: wrap;
     text-align: center;
     font-size: 1.2em;
+    align-self: flex-end;
 }
 
 .contentContainer {
