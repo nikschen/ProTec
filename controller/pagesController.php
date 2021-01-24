@@ -67,7 +67,8 @@ class PagesController extends \protec\core\Controller
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
                         $_SESSION['email'] = $email;
-                        $_SESSION['password'] = $password;
+                        $_SESSION['password'] = encryptPassword($password);
+                        
 
                         //START AUSLAGERN IN REMEMBER FUNKTION
 

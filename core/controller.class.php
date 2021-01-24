@@ -65,7 +65,7 @@ class Controller
 	{
     $duration = time() + 3600*24*30;
     setcookie('email', $email, $duration, '/');
-    setcookie('password', $password, $duration, '/'); //beide Werte über Array auch in einem Cookie Speicherbar 
+    setcookie('password', \encryptPassword($password), $duration, '/'); //beide Werte über Array auch in einem Cookie Speicherbar 
     //(Anmerkung: PW sollten nicht in Cookie gespeichert werden)
 	}
 

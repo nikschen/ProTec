@@ -59,13 +59,18 @@
         else {echo "cookie email is not set";}
         echo "<br>";
         if(isset($_COOKIE['password'])){
-            echo "COOKIE PWHASH: " . $_COOKIE['password'];
+            echo "COOKIE PW encryped: " . $_COOKIE['password'];
             }
         else {echo "cookie PW Hash is not set";}
-       
-        //echo "Status RememberMeVariable: " . $_POST['RememberMe'];
-        //echo $_POST['eMail'];
-        //$title = $_POST['title'] ?? null
+       echo "<hr>";
+     
+
+            
+        
+
+
+
+
         ?>
         
         
