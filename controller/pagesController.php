@@ -17,16 +17,6 @@ class PagesController extends \protec\core\Controller
 		$title='ProTec > Login';
         $this->setParam('title', $title);
 
-        /*if(isset($_COOKIE["email"])){
-
-            $_SESSION['email']=$_COOKIE["email"];
-
-            header("Location: index.php?c=pages&a=index");
-
-            exit();
-
-        }*/
-      
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
             //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
@@ -38,7 +28,7 @@ class PagesController extends \protec\core\Controller
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
                 $rememberMe = $_POST['Remember'] ?? null;
-
+                
                 
                 
                 
@@ -76,12 +66,14 @@ class PagesController extends \protec\core\Controller
                         $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;
 
                         //START AUSLAGERN IN REMEMBER FUNKTION
 
                         if($rememberMe=="on")
                         {
-                        $this->rememberMe($email, $PWHash);
+                        $this->rememberMe($email, $password);
                         }
 
                         //END
@@ -102,12 +94,8 @@ class PagesController extends \protec\core\Controller
 
 			
 			}
-            $year = time() + 31536000;
-            if($_POST['RememberMe']) {
-                setcookie('email', $_SESSION['email'], $year);
-            }
-
         }
+      
         
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
@@ -128,7 +116,6 @@ class PagesController extends \protec\core\Controller
         unset($_SESSION['username']);
         session_destroy();
 		header('Location: index.php?c=pages&a=index');
-		
 	}
 
 

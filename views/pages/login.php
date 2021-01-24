@@ -3,7 +3,7 @@
 
    <h2>Testrange</h2>
    <?php if(isset($errors) && count($errors) > 0) : ?>
-     <div class="error-message" style ="border: 1px dottet red">
+     <div class="error-message" style ="border: 1px dottet red; color:white">
      <ul>
          <?php foreach($errors as $key => $value) : ?>
             <li><?=$value?></li>

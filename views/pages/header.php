@@ -73,9 +73,15 @@
             </div>
             <div class="loginContainer">
             <?
-             if(isset($_SESSION['loggedIn']))
+            $sessionstatus ="";
+             if(isset($_SESSION['email']) && isset($_SESSION['password']))
                 {
-                    if($_SESSION['loggedIn']==1)
+                    $sessionstatus = "session";
+                    $email = $_SESSION['email'];
+                    $password = $_SESSION['password'];
+                    $validResult = validateLogInSessionsAndCookies($email, $password);
+
+                    if($validResult== "1")
                     {
                         $actionLink = "?c=pages&a=logout";
                         $icon = "logoutIcon.png";
@@ -87,6 +93,29 @@
                         $icon = "loginIcon.png";
                         $text = "Login";
                     }
+                }
+            else if(isset($_COOKIE['email']) && isset($_COOKIE['password']))
+                {
+                    $sessionstatus = "cookie";
+                    $email = $_COOKIE['email'];
+                    $password = $_COOKIE['password'];
+                    $validResult = validateLogInSessionsAndCookies($email, $password); 
+                    
+                    if($validResult == "1")
+                    {
+                    $actionLink = "?c=pages&a=logout";
+                    $icon = "logoutIcon.png";
+                    $text = "Logout";
+                    $_SESSION['loggedIn']= 1;
+                    $_SESSION['username'] = $_COOKIE['email'];//hier wird anders als bei Session der Email Name angezeigt, dass ist gewollt!!! als Debugging, wo kommt der Wert eigentlich her! :-)
+                    }
+                    else 
+                    {
+                        echo "<p>No Valid </p>";
+                        $actionLink = "?c=pages&a=login";
+                        $icon = "loginIcon.png";
+                        $text = "Login";
+                    } //hier könnte man direkt in logout gehen, aus Sicherheitsgründen, weil ja scheinbar irgendwas nicht stimmt(Manipulationsverhinderung)
                 }
                 else
                 {
@@ -109,6 +138,8 @@
                     {
                         echo "<log style= font-size:60%>Willkommen </log><br>";
                         echo "<log style= font-size:60%>".$_SESSION['username'] .  "</log>";
+                        echo "<log style= font-size:60%>"." SAVE: ".$validResult.  "</log><br>";
+                        echo "<log style= font-size:60%>"." source: ".$sessionstatus.  "</log>";
                     }
                 };  ?>
             </div>
