@@ -57,7 +57,6 @@
     flex-wrap: wrap;
     text-align: center;
     font-size: 1.2em;
-    align-self: flex-end;
 }
 
 .contentContainer {
