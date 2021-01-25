@@ -60,7 +60,7 @@ header {
 .navbar a {
     float: left;
     flex-direction: column;
-    color: black;
+    color: #d6d6d6;
     text-align: center;
     text-decoration: none;
     height: var(--navbarHeightFullscreen);
@@ -114,7 +114,7 @@ header {
 }
 
 .dropdown-content a {
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-family: 'Open Sans', sans-serif;
     width: 100%;
     text-align: center;
@@ -173,8 +173,8 @@ header {
 
 
 .categoryLogo  {
-    width: 1.8em;
-    height: 1.8em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .dropdown:hover .dropdown-content {
@@ -192,12 +192,12 @@ header {
 .dropbtn{
     height:calc(var(--navbarHeightFullscreen) - 0.375em);
     width:inherit;
+
 }
 
 .dropbtn a {
     font-size: 1.67em;
     height: inherit;
-
 }
 
 
@@ -207,7 +207,7 @@ header {
 }
 
 span.categoryTitle{
-    font-size: 1em;
+    font-size: 0.8em;
     margin-left: 0.2em;
     text-align: center;
     display:inline-list-item;

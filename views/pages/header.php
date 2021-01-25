@@ -2,7 +2,7 @@
     <div class="headerContainer">
         <div class="navbar">
             <div class="protecLogoContainer">
-                <a class="protecLogo" href="index.php?c=pages&a=index"><img class="protecLogo"  src="<?=ICONSPATH?>protec_transparent_logo_weiß_umrandet.png" alt="Logo"></a>
+                <a class="protecLogo" href="index.php?c=pages&a=index"><img class="protecLogo"  src="<?=ICONSPATH?>protec_transparent_logo_weiß_umrandet_protec_weiß.png" alt="Logo"></a>
                 <a class="protecLogoMinimal" href="index.php?c=pages&a=index"><img class="protecLogoMinimal"  src="<?=ICONSPATH?>protecMinimal.png" alt="Logo"></a>
             </div>
             <div class="navigation">

@@ -16,7 +16,7 @@
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    color: var(--mainColor);
+    color: var(--lightGreyParagraphColor);
     text-shadow: 0 0 0.125em black;
 }
 
@@ -44,7 +44,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    color: #b3b2b2;
+    color: var(--lightGreyParagraphColor);
     text-shadow: 0 0 0.125em black;
 }
 
@@ -62,7 +62,7 @@
 }
 .productPrice{
     font-size: 3em;
-    color: var(--mainColor);
+    color: var(--orangeAccentColor);
     text-shadow: 0 0 0.125em black;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .quantityNumber{
-    color:var(--orangeAccentColor);
+    color:var(--lightGreyParagraphColor);
 }
 
 .quantityWantedLabel{

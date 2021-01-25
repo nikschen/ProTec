@@ -2,7 +2,7 @@
 Site {}
 
 h2 {
-    color: var(--mainColor);
+    color: #d6d6d6;
     text-shadow: 0 0 0.125em black;
 }
 
