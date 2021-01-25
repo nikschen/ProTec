@@ -17,31 +17,27 @@ class PagesController extends \protec\core\Controller
 		$title='ProTec > Login';
         $this->setParam('title', $title);
 
-        if(isset($_COOKIE["email"])){
-
-            $_SESSION['email']=$_COOKIE["email"];
-
-            header("Location: index.php?c=pages&a=index");
-
-            exit();
-
-        }
-      
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
+            //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
+
+
+
 			if(isset($_POST['submit']))
 			{
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
-
-                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
-                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $rememberMe = $_POST['Remember'] ?? null;
+                
+                
                 
                 
                 //Debug
+                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $errors['email'] = "Email: " . $email;
                 $errors['Password'] = "PW: " . $password;
-                
+                $errors['rememberMe'] = "Status RememberME: " . $rememberMe;
 
                 //Gibt es den Nutzer und ist das PW korrekt?
                 //1. Prüfen ob Nutzer vorhanden    check
@@ -70,7 +66,19 @@ class PagesController extends \protec\core\Controller
                         $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
-                        //header('Location: index.php');
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = encryptPassword($password);
+                        
+
+                        //START AUSLAGERN IN REMEMBER FUNKTION
+
+                        if($rememberMe=="on")
+                        {
+                        $this->rememberMe($email, $password);
+                        }
+
+                        //END
+                     //header('Location: index.php');
                     }
                     else
                     {
@@ -87,12 +95,8 @@ class PagesController extends \protec\core\Controller
 
 			
 			}
-            $year = time() + 31536000;
-            if($_POST['RememberMe']) {
-                setcookie('email', $_SESSION['email'], $year);
-            }
-
         }
+      
         
 		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
 		{
@@ -107,10 +111,12 @@ class PagesController extends \protec\core\Controller
 	    if($_SESSION['loggedIn'] === true)
 		{
 			$_SESSION['loggedIn'] = false;
-		}
+        }
+        setcookie('email','',-1,'/');
+        setcookie('password','',-1,'/');
+        unset($_SESSION['username']);
         session_destroy();
 		header('Location: index.php?c=pages&a=index');
-		
 	}
 
 
