@@ -9,6 +9,9 @@ footer {
     background-size: 100%;
 }
 
+footer p{
+    color: black;
+}
 
 
 .flex-container-footer {

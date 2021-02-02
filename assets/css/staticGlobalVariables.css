@@ -6,7 +6,6 @@
     --footerHeightFullscreen:15.68em;
     --footerHeightMobile:8.172em;
     --footerHeightExtraThin:14.868em;
-    --contrastBackground: rgba(120, 206, 234, 0.25);
     --orangeAccentColor:#FDDA0F;
     --lightGreyParagraphColor: #d6d6d6;
 
@@ -14,4 +13,16 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+p{
+    color:var(--lightGreyParagraphColor);
+}
+
+h1{
+    color:var(--lightGreyParagraphColor);
+}
+
+h2{
+    color:var(--lightGreyParagraphColor);
 }
