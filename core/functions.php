@@ -3,7 +3,9 @@
 
 function validateLogInSessionsAndCookies($email, $password)
 {
-    $login = \protec\model\Account::findOne('username = '."\"".$email. "\"");
+    $login = \protec\model\Account::findOne("username = ". "\"".$email."\"");
+    //var_dump($login);
+    //exit(0);
     $passwordFromDatabase = $login->passwordHash;
     
     $decryptedPassword = decryptPassword($password);
