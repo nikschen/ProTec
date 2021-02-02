@@ -1,20 +1,22 @@
 <body class="Site">
     <main class="Site-content">
+        <div class="debuggingTestrange">
+           <h2>Testrange</h2>
+           <?php if(isset($errors) && count($errors) > 0) : ?>
+             <div class="error-message" style ="border: 1px dottet red; color:white">
+             <ul>
+                 <?php foreach($errors as $key => $value) : ?>
+                    <li><?=$value?></li>
+                    <?php endforeach?>
 
-   <h2>Testrange</h2>
-   <?php if(isset($errors) && count($errors) > 0) : ?>
-     <div class="error-message" style ="border: 1px dottet red; color:white">
-     <ul>
-         <?php foreach($errors as $key => $value) : ?>
-            <li><?=$value?></li>
-            <?php endforeach?>
 
-           
-         </ul>
-         </div>
-         <?php endif; ?>
+                 </ul>
+                 </div>
+                 <?php endif; ?>
+        </div>
          <div class="loginForm">
-        <h1>Login</h1>
+
+        <h2>Login</h2>
         <hr>
         <form method="post">
             <label for="email">E-Mail</label> <br />

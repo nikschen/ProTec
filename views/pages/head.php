@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/css/smallerWidth.css">
     <link rel="stylesheet" href="assets/css/mobileRestrictions.css">
     <link rel="stylesheet" href="assets/css/mobileExtraThin.css">
+    <link rel="stylesheet" href="assets/css/debuggingOff.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
