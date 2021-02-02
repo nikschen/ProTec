@@ -1,0 +1,20 @@
+.Site-content{
+    justify-content: center;
+}
+
+.administrationContentWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.administrationContentWrapper img{
+    width: 18.75em;
+    height: 18.75em;
+
+}
+.administrationContentWrapper .element a{
+    text-decoration: none;
+}

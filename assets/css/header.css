@@ -318,5 +318,18 @@ span.productBasketText{
 }
 
 
+/*
+################################################# Administration #######################################################
+*/
 
+.administrationContainer{
+    padding-left:0.8em;
+}
 
+.administrationIcon{
+    height: 2em;
+    margin-top: 0.35em;
+}
+span.administrationText{
+    font-size: 1em;
+}

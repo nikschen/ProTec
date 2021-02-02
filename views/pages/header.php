@@ -130,6 +130,9 @@
             <div class="productBasketContainer">
                 <a href="index.php?c=products&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png"><br><span class="productBasketText">Warenkorb</span><span class="productBasketText"> (<?=$amountOfBasketEntries?>)</span></a>
             </div>
+            <div class="administrationContainer">
+                <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon.png"><br><span class="administrationText">Administration</span></a>
+            </div>
         
     <div class="loginStatus">
             <?if(isset($_SESSION['loggedIn']))
