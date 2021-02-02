@@ -1,6 +1,3 @@
-.Site-content{
-    justify-content: center;
-}
 
 .administrationContentWrapper{
     display: flex;
@@ -17,4 +14,80 @@
 }
 .administrationContentWrapper .element a{
     text-decoration: none;
+}
+
+.manageProductsElements{
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    padding:0;
+    min-width:75vw;
+}
+
+.manageProductsElements h2{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.manageProductsContainer{
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+    min-width: 75vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+    justify-content: center;
+}
+
+.addProductFormularContainer{
+    min-width: 30vw;
+}
+
+.changeProductFormularContainer{
+    min-width: 30vw;
+}
+.changeProductFormularContainer .inputFields{
+    display: flex;
+    flex-direction: column;
+    min-width:inherit;
+
+}
+
+.changeProductFormularContainer .submit{
+    display: flex;
+    flex-direction: column;
+    min-width:inherit;
+}
+
+.deleteProductFormularContainer{
+    min-width: 30vw;
+}
+
+.changeProductContainer{
+    padding-left:1em;
+    padding-right:1em;
+    justify-content:center;
+    min-height: inherit;
+}
+
+.addProductFormularContainer form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.changeProductFormularContainer form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.deleteProductFormularContainer form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
