@@ -142,6 +142,7 @@
                         echo "<log style= font-size:60%>Willkommen </log><br>";
                         echo "<log style= font-size:60%>".$_SESSION['username'] .  "</log>";
                         echo "<log style= font-size:60%>"." source: ".$sessionstatus.  "</log>";
+                        echo "<br><log style= font-size:60%>"." loggedInStatus: ".$_SESSION['loggedIn'].  "</log>";
                     }
                 };  ?>
             </div>

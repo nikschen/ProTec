@@ -28,7 +28,7 @@ var checkPassword = function() {
         } else {
             document.getElementById("password2").style.borderColor = "red";
             document.getElementById("password2").style.backgroundColor = "LightCoral";
-
+            document.get
             error.innerHTML = "Passwörte sind nicht identisch!";
         }
     }

@@ -33,7 +33,7 @@ class PagesController extends \protec\core\Controller
                 
                 
                 //Debug
-                $errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
+                //$errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
                 $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $errors['email'] = "Email: " . $email;
                 $errors['Password'] = "PW: " . $password;

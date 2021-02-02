@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
 Site {}
 
-
-
 body {
     margin: 0;
 }
@@ -110,7 +108,15 @@ main {
     background-color: rgb(164, 204, 103);
 }
 
-.errorContainer{
-    color:var(--lightGreyParagraphColor);
-    min-height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+.registrationForm #messageMail {
+    display: inline-block
+}
+
+.registrationForm #messagePassword {
+    display: inline;
+}
+
+.errorContainer {
+    color: var(--lightGreyParagraphColor);
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
