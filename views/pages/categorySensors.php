@@ -1,7 +1,7 @@
 <body class="Site">
     <main class="Site-content">
         <div class="categoryContentContainer">
-            <h2>Wählen Sie eine Kategorie</h2>
+            <h2>Sensoren</h2>
             <div class="contentWrapper">
                 <div class="element">
                     <a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">
