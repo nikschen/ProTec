@@ -124,15 +124,17 @@
                         $text = "Login";
                 }
                     ?>
-                <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>"><br><span class="loginText"><?=$text?></span></a>
+                <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>" alt="<?=$text?>"><br><span class="loginText"><?=$text?></span></a>
             
             </div>
             <div class="productBasketContainer">
-                <a href="index.php?c=products&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png"><br><span class="productBasketText">Warenkorb</span><span class="productBasketText"> (<?=$amountOfBasketEntries?>)</span></a>
+                <a href="index.php?c=products&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png" alt="Warenkorb"><br><span class="productBasketText">Warenkorb</span><span class="productBasketText"> (<?=$amountOfBasketEntries?>)</span></a>
             </div>
+            <?if($_SESSION['email']=='admin@protec.de'):?>
             <div class="administrationContainer">
-                <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon.png"><br><span class="administrationText">Administration</span></a>
+                <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon.png" alt="Administration"><br><span class="administrationText">Administration</span></a>
             </div>
+            <?endif?>
         
     <div class="loginStatus">
             <?if(isset($_SESSION['loggedIn']))
