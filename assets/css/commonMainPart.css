@@ -125,12 +125,17 @@ main {
     background-color: rgb(164, 204, 103);
 }
 
+.registrationForm #messageDate {
+    display: none;
+}
+
 .registrationForm #messageMail {
-    display: inline-block
+    display: none;
 }
 
 .registrationForm #messagePassword {
-    display: inline;
+    display: none;
+    width: 70%;
 }
 
 .errorContainer {

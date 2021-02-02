@@ -28,7 +28,7 @@
             <input class=loginRememberMe type="checkbox" name="Remember" <?=isset($_POST['Remember']) ? 'checked' : ''?>>Eingeloggt bleiben?</input>
         </form>
         <form action="index.php?c=pages&a=logout" method="post">
-            <input type="submit" name="submitLogout" value="Logout Testbutton">
+            <input type="submit" name="submitLogout" value="Logout Testbutton - noch zu entfernen">
         </form>
 
         <a style="font-size:small" href="index.php?c=accounts&a=signup">Noch nicht registiert?</a>
@@ -64,7 +64,7 @@
             }
         else {echo "cookie PW Hash is not set";}
        echo "<hr>";
-       echo $_SESSION['loggedIn']
+      
 
 
 

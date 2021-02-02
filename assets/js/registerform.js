@@ -9,9 +9,11 @@ var PasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$
 var checkPassword = function() {
     var error = document.getElementById("messagePassword");
     var passwordToCheck = document.getElementById("password1").value
-
+    console.log("bin in Funktion");
     if (!passwordToCheck.match(PasswordRegex)) {
+        console.log("PW unzureichend")
         error.innerHTML = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
+        error.style.display = "inline-block";
     } else {
 
         if (document.getElementById("password1").value ==
@@ -24,12 +26,14 @@ var checkPassword = function() {
             document.getElementById("password2").style.backgroundColor = backgroundColorSource;
 
             error.innerHTML = "";
+            error.style.display = "none";
 
         } else {
             document.getElementById("password2").style.borderColor = "red";
             document.getElementById("password2").style.backgroundColor = "LightCoral";
             document.get
             error.innerHTML = "Passwörte sind nicht identisch!";
+            error.style.display = "block";
         }
     }
 }
@@ -45,12 +49,15 @@ var checkEmail = function() {
     if (email != 0 && !email.match(EmailHighRegex)) {
         emailfield.style.backgroundColor = "LightCoral";
 
+
         error.innerHTML = "Dies ist keine gültige E-Mail Adresse";
+        error.style.display = "block"
 
     } else {
         emailfield.style.backgroundColor = backgroundColorSource;
 
         error.innerHTML = "";
+        error.style.display = "none"
     }
 
 }
@@ -67,11 +74,13 @@ var checkBirthDate = function() {
         birthDayfield.style.backgroundColor = "LightCoral";
         console.log("Ungültiges Format");
         error.innerHTML = "Fehler Geburtsdatum, Format nicht entsprechend Vorgabe. Bsp: 12.03.1986";
+        error.style.display = "block";
 
     } else {
         birthDayfield.style.backgroundColor = backgroundColorSource1;
 
         error.innerHTML = "";
+        error.style.display = "none";
     }
 
 }
