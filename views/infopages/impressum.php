@@ -42,7 +42,7 @@
             <p>Peter Ludolf</p><br><br>
 
 
-            Online-Streitbeilegung gemäß Art. 14 Abs. 1 ODR-VO: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter
+            <p>Online-Streitbeilegung gemäß Art. 14 Abs. 1 ODR-VO: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter</p>
             <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a><br><br>
 
             Die für die Sertronics GmbH zuständige Verbraucherschlichtungsstelle ist die:<br>

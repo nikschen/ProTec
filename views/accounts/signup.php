@@ -74,59 +74,7 @@
     
     
     
-    /*
-    $db = $GLOBALS['db'];
-    
-    $streetFromDatabase = "\"Muldenweg\"";
-    $streetNoFromPost = "1";
-    $zipcodeFromPost = "00145";
-    $cityfromPost = "\"Buxbaum\"";
-    $countryFromPost = "\"Österreich\"";
-    $additionalFromPost="\"Über Oma Hilde\"";
-    $phonefromPost ="03451666111";
-    $PostArray['street'] = $streetFromDatabase;
-    $PostArray['streetNumber'] = $streetNoFromPost;
-    $PostArray['city'] = $cityfromPost;
-    $PostArray['country'] = $countryFromPost;
-    $PostArray['additionalInformation'] = $additionalFromPost;
-    $PostArray['zipCode'] = $zipcodeFromPost;
-    print_r($PostArray);
-    echo "<br>";
-    //CONCAT FINDONE() STRING
-    $searchString = "";
-    $connectionString = " AND ";
-    foreach ($PostArray as $element => $value)
-    {
-        $searchString .= $element ." = " . $value . $connectionString ;
-    }
-    
-    echo $searchString;
-    echo "<br>";
-    $searchStringEnd =  rtrim($searchString,$connectionString);
-    echo "<br>";
 
-    $AllAddress = \protec\model\Address::findOne($searchStringEnd);
-    echo "<pre>";
-    print_r($AllAddress);
-    echo "</pre>";
-    echo $AllAddress->addressID;
-
-    $NewAddress = new \protec\model\Address(['addressID' => '', 'street' => 'Magnus-Poser-Strasse' , 'streetNumber' => '21']);
-    echo "<pre>";
-    echo($NewAddress->street . "<br>");
-    echo($NewAddress->streetNumber);
-    echo "</pre>";
-   
-    //Models sind protected daher keine Iteration ohne Funktion möglich.
-    foreach ($NewAddress as $element => $value)
-    {
-        echo "Hundilein";
-        echo $element . $value . "\n";
-    }
-  
-
-
-*/
 ?>
     </div>
 </main>

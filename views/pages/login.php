@@ -24,7 +24,7 @@
             <label for="password">Passwort</label> <br />
             <input type="password" name="password" id="password" /><br />
             <br />
-            <button type="submit" name="submit" value="Einloggen">Einloggen</button>
+            <button type="submit" name="submit" value="Einloggen">Einloggen</button><br>
             <input class=loginRememberMe type="checkbox" name="Remember" <?=isset($_POST['Remember']) ? 'checked' : ''?>>Eingeloggt bleiben?</input>
         </form>
         <form action="index.php?c=pages&a=logout" method="post">
