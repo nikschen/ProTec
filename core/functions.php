@@ -3,8 +3,6 @@
 
 function validateLogInSessionsAndCookies($email, $password)
 {
-    $stringEmail = "\"" . $email . "\"";
-    print("Value of Email: " . $email) . "--End of Mail--";
     $login = \protec\model\Account::findOne("username = ". "\"".$email."\"");
     //var_dump($login);
     //exit(0);
