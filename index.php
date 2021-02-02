@@ -1,7 +1,7 @@
 <?php
 //ini_set('session.gc_maxlifetime', 3600);
 //session_set_cookie_params(3600);
-//session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
+session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
 
 require_once 'init/database.php';
 require_once 'init/imports.php';
