@@ -11,6 +11,7 @@ USE `protecdb`;
 
 
 INSERT INTO `address` (`addressID`, `createdAt`, `updatedAt`, `street`, `streetNumber`, `zipCode`, `city`, `country`, `additionalInformation`, `phone`) VALUES
+(0, '2021-01-12 14:37:42', NULL, '.', '.', '.', '.', '.', '.', '.'),
 (1, '2021-01-12 14:37:42', NULL, 'Bamberger Straße', '5', '99089', 'Erfurt', 'Deutschland', 'HinterHof', '0176600700'),
 (2, '2021-01-12 14:37:42', NULL, 'Probantenteststraße', '115a', '07749', 'Jena', 'Deutschland', NULL, NULL),
 (3, '2021-01-12 14:37:42', NULL, 'Muldenweg', '1', '00145', 'Buxbaum', 'Österreich', 'Über Oma Hilde', '03451666111'),
@@ -23,6 +24,7 @@ INSERT INTO `address` (`addressID`, `createdAt`, `updatedAt`, `street`, `streetN
 
 
 INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `lastName`, `birthDate`, `eMail` , `addressID`) VALUES
+(0, '0000-00-00 00:00:00', NULL, 'admin', 'protec', 'null', 'admin@protec.de','0'),
 (1, '2021-01-12 14:35:52', NULL, 'Niklas', 'Wiefurcht', '1991-03-18', 'LordyMcViva@googlemail.com','1'),
 (2, '2021-01-12 14:35:52', NULL, 'Thomas', 'Messer', '1986-11-04', 'Bigtommycool@web.de','2'),
 (3, '2021-01-12 14:35:52', NULL, 'Klaus', 'Leber', '1980-01-01', 'FreeWilly@gmx.de','4'),
@@ -34,6 +36,7 @@ INSERT INTO `customer` (`customerID`, `createdAt`, `updatedAt`, `firstName`, `la
 (9, '2021-01-12 14:35:52', NULL, 'Betrand', 'Russel', '2000-12-04', 'RusselBer@arcor.de', '8');
 
 INSERT INTO `account` (`accountID`, `createdAt`, `updatedAt`, `username`, `passwordHash`, `validated`) VALUES
+(0, '2021-01-17 08:22:01', NULL, 'admin@protec.de', '$2y$10$EOPlskuIxUgoLB.hl5HKb.eHADG9A1prX3yQxn00x3y3.hlQeAEOm', NULL),
 (1, '2021-01-17 08:22:01', NULL, 'LordyMcViva@googlemail.com', '$2y$10$TbDwUHYtwI93pgQjBg.HkOUNPiwo0DCUG4qXOD99QIR60k.5OAefW', NULL),
 (2, '2021-01-16 10:14:03', NULL, 'Bigtommycool@web.de', '$2y$10$EOPlskuIxUgoLB.hl5HKb.eHADG9A1prX3yQxn00x3y3.hlQeAEOm', NULL),
 (4, '2021-01-17 08:18:00', NULL, 'KleinerLu@yahoo.com', '$2y$10$w/c.zQx4.zrPmNtDxw01XeEEtJ4Ar4g/gBwIpdzTyB6gnP1g.a/9q', NULL),
