@@ -44,20 +44,16 @@ function decryptPassword($passwordEncrypted)
     return $decryptedPassword;
 }
 
+function getAllCategories()
+{
+        $db = $GLOBALS['db'];
+        $sqlStr = 'SELECT DISTINCT `product`.`category` FROM `product`';
+        $results = [];
 
+        $results = $db->query($sqlStr)->fetchAll();
 
-
-
-
-
-
-
-
-
-
-
-
-
+        return $results;
+}
 
 
 ?>

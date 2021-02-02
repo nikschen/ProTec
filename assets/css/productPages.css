@@ -92,14 +92,19 @@
 
 
 .addToBasketContainer {
-    background-color:white;
-    width:8em;
+    background-color:var(--lightGreyParagraphColor);
+    width:4.5em;
 }
 .addToBasketContainer button{
     border: none;
     background: none;
-    padding-bottom: 0.4em;
 }
+
+.addToBasketButton img{
+    height:1em;
+    width:1em;
+}
+
 .addToBasketContainer select{
     border: none;
     background: none;

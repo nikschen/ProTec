@@ -16,9 +16,11 @@ class AdministrativeOperationsController extends \protec\core\Controller
 	}
     public function actionManageProducts()
     {
+        $categories=getAllCategories(); //braucht noch Pflege
         $title='Admin@ProTec > Produktverwaltung';
         $this->setParam('title', $title);
+        $this->setParam('categories', $categories);
     }
-    
+
 
 }

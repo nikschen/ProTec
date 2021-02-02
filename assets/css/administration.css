@@ -1,9 +1,14 @@
+.Site-content{
+    flex-direction: column;
+    justify-content: center;
+}
 
 .administrationContentWrapper{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    align-self: center;
 
 }
 
@@ -22,6 +27,7 @@
     align-content: space-between;
     justify-content: space-between;
     padding:0;
+    margin:0;
     min-width:75vw;
 }
 
@@ -41,27 +47,33 @@
 }
 
 .addProductFormularContainer{
-    min-width: 30vw;
+    width: 30vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
 
 .changeProductFormularContainer{
-    min-width: 30vw;
+    width: 30vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
 .changeProductFormularContainer .inputFields{
     display: flex;
     flex-direction: column;
-    min-width:inherit;
+    width:inherit;
 
 }
 
 .changeProductFormularContainer .submit{
     display: flex;
     flex-direction: column;
-    min-width:inherit;
+    width:inherit;
 }
 
 .deleteProductFormularContainer{
-    min-width: 30vw;
+    width: 30vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+}
+.deleteProductFormularContainer textarea{
+    width: 30vw;
 }
 
 .changeProductContainer{
@@ -90,4 +102,27 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+
+.productID{
+    width:49%;
+}
+.quantityStored{
+    width:49%;
+}
+.prodName{
+
+}
+.prodDescription{
+
+}
+.category{
+
+}
+.pricingAmount{
+    width:49%;
+}
+.pricingCurrency{
+    width:49%;
 }

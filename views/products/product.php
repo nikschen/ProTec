@@ -10,7 +10,6 @@
                 <div class="quantityAvailable"><span class=quantityNumber><?=$product->quantityStored?></span> Stück verfügbar</div>
                 <form method="post">
                     <div class="addToBasketContainer">
-                        <label class="quantityWantedLabel" for="quantityWanted">Anzahl</label>
                         <select name="quantityWanted" id="quantityWanted">
                             <?for($allowedAmount=1;$allowedAmount<=$product->quantityStored && $allowedAmount<=10;$allowedAmount++):?>
                             <option value="<?=$allowedAmount?>"><?=$allowedAmount?></option>
@@ -25,7 +24,7 @@
             <div class="productDescription">
                 <h4 class="descriptionHeadline">Wichtige Daten</h4>
                 <p class="productDescriptionText">
-                    <?=$product->prodDescription?>
+                    <?=nl2br($product->prodDescription)?>
                 </p>
             </div>
         </div>
