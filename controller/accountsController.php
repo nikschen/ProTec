@@ -13,6 +13,22 @@ class AccountsController extends \protec\core\Controller
 		
 	}
 
+	public function actionProfile()
+	{
+		
+		$title='ProTec > Profile';
+		$this->setParam('title', $title);
+
+
+
+
+		if(isset($_POST['submit']))
+		{
+			echo "<hr> "."Submitted";
+		}
+
+	}
+
 	public function actionSignup() 
 	{
 		$title='ProTec > SignUp';

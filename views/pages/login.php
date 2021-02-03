@@ -64,7 +64,12 @@
             }
         else {echo "cookie PW Hash is not set";}
        echo "<hr>";
-      
+       $db = $GLOBALS['db'];
+       $emailtest = "Selen@giga.com";
+       $customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($emailtest) );
+       echo "<pre>";
+      var_dump($customerTable);
+      echo "</pre>";
 
 
 

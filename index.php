@@ -30,6 +30,7 @@ if(!ISSET($_SESSION['productBasket']))
     $_SESSION['productBasket']=array();
 }
 
+
 //$data = new Customer;
 //$Customer= Customer::findOne();
 //;

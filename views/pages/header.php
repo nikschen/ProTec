@@ -86,6 +86,8 @@
                         $actionLink = "?c=pages&a=logout";
                         $icon = "logoutIcon.png";
                         $text = "Logout";
+                        $_SESSION['loggedIn']= 1;
+                        $_SESSION['username'] = $_SESSION['email'];
                     }
                     else 
                     {
@@ -108,6 +110,7 @@
                     $text = "Logout";
                     $_SESSION['loggedIn']= 1;
                     $_SESSION['username'] = $_COOKIE['email'];//hier wird anders als bei Session der Email Name angezeigt, dass ist gewollt!!! als Debugging, wo kommt der Wert eigentlich her! :-)
+                    $_SESSION['email'] = $_COOKIE['email'];
                     }
                     else 
                     {

@@ -1,11 +1,19 @@
 <?
 
+function getUser($email)
+{
+    $db = $GLOBALS['db'];
+	$customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
+
+
+
+    return $customerTable;
+}
+
 
 function validateLogInSessionsAndCookies($email, $password)
 {
     $login = \protec\model\Account::findOne("username = ". "\"".$email."\"");
-    //var_dump($login);
-    //exit(0);
     $passwordFromDatabase = $login->passwordHash;
     
     $decryptedPassword = decryptPassword($password);
