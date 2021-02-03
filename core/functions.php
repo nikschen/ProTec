@@ -3,11 +3,9 @@
 function getUserInformation($email)
 {
     $db = $GLOBALS['db'];
-	//$customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
-
-    
     $sqlStr = "SELECT * FROM `customer` join address on customer.addressID = address.addressID where eMail = '$email'";
-    print_r($sqlStr);
+
+    //print_r($sqlStr);
     $results = [];
     try
     {
@@ -17,12 +15,6 @@ function getUserInformation($email)
     {
     print_r($error);
     }
-
-echo "<pre>";
-var_dump($results);
-echo "</pre>";
-    
-    //exit(0);
     return $results;
 }
 

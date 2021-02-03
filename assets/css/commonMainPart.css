@@ -41,7 +41,8 @@ main {
 
 .registrationForm input[type=text],
 [type=password],
-#selectgender {
+#selectgender,
+#selectGenderProfile {
     width: 65%;
     padding: 0.75em 1.25em;
     margin: 0.375em 0;
