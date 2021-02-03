@@ -1,13 +1,29 @@
 <?
 
-function getUser($email)
+function getUserInformation($email)
 {
     $db = $GLOBALS['db'];
-	$customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
+	//$customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($email) );
 
+    
+    $sqlStr = "SELECT * FROM `customer` join address on customer.addressID = address.addressID where eMail = '$email'";
+    print_r($sqlStr);
+    $results = [];
+    try
+    {
+        $results = $db->query($sqlStr)->fetchAll();
+    }
+    catch(\PDOException $error)
+    {
+    print_r($error);
+    }
 
-
-    return $customerTable;
+echo "<pre>";
+var_dump($results);
+echo "</pre>";
+    
+    //exit(0);
+    return $results;
 }
 
 
