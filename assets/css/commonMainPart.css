@@ -26,10 +26,7 @@ main {
     color: white;
 }
 
-.Site-content p {
-    padding-left: 2%;
-    padding-bottom: 1.25em;
-}
+
 
 .Site-content a:hover {
     color: rgb(48, 143, 180);

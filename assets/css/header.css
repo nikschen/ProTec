@@ -229,15 +229,26 @@ span.categoryTitle{
 }
 
 .searchContainer {
-    padding: 0.4em;
+    padding: 0.2em;
     background-color: #FFFFFF;
     border: none;
     margin: 1.25em 0;
     display:block;
     border-radius: 0.25em;
-
     width:fit-content;
 }
+.searchContainer form{
+    height:inherit;
+    font-size: inherit;
+    justify-content: center;
+    align-content: center;
+}
+.searchContainer button{
+    height:100%;
+    padding: 0.2em;
+    margin: 0;
+}
+
 
 .searchContainer input[type=text] {
     border: none;
@@ -245,10 +256,8 @@ span.categoryTitle{
 }
 
 .searchContainer button[type=submit] {
-    font-size: 1em;
     background-color: #FFFFFF;
     border: none;
-    height: 1.2em;
 }
 
 .searchContainer button[type=submit] img {

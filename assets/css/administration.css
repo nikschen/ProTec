@@ -29,6 +29,19 @@
     padding:0;
     margin:0;
     min-width:75vw;
+    list-style: none;
+}
+
+
+.manageProductsElements input, textarea, select, button{
+
+    padding: 0.75em 1.25em;
+    margin: 0.375em 0;
+    display: inline-block;
+    border: 0.0625em solid rgb(134, 133, 133);
+    border-radius: 0.625em;
+    box-sizing: border-box;
+    align-items: center;
 }
 
 .manageProductsElements h2{
@@ -76,12 +89,36 @@
     width: 30vw;
 }
 
+.addProductContainer {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.deleteProductContainer {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
 .changeProductContainer{
-    padding-left:1em;
-    padding-right:1em;
+    padding-left:0.5em;
+    padding-right:0.5em;
     justify-content:center;
     min-height: inherit;
+    border-left: var(--orangeAccentColor);
+    border-right: var(--orangeAccentColor);
+    border-style: solid;
+    border-bottom: none;
+    border-top: none;
 }
+
+.passwordCheck{
+
+    border-bottom: var(--orangeAccentColor);
+    border-top: var(--orangeAccentColor);
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+}
+
 
 .addProductFormularContainer form{
     display:flex;
@@ -102,27 +139,52 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+
 }
 
 
 .productID{
-    width:49%;
+    width:75%;
 }
 .quantityStored{
-    width:49%;
+    width:50%;
 }
 .prodName{
-
+    resize: vertical;
 }
 .prodDescription{
-
+    resize: vertical;
 }
 .category{
-
+    width:50%;
 }
 .pricingAmount{
-    width:49%;
+    width:75%;
 }
 .pricingCurrency{
-    width:49%;
+    width:25%;
+}
+
+.firstRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.lastRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.adminPasswordCheck{
+    width:100%;
+
+}
+
+.submitOperation{
+    width:100%;
+
+}
+.submitOperation button{
+    width:100%;
+
 }

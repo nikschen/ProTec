@@ -17,6 +17,11 @@
 
 p{
     color:var(--lightGreyParagraphColor);
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 h1{
@@ -25,4 +30,16 @@ h1{
 
 h2{
     color:var(--lightGreyParagraphColor);
+}
+
+input{
+    font-family: 'Open Sans', sans-serif;
+}
+
+textarea{
+    font-family: 'Open Sans', sans-serif;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
 }

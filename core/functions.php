@@ -64,14 +64,17 @@ function decryptPassword($passwordEncrypted)
 
 function getAllCategories()
 {
-        $db = $GLOBALS['db'];
-        $sqlStr = 'SELECT DISTINCT `product`.`category` FROM `product`';
-        $results = [];
+    $db = $GLOBALS['db'];
+    $sqlStr = 'SELECT DISTINCT `product`.`category` FROM `product`';
+    $results = [];
 
-        $results = $db->query($sqlStr)->fetchAll();
 
-        return $results;
+    $results = $db->query($sqlStr)->fetchAll();
+    foreach($results as $category)
+    {
+        $categories[]=$category["category"];
+
+    }
+        return $categories;
 }
 
-
-?>

@@ -238,7 +238,7 @@ abstract class Model
     public function insert()
     {
         
-             // TODO: Implement insert
+
              $db = $GLOBALS['db'];
              $tableName = self::tablename();
              $sqlStr = "INSERT INTO `${tableName}` (";
@@ -254,7 +254,7 @@ abstract class Model
      
              
              $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
-             echo "EINFÜGEN BEFEHL: " . $sqlStr;
+             //echo "EINFÜGEN BEFEHL: " . $sqlStr;
      
              try
              {

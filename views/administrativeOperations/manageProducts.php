@@ -7,21 +7,28 @@
                 <div class="addProductFormularContainer">
                     <form method="POST">
                         <div class="firstRow">
-                            <input class="productID" type="text" name="productID" placeholder="ID des hinzuzufügenden Produkts">
-                            <input class="quantityStored" type="text" name="quantityStored" placeholder="Anzahl (gelagert)">
-                        </div>
-                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
-                            <textarea class="prodDescription" type="text" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
-                            <select class="category" name="category">
-                            <?foreach ($categories as $categoryName):?>
-                                <option value="<?=$categoryName?>"><?=$categoryName?></option>
-                            <?endforeach;?>
+                            <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl">
+                            <select class="category" name="category" required>
+                                <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                <?foreach ($categories as $categoryName):?>
+                                    <option value="<?=$categoryName?>" ><?=$categoryName?></option>
+                                <?endforeach;?>
                             </select>
-                        <div class="lastRow">
-                            <input class="pricingAmount" type="text" name="pricingAmount" placeholder="Preis">
-                            <input class="pricingCurrency" type="text" name="pricingCurrency" placeholder="Währung">
                         </div>
-                        <button type="submit" name="submit" value="addProduct">Produkt hinzufügen</button>
+                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required></textarea>
+                            <textarea class="prodDescription" type="text" name="prodDescription" placeholder="Produktbeschreibung" rows="7" required></textarea>
+
+                        <div class="lastRow">
+                            <input class="pricingAmount" type="number" name="amount" placeholder="Preis" required>
+                            <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro" required>
+                        </div>
+                        <div class="passwordCheck">
+                            <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
+                        </div>
+                        <div class="submitOperation">
+                            <button type="submit" name="submit" value="addProduct">Produkt hinzufügen</button>
+                            <button type="reset" name="resetAddProduct" value="reset">Zurücksetzen</button>
+                        </div>
                     </form>
                 </div>
             </li>
@@ -31,17 +38,31 @@
 
                     <form method="POST">
                         <div class="inputFields">
-                            <input type="text" name="productID" placeholder="ID des zu ändernden Produkts">
+                            <input type="text" name="productID" placeholder="ID des zu ändernden Produkts" required>
+                            <br>
                             <p>Zu ändernde Daten:</p>
-                            <input type="text" name="quantityStored" placeholder="Anzahl (gelagert)">
-                            <textarea type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
-                            <textarea type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
-                            <input type="text" name="category" placeholder="Kategorie">
-                            <input type="text" name="pricingAmount" placeholder="Preis">
-                            <input type="text" name="pricingCurrency" placeholder="Währung">
-                        </div>
-                        <div class="submit">
-                            <button type="submit" name="submit" value="changeProduct">Produktdaten ändern</button>
+                            <br>
+                            <div class="firstRow">
+                            <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl (gelagert)">
+                                <select class="category" name="category">
+                                    <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                    <?foreach ($categories as $categoryName):?>
+                                        <option value="<?=$categoryName?>" ><?=$categoryName?></option>
+                                    <?endforeach;?>
+                                </select>
+                            </div>
+                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
+                            <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
+                            <div class="lastRow">
+                                <input class="pricingAmount" type="number" name="amount" placeholder="Preis">
+                                <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro">
+                            </div>
+                            <div class="passwordCheck">
+                                <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
+                            </div>
+                        <div class="submitOperation">
+                            <button type="submit" name="submitChangeProduct" value="changeProduct">Produktdaten ändern</button>
+                            <button type="reset" name="resetChangeProduct" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
                 </div>
@@ -51,7 +72,13 @@
                 <div class="deleteProductFormularContainer">
                     <form method="POST">
                         <input type="text" name="productID" placeholder="ID des zu entfernenden Produkts">
-                        <button type="submit" name="submit" value="deleteProduct">Produkt entfernen</button>
+                        <div class="passwordCheck">
+                            <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
+                        </div>
+                        <div class="submitOperation">
+                            <button type="submit" name="submitDeleteProduct" value="deleteProduct">Produkt entfernen</button>
+                            <button type="reset" name="resetDeleteProduct" value="reset">Zurücksetzen</button>
+                        </div>
                     </form>
                 </div>
             </li>
