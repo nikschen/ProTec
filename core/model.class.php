@@ -276,18 +276,20 @@ abstract class Model
 
 
     
-    public function update ($values) //takes values of an array with entries in scheme "AttributeToBeChanged=Value" and converts them into string in scheme: "Attribute=Value, Attribute=Value, Attribute=Value, ..."
+    public function update ($values, $id) //takes values of an array with entries in scheme "AttributeToBeChanged=Value" and converts them into string in scheme: "Attribute=Value, Attribute=Value, Attribute=Value, ..."
      {
         $db=$GLOBALS['db'];
         $valueList=implode(',', $values);
-        
         try
         {
-            $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . 'WHERE id = ' . $this->data['id'];
-            
+            $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE ' . self::tablename().'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
+            echo "<p style=color:red>";
+            print_r($sql);
+            echo "</p>";
+            //exit(0);
             $statement = $db->prepare($sql);
             $statement->execute();
-
+            
             return true;
         }
         catch(\PDOException $e)
@@ -298,6 +300,8 @@ abstract class Model
         return false;
      }
 
-    //TODO: Secure Update and Insert Methods
+     
+
+    
 }
 

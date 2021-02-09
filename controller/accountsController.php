@@ -18,7 +18,7 @@ class AccountsController extends \protec\core\Controller
 		
 		$title='ProTec > Profile';
 		$this->setParam('title', $title);
-
+		$errors = [];
 
 
 
@@ -114,6 +114,89 @@ class AccountsController extends \protec\core\Controller
 
 		if(count($errors)===0)
 		{
+			//changing the names is quite easy but refering the address to this is little bit difficult
+			$db = $GLOBALS['db'];
+			$customerTable = getUserInformation($_SESSION['email']);
+		
+			//updates add Address
+
+			//$ToBeChangedAtAddress
+			
+			//SETUP ADDRESS ARRAY
+			$addressArray['street'] = $streetInfo;
+			$addressArray['streetNumber'] = $streetNo;
+			$addressArray['city'] = $city;
+			$addressArray['country'] = $country;
+			$addressArray['additionalInformation'] = $address2;
+			$addressArray['zipCode'] = $zipcode;
+			$addressArray['phone'] = $telefon;
+
+			//Build the WHERE-String for the SQL Statement to use in the findOne-method
+			$searchString = "";
+    		$connectionString = " AND ";
+
+			foreach ($addressArray as $element => $value)
+    		{
+				if($value!="")
+				{
+					$searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
+				}
+    		}
+			$searchStringEnd =  rtrim($searchString,$connectionString);
+    		$allAddress = \protec\model\Address::findOne($searchStringEnd);
+			
+			//set MailAdressID from Database if Address already existing, else: insert the data inside the database, and give the created ID to the User
+			if($allAddress !== null)
+			{
+				$connectedId = $allAddress->addressID;
+			}
+			else
+			{
+			$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
+			$NewAddress->insert();
+			$connectedId = $db->lastInsertId();
+			}
+
+			$ToBeChangedAtCustomer = ["firstName= " . "\"" . $firstName . "\"" ,"lastName= " ."\"". $lastName ."\"", 'birthDate = '. "\"" . date('Y-m-d' , strtotime($birthDate)) . "\"", "addressID = " .$connectedId, "eMail = " ."\"" . "$email" . "\""]; //quotation needed
+			echo "<pre>";
+			print_r($ToBeChangedAtCustomer);
+			echo "</pre>";
+			echo($customerTable[0]['customerID']);
+			//updates Customer
+			$CustomerFromDataBase = \protec\model\Customer::findOne('eMail = '. "\"" . $_SESSION['email'] . "\"" );
+			print_r($CustomerFromDataBase);
+			$CustomerFromDataBase->update($ToBeChangedAtCustomer, $customerTable[0]['customerID']);
+
+			//updates Account
+			$ToBeChangedAtAccount = ["username= " . "\"" . $email . "\""];
+			print_r($ToBeChangedAtAccount);
+			$AccountFromDataBase = \protec\model\Account::findOne('username = '. "\"" . $_SESSION['email'] . "\"" );
+			echo "<pre style=color:red>";
+			print_r($AccountFromDataBase);
+			echo "</pre>";
+			echo "CustomerTableValue: ".$customerTable[0]['customerID'];
+			$AccountFromDataBase->update($ToBeChangedAtAccount, $customerTable[0]['customerID']);
+			
+			//ResetSession
+			$_SESSION['email'] = $_POST['email'] ?? null;
+
+			//Achtung bei Adressänderung könnten Leichen entstehen die keinem Nutzer mehr zugeordnet werden könnten -> Delete ist hier nötig um dem gleich vorzubeugen
+			//FUNKTION ERSTELLEN DIE EINEN ADDRESSDSTENSATZ LÖSCHT!!!!!!!!!!!!!!!!*/
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
 		}
 
 		//exit(0);

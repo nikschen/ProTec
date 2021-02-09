@@ -88,3 +88,32 @@ Selen@giga.com = Laus+400
 Oldmax@aol.de = Leber123?
 LordyMcViva@googlemail.com = Makrophage1?
 
+
+
+
+
+    public function update ($values) //takes values of an array with entries in scheme "AttributeToBeChanged=Value" and converts them into string in scheme: "Attribute=Value, Attribute=Value, Attribute=Value, ..."
+     {
+        $db=$GLOBALS['db'];
+        print_r($values);
+        $valueList=implode(',', $values);
+        
+        try
+        {
+            $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE CustomerID = ' . 5 ;//$this->data['id'];        //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
+            print_r($sql);
+            
+            $statement = $db->prepare($sql);
+            $statement->execute();
+           exit(0);
+            return true;
+        }
+        catch(\PDOException $e)
+        {
+            $errors[]='Error updating '.get_called_class();
+
+        }
+        return false;
+     }
+
+     

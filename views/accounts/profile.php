@@ -37,9 +37,9 @@
 
             <input type="text" name="lastName" placeholder="Ihr Name*" value="<?if(isset($_POST['lastName'])){echo $_POST['lastName'];}else{echo htmlspecialchars($customerTable[0]['lastName']);}?>"><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" value="<?if(isset($_POST['firstName'])){echo $_POST['firstName'];}else{echo htmlspecialchars($customerTable[0]['firstName']);}?>"><br>
-            <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' value="<?if(isset($_POST['birthDate'])){echo $_POST['birthDate'];}else{echo htmlspecialchars($customerTable[0]['birthDate']);}?>"><br>
+            <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' value="<?if(isset($_POST['birthDate'])){echo $_POST['birthDate'];}else{echo htmlspecialchars(date('d.m.Y' , strtotime($customerTable[0]['birthDate'])));}?>"><br>
 
-            <p class="messageDate"></p>
+            <p class="messageDate"></p>                                                                                 
 
             <input type="text" class="emailToCheck" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' value="<?if(isset($_POST['eMail'])){echo $_POST['eMail'];}else{echo htmlspecialchars($customerTable[0]['eMail']);}?>"><br>
 
@@ -68,10 +68,13 @@
 
 <h2>Profilbearbeitung</h2>
 <?
-
-
-
-
+    //'birthDate' => date('Y-m-d', strtotime($birthDate))]);
+    //echo date('d.m.Y' , strtotime($customerTable[0]['birthDate']));
+    /*$AccountFromDataBase = \protec\model\Account::findOne('username = '. "\"" . $_SESSION['email'] . "\"" );
+    echo "<pre>";
+    print_r($AccountFromDataBase);
+    echo "</pre>";
+    echo $AccountFromDataBase->username;*/
 ?>
 </div>
 </main>
