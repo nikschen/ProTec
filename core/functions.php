@@ -82,3 +82,29 @@ function getAllCategories()
         return $categories;
 }
 
+function validateUploadedProductImage (&$errors)
+{
+    $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
+
+
+    //Überprüfung der Dateiendung
+    $allowed_extensions = array('png');
+    if(!in_array($extension, $allowed_extensions)) {
+        $errors[]="Ungültige Dateiendung. Nur png-Dateien sind erlaubt, um Transparenzen zu erhalten";
+    }
+
+    //Überprüfung der Dateigröße
+    $max_size = 500*1024; //500 KB
+    if($_FILES['file']['size'] > $max_size) {
+        $errors[]="Es sind keine Dateien größer 500kb erlaubt";
+    }
+
+    if (empty($errors))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

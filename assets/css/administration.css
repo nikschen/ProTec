@@ -33,7 +33,7 @@
 }
 
 
-.manageProductsElements input, textarea, select, button{
+.manageProductsElements input, textarea, select, button, .productImageUploadLabel{
 
     padding: 0.75em 1.25em;
     margin: 0.375em 0;
@@ -158,6 +158,20 @@
 .category{
     width:50%;
 }
+
+
+
+#productImageUpload{
+    display:none;
+}
+
+.productImageUploadLabel{
+    background-color: white;
+    color:#757575;
+    font-size: 13px;
+}
+
+
 .pricingAmount{
     width:75%;
 }
