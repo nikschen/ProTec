@@ -24,7 +24,8 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-			echo "<hr> "."Submitted";
+			echo "<hr> "."<br>" . "Submitted";
+			//exit(0);
 		}
 
 	}

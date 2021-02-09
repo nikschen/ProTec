@@ -1,5 +1,5 @@
-var password1 = document.getElementById('password1');
-var password2 = document.getElementById('password2');
+var password1 = document.getElementsByClassName('password1')[0];
+var password2 = document.getElementsByClassName('password2')[0];
 //RFC5322 konform auch dokumentieren!!!!!!!!!!!!
 var EmailHighRegex = new RegExp("^(?=.*[@])([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|([]!#-[^-~ \t]|(\\[\t -~]))+)@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
 var birthDateRegex = /^\d{2}([./-])\d{2}\1\d{4}$/
@@ -9,30 +9,31 @@ var PasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$
 
 
 var checkPassword = function() {
-    var error = document.getElementById("messagePassword");
-    var passwordToCheck = document.getElementById("password1").value
-    console.log("bin in Funktion");
-    if (!passwordToCheck.match(PasswordRegex)) {
+    var password1 = document.getElementsByClassName('password1')[0];
+    var password2 = document.getElementsByClassName('password2')[0];
+    var error = document.getElementsByClassName("messagePassword")[0];
+    console.log(password1.value);
+    if (!password1.value.match(PasswordRegex)) {
         console.log("PW unzureichend")
         error.innerHTML = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
         error.style.display = "inline-block";
     } else {
 
-        if (document.getElementById("password1").value ==
-            document.getElementById("password2").value) {
+        if (password1.value ==
+            password2.value) {
 
-            var borderColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("borderColor");
-            var backgroundColorSource = window.getComputedStyle(document.getElementById("password2"), null).getPropertyValue("backgroundColor");
+            var borderColorSource = window.getComputedStyle(password2, null).getPropertyValue("borderColor");
+            var backgroundColorSource = window.getComputedStyle(password2, null).getPropertyValue("backgroundColor");
 
-            document.getElementById("password2").style.borderColor = borderColorSource;
-            document.getElementById("password2").style.backgroundColor = backgroundColorSource;
+            password2.style.borderColor = borderColorSource;
+            password2.style.backgroundColor = backgroundColorSource;
 
             error.innerHTML = "";
             error.style.display = "none";
 
         } else {
-            document.getElementById("password2").style.borderColor = "red";
-            document.getElementById("password2").style.backgroundColor = "LightCoral";
+            password2.style.borderColor = "red";
+            password2.style.backgroundColor = "LightCoral";
             document.get
             error.innerHTML = "Passwörte sind nicht identisch!";
             error.style.display = "block";
@@ -41,12 +42,13 @@ var checkPassword = function() {
 }
 
 var checkEmail = function() {
-    var email = document.getElementById("email").value
-    var emailfield = document.getElementById("email")
+    var email = document.getElementsByClassName("emailToCheck")[0].value
+    console.log(email);
+    var emailfield = document.getElementsByClassName("emailToCheck")[0]
 
     var backgroundColorSource = window.getComputedStyle(emailfield, null).getPropertyValue("backgroundColor");
     console.log(email);
-    var error = document.getElementById("messageMail")
+    var error = document.getElementsByClassName("messageMail")[0]
 
     if (email != 0 && !email.match(EmailHighRegex)) {
         emailfield.style.backgroundColor = "LightCoral";
@@ -65,12 +67,12 @@ var checkEmail = function() {
 }
 
 var checkBirthDate = function() {
-    var birthDay = document.getElementById("birthDate").value
-    var birthDayfield = document.getElementById("birthDate")
+    var birthDay = document.getElementsByClassName("birthDateToCheck")[0].value
+    var birthDayfield = document.getElementsByClassName("birthDateToCheck")[0]
 
     var backgroundColorSource1 = window.getComputedStyle(birthDayfield, null).getPropertyValue("backgroundColor");
     console.log(birthDay);
-    var error = document.getElementById("messageDate")
+    var error = document.getElementsByClassName("messageDate")[0]
 
     if (birthDay != 0 && !birthDay.match(birthDateRegex)) {
         birthDayfield.style.backgroundColor = "LightCoral";

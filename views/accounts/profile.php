@@ -27,18 +27,18 @@
 
             <input type="text" name="lastName" placeholder="Ihr Name*" value="<?=htmlspecialchars($customerTable[0]['lastName']);?>"><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" value="<?=htmlspecialchars($customerTable[0]['firstName']);?>"><br>
-            <input type="text" class="birthDate" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' value="<?=htmlspecialchars($customerTable[0]['birthDate']);?>"><br>
+            <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' value="<?=htmlspecialchars($customerTable[0]['birthDate']);?>"><br>
 
             <p class="messageDate"></p>
 
-            <input type="text" class="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' value="<?=htmlspecialchars($customerTable[0]['eMail']);?>"><br>
+            <input type="text" class="emailToCheck" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' value="<?=htmlspecialchars($customerTable[0]['eMail']);?>"><br>
 
             <p class="messageMail"></p>
 
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" value="<?=htmlspecialchars($customerTable[0]['phone']);?>"><br>
             
-            <input class="password1" type="password"  name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'>
-            <input class="password2" type="password"  name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'><br>
+            <input type="password" class="password1" name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'required>
+            <input type="password" class="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'required><br>
 
             <p class="messagePassword"></p>
         
@@ -58,10 +58,7 @@
 
 <h2>Profilbearbeitung</h2>
 <?
-$a =5;
-$b = 1 === 1;
-$result = $a && $b;
-var_dump($result);
+
 
 
 

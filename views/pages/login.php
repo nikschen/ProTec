@@ -49,7 +49,7 @@
         else {$status = "off";}
 
 
-
+//debug Area
         echo "User aus Session: " .  $user  ;
         echo "<br>";
         echo "RememberMe Status: " . $status ;
@@ -70,7 +70,7 @@
        echo "<pre>";
       var_dump($customerTable);
       echo "</pre>";
-
+//debug Area
 
 
 

@@ -42,14 +42,14 @@
 
             <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST["lastName"]);};?> required ><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value=".htmlspecialchars($_POST['firstName']);};?> required ><br>
-            <input type="text" id="birthDate" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' <?if (isset($_POST['birthDate'])){echo "value=".htmlspecialchars($_POST['birthDate']);};?> required >
-            <p id="messageDate"></p>
-            <input type="text" id="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required >
-            <p id="messageMail" ></p>
+            <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' <?if (isset($_POST['birthDate'])){echo "value=".htmlspecialchars($_POST['birthDate']);};?> required >
+            <p class="messageDate"></p>
+            <input type="text" class="emailToCheck" id="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required >
+            <p class="messageMail" ></p>
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" <?if (isset($_POST['fon'])){echo "value=".htmlspecialchars($_POST['fon']);};?>><br>
-            <input class="oneLine" type="password" id="password1" name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'required>
-            <input class="oneLine" type="password" id="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'required><br>
-            <p id="messagePassword"></p>
+            <input type="password" class="password1" name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'required>
+            <input type="password" class="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'required><br>
+            <p class="messagePassword"></p>
         
 
             <h2>Ihre Adresse</h2>
