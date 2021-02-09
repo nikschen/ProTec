@@ -6,6 +6,8 @@ var birthDateRegex = /^\d{2}([./-])\d{2}\1\d{4}$/
 var PasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/
 
 
+
+
 var checkPassword = function() {
     var error = document.getElementById("messagePassword");
     var passwordToCheck = document.getElementById("password1").value

@@ -6,7 +6,7 @@
 <?
     $customerTable = getUserInformation($_SESSION['email']); //initializes the logged in user with all his required infos
 
-
+    
 
 
 ?>
@@ -57,7 +57,15 @@
         </form>
 
 <h2>Profilbearbeitung</h2>
+<?
+$a =5;
+$b = 1 === 1;
+$result = $a && $b;
+var_dump($result);
 
+
+
+?>
 </div>
 </main>
 </body>
