@@ -26,12 +26,10 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-			//echo "<hr> "."<br>" . "Submitted";
-			//exit(0);
 		$email = $_POST['email'] ?? null; //
 		$password = $_POST['password'] ?? null;//
 		$password_repeat = $_POST['password-repeat'] ?? null;
-		$telefon= $_POST['fon'] ?? null;//
+		$telefon= $_POST['phone'] ?? null;//
 		$title = $_POST['title'] ?? null;//
 		$firstName = $_POST['firstName'] ?? null;//
 		$lastName = $_POST['lastName'] ?? null;// check warum ab Leerzeichen getrennt wird
@@ -44,7 +42,7 @@ class AccountsController extends \protec\core\Controller
 		$zipcode= $_POST['zipcode'] ?? null;//
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
-		echo $_POST['passwordOld'];
+		
 		//exit(0);
 		//echo print_r($_POST,true);
 		if(mb_strlen($firstName)<2 || mb_strlen($firstName)>46 || preg_match('/[0-9]/',$firstName))
@@ -70,7 +68,7 @@ class AccountsController extends \protec\core\Controller
 		{
 			if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
 			{
-			$errors['password'] = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
+			$errors['password'] = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben und Zahl, min. 1 Sonderzeichen (@$!%*?&_-)";
 			}
 	
 			if($password !== $password_repeat)
@@ -85,10 +83,9 @@ class AccountsController extends \protec\core\Controller
 			$PWHash = $account->passwordHash;
 			if (!password_verify($passwordOld , $PWHash))
 			{
-				$errors['passwordOld'] = "Ihr altes PW entspricht nicht der Datenbank, PW wurde nicht geändert!";
+				$errors['passwordOld'] = "Ihr altes PW ist nicht korrekt, PW wurde nicht geändert!";
 			}
-			//echo "PW Old was set";
-			//exit(0);
+			
 		}
 
 		if(mb_strlen($email)<4 || !filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -96,9 +93,18 @@ class AccountsController extends \protec\core\Controller
 			$errors['email'] = "Email entspricht nicht den Vorgaben";
 		}
 
-		if( !is_numeric($telefon))
+		if($telefon!=="")
 		{
-			$errors['fon'] = "Bitte geben Sie Ihre Telefonnummer ohne Sonderzeichen/Leerzeichen an";
+			//$errors['wrong'] = "The String should not land here if empty";
+			if(!is_numeric($telefon))
+			{
+				$errors['fon'] = "Bitte geben Sie Ihre Telefonnummer ohne Sonderzeichen/Leerzeichen an";
+			}
+		}
+		else
+		{
+			//$errors['wrong'] = "it should land here if null on telefon";
+			$telefon = "";
 		}
 
 		if(mb_strlen($streetInfo)<2 || mb_strlen($streetInfo)>255 )
@@ -170,6 +176,8 @@ class AccountsController extends \protec\core\Controller
 			else
 			{
 			$NewAddress = new \protec\model\Address(['addressID' => '', 'street' => $streetInfo , 'streetNumber' => $streetNo, 'zipCode' => $zipcode, 'city' => $city, 'additionalInformation' => $address2,'phone' => $telefon, 'country' => $country]);
+			//print_r($NewAddress);
+			//exit(0);
 			$NewAddress->insert();
 			$connectedId = $db->lastInsertId();
 			}
@@ -202,11 +210,6 @@ class AccountsController extends \protec\core\Controller
 					setcookie('email','',-1,'/');
 					setcookie('password','',-1,'/');
 					$this->rememberMe($email, $password);
-					/*
-					$duration = time() + 3600*24*30;
-    				setcookie('email', $email, $duration, '/');
-    				setcookie('password', \encryptPassword($password), $duration, '/');*/
-					
 				}
 				
 				//setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");  //muss den Cookie neu setzen
@@ -325,9 +328,19 @@ class AccountsController extends \protec\core\Controller
 			$errors['email'] = "Email entspricht nicht den Vorgaben";
 		}
 
-		if( !is_numeric($telefon))
+		if($telefon!=="")
 		{
+			if(!is_numeric($telefon))
+			{
 			$errors['fon'] = "Bitte geben Sie Ihre Telefonnummer ohne Sonderzeichen/Leerzeichen an";
+			}
+		}
+		if($telefon=="")
+		{
+			echo "it was nothing";
+			unset($telefon);
+			echo $telefon;
+			//exit(0);
 		}
 
 		if(mb_strlen($streetInfo)<2 || mb_strlen($streetInfo)>255 )
@@ -378,8 +391,10 @@ class AccountsController extends \protec\core\Controller
 			$addressArray['country'] = $country;
 			$addressArray['additionalInformation'] = $address2;
 			$addressArray['zipCode'] = $zipcode;
-			$addressArray['phone'] = $telefon;
-
+			$addressArray['phone'] = $telefon ?? null;
+			echo "PHONE AUSGABE IM ARRAY: " . $addressArray['phone'];
+			var_dump($addressArray['phone']);
+			//exit(0);
 			//Build the WHERE-String for the SQL Statement to use in the findOne-method
 			$searchString = "";
     		$connectionString = " AND ";

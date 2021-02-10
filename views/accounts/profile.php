@@ -20,6 +20,10 @@
 
 <?
     $customerTable = getUserInformation($_SESSION['email']); //initializes the logged in user with all his required infos
+    echo "<pre>";
+    print_r($customerTable);
+    echo "</pre>";
+    
 ?>
 
 <form method="POST">
@@ -46,7 +50,7 @@
 
             <p class="messageMail"></p>
 
-            <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" value="<?if(isset($_POST['phone'])){echo $_POST['phone'];}else{echo htmlspecialchars($customerTable[0]['phone']);}?>"><br>
+            <input type="text" name="phone" placeholder="Telefon oder Mobilnummer:" value="<?if(isset($_POST['phone'])){echo $_POST['phone'];}else{echo htmlspecialchars($customerTable[0]['phone']);}?>"><br>
        
         
 

@@ -6,6 +6,7 @@ function getUserInformation($email)
     $sqlStr = "SELECT * FROM `customer` join address on customer.addressID = address.addressID where eMail = '$email'";
 
     //print_r($sqlStr);
+    //exit(0);
     $results = [];
     try
     {
