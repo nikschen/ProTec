@@ -17,7 +17,9 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
     public function actionManageProducts()
     {
-        $errors = [];
+        $addProductErrors = [];
+        $changeProductErrors = [];
+        $deleteProductErrors = [];
         $db = $GLOBALS["db"];
         $categories = getAllCategories();
         $this->setParam('categories', $categories);
@@ -30,8 +32,9 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 
                 switch ($switch = $_POST["submit"]) {
                     case $switch == "addProduct":
+                        
                         if (!isset($_POST["category"])) {
-                                $errors[] = "Keine Kategorie angegeben";
+                            $addProductErrors[] = "Keine Kategorie angegeben";
                             }
                             else
                             {
@@ -50,10 +53,10 @@ class AdministrativeOperationsController extends \protec\core\Controller
         
                                 $newProduct->validate($productErrors);
                                 $newPricing->validate($pricingErrors);
-                                validateUploadedProductImage($errors);
+                                validateUploadedProductImage($addProductErrors);
         
         
-                                if (empty($productErrors) && empty($pricingErrors) && empty($errors)) {
+                                if (empty($productErrors) && empty($pricingErrors) && empty($addProductErrors)) {
                                     $newProduct->insert();
                                     $newPricing->insert();
             
@@ -66,22 +69,23 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                 }
                                 else {
                                     if (!empty($productErrors)) {
-                                        $errors[] = "Produktdaten sind ungültig";
+                                        $addProductErrors[] = "Produktdaten sind ungültig";
                                     }
                                     if (!empty($pricingErrors)) {
-                                        $errors[] = "Preisdaten sind ungültig";
+                                        $addProductErrors[] = "Preisdaten sind ungültig";
                                     }
                                 }
                             }
                         break;
                         
                     case $switch == "changeProduct":
+                        
                         $pricingID=$_POST["productID"];
                         $productID=$_POST["productID"];
                         $sqlParamPricing="pricingID="."\"".$pricingID."\"";
                         $sqlParamProduct="productID="."\"".$productID."\"";
-                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$errors[]="Keine gültige ID";}
-                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$errors[]="Keine gültige ID";}
+                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$changeProductErrors[]="Keine gültige ID";}
+                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$changeProductErrors[]="Keine gültige ID";}
                         else
                         {
                             foreach ($_POST as $key => $value)
@@ -107,31 +111,50 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             $toBeChangedProduct = \protec\model\Product::findOne($sqlParamProduct);
                             $toBeChangedPricing = \protec\model\Pricing::findOne($sqlParamPricing);
     
-                            if (!empty($productValues)) {
+                            if (!empty($productValues))
+                            {
                                 $toBeChangedProduct->update($productValues, $toBeChangedProduct->productID);
                             }
-                            if (!empty($pricingValues)) {
+                            else if (!empty($pricingValues))
+                            {
                                 $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
                             }
+                            else
+                            {
+                                $changeProductErrors[]="Keine zu ändernden Produkt- oder Preisdaten angegeben.";
+                            }
+                            
+                            if(!empty($_FILES) && empty($changeProductErrors))
+                            {
+                                $uploadFolder = IMAGESPATH; //Upload-Verzeichnis
+                                $filename = $toBeChangedProduct->productID;
+                                $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
+                                $destinationPath = $uploadFolder . $filename . '.' . $extension;
+                                move_uploaded_file($_FILES['file']['tmp_name'], $destinationPath);
+                                $_POST = array();
+                            }
+                            
                         }
                         break;
                     case $switch == "deleteProduct":
+    
+                        
                         
                         $pricingID=$_POST["productID"];
                         $productID=$_POST["productID"];
                         $sqlParamPricing="pricingID="."\"".$pricingID."\"";
                         $sqlParamProduct="productID="."\"".$productID."\"";
                         
-                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$errors[]="Keine gültige ID";}
-                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$errors[]="Keine gültige ID";}
+                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$deleteProductErrors="Keine gültige ID";}
+                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$deleteProductErrors="Keine gültige ID";}
                         else
                         {
                             $pricingToBeRemoved = \protec\model\Pricing::findOne($sqlParamPricing);
                             $productToBeRemoved = \protec\model\Product::findOne($sqlParamProduct);
     
     
-                            $pricingToBeRemoved->delete($errors);
-                            $productToBeRemoved->delete($errors);
+                            $pricingToBeRemoved->delete($deleteProductErrors);
+                            $productToBeRemoved->delete($deleteProductErrors);
                         }
                         break;
                 }
@@ -141,7 +164,10 @@ class AdministrativeOperationsController extends \protec\core\Controller
         }
         
         
-        $this->setParam('errors', $errors);
+        $this->setParam('addProductErrors', $addProductErrors);
+        $this->setParam('changeProductErrors', $changeProductErrors);
+        $this->setParam('deleteProductErrors', $deleteProductErrors);
+    
         $title = 'Admin@ProTec > Produktverwaltung';
         $this->setParam('title', $title);
     }

@@ -17,7 +17,7 @@
                         </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required></textarea>
                             <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7" required></textarea>
-                        <input class="productImageUploadLabel" name="file" type="file" required/>
+                            <input class="productImageUploadLabel" name="file" type="file" required/>
 
                         <div class="lastRow">
                             <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis" required>
@@ -33,8 +33,8 @@
                     </form>
                 </div>
                 <div class="errorsContainer">
-                    <?if (!empty($errors)):?>
-                        <?foreach ($errors as $error):?>
+                    <?if (!empty($addProductErrors)):?>
+                        <?foreach ($addProductErrors as $error):?>
                             <p class="manageProductsError"><?=$error?></p>
                         <?endforeach?>
                     <?endif?>
@@ -61,6 +61,7 @@
                             </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
                             <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
+                            <input class="productImageUploadLabel" name="file" type="file"/>
                             <div class="lastRow">
                                 <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis">
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro">
@@ -75,8 +76,8 @@
                     </form>
                 </div>
                 <div class="errorsContainer">
-                    <?if (!empty($errors)):?>
-                        <?foreach ($errors as $error):?>
+                    <?if (!empty($changeProductErrors)):?>
+                        <?foreach ($changeProductErrors as $error):?>
                     <p class="manageProductsError"><?=$error?></p>
                         <?endforeach?>
                     <?endif?>
@@ -97,8 +98,8 @@
                     </form>
                 </div>
                 <div class="errorsContainer">
-                    <?if (!empty($errors)):?>
-                        <?foreach ($errors as $error):?>
+                    <?if (!empty($deleteProductErrors)):?>
+                        <?foreach ($deleteProductErrors as $error):?>
                             <p class="manageProductsError"><?=$error?></p>
                         <?endforeach?>
                     <?endif?>
