@@ -9,7 +9,7 @@
                         <div class="firstRow">
                             <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl">
                             <select class="category" name="category" required>
-                                <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                <option  hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
                                 <?foreach ($categories as $categoryName):?>
                                     <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                 <?endforeach;?>
@@ -46,7 +46,7 @@
                             <div class="firstRow">
                             <input class="quantityStored" type="number"  name="quantityStored" placeholder="Anzahl (gelagert)">
                                 <select class="category" name="category">
-                                    <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                    <option hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
                                     <?foreach ($categories as $categoryName):?>
                                         <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                     <?endforeach;?>
@@ -62,8 +62,8 @@
                                 <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
                             </div>
                         <div class="submitOperation">
-                            <button type="submit" name="submitChangeProduct" value="changeProduct">Produktdaten ändern</button>
-                            <button type="reset" name="resetChangeProduct" value="reset">Zurücksetzen</button>
+                            <button type="submit" name="submit" value="changeProduct">Produktdaten ändern</button>
+                            <button type="reset" name="reset" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
                 </div>
@@ -77,8 +77,8 @@
                             <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
                         </div>
                         <div class="submitOperation">
-                            <button type="submit" name="submitDeleteProduct" value="deleteProduct">Produkt entfernen</button>
-                            <button type="reset" name="resetDeleteProduct" value="reset">Zurücksetzen</button>
+                            <button type="submit" name="submit" value="deleteProduct">Produkt entfernen</button>
+                            <button type="reset" name="reset" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
                 </div>
