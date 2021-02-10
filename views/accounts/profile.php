@@ -20,7 +20,7 @@
 
 <?
     $customerTable = getUserInformation($_SESSION['email']); //initializes the logged in user with all his required infos
-    echo "<pre>";
+    echo "<pre style=color:green>";
     print_r($customerTable);
     echo "</pre>";
     

@@ -241,8 +241,6 @@ abstract class Model
 
     public function insert()
     {
-        
-
              $db = $GLOBALS['db'];
              $tableName = self::tablename();
              $sqlStr = "INSERT INTO `${tableName}` (";
@@ -258,9 +256,6 @@ abstract class Model
             
              
              $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
-             echo "EINFÜGEN BEFEHL: " . $sqlStr;
-   
-             
              try
              {
                  $stmt=$db->prepare($sqlStr);
@@ -288,10 +283,6 @@ abstract class Model
         try
         {
             $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE ' . self::tablename().'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
-//            echo "<p style=color:red>";
-//            print_r($sql);
-//            echo "</p>";
-//            //exit(1);
             $statement = $db->prepare($sql);
             $statement->execute();
             

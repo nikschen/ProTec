@@ -72,57 +72,56 @@
                 </div>
             </div>
             <div class="loginContainer">
-<!--            --><?//
-//            $sessionstatus ="";
-//             if(isset($_SESSION['email']) && isset($_SESSION['password']))
-//                {
-//                    $sessionstatus = "session";
-//                    $email = $_SESSION['email'];
-//                    $password = $_SESSION['password'];
-//                    $validResult = validateLogInSessionsAndCookies($email, $password);
-//
-//                    if($validResult== "1")
-//                    {
-//                        $actionLink = "?c=pages&a=logout";
-//                        $icon = "logoutIcon.png";
-//                        $text = "Logout";
-//                        $_SESSION['loggedIn']= 1;
-//                        $_SESSION['username'] = $_SESSION['email'];
-//                    }
-//                    else
-//                    {
-//                        $actionLink = "?c=pages&a=login";
-//                        $icon = "loginIcon.png";
-//                        $text = "Login";
-//                    }
-//                }
-//            else if(isset($_COOKIE['email']) && isset($_COOKIE['password']))
-//                {
-//                    $sessionstatus = "cookie";
-//                    $email = $_COOKIE['email'];
-//                    $password = $_COOKIE['password'];
-//
-//                    echo $email . " " . $password;
-//                    $validResult = validateLogInSessionsAndCookies($email, $password);
-//
-//                    if($validResult == "1")
-//                    {
-//                    $actionLink = "?c=pages&a=logout";
-//                    $icon = "logoutIcon.png";
-//                    $text = "Logout";
-//                    $_SESSION['loggedIn']= 1;
-//                    $_SESSION['username'] = $_COOKIE['email'];//hier wird anders als bei Session der Email Name angezeigt, dass ist gewollt!!! als Debugging, wo kommt der Wert eigentlich her! :-)
-//                    $_SESSION['email'] = $_COOKIE['email'];
-//                    }
-//                    else
-//                    {
-//                        echo "<p>No Valid </p>";
-//                        $actionLink = "?c=pages&a=login";
-//                        $icon = "loginIcon.png";
-//                        $text = "Login";
-//                    } //hier könnte man direkt in logout gehen, aus Sicherheitsgründen, weil ja scheinbar irgendwas nicht stimmt(Manipulationsverhinderung)
-//                }
-//                else
+<?
+           $sessionstatus ="";
+            if(isset($_SESSION['email']) && isset($_SESSION['password']))
+               {
+                   $sessionstatus = "session";                   $email = $_SESSION['email'];
+                    $password = $_SESSION['password'];
+                    $validResult = validateLogInSessionsAndCookies($email, $password);
+
+                    if($validResult== "1")
+                    {
+                        $actionLink = "?c=pages&a=logout";
+                        $icon = "logoutIcon.png";
+                        $text = "Logout";
+                        $_SESSION['loggedIn']= 1;
+                        $_SESSION['username'] = $_SESSION['email'];
+                    }
+                    else
+                    {
+                        $actionLink = "?c=pages&a=login";
+                        $icon = "loginIcon.png";
+                        $text = "Login";
+                    }
+                }
+            else if(isset($_COOKIE['email']) && isset($_COOKIE['password']))
+                {
+                    $sessionstatus = "cookie";
+                    $email = $_COOKIE['email'];
+                    $password = $_COOKIE['password'];
+
+                    
+                    $validResult = validateLogInSessionsAndCookies($email, $password);
+
+                    if($validResult == "1")
+                    {
+                    $actionLink = "?c=pages&a=logout";
+                    $icon = "logoutIcon.png";
+                    $text = "Logout";
+                    $_SESSION['loggedIn']= 1;
+                    $_SESSION['username'] = $_COOKIE['email'];//hier wird anders als bei Session der Email Name angezeigt, dass ist gewollt!!! als Debugging, wo kommt der Wert eigentlich her! :-)
+                    $_SESSION['email'] = $_COOKIE['email'];
+                    }
+                    else
+                    {
+                      echo "<p>No Valid </p>";
+                      $actionLink = "?c=pages&a=login";
+                      $icon = "loginIcon.png";
+                      $text = "Login";
+                    } //hier könnte man direkt in logout gehen, aus Sicherheitsgründen, weil ja scheinbar irgendwas nicht stimmt(Manipulationsverhinderung)
+                }
+                else
                 {
                         $actionLink = "?c=pages&a=login";
                         $icon = "loginIcon.png";
