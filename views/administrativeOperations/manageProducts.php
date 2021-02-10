@@ -9,7 +9,7 @@
                         <div class="firstRow">
                             <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl">
                             <select class="category" name="category" required>
-                                <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                <option  hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
                                 <?foreach ($categories as $categoryName):?>
                                     <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                 <?endforeach;?>
@@ -17,7 +17,7 @@
                         </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required></textarea>
                             <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7" required></textarea>
-                        <input class="productImageUploadLabel" name="file" type="file" required/>
+                            <input class="productImageUploadLabel" name="file" type="file" required/>
 
                         <div class="lastRow">
                             <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis" required>
@@ -31,6 +31,13 @@
                             <button type="reset" name="resetAddProduct" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
+                </div>
+                <div class="errorsContainer">
+                    <?if (!empty($addProductErrors)):?>
+                        <?foreach ($addProductErrors as $error):?>
+                            <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
                 </div>
             </li>
             <li class="changeProductContainer">
@@ -46,7 +53,7 @@
                             <div class="firstRow">
                             <input class="quantityStored" type="number"  name="quantityStored" placeholder="Anzahl (gelagert)">
                                 <select class="category" name="category">
-                                    <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
+                                    <option hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
                                     <?foreach ($categories as $categoryName):?>
                                         <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                     <?endforeach;?>
@@ -54,6 +61,7 @@
                             </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
                             <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
+                            <input class="productImageUploadLabel" name="file" type="file"/>
                             <div class="lastRow">
                                 <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis">
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro">
@@ -62,10 +70,17 @@
                                 <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
                             </div>
                         <div class="submitOperation">
-                            <button type="submit" name="submitChangeProduct" value="changeProduct">Produktdaten ändern</button>
-                            <button type="reset" name="resetChangeProduct" value="reset">Zurücksetzen</button>
+                            <button type="submit" name="submit" value="changeProduct">Produktdaten ändern</button>
+                            <button type="reset" name="reset" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
+                </div>
+                <div class="errorsContainer">
+                    <?if (!empty($changeProductErrors)):?>
+                        <?foreach ($changeProductErrors as $error):?>
+                    <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
                 </div>
             </li>
             <li class="deleteProductContainer">
@@ -77,10 +92,17 @@
                             <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
                         </div>
                         <div class="submitOperation">
-                            <button type="submit" name="submitDeleteProduct" value="deleteProduct">Produkt entfernen</button>
-                            <button type="reset" name="resetDeleteProduct" value="reset">Zurücksetzen</button>
+                            <button type="submit" name="submit" value="deleteProduct">Produkt entfernen</button>
+                            <button type="reset" name="reset" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
+                </div>
+                <div class="errorsContainer">
+                    <?if (!empty($deleteProductErrors)):?>
+                        <?foreach ($deleteProductErrors as $error):?>
+                            <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
                 </div>
             </li>
         </ul>

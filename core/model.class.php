@@ -109,8 +109,12 @@ abstract class Model
 
         try
         {
-            $nameOfIDAttribute= lcfirst(self::tablename());  //name of the table, but with lower case on first letter
-            $sql = 'DELETE FROM '. self::tablename() . ' WHERE ' . $nameOfIDAttribute . ' = ' . $this->ID;
+            $nameOfIDAttribute= lcfirst(self::tablename()).'ID';  //name of the table, but with lower case on first letter
+            $sql = 'DELETE FROM '. self::tablename() . ' WHERE ' . $nameOfIDAttribute . ' = ' . $this->{$nameOfIDAttribute};
+//            echo "<p style=color:red>";
+//            print_r($sql);
+//            echo "</p>";
+//            //exit(1);
             $db->exec($sql);
             return true;
         }
@@ -284,10 +288,10 @@ abstract class Model
         try
         {
             $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE ' . self::tablename().'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
-            echo "<p style=color:red>";
-            print_r($sql);
-            echo "</p>";
-            //exit(0);
+//            echo "<p style=color:red>";
+//            print_r($sql);
+//            echo "</p>";
+//            //exit(1);
             $statement = $db->prepare($sql);
             $statement->execute();
             
