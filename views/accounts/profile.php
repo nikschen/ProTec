@@ -20,10 +20,6 @@
 
 <?
     $customerTable = getUserInformation($_SESSION['email']); //initializes the logged in user with all his required infos
-    echo "<pre style=color:green>";
-    print_r($customerTable);
-    echo "</pre>";
-    
 ?>
 
 <form method="POST">
@@ -80,7 +76,7 @@
           
         </form>
 
-<h2>Profilbearbeitung</h2>
+<h2>Profilbearbeitung DebugAusgabe</h2>
 <?
     //'birthDate' => date('Y-m-d', strtotime($birthDate))]);
     //echo date('d.m.Y' , strtotime($customerTable[0]['birthDate']));

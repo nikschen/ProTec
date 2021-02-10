@@ -139,6 +139,11 @@
                 <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon.png" alt="Administration"><br><span class="administrationText">Administration</span></a>
             </div>
             <?}}?>
+            <?if(isset($_SESSION['loggedIn'])) {if($_SESSION['email']!='admin@protec.de'){?>
+            <div class="userprofileContainer">
+                <a href="index.php?c=accounts&a=profile"><img class="administrationIcon" src="<?=ICONSPATH?>userIcon.png" alt="Administration"><br><span class="userprofileText">Profil</span></a>
+            </div>
+            <?}}?>
         
     <div class="loginStatus">
             <?if(isset($_SESSION['loggedIn']))
