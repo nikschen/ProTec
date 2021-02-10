@@ -32,6 +32,13 @@
                         </div>
                     </form>
                 </div>
+                <div class="errorsContainer">
+                    <?if (!empty($errors)):?>
+                        <?foreach ($errors as $error):?>
+                            <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
             </li>
             <li class="changeProductContainer">
                 <h2>Produktdaten ändern</h2>
@@ -67,6 +74,13 @@
                         </div>
                     </form>
                 </div>
+                <div class="errorsContainer">
+                    <?if (!empty($errors)):?>
+                        <?foreach ($errors as $error):?>
+                    <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
             </li>
             <li class="deleteProductContainer">
                 <h2>Produkt entfernen</h2>
@@ -81,6 +95,13 @@
                             <button type="reset" name="reset" value="reset">Zurücksetzen</button>
                         </div>
                     </form>
+                </div>
+                <div class="errorsContainer">
+                    <?if (!empty($errors)):?>
+                        <?foreach ($errors as $error):?>
+                            <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
                 </div>
             </li>
         </ul>
