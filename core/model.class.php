@@ -255,11 +255,12 @@ abstract class Model
      
              $sqlStr = rtrim($sqlStr, ',');
              $valuesStr = rtrim($valuesStr, ',');
-     
+            
              
              $sqlStr = $sqlStr.') VALUES '.$valuesStr.');';
-             //echo "EINFÜGEN BEFEHL: " . $sqlStr;
-     
+             echo "EINFÜGEN BEFEHL: " . $sqlStr;
+   
+             
              try
              {
                  $stmt=$db->prepare($sqlStr);
