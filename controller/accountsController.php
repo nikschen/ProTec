@@ -197,13 +197,19 @@ class AccountsController extends \protec\core\Controller
 				//$NewAccount->insert();
 				$_SESSION['password'] = encryptPassword($password);
 
-				
 				if(isset($_COOKIE['password']))
 				{
-					$_COOKIE['password'] = encryptPassword($password);
+					setcookie('email','',-1,'/');
+					setcookie('password','',-1,'/');
+					$this->rememberMe($email, $password);
+					/*
+					$duration = time() + 3600*24*30;
+    				setcookie('email', $email, $duration, '/');
+    				setcookie('password', \encryptPassword($password), $duration, '/');*/
+					
 				}
 				
-
+				//setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");  //muss den Cookie neu setzen
 				//$PWHash = $account->passwordHash;
 				//$errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
 				
@@ -214,7 +220,8 @@ class AccountsController extends \protec\core\Controller
 
 			//ResetSession
 			$_SESSION['email'] = $_POST['email'] ?? null;
-
+			//print_r($_COOKIE);
+			//exit(0);
 			$success=true;
 			$this->setParam('success', $success);
 			//Achtung bei Adressänderung könnten Leichen entstehen die keinem Nutzer mehr zugeordnet werden könnten -> Delete ist hier nötig um dem gleich vorzubeugen
