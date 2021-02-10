@@ -19,12 +19,14 @@ class AccountsController extends \protec\core\Controller
 		$title='ProTec > Profile';
 		$this->setParam('title', $title);
 		$errors = [];
-
-
+		$success = false;
+		
+		
+		
 
 		if(isset($_POST['submit']))
 		{
-			echo "<hr> "."<br>" . "Submitted";
+			//echo "<hr> "."<br>" . "Submitted";
 			//exit(0);
 		$email = $_POST['email'] ?? null; //
 		$password = $_POST['password'] ?? null;//
@@ -42,7 +44,8 @@ class AccountsController extends \protec\core\Controller
 		$zipcode= $_POST['zipcode'] ?? null;//
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
-
+		echo $_POST['passwordOld'];
+		//exit(0);
 		//echo print_r($_POST,true);
 		if(mb_strlen($firstName)<2 || mb_strlen($firstName)>46 || preg_match('/[0-9]/',$firstName))
 		{
@@ -63,15 +66,29 @@ class AccountsController extends \protec\core\Controller
 		{
 			$errors['title'] = "Titel zu kurz";
 		}
-	
-		if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
+		if(isset($_POST['passwordOld']) && $_POST['passwordOld']!== "" )
 		{
+			if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
+			{
 			$errors['password'] = "Password unzureichend. Anforderungen: min. 8 Zeichen, min. 1 Klein- und Großbuchstaben, min. 1 Sonderzeichen (@$!%*?&_-)";
-		}
+			}
 	
-		if($password !== $password_repeat)
-		{
-			$errors['password-ident'] = "Die Passworteingaben sind leider nicht identisch!";
+			if($password !== $password_repeat)
+			{
+				$errors['password-ident'] = "Die Passworteingaben sind leider nicht identisch!";
+			}
+			$passwordOld = $_POST['passwordOld'];
+			$UserID = getUserInformation($_SESSION['email']);
+			
+			
+			$account= \protec\model\Account::findOne('accountID = ' . $UserID[0]['customerID']);
+			$PWHash = $account->passwordHash;
+			if (!password_verify($passwordOld , $PWHash))
+			{
+				$errors['passwordOld'] = "Ihr altes PW entspricht nicht der Datenbank, PW wurde nicht geändert!";
+			}
+			//echo "PW Old was set";
+			//exit(0);
 		}
 
 		if(mb_strlen($email)<4 || !filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -158,28 +175,47 @@ class AccountsController extends \protec\core\Controller
 			}
 
 			$ToBeChangedAtCustomer = ["firstName= " . "\"" . $firstName . "\"" ,"lastName= " ."\"". $lastName ."\"", 'birthDate = '. "\"" . date('Y-m-d' , strtotime($birthDate)) . "\"", "addressID = " .$connectedId, "eMail = " ."\"" . "$email" . "\""]; //quotation needed
-			echo "<pre>";
+			/*echo "<pre>";
 			print_r($ToBeChangedAtCustomer);
 			echo "</pre>";
-			echo($customerTable[0]['customerID']);
+			echo($customerTable[0]['customerID']);*/
 			//updates Customer
 			$CustomerFromDataBase = \protec\model\Customer::findOne('eMail = '. "\"" . $_SESSION['email'] . "\"" );
-			print_r($CustomerFromDataBase);
+			//print_r($CustomerFromDataBase);
 			$CustomerFromDataBase->update($ToBeChangedAtCustomer, $customerTable[0]['customerID']);
 
 			//updates Account
 			$ToBeChangedAtAccount = ["username= " . "\"" . $email . "\""];
-			print_r($ToBeChangedAtAccount);
+			//print_r($ToBeChangedAtAccount);
 			$AccountFromDataBase = \protec\model\Account::findOne('username = '. "\"" . $_SESSION['email'] . "\"" );
-			echo "<pre style=color:red>";
+			/*echo "<pre style=color:red>";
 			print_r($AccountFromDataBase);
-			echo "</pre>";
-			echo "CustomerTableValue: ".$customerTable[0]['customerID'];
+			echo "</pre>";*/
+			//echo "CustomerTableValue: ".$customerTable[0]['customerID'];
 			$AccountFromDataBase->update($ToBeChangedAtAccount, $customerTable[0]['customerID']);
 			
+			if($_POST['passwordOld']!== "" )
+			{
+				$account= \protec\model\Account::findOne('accountID = ' . $CustomerFromDataBase->customerID);
+				$toBeChangeAtAccountPW = ["passwordHash= " . "\"" . password_hash($password, PASSWORD_DEFAULT) . "\""];
+				$AccountFromDataBase->update($toBeChangeAtAccountPW, $customerTable[0]['customerID']);
+				//$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
+				//$NewAccount->insert();
+
+
+
+				//$PWHash = $account->passwordHash;
+				//$errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
+				
+
+			}
+
+
 			//ResetSession
 			$_SESSION['email'] = $_POST['email'] ?? null;
 
+			$success=true;
+			$this->setParam('success', $success);
 			//Achtung bei Adressänderung könnten Leichen entstehen die keinem Nutzer mehr zugeordnet werden könnten -> Delete ist hier nötig um dem gleich vorzubeugen
 			//FUNKTION ERSTELLEN DIE EINEN ADDRESSDSTENSATZ LÖSCHT!!!!!!!!!!!!!!!!*/
 			

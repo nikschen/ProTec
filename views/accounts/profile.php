@@ -12,13 +12,14 @@
          </ul>
          </div>
          <?php endif; ?>
+         <?php if(isset($success) && $success) : ?>
+        <div class="success-message" style="border-radius:5px;background-color:green; color: white">
+        <p>Daten erfolgreich geändert!</p>
+        </div>
+        <?php endif; ?>
+
 <?
-   
     $customerTable = getUserInformation($_SESSION['email']); //initializes the logged in user with all his required infos
-    
-    
-
-
 ?>
 
 <form method="POST">
@@ -46,11 +47,7 @@
             <p class="messageMail"></p>
 
             <input type="text" name="fon" placeholder="Telefon oder Mobilnummer:" value="<?if(isset($_POST['phone'])){echo $_POST['phone'];}else{echo htmlspecialchars($customerTable[0]['phone']);}?>"><br>
-            
-            <input type="password" class="password1" name="password" placeholder="Ihr Passwort*" onchange='checkPassword()'>
-            <input type="password" class="password2" name="password-repeat" placeholder="Ihr Passwort wiederholt*" onchange='checkPassword()'><br>
-
-            <p class="messagePassword"></p>
+       
         
 
             <h2>Ihre Adresse</h2>
@@ -62,8 +59,21 @@
             <input class="oneLine" type="text" name="zipcode" placeholder="PLZ*" value="<?if(isset($_POST['zipcode'])){echo $_POST['zipcode'];}else{echo htmlspecialchars($customerTable[0]['zipCode']);}?>">
             <input class="oneLine" type="text" name="city" placeholder="Ort*" value="<?if(isset($_POST['city'])){echo $_POST['city'];}else{echo htmlspecialchars($customerTable[0]['city']);}?>"><br>
             <input type="text" name="country" placeholder="Land*" value="<?if(isset($_POST['country'])){echo $_POST['country'];}else{echo htmlspecialchars($customerTable[0]['country']);}?>"><br><br>
+           
+           
+            <hr>
+            <p>Nur ausfüllen ein, wenn Sie Ihr Passwort ändern möchten!</p>
+            <input type="password" class="passwordOld" name="passwordOld" placeholder="Ihr bisheriges Passwort*">
+            <input type="password" class="password1" name="password" placeholder="Ihr neues Passwort*" onchange='checkPassword()'>
+            <input type="password" class="password2" name="password-repeat" placeholder="Ihr neues Passwort wiederholt*" onchange='checkPassword()'><br>
+
+            <p class="messagePassword"></p>
+           
+           
             <p>Die mit * markierten Felder sind Pflichtfelder</p>
             <input type="submit" name="submit" value="Absenden"></input>
+
+          
         </form>
 
 <h2>Profilbearbeitung</h2>

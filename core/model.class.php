@@ -283,10 +283,10 @@ abstract class Model
         try
         {
             $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE ' . self::tablename().'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
-            echo "<p style=color:red>";
+            /*echo "<p style=color:red>";
             print_r($sql);
             echo "</p>";
-            //exit(0);
+            //exit(0);*/
             $statement = $db->prepare($sql);
             $statement->execute();
             
