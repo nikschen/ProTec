@@ -201,14 +201,21 @@ class AccountsController extends \protec\core\Controller
 				$AccountFromDataBase->update($toBeChangeAtAccountPW, $customerTable[0]['customerID']);
 				//$NewAccount = new \protec\model\Account(['accountID' => $newID, 'username' => $email , 'passwordHash' => password_hash($password, PASSWORD_DEFAULT)]);
 				//$NewAccount->insert();
+				$_SESSION['password'] = encryptPassword($password);
 
-
+				
+				if(isset($_COOKIE['password']))
+				{
+					$_COOKIE['password'] = $_SESSION['password'];
+				}
+				
 
 				//$PWHash = $account->passwordHash;
 				//$errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
 				
 
 			}
+			
 
 
 			//ResetSession
@@ -235,7 +242,7 @@ class AccountsController extends \protec\core\Controller
 
 		}
 
-		//exit(0);
+	
 		}
 
 	}
