@@ -102,7 +102,7 @@
                     $email = $_COOKIE['email'];
                     $password = $_COOKIE['password'];
 
-                    echo $email . " " . $password;
+                    //echo $email . " " . $password;
                     $validResult = validateLogInSessionsAndCookies($email, $password); 
                     
                     if($validResult == "1")

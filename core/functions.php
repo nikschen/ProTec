@@ -21,15 +21,15 @@ function getUserInformation($email)
 
 function validateLogInSessionsAndCookies($email, $password)
 {
-    print_r($email . " - " . $password);
+    //print_r($email . " - " . $password);
     
     $login = \protec\model\Account::findOne("username = ". "\"".$email."\"");
-    print_r($login->passwordHash);
+    //print_r($login->passwordHash);
    
     $passwordFromDatabase = $login->passwordHash;
     
     $decryptedPassword = decryptPassword($password);
-    echo $decryptedPassword;
+    //echo $decryptedPassword;
      //exit(0);
     if(password_verify($decryptedPassword,$passwordFromDatabase))
     {

@@ -175,13 +175,7 @@ class AccountsController extends \protec\core\Controller
 			}
 
 			$ToBeChangedAtCustomer = ["firstName= " . "\"" . $firstName . "\"" ,"lastName= " ."\"". $lastName ."\"", 'birthDate = '. "\"" . date('Y-m-d' , strtotime($birthDate)) . "\"", "addressID = " .$connectedId, "eMail = " ."\"" . "$email" . "\""]; //quotation needed
-			/*echo "<pre>";
-			print_r($ToBeChangedAtCustomer);
-			echo "</pre>";
-			echo($customerTable[0]['customerID']);*/
-			//updates Customer
 			$CustomerFromDataBase = \protec\model\Customer::findOne('eMail = '. "\"" . $_SESSION['email'] . "\"" );
-			//print_r($CustomerFromDataBase);
 			$CustomerFromDataBase->update($ToBeChangedAtCustomer, $customerTable[0]['customerID']);
 
 			//updates Account
@@ -206,7 +200,7 @@ class AccountsController extends \protec\core\Controller
 				
 				if(isset($_COOKIE['password']))
 				{
-					$_COOKIE['password'] = $_SESSION['password'];
+					$_COOKIE['password'] = encryptPassword($password);
 				}
 				
 
