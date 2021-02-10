@@ -44,6 +44,8 @@
     align-items: center;
 }
 
+
+
 .manageProductsElements h2{
     display:flex;
     flex-direction: row;
@@ -199,6 +201,11 @@
 
 }
 .submitOperation button{
+    width:100%;
+
+}
+
+.customerIDInput{
     width:100%;
 
 }

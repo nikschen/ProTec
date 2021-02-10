@@ -11,12 +11,46 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
     public function actionManageCustomers()
     {
+        $errors = [];
+        $db = $GLOBALS["db"];
+        if (isset($_POST["password"]) && isset($_POST["submit"]))
+        {
+            $admin = \protec\model\Account::findOne("username=\"admin@protec.de\"");
+            $pwdHash = $admin->passwordHash;
+    
+            if (password_verify($_POST["password"], $pwdHash))
+            {
+                $sqlParamCustomer="customerID="."\"".$_POST["customerID"]."\"";
+                $sqlParamAccount="accountID="."\"".$_POST["customerID"]."\"";
+    
+                if(empty(\protec\model\Customer::findOne($sqlParamCustomer)) || empty(\protec\model\Account::findOne($sqlParamAccount)) )
+                {
+                    $errors[]="Keine gültige ID.";
+                }
+                else
+                {
+                    $customerToBeDeleted=\protec\model\Customer::findOne($sqlParamCustomer);
+                    $accountToBeDeleted=\protec\model\Account::findOne($sqlParamAccount);
+                    $accountToBeDeleted->delete($errors);
+                    $customerToBeDeleted->delete($errors);
+                    $success="Kunde erfolgreich gelöscht";
+                }
+            }
+            else
+            {
+                $errors[]="Das eingegebene Passwort ist nicht korrekt";
+            }
+        }
+    
+        $this->setParam('success', $success);
+        $this->setParam('errors', $errors);
         $title = 'Admin@ProTec > Kundenverwaltung';
         $this->setParam('title', $title);
     }
     
     public function actionManageProducts()
     {
+        $success=[];
         $addProductErrors = [];
         $changeProductErrors = [];
         $deleteProductErrors = [];
@@ -66,6 +100,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                     $destinationPath = $uploadFolder . $filename . '.' . $extension;
                                     move_uploaded_file($_FILES['file']['tmp_name'], $destinationPath);
                                     $_POST = array();
+                                    $success[]="Produkt erfolgreich hinzugefügt";
                                 }
                                 else {
                                     if (!empty($productErrors)) {
@@ -114,10 +149,12 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             if (!empty($productValues))
                             {
                                 $toBeChangedProduct->update($productValues, $toBeChangedProduct->productID);
+                                $success[]="Produktdaten erfolgreich geändert";
                             }
                             else if (!empty($pricingValues))
                             {
                                 $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
+                                $success[]="Preisdaten erfolgreich geändert";
                             }
                             else
                             {
@@ -136,6 +173,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             
                         }
                         break;
+                        
                     case $switch == "deleteProduct":
     
                         
@@ -145,8 +183,8 @@ class AdministrativeOperationsController extends \protec\core\Controller
                         $sqlParamPricing="pricingID="."\"".$pricingID."\"";
                         $sqlParamProduct="productID="."\"".$productID."\"";
                         
-                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$deleteProductErrors="Keine gültige ID";}
-                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$deleteProductErrors="Keine gültige ID";}
+                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$deleteProductErrors[]="Keine gültige ID";}
+                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$deleteProductErrors[]="Keine gültige ID";}
                         else
                         {
                             $pricingToBeRemoved = \protec\model\Pricing::findOne($sqlParamPricing);
@@ -155,12 +193,20 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
                             $pricingToBeRemoved->delete($deleteProductErrors);
                             $productToBeRemoved->delete($deleteProductErrors);
+                            if(empty($deleteProductErrors)) $success[]="Produkt erfolgreich gelöscht";
                         }
                         break;
                 }
-                
             }
-            
+            else
+            {
+                switch ($switch = $_POST["submit"])
+                {
+                    case $switch == "addProduct":  $addProductErrors[]="Das eingegebene Passwort ist nicht korrekt"; break;
+                    case $switch == "changeProduct": $changeProductErrors[]="Das eingegebene Passwort ist nicht korrekt"; break;
+                    case $switch == "deleteProduct": $deleteProductErrors[]="Das eingegebene Passwort ist nicht korrekt"; break;
+                }
+            }
         }
         
         

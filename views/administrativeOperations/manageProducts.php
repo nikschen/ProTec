@@ -32,10 +32,17 @@
                         </div>
                     </form>
                 </div>
-                <div class="errorsContainer">
+                <div class="errorsContainer" style ="border-radius:5px; color: var(--orangeAccentColor)">
                     <?if (!empty($addProductErrors)):?>
                         <?foreach ($addProductErrors as $error):?>
                             <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
+                <div class="successContainer">
+                    <?if (!empty($success)):?>
+                        <?foreach ($success as $successMessage):?>
+                            <p class="successEntry"><?=$successMessage?></p>
                         <?endforeach?>
                     <?endif?>
                 </div>
@@ -75,10 +82,17 @@
                         </div>
                     </form>
                 </div>
-                <div class="errorsContainer">
+                <div class="errorsContainer" style ="border-radius:5px; color: var(--orangeAccentColor)">
                     <?if (!empty($changeProductErrors)):?>
                         <?foreach ($changeProductErrors as $error):?>
                     <p class="manageProductsError"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
+                <div class="successContainer">
+                    <?if (!empty($success)):?>
+                        <?foreach ($success as $successMessage):?>
+                            <p class="successEntry"><?=$successMessage?></p>
                         <?endforeach?>
                     <?endif?>
                 </div>
@@ -100,7 +114,14 @@
                 <div class="errorsContainer">
                     <?if (!empty($deleteProductErrors)):?>
                         <?foreach ($deleteProductErrors as $error):?>
-                            <p class="manageProductsError"><?=$error?></p>
+                            <p class="errorEntry"><?=$error?></p>
+                        <?endforeach?>
+                    <?endif?>
+                </div>
+                <div class="successContainer">
+                    <?if (!empty($success)):?>
+                        <?foreach ($success as $successMessage):?>
+                            <p class="successEntry"><?=$successMessage?></p>
                         <?endforeach?>
                     <?endif?>
                 </div>
