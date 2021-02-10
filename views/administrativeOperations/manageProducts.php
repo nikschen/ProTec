@@ -5,7 +5,7 @@
             <li class="addProductContainer">
                 <h2>Produkt hinzufügen</h2>
                 <div class="addProductFormularContainer">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         <div class="firstRow">
                             <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl">
                             <select class="category" name="category" required>
@@ -16,10 +16,11 @@
                             </select>
                         </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required></textarea>
-                            <textarea class="prodDescription" type="text" name="prodDescription" placeholder="Produktbeschreibung" rows="7" required></textarea>
+                            <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7" required></textarea>
+                        <input class="productImageUploadLabel" name="file" type="file" required/>
 
                         <div class="lastRow">
-                            <input class="pricingAmount" type="number" name="amount" placeholder="Preis" required>
+                            <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis" required>
                             <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro" required>
                         </div>
                         <div class="passwordCheck">
@@ -43,7 +44,7 @@
                             <p>Zu ändernde Daten:</p>
                             <br>
                             <div class="firstRow">
-                            <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl (gelagert)">
+                            <input class="quantityStored" type="number"  name="quantityStored" placeholder="Anzahl (gelagert)">
                                 <select class="category" name="category">
                                     <option value="chooseCategory" hidden="hidden" disabled="disabled" selected="selected">Kategorie wählen</option>
                                     <?foreach ($categories as $categoryName):?>
@@ -54,7 +55,7 @@
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3"></textarea>
                             <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7"></textarea>
                             <div class="lastRow">
-                                <input class="pricingAmount" type="number" name="amount" placeholder="Preis">
+                                <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis">
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="Euro">
                             </div>
                             <div class="passwordCheck">
