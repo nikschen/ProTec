@@ -11,6 +11,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
     public function actionManageCustomers()
     {
+        $success=null;
         $errors = [];
         $db = $GLOBALS["db"];
         if (isset($_POST["password"]) && isset($_POST["submit"]))
@@ -50,7 +51,9 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
     public function actionManageProducts()
     {
-        $success=[];
+        $addProductSuccess = [];
+        $changeProductSuccess = [];
+        $deleteProductSuccess = [];
         $addProductErrors = [];
         $changeProductErrors = [];
         $deleteProductErrors = [];
@@ -100,7 +103,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                     $destinationPath = $uploadFolder . $filename . '.' . $extension;
                                     move_uploaded_file($_FILES['file']['tmp_name'], $destinationPath);
                                     $_POST = array();
-                                    $success[]="Produkt erfolgreich hinzugefügt";
+                                    $addProductSuccess[]="Produkt erfolgreich hinzugefügt";
                                 }
                                 else {
                                     if (!empty($productErrors)) {
@@ -149,12 +152,12 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             if (!empty($productValues))
                             {
                                 $toBeChangedProduct->update($productValues, $toBeChangedProduct->productID);
-                                $success[]="Produktdaten erfolgreich geändert";
+                                $productChangeSuccess[]="Produktdaten erfolgreich geändert";
                             }
                             else if (!empty($pricingValues))
                             {
                                 $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
-                                $success[]="Preisdaten erfolgreich geändert";
+                                $productChangeSuccess[]="Preisdaten erfolgreich geändert";
                             }
                             else
                             {
@@ -193,7 +196,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
                             $pricingToBeRemoved->delete($deleteProductErrors);
                             $productToBeRemoved->delete($deleteProductErrors);
-                            if(empty($deleteProductErrors)) $success[]="Produkt erfolgreich gelöscht";
+                            if(empty($deleteProductErrors)) $deleteProductSuccess[]="Produkt erfolgreich gelöscht";
                         }
                         break;
                 }
@@ -208,8 +211,9 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 }
             }
         }
-        
-        
+        $this->setParam('addProductSuccess', $addProductSuccess);
+        $this->setParam('changeProductSuccess', $changeProductSuccess);
+        $this->setParam('deleteProductSuccess', $deleteProductSuccess);
         $this->setParam('addProductErrors', $addProductErrors);
         $this->setParam('changeProductErrors', $changeProductErrors);
         $this->setParam('deleteProductErrors', $deleteProductErrors);

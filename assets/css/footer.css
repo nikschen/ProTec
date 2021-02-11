@@ -9,8 +9,8 @@ footer {
     background-size: 100%;
 }
 
-footer p{
-    color: black;
+footer{
+    color: var(--lightGreyParagraphColor);
 }
 
 
@@ -55,7 +55,7 @@ footer tr:first-of-type {
 footer a {
     display: block;
     text-decoration-line: none;
-    color: black;
+    color: var(--lightGreyParagraphColor);
 }
 
 footer a:hover {

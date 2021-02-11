@@ -52,7 +52,7 @@ main {
 
 .registrationForm input[type=submit] {
     width: 65%;
-    background-color: #428eb9;
+    background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;
     margin: 0.5em 0;
@@ -104,7 +104,7 @@ main {
 
 .loginForm [type=submit] {
     width: 70%;
-    background-color: #428eb9;
+    background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;
     margin: 0.5em 0;

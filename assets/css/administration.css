@@ -33,7 +33,7 @@
 }
 
 
-.manageProductsElements input, textarea, select, button, .productImageUploadLabel{
+.manageProductsElements input, textarea, select, button, .productImageUploadLabel, .customerIDInput{
 
     padding: 0.75em 1.25em;
     margin: 0.375em 0;
@@ -163,9 +163,6 @@
 
 
 
-#productImageUpload{
-    display:none;
-}
 
 .productImageUploadLabel{
     background-color: white;
@@ -193,19 +190,53 @@
 
 .adminPasswordCheck{
     width:100%;
-
 }
 
 .submitOperation{
     width:100%;
-
 }
 .submitOperation button{
     width:100%;
-
 }
 
-.customerIDInput{
+.manageCustomersContainer{
+    display:flex;
+    flex-direction:column;
+    min-width: 33vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+}
+
+.customerInput{
     width:100%;
-
 }
+
+.customerIDInput {
+    width: 100%;
+}
+
+.manageProductsError{
+    color:var(--orangeAccentColor);
+}
+
+.successEntry{
+    color:green;
+}
+
+.manageCustomersContainer h2{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.manageProductsElements [type=submit], .manageCustomersContainer [type=submit],
+.manageProductsElements [type=reset], .manageCustomersContainer [type=reset]{
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
+}
+
