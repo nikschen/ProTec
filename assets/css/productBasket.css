@@ -89,3 +89,7 @@
 .columnContentPricing, .columnSummaryPricing{
     justify-content: flex-end;
 }
+
+.columnHeaderProduct{
+    align-items: start;
+}

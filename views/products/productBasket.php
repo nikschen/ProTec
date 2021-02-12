@@ -2,42 +2,45 @@
 <main class="Site-content">
     <div class="productBasketContentContainer">
         <h2>Ihr Warenkorb</h2>
-        <div class="productBasketContainer">
-            <div class="productBasketContent">
-                <div class="productBasketElement">
-                    <div class="columnHeaderProduct">Produkt</div>
-                    <div class="columnHeaderQuantity">Anzahl</div>
-                    <div class="columnHeaderPricing">Preis</div>
-                </div>
-            <?if ($_SESSION['productBasket']==null):?>
-                <div class="productBasketElement">
-                    <div class="columnContentProduct">------------</div>
-                    <div class="columnContentQuantity">-</div>
-                    <div class="columnContentPricing">-,--</div>
-                </div>
-            <?endif?>
-            <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
-            <?if ($_SESSION['productBasket']!=null):?>
+        <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
+
+        <table class="productBasketContent">
+            <thead>
+                <tr class="productBasketElement">
+                    <th class="columnHeaderProduct">Produkt</th>
+                    <th class="columnHeaderQuantity">Anzahl</th>
+                    <th class="columnHeaderPricing">Preis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?if ($_SESSION['productBasket']==null) {?>
+                <tr class="productBasketElement">
+                            <td class="columnContentProduct">------------</td>
+                            <td class="columnContentQuantity">-</td>
+                            <td class="columnContentPricing">-,--</td>
+                </tr>
+
+                <?}else{?>
                 <?foreach($_SESSION['productBasket'] as $productBasketEntry):?>
                     <?$product=\protec\model\Product::findOne("productID=".$productBasketEntry->productID);
                     $pricing=\protec\model\Pricing::findOne("pricingID=".$productBasketEntry->productID)?>
-
-                    <div class="productBasketElement">
-                         <div class="columnContentProduct"><?=$product->prodName?></div>
-                         <div class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></div><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
-                        <div class="columnContentPricing"><?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?></div><?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
-                    </div>
+                    <tr class="productBasketElement">
+                        <td class="columnContentProduct"><?=$product->prodName?></td>
+                        <td class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></td><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
+                        <td class="columnContentPricing"><?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?></td><?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
+                    </tr>
 
                 <?endforeach?>
-            <?endif?>
-                <div class="productBasketElement">
-                    <div class="columnSummaryProduct">Gesamt: </div>
-                    <div class="columnSummaryQuantity"><?=$summedUpQuantity?></div>
-                    <div class="columnSummaryPricing"><?=number_format($summedUpPricing,2, ",",".")?> <?=$currency?></div>
-                </div>
-
-            </div>
-        </div>
+                <?}?>
+            </tbody>
+            <tfoot>
+                <tr class="productBasketElement">
+                    <th class="columnSummaryProduct">Gesamt: &nbsp;</th>
+                    <th class="columnSummaryQuantity"><?=$summedUpQuantity?></th>
+                    <th class="columnSummaryPricing"><?=number_format($summedUpPricing,2, ",",".")?> <?=$currency?></th>
+                </tr>
+            </tfoot>
+        </table>
         <form class="clearProductBasketForm" method="post">
             <button class="clearProductBasket" type="submit" name="resetProductBasket" value="resetProductBasket">Warenkorb leeren</button>
         </form>
