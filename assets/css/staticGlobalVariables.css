@@ -1,6 +1,6 @@
 :root {
     --mainColor: #1872A4;
-    --hoverAccentColor:#5D9CBF;
+    --hoverAccentColor: #16658f;
     --navbarHeightFullscreen:4.674em;
     --navbarHeightMobile:7em;
     --footerHeightFullscreen:15.68em;
@@ -43,3 +43,5 @@ textarea{
 button{
     font-family: 'Open Sans', sans-serif;
 }
+
+#5D9CBF

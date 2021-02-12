@@ -79,7 +79,6 @@ header {
 
 .navbar a:hover {
     background: var(--hoverAccentColor);
-    color: black;
 
     max-width:calc(100vw/3);
 }

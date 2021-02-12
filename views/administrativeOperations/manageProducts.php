@@ -7,7 +7,7 @@
                 <div class="addProductFormularContainer">
                     <form method="POST" enctype="multipart/form-data">
                         <div class="firstRow">
-                            <input class="quantityStored" type="number" name="quantityStored" placeholder="Anzahl" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
+                            <input class="quantityStored" type="number" min="0" name="quantityStored" placeholder="Anzahl" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
                             <select class="category" name="category"  required >
                                 <option  hidden="hidden" disabled="disabled" selected="selected" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['category']??'');}else echo 'Kategorie wählen'?>">
                                     <?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['category']??'Kategorie wählen');} else echo 'Kategorie wählen';?>
@@ -22,7 +22,7 @@
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png" required/>
 
                         <div class="lastRow">
-                            <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>" required>
+                            <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>" required>
                             <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['currency']??'Euro');} else echo 'Euro';?>" required>
                         </div>
                         <div class="passwordCheck">
@@ -60,7 +60,7 @@
                             <p>Zu ändernde Daten:</p>
                             <br>
                             <div class="firstRow">
-                            <input class="quantityStored" type="number"  name="quantityStored" placeholder="Anzahl (gelagert)" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
+                            <input class="quantityStored" type="number" min="0"  name="quantityStored" placeholder="Anzahl (gelagert)" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
                                 <select class="category" name="category">
                                     <option  hidden="hidden" disabled="disabled" selected="selected" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['category']??'');} else echo ''?>">
                                         <?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['category']??'Kategorie wählen');} else echo 'Kategorie wählen';?>
@@ -74,7 +74,7 @@
                             <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7" ><?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['prodDescription']??'');} else echo '';?></textarea>
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png"/>
                             <div class="lastRow">
-                                <input class="pricingAmount" type="number" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>">
+                                <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>">
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['currency']??'Euro');} else echo 'Euro';?>">
                             </div>
                             <div class="passwordCheck">

@@ -57,6 +57,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-left:2em;
 }
 .productPrice{
@@ -67,7 +68,7 @@
 
 .taxesAndShippingInfo{
     font-size: 1em;
-    color: #3ca4ba;
+    color: var(--lightGreyParagraphColor);
     text-shadow: 0 0 0.125em black;
 }
 
@@ -84,16 +85,17 @@
     color:black;
 }
 
-.addToBasketButton img{
-    height:0.5em;
-    width:0.5em;
-}
-
 
 
 .addToBasketContainer {
-    background-color:var(--lightGreyParagraphColor);
-    width:4.5em;
+    background-color: var(--mainColor);
+    color: white;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    align-items: center;
+    width:50%;
+    display:flex;
 }
 .addToBasketContainer button{
     border: none;
@@ -101,11 +103,19 @@
 }
 
 .addToBasketButton img{
-    height:1em;
-    width:1em;
+    height:1.5em;
+    width:1.5em;
 }
 
 .addToBasketContainer select{
     border: none;
     background: none;
+    color: var(--lightGreyParagraphColor);
+}
+
+.addToBasketContainer select option{
+    border: none;
+    justify-content: center;
+    background-color: var(--mainColor);
+    color: var(--lightGreyParagraphColor);
 }

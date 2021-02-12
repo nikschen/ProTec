@@ -13,7 +13,7 @@
                 <div class="productBasketElement">
                     <div class="columnContentProduct">------------</div>
                     <div class="columnContentQuantity">-</div>
-                    <div class="columnContentPricing">-.--</div>
+                    <div class="columnContentPricing">-,--</div>
                 </div>
             <?endif?>
             <?$summedUpQuantity=0; $summedUpPricing=0.0; $currency='Euro'?>
@@ -25,7 +25,7 @@
                     <div class="productBasketElement">
                          <div class="columnContentProduct"><?=$product->prodName?></div>
                          <div class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></div><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
-                        <div class="columnContentPricing"><?=$pricing->amount?> <?=$pricing->currency?></div><?$summedUpPricing+=$pricing->amount; $currency=$pricing->currency;?>
+                        <div class="columnContentPricing"><?=number_format($pricing->amount,2, ",",".")?> <?=$pricing->currency?></div><?$summedUpPricing+=$pricing->amount; $currency=$pricing->currency;?>
                     </div>
 
                 <?endforeach?>
@@ -33,13 +33,13 @@
                 <div class="productBasketElement">
                     <div class="columnSummaryProduct">Gesamt: </div>
                     <div class="columnSummaryQuantity"><?=$summedUpQuantity?></div>
-                    <div class="columnSummaryPricing"><?=number_format($summedUpPricing,2)?> <?=$currency?></div>
+                    <div class="columnSummaryPricing"><?=number_format($summedUpPricing,2, ",",".")?> <?=$currency?></div>
                 </div>
 
             </div>
         </div>
         <form class="clearProductBasketForm" method="post">
-            <button class="clearProductBasket" type="submit" name="submit" value="submit">Warenkorb leeren</button>
+            <button class="clearProductBasket" type="submit" name="resetProductBasket" value="reset">Warenkorb leeren</button>
         </form>
     </div>
 </main>
