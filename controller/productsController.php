@@ -80,9 +80,7 @@ class ProductsController extends \protec\core\Controller
                            }
                         }
                     }
-                    echo "<pre>";
-                    print_r($_SESSION['productBasket']);
-                    echo "</pre>";
+                    
                 }
                 else //hier passiert die normale hinzufügelogik, falls es nur einen eintrag gibt
                 {

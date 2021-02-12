@@ -93,7 +93,7 @@ class AccountsController extends \protec\core\Controller
 		else
 		{
 			//$errors['wrong'] = "it should land here if null on telefon";
-			unset($telefon);
+			$telefon = null;
 		}
 		if(mb_strlen($streetInfo)<2 || mb_strlen($streetInfo)>255 )
 		{
@@ -116,7 +116,7 @@ class AccountsController extends \protec\core\Controller
 		}
 		else
 		{
-			unset($address2);
+			$address2 = null;
 		}
 		if(mb_strlen($city)<2 || mb_strlen($city)>60 )
 		{
