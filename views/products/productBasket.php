@@ -39,7 +39,7 @@
             </div>
         </div>
         <form class="clearProductBasketForm" method="post">
-            <button class="clearProductBasket" type="submit" name="resetProductBasket" value="reset">Warenkorb leeren</button>
+            <button class="clearProductBasket" type="submit" name="resetProductBasket" value="resetProductBasket">Warenkorb leeren</button>
         </form>
     </div>
 </main>
