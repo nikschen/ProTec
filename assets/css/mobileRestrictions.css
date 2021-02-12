@@ -237,8 +237,23 @@
         flex-wrap: wrap;
     }
 
+/*
+################################################### Administration #####################################################
+*/
 
+    .manageProductsElements, .addProductFormularContainer, .changeProductFormularContainer,
+    .deleteProductFormularContainer{
+        flex-direction: column;
+        min-width:75vw;
+    }
 
+    .changeProductContainer{
+        border-style:none;
+    }
+
+    .administrationText{
+        display:none;
+    }
 }
 
 
