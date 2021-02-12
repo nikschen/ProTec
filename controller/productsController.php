@@ -57,9 +57,7 @@ class ProductsController extends \protec\core\Controller
                             return;
                         }
                     }
-                    echo "<pre>";
-                    print_r($_SESSION['productBasket']);
-                    echo "</pre>";
+                    
                 }
                     $values=[
                         'productID'=>$productID,

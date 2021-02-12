@@ -1,40 +1,42 @@
-.Site-content{
+.Site-content {
     flex-direction: column;
     justify-content: center;
 }
 
-.administrationContentWrapper{
+.administrationContentWrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
     align-self: center;
-
 }
 
-.administrationContentWrapper img{
+.administrationContentWrapper img {
     width: 18.75em;
     height: 18.75em;
-
 }
-.administrationContentWrapper .element a{
+
+.administrationContentWrapper .element a {
     text-decoration: none;
 }
 
-.manageProductsElements{
-    display:flex;
+.manageProductsElements {
+    display: flex;
     flex-direction: row;
     align-content: space-between;
     justify-content: space-between;
-    padding:0;
-    margin:0;
-    min-width:75vw;
+    padding: 0;
+    margin: 0;
+    min-width: 75vw;
     list-style: none;
 }
 
-
-.manageProductsElements input, textarea, select, button, .productImageUploadLabel, .customerIDInput{
-
+.manageProductsElements input,
+textarea,
+select,
+button,
+.productImageUploadLabel,
+.customerIDInput {
     padding: 0.75em 1.25em;
     margin: 0.375em 0;
     display: inline-block;
@@ -44,16 +46,14 @@
     align-items: center;
 }
 
-
-
-.manageProductsElements h2{
-    display:flex;
+.manageProductsElements h2 {
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.manageProductsContainer{
-    display:flex;
+.manageProductsContainer {
+    display: flex;
     flex-direction: row;
     align-content: space-between;
     min-width: 75vw;
@@ -61,33 +61,34 @@
     justify-content: center;
 }
 
-.addProductFormularContainer{
+.addProductFormularContainer {
     width: 30vw;
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
 
-.changeProductFormularContainer{
+.changeProductFormularContainer {
     width: 30vw;
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
-.changeProductFormularContainer .inputFields{
+
+.changeProductFormularContainer .inputFields {
     display: flex;
     flex-direction: column;
-    width:inherit;
-
+    width: inherit;
 }
 
-.changeProductFormularContainer .submit{
+.changeProductFormularContainer .submit {
     display: flex;
     flex-direction: column;
-    width:inherit;
+    width: inherit;
 }
 
-.deleteProductFormularContainer{
+.deleteProductFormularContainer {
     width: 30vw;
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
-.deleteProductFormularContainer textarea{
+
+.deleteProductFormularContainer textarea {
     width: 30vw;
 }
 
@@ -100,10 +101,11 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
 }
-.changeProductContainer{
-    padding-left:0.5em;
-    padding-right:0.5em;
-    justify-content:center;
+
+.changeProductContainer {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    justify-content: center;
     min-height: inherit;
     border-left: var(--orangeAccentColor);
     border-right: var(--orangeAccentColor);
@@ -112,8 +114,7 @@
     border-top: none;
 }
 
-.passwordCheck{
-
+.passwordCheck {
     border-bottom: var(--orangeAccentColor);
     border-top: var(--orangeAccentColor);
     border-style: solid;
@@ -121,115 +122,128 @@
     border-right: none;
 }
 
-
-.addProductFormularContainer form{
-    display:flex;
+.addProductFormularContainer form {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
 
-.changeProductFormularContainer form{
-    display:flex;
+.changeProductFormularContainer form {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
 
-.deleteProductFormularContainer form{
-    display:flex;
+.deleteProductFormularContainer form {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-
 }
 
+.productID {
+    width: 75%;
+}
 
-.productID{
-    width:75%;
+.quantityStored {
+    width: 50%;
 }
-.quantityStored{
-    width:50%;
-}
-.prodName{
+
+.prodName {
     resize: vertical;
 }
-.prodDescription{
+
+.prodDescription {
     resize: vertical;
 }
-.category{
-    width:50%;
+
+.category {
+    width: 50%;
 }
 
+#productImageUpload {
+    display: none;
+}
 
-
-
-.productImageUploadLabel{
+.productImageUploadLabel {
     background-color: white;
-    color:#757575;
+    color: #757575;
     font-size: 13px;
 }
 
-
-.pricingAmount{
-    width:75%;
-}
-.pricingCurrency{
-    width:25%;
+.pricingAmount {
+    width: 75%;
 }
 
-.firstRow{
+.pricingCurrency {
+    width: 25%;
+}
+
+.firstRow {
     display: flex;
     flex-direction: row;
 }
 
-.lastRow{
+.lastRow {
     display: flex;
     flex-direction: row;
 }
 
-.adminPasswordCheck{
-    width:100%;
+.submitOperation {
+    width: 100%;
 }
 
-.submitOperation{
-    width:100%;
-}
-.submitOperation button{
-    width:100%;
-}
-
-.manageCustomersContainer{
-    display:flex;
-    flex-direction:column;
-    min-width: 33vw;
-    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
-}
-
-.customerInput{
-    width:100%;
+.submitOperation button {
+    width: 100%;
 }
 
 .customerIDInput {
     width: 100%;
 }
 
-.manageProductsError{
-    color:var(--orangeAccentColor);
+.submitOperation {
+    width: 100%;
 }
 
-.successEntry{
-    color:green;
+.submitOperation button {
+    width: 100%;
 }
 
-.manageCustomersContainer h2{
-    display:flex;
+.manageCustomersContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 33vw;
+    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+}
+
+.customerInput {
+    width: 100%;
+}
+
+.customerIDInput {
+    width: 100%;
+}
+
+.manageProductsError {
+    color: var(--orangeAccentColor);
+}
+
+.successEntry {
+    color: green;
+}
+
+.manageCustomersContainer h2 {
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.manageProductsElements [type=submit], .manageCustomersContainer [type=submit],
-.manageProductsElements [type=reset], .manageCustomersContainer [type=reset]{
+.manageProductsElements [type=submit],
+.manageCustomersContainer [type=submit],
+.manageProductsElements [type=reset],
+.manageCustomersContainer [type=reset] {
     background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;
@@ -239,4 +253,3 @@
     cursor: pointer;
     align-items: center;
 }
-

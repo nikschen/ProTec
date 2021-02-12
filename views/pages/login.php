@@ -1,20 +1,23 @@
 <body class="Site">
     <main class="Site-content">
-        <div class="debuggingTestrange">
-           <h2>Testrange</h2>
            <?php if(isset($errors) && count($errors) > 0) : ?>
-             <div class="error-message" style ="border: 1px dottet red; color:white">
-             <ul>
-                 <?php foreach($errors as $key => $value) : ?>
-                    <li><?=$value?></li>
+             <div class="error-message" style="border-radius:5px;background-color: red; color: white">
+                <ul>
+                    <?php foreach($errors as $key => $value) : ?>
+                        <li><?=$value?></li>
                     <?php endforeach?>
-
-
-                 </ul>
-                 </div>
-                 <?php endif; ?>
-        </div>
-         <div class="loginForm">
+                </ul>
+             </div>
+           <?php endif; ?>
+           <?php if(isset($success) && $success) : ?>
+            <div class="success-message" style="border-radius:5px;background-color:green; color: white">
+                <ul>
+                    <li>Erfolgreich angemeldet!</li>
+                </ul>
+            </div>
+            <?php endif; ?>
+       
+        <div class="loginForm">
 
         <h2>Login</h2>
         <hr>
@@ -25,7 +28,7 @@
             <input type="password" name="password" id="password" /><br />
             <br />
             <button type="submit" name="submit" value="Einloggen">Einloggen</button><br>
-            <input class=loginRememberMe type="checkbox" name="Remember" <?=isset($_POST['Remember']) ? 'checked' : ''?>>Eingeloggt bleiben?</input>
+            <input class=loginRememberMe type="checkbox" name="Remember" <?=isset($_POST['Remember']) ? 'checked' : ''?>>Eingeloggt bleiben?
         </form>
         <form action="index.php?c=pages&a=logout" method="post">
             <input type="submit" name="submitLogout" value="Logout Testbutton - noch zu entfernen">
@@ -35,7 +38,7 @@
         </div>
         <div class="Tests" style="color:white;font-size:large">
         <?
-        echo "Testfeld für Cookies";
+        /*echo "Testfeld für Cookies";
         echo "<br>";
         if(isset($_SESSION['username']))
         {
@@ -46,11 +49,11 @@
         {
             $status = $_POST['Remember'];
         }
-        else {$status = "off";}
+        else {$status = "off";}*/
 
 
 //debug Area
-        echo "User aus Session: " .  $user  ;
+       /* echo "User aus Session: " .  $user  ;
         echo "<br>";
         echo "RememberMe Status: " . $status ;
         echo "<br>";
@@ -69,7 +72,7 @@
        $customerTable = \protec\model\Customer::findOne('eMail = '.$db->quote($emailtest) );
        echo "<pre>";
       var_dump($customerTable);
-      echo "</pre>";
+      echo "</pre>";*/
 //debug Area
 
 

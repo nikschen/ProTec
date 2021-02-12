@@ -59,8 +59,6 @@
                             <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a></li>
                         </ul>
                     </div>
-                    </li>
-
                 </div>
             </div>
             <div class="searchNavContainer">
@@ -76,7 +74,8 @@
            $sessionstatus ="";
             if(isset($_SESSION['email']) && isset($_SESSION['password']))
                {
-                   $sessionstatus = "session";                   $email = $_SESSION['email'];
+                    $sessionstatus = "session";                   
+                    $email = $_SESSION['email'];
                     $password = $_SESSION['password'];
                     $validResult = validateLogInSessionsAndCookies($email, $password);
 
@@ -115,7 +114,7 @@
                     }
                     else
                     {
-                      echo "<p>No Valid </p>";
+                      //echo "<p>No Valid </p>";
                       $actionLink = "?c=pages&a=login";
                       $icon = "loginIcon.png";
                       $text = "Login";
@@ -141,7 +140,7 @@
             <?}}?>
             <?if(isset($_SESSION['loggedIn'])) {if($_SESSION['email']!='admin@protec.de'){?>
             <div class="userprofileContainer">
-                <a href="index.php?c=accounts&a=profile"><img class="administrationIcon" src="<?=ICONSPATH?>userIcon.png" alt="Administration"><br><span class="userprofileText">Profil</span></a>
+                <a href="index.php?c=accounts&a=profile"><img class="administrationIcon" src="<?=ICONSPATH?>userIcon.png" alt="Profile"><br><span class="userprofileText">Profil</span></a>
             </div>
             <?}}?>
         

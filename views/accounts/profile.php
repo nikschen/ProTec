@@ -49,7 +49,6 @@
             <input type="text" name="phone" placeholder="Telefon oder Mobilnummer:" value="<?if(isset($_POST['phone'])){echo $_POST['phone'];}else{echo htmlspecialchars($customerTable[0]['phone']);}?>"><br>
        
         
-
             <h2>Ihre Adresse</h2>
             <hr>
 
@@ -78,13 +77,7 @@
 
 <h2>Profilbearbeitung DebugAusgabe</h2>
 <?
-    //'birthDate' => date('Y-m-d', strtotime($birthDate))]);
-    //echo date('d.m.Y' , strtotime($customerTable[0]['birthDate']));
-    /*$AccountFromDataBase = \protec\model\Account::findOne('username = '. "\"" . $_SESSION['email'] . "\"" );
-    echo "<pre>";
-    print_r($AccountFromDataBase);
-    echo "</pre>";
-    echo $AccountFromDataBase->username;*/
+ 
 ?>
 </div>
 </main>

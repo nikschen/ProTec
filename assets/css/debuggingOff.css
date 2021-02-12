@@ -1,11 +1,11 @@
-.loginStatus{
-    display:none;
+.loginStatus {
+    display: none;
 }
 
-.debuggingTestrange{
-    display:none;
+.debuggingTestrange {
+    /*display:none;*/
 }
 
-.Tests{
-    display:none;
+.Tests {
+    display: none;
 }
