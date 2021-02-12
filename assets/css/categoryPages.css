@@ -55,8 +55,6 @@
     background-color: unset;
 }
 
-
-
 .contentWrapper .element:hover {
     border: 0.25em solid var(--orangeAccentColor);
 
