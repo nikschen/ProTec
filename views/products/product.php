@@ -8,16 +8,16 @@
                 <div class="productPrice"><?=$productPrice?></div>
                 <div class="taxesAndShippingInfo">inklusive MwSt. und Versandkosten</div>
                 <div class="quantityAvailable"><span class=quantityNumber><?=$product->quantityStored?></span> Stück verfügbar</div>
-                <form method="post">
-                    <div class="addToBasketContainer">
+                <div class="addToBasketContainer">
+                    <form method="post">
                         <select name="quantityWanted" id="quantityWanted">
                             <?for($allowedAmount=1;$allowedAmount<=$product->quantityStored && $allowedAmount<=10;$allowedAmount++):?>
                             <option value="<?=$allowedAmount?>"><?=$allowedAmount?></option>
                             <?endfor?>
                         </select>
-                        <button class="addToBasketButton" type="submit" name="submit" value="submit"><img class="addToBasketIcon" src="<?=ICONSPATH?>plusIcon.png" alt="+"/></button>
-                    </div>
-                </form>
+                        <button class="addToBasketButton" type="submit" name="submit" value="submit"><img class="addToBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png" alt="+"/></button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="descriptionContainer">
