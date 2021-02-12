@@ -25,7 +25,7 @@
                     <div class="productBasketElement">
                          <div class="columnContentProduct"><?=$product->prodName?></div>
                          <div class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></div><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
-                        <div class="columnContentPricing"><?=number_format($pricing->amount,2, ",",".")?> <?=$pricing->currency?></div><?$summedUpPricing+=$pricing->amount; $currency=$pricing->currency;?>
+                        <div class="columnContentPricing"><?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?></div><?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                     </div>
 
                 <?endforeach?>
