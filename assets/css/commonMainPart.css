@@ -26,8 +26,6 @@ main {
     color: white;
 }
 
-
-
 .Site-content a:hover {
     color: rgb(48, 143, 180);
 }
@@ -118,7 +116,7 @@ main {
     list-style-type: none;
 }
 
-.registrationForm .success-message {
+.success-message {
     border: 0.25em dotted green;
     background-color: rgb(164, 204, 103);
 }

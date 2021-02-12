@@ -16,83 +16,75 @@ class PagesController extends \protec\core\Controller
 	{
 		$title='ProTec > Login';
         $this->setParam('title', $title);
+        $success = false;
 
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
             //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
-
-
-
 			if(isset($_POST['submit']))
 			{
 				$email    = $_POST['email'] ?? null;
                 $password = $_POST['password'] ?? null;
                 $rememberMe = $_POST['Remember'] ?? null;
-                
-                
-                
-                
+
                 //Debug
                 //$errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
-                $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $errors['email'] = "Email: " . $email;
-                $errors['Password'] = "PW: " . $password;
-                $errors['rememberMe'] = "Status RememberME: " . $rememberMe;
+               // $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
+               // $errors['email'] = "Email: " . $email;
+               // $errors['Password'] = "PW: " . $password;
+               // $errors['rememberMe'] = "Status RememberME: " . $rememberMe;
 
-                //Gibt es den Nutzer und ist das PW korrekt?
-                //1. Prüfen ob Nutzer vorhanden    check
-                //2. Herausbekommen der ID des Nutzers, wenn vorhanden
-                //3. Mit ID nach Account suchen
-                //4. Account Password mit Eingabe überprüfen
+                //check in database if email is known 
                 $db = $GLOBALS['db'];
-
                 $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
 
-                $loginID = $login->customerID;
-                $loginFirstName= $login->firstName;
-                $loginLastName= $login->lastName;
-
-                $errors['ID'] = "Customer-ID = " . $loginID;
-                $errors['lastName'] = "Nachname des Nutzers = " . $login->lastName;
                 
+                
+                //if there is a user found with that mail, start to check whether the pw is correct
                 if($login !== null)
                 {
-                    $errors['login'] = "E-Mail in Datenbank vorhanden";
+                    //$errors['login'] = "E-Mail in Datenbank vorhanden";
+                    //get specific Info on user for showing that he is logged in as
+                    $loginID = $login->customerID;
+
                     $account= \protec\model\Account::findOne('accountID = ' . $loginID);
                     $PWHash = $account->passwordHash;
-                    $errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
+                    //$errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
+                    //compare given password with the stored in database
                     if (password_verify($password , $PWHash))
                     {
-                        $errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
+                        $loginFirstName= $login->firstName;
+                        $loginLastName= $login->lastName;
+                        //Debug Elements
+                        //$errors['ID'] = "Customer-ID = " . $loginID;
+                        //$errors['lastName'] = "Nachname des Nutzers = " . $login->lastName;
+                        //$errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
+                        //Set the login Status as true for the session, save the mail and the encrypted PW for later use within the Session
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
                         $_SESSION['email'] = $email;
                         $_SESSION['password'] = encryptPassword($password);
                         
-
-                        //START AUSLAGERN IN REMEMBER FUNKTION
-
+                        //if rememberMe was set, than start to set the cookies with the function rememberMe
                         if($rememberMe=="on")
                         {
                         $this->rememberMe($email, $password);
                         }
-
-                        //END
+                        $success = true;
                      //header('Location: index.php');
                     }
                     else
                     {
-                        $errors['Passwortüberprüfung'] = "Passwortstatus: nicht korrekt";
-                        $_SESSION['loggedIn']= false;
+                        $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
                     }
                 }
                 else
                 {
-                    $errors['login'] = 'EMail existiert nicht! in Datenbank';
+                    $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
                 }
                 
                 $this->setParam('errors', $errors);
-
+                $this->setParam('success', $success);
 			
 			}
         }
@@ -120,7 +112,7 @@ class PagesController extends \protec\core\Controller
 	}
 
 
-	public function actionProfile()
+	public function actionProfile() //liegt nun unter Accounts evtl. hier nicht mehr nötig
 	{
         $title='ProTec > Ihr Profil';
         $this->setParam('title', $title);
