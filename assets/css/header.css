@@ -105,7 +105,9 @@ header {
     position: absolute;
     top: var(--navbarHeightFullscreen);
     background-color: var(--hoverAccentColor);
-    box-shadow: 0 0.75em 1em 0 #FDDA0F;
+    border: solid var(--orangeAccentColor);
+    border-width:0.25em;
+    border-top:none;
     z-index: 2;
     font-family: 'Open Sans', sans-serif;
     height:inherit;

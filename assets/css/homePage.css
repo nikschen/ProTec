@@ -18,6 +18,12 @@
     height: inherit;
 }
 
+.homeContainerInnerBorder{
+    border: 0.25em solid var(--mainColor);
+    display:flex;
+}
+
+
 .homeContainer ul{
     list-style: none;
     padding: 0;
@@ -59,79 +65,7 @@
 .exampleImageRightLowerMiddle,.exampleImageRightLowerCorner{
     border-color: #1872A4;
     border-style: solid;
-}
-
-.exampleImageLeftUpperCorner{
-    border-left-width: 0.5em;
-    border-right-width: 0.25em;
-    border-top-width: 0.5em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageLeftUpperMiddle{
-    border-left-width: 0.5em;
-    border-right-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageLeftLowerMiddle{
-    border-left-width: 0.5em;
-    border-right-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageLeftLowerCorner{
-    border-left-width: 0.5em;
-    border-right-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.5em;
-}
-.exampleImageMiddleUpperLeft{
-    border-right-width: 0.25em;
-    border-left-width: 0.25em;
-    border-top-width: 0.5em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageMiddleUpperRight{
-    border-right-width: 0.25em;
-    border-left-width: 0.25em;
-    border-top-width: 0.5em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageMiddleLowerLeft{
-    border-right-width: 0.25em;
-    border-left-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.5em;
-}
-.exampleImageMiddleLowerRight{
-    border-right-width: 0.25em;
-    border-left-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.5em;
-}
-.exampleImageRightUpperCorner{
-    border-right-width: 0.5em;
-    border-left-width: 0.25em;
-    border-top-width: 0.5em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageRightUpperMiddle{
-    border-right-width: 0.5em;
-    border-left-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageRightLowerMiddle{
-    border-right-width: 0.5em;
-    border-left-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.25em;
-}
-.exampleImageRightLowerCorner{
-    border-right-width: 0.5em;
-    border-left-width: 0.25em;
-    border-top-width: 0.25em;
-    border-bottom-width: 0.5em;
+    border-width:0.25em;
 }
 
 .exampleImageLeftUpperCorner:hover,.exampleImageLeftUpperMiddle:hover,
@@ -141,7 +75,7 @@
 .exampleImageRightUpperCorner:hover,.exampleImageRightUpperMiddle:hover,
 .exampleImageRightLowerMiddle:hover,.exampleImageRightLowerCorner:hover,
 .middleHomeColumnMiddlePartContainer:hover {
-    box-shadow: 0 0 4em var(--orangeAccentColor);
+    border-color: var(--orangeAccentColor);
     transition: 0.7s;
     overflow: visible;
     flex: 1;

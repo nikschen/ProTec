@@ -90,6 +90,11 @@
     justify-content: flex-end;
 }
 
-.columnHeaderProduct{
-    align-items: start;
+th.columnHeaderProduct{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+th.columnHeaderPricing {
+    justify-content: flex-end;
 }

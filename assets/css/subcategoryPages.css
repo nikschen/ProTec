@@ -40,7 +40,7 @@
 }
 
 .subcategoryContent .element:hover {
-    box-shadow: 0 0.625em 1.125em #FDDA0F;
+    border: 0.25em solid var(--orangeAccentColor);
 }
 
 .subcategoryContent .element:hover img {
