@@ -47,11 +47,11 @@
 
 .columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity,
 .columnHeaderPricing, .columnContentPricing, .columnSummaryPricing{
-    border-left:solid black;
+    border-left:solid var(--lightGreyParagraphColor);
 }
 
 .columnHeaderProduct, .columnHeaderQuantity, .columnHeaderPricing{
-    border-bottom:solid black;
+    border-bottom:solid var(--lightGreyParagraphColor);
 }
 
 
@@ -60,7 +60,7 @@
 }
 
 .columnSummaryQuantity , .columnSummaryProduct ,.columnSummaryPricing{
-    border-top:solid black;
+    border-top:solid var(--lightGreyParagraphColor);
 }
 
 .columnSummaryProduct{
@@ -76,9 +76,16 @@
 
 
 .clearProductBasket{
-    background:white;
-    border:none;
-    border-radius:0.25em;
-    color:var(--mainColor);
-    font-size: 1em;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
+}
+
+.columnContentPricing, .columnSummaryPricing{
+    justify-content: flex-end;
 }
