@@ -166,7 +166,11 @@ class PagesController extends \protec\core\Controller
         $this->setParam('category', $category);
     }
 
-
+    public function actionDocumentation()
+    {
+        $title='ProTec > Dokumentation';
+        $this->setParam('title', $title);
+    }
 
 
 

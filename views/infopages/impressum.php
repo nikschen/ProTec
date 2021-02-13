@@ -45,7 +45,7 @@
             <p>Online-Streitbeilegung gemäß Art. 14 Abs. 1 ODR-VO: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie unter</p>
             <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a><br><br>
 
-            Die für die Sertronics GmbH zuständige Verbraucherschlichtungsstelle ist die:<br>
+            Die für die ProTec GmbH zuständige Verbraucherschlichtungsstelle ist die:<br>
             Allgemeine Verbraucherschlichtungsstelle des Zentrums für Schlichtung e.V.<br>
             Straßburger Straße 8, 77694 Kehl am Rhein<br>
             Telefon 07851 / 795 79 40<br>
