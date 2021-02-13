@@ -2,7 +2,7 @@
     <main class="Site-content">
         <div class="subCategoryContentContainer">
 
-        <h2>Ihre Suchergebnisse</h2>
+        <h2>Ihre Suchergebnisse...</h2>
         
         <div class="contentContainer">
             <div class="subcategoryContent">

@@ -23,6 +23,7 @@ class PagesController extends \protec\core\Controller
 
         $this->setParam('products', $products);
         //echo $_POST['searchString'];
+        //
         
 
 	}
