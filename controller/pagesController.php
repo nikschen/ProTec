@@ -12,6 +12,21 @@ class PagesController extends \protec\core\Controller
         $this->setParam('title', $title);
 	}
 
+    public function actionSearch()
+	{
+
+        $title='ProTec > Searching';
+        $this->setParam('title', $title);
+
+        $searchString = $_POST['searchString'];
+        $products = \protec\model\Product::find("prodName LIKE " . "\"%" . $searchString ."%\"");
+
+        $this->setParam('products', $products);
+        //echo $_POST['searchString'];
+        
+
+	}
+
 	public function actionLogin()
 	{
 		$title='ProTec > Login';

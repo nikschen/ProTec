@@ -155,18 +155,22 @@
                         echo "<br><log style= font-size:60%>"." loggedInStatus: ".$_SESSION['loggedIn'].  "</log>";
                     }
                 };  ?>
-            </div>
+        </div>
         </div>
 
-        <div class="searchNavContainerMinimal">
+        <div class="searchNavContainerMinimal"><?//hab leider nicht herausgefunden, warum dieser submit button nicht geht, fakt ist, er geht innerhalb dieser divs nicht?>
             <div class="searchContainerMinimal">
-                <form method="post">
-                    <input type="text" placeholder="Produktsuche...">
-                    <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
+                <form action="index.php?c=pages&a=search" method="post">
+                    <input type="text" name="searchString" placeholder="Produktsuche...">
+                    <input type="submit" name="submit">     <img src="<?=ICONSPATH?>searchIcon.png"/>
                 </form>
             </div>
         </div>
-
     </div>
 </header>
+        <form action="index.php?c=pages&a=search" method="post">
+            <input type="text" name="searchString" placeholder="Produktsuche...">
+            <input type="submit" name="submitLogout" value="Produktsuche starten">
+        </form>
+        
 <body class="Site">
