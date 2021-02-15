@@ -68,7 +68,7 @@ abstract class Model
         
         $db = $GLOBALS['db'];
         $sqlStr = 'SELECT * FROM `'.self::tablename().'` WHERE '.$where.';';
-        print_r($sqlStr);
+        //print_r($sqlStr);
         //exit(0);
         $results = [];
         try

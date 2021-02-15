@@ -83,6 +83,14 @@ function getAllCategories()
         return $categories;
 }
 
+function getProductPriceByID($productID)
+{
+    $price = \protec\model\Pricing::findOne("pricingID = ". $productID);
+    $currency = $price->currency;
+    return $price->amount. " " . $currency;
+
+}
+
 function validateUploadedProductImage (&$errors)
 {
     $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));

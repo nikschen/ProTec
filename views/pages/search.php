@@ -11,6 +11,7 @@
                         <a href="index.php?c=products&a=product&pid=<?=$element->productID?>">
                         <img src="<?=IMAGESPATH?><?=$element->productID?>.png"></a>
                         <p><?=$element->prodName?></p>
+                        <p><?=getProductPriceByID($element->productID);?></p>
                     </div>
                 <?endforeach;?> 
             </div>
