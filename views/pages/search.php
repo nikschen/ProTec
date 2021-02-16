@@ -6,6 +6,7 @@
         
         <div class="contentContainer">
             <div class="subcategoryContent">
+            <?if(isset($products)): ?>
                 <?foreach($products as $element) : ?>
                     <div class="element">
                         <a href="index.php?c=products&a=product&pid=<?=$element->productID?>">
@@ -14,6 +15,13 @@
                         <p><?=getProductPriceByID($element->productID);?></p>
                     </div>
                 <?endforeach;?> 
+            <?else :?>
+                <div class="searchResults-message" >
+                    <p>Ihre Suchanfrage ergab leider keine Treffer</p>
+                </div>
+            <?endif;?>
+            
+            
             </div>
         </div>
         </div>

@@ -86,9 +86,8 @@ function getAllCategories()
 function getProductPriceByID($productID)
 {
     $price = \protec\model\Pricing::findOne("pricingID = ". $productID);
-    $currency = $price->currency;
-    return $price->amount. " " . $currency;
-
+    if($price->currency=="Euro"){$currency="€";}else{$currency = $price->$currency;};
+    return number_format($price->amount,2,",","."). " " . $currency;
 }
 
 function validateUploadedProductImage (&$errors)

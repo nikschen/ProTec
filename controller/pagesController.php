@@ -17,11 +17,13 @@ class PagesController extends \protec\core\Controller
 
         $title='ProTec > Searching';
         $this->setParam('title', $title);
-
+        if(isset($_POST['searchString']) && $_POST['searchString']!== null && $_POST['searchString'] !== "")
+        {
         $searchString = $_POST['searchString'];
         $products = \protec\model\Product::find("prodName LIKE " . "\"%" . $searchString ."%\"");
-
         $this->setParam('products', $products);
+        }
+       
         //echo $_POST['searchString'];
         
         
