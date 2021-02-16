@@ -63,9 +63,9 @@
             </div>
             <div class="searchNavContainer">
                 <div class="searchContainer">
-                    <form method="post">
-                        <input type="text" placeholder="Produktsuche...">
-                        <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
+                    <form action="index.php?c=pages&a=search" method="post">
+                        <input type="text" name="searchString" placeholder="Produktsuche...">
+                        <button type="submit" name="submitSearch"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                     </form>
                 </div>
             </div>
@@ -162,15 +162,10 @@
             <div class="searchContainerMinimal">
                 <form action="index.php?c=pages&a=search" method="post">
                     <input type="text" name="searchString" placeholder="Produktsuche...">
-                    <input type="submit" name="submit">     <img src="<?=ICONSPATH?>searchIcon.png"/>
+                    <input type="submit" name="submitSearch">     <img src="<?=ICONSPATH?>searchIcon.png"/>
                 </form>
             </div>
         </div>
     </div>
 </header>
-        <form action="index.php?c=pages&a=search" method="post">
-            <input type="text" name="searchString" placeholder="Produktsuche...">
-            <input type="submit" name="submitLogout" value="Produktsuche starten">
-        </form>
-        
 <body class="Site">
