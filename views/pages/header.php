@@ -64,7 +64,7 @@
             <div class="searchNavContainer">
                 <div class="searchContainer">
                     <form action="index.php?c=pages&a=search" method="post">
-                        <input type="text" name="searchString" placeholder="Produktsuche...">
+                        <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_POST['searchString'])){echo "value=".htmlspecialchars($_POST['searchString']);};?>>
                         <button type="submit" name="submitSearch"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                     </form>
                 </div>
@@ -158,10 +158,10 @@
         </div>
         </div>
 
-        <div class="searchNavContainerMinimal"><?//hab leider nicht herausgefunden, warum dieser submit button nicht geht, fakt ist, er geht innerhalb dieser divs nicht?>
+        <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
                 <form action="index.php?c=pages&a=search" method="post">
-                    <input type="text" name="searchString" placeholder="Produktsuche...">
+                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_POST['searchString'])){echo "value=".htmlspecialchars($_POST['searchString']);};?>>
                     <input type="submit" name="submitSearch">     <img src="<?=ICONSPATH?>searchIcon.png"/>
                 </form>
             </div>
