@@ -2,11 +2,12 @@
     <main class="Site-content">
         <div class="subCategoryContentContainer">
 
-        <h2>Ihre Suchergebnisse...</h2>
-        
+       
+        <h2>Ihre Suchergebnisse</h2>
         <div class="contentContainer">
             <div class="subcategoryContent">
-            <?if(isset($products)): ?>
+            <?if(isset($products) && !empty($products)): ?>
+                
                 <?foreach($products as $element) : ?>
                     <div class="element">
                         <a href="index.php?c=products&a=product&pid=<?=$element->productID?>">
@@ -17,8 +18,9 @@
                 <?endforeach;?> 
             <?else :?>
                 <div class="searchResults-message" >
+                    <br>
                     <p>Ihre Suchanfrage ergab leider keine Treffer</p><br>
-                    <img src="<?=IMAGESPATH?>sadrobot1.png" alt="sadrobot" style="width:50%;height:50%;">
+                    <img src="<?=IMAGESPATH?>sadrobot1.png" alt="sadrobot">
                 </div>
             <?endif;?>
             

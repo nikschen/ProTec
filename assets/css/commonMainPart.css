@@ -142,3 +142,8 @@ main {
 .searchResults-message {
     text-align: center;
 }
+
+.searchResults-message img {
+    width: 50%;
+    height: 50%;
+}
