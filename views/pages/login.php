@@ -29,10 +29,8 @@
             <br />
             <button type="submit" name="submit" value="Einloggen">Einloggen</button><br>
             <input class=loginRememberMe type="checkbox" name="Remember" <?=isset($_POST['Remember']) ? 'checked' : ''?>>Eingeloggt bleiben?
-        </form>
-        <form action="index.php?c=pages&a=logout" method="post">
-            <input type="submit" name="submitLogout" value="Logout Testbutton - noch zu entfernen">
-        </form>
+        </form><br>
+       
 
         <a style="font-size:small" href="index.php?c=accounts&a=signup">Noch nicht registiert?</a>
         </div>
