@@ -17,7 +17,8 @@
                 <?endforeach;?> 
             <?else :?>
                 <div class="searchResults-message" >
-                    <p>Ihre Suchanfrage ergab leider keine Treffer</p>
+                    <p>Ihre Suchanfrage ergab leider keine Treffer</p><br>
+                    <img src="<?=IMAGESPATH?>sadrobot1.png" alt="sadrobot" style="width:50%;height:50%;">
                 </div>
             <?endif;?>
             

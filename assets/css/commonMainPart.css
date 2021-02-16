@@ -138,3 +138,7 @@ main {
     color: var(--lightGreyParagraphColor);
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
+
+.searchResults-message {
+    text-align: center;
+}
