@@ -34,6 +34,13 @@ main {
     font-weight: 800;
 }
 
+.Site-content #filter {
+    flex-direction: column;
+    font-weight: 800;
+    background-color: gold;
+    display: inline-block;
+}
+
 .registrationForm input[type=text],
 [type=password],
 #selectgender,
@@ -141,9 +148,17 @@ main {
 
 .searchResults-message {
     text-align: center;
+    margin: 2%;
 }
 
 .searchResults-message img {
     width: 50%;
     height: 50%;
+}
+
+.searchResults-message input[type=text] {
+    border-radius: 3px;
+    width: 50%;
+    height: 2em;
+    margin-bottom: 7%;
 }
