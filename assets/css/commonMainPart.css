@@ -34,14 +34,27 @@ main {
     font-weight: 800;
 }
 
-.Site-content #filter {
+#filter {
+    color: black;
     flex-direction: column;
-    font-weight: 800;
+    font-weight: 600;
     background-color: gold;
-    display: inline-block;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
 }
 
-.registrationForm input[type=text],
+#filter h2 {
+    color: black;
+    padding: 0.75em 1.0em;
+}
+
+#filter input[type=text] {
+    border-radius: 4px;
+    margin-top: 1%;
+}
+
+#filter .registrationForm input[type=text],
 [type=password],
 #selectgender,
 #selectGenderProfile {
@@ -163,8 +176,8 @@ main {
     margin-bottom: 7%;
 }
 
-.infoPageContainer{
+.infoPageContainer {
     display: flex;
     flex-direction: column;
-    width:60vw;
+    width: 60vw;
 }

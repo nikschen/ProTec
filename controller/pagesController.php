@@ -29,55 +29,156 @@ class PagesController extends \protec\core\Controller
         }
         //Debug START
         echo "<br><br><br><br><br><br>";
-        echo "<pre style=color:white;>";
+        /*echo "<pre style=color:white;>";
         print_r($categoriesInSearch);
-        echo "</pre>";
-        echo "<pre style=color:white;>";
+        echo "</pre>";*/
+        //echo "<pre style=color:white;>";
 
         $isCategoryFilterSet=false;
+        $isPriceFilterSet=false;
+
+        $resultArrayPrice=[];
+        $resultArrayCategory=[];
+
         foreach($_GET as $key => $value) //added the counting of on
         {
             if ($value=="on")
             {
-                print("Show: " . $key) . "<br>";
+                //print("Show: " . $key) . "<br>";
                 $isCategoryFilterSet=true;
             }
+            if ($key=="minPrice" || $key=="maxPrice")
+            {
+                
+                if($value>0)
+                {
+                $isPriceFilterSet=true;
+                $number=floatval(str_replace(",",".",$value));//nach Debuggin zusammenführen mit Number_format und dann noch vielleicht in Funktion
+                }
+                /*echo "<pre style=color:white;>";
+                echo number_format($number,2);
+                echo "</pre>";*/
+                
+            }
         }
-        echo "</pre>";
+        //echo "</pre>";
         //
 
         if($isCategoryFilterSet)
         {
-            $resultArrayCategory=[];
+            
             foreach($products as $element)
             {
                 if(!empty($_GET[$element->category]))
                 {
-                    echo "<pre style=color:white;>";
+                   /* echo "<pre style=color:white;>";
                     echo "Should print this product: " . $element->prodName;
-                    echo "</pre>";
+                    echo "</pre>";*/
                     array_push($resultArrayCategory,$element);
                 }
             }
         }
         else
         {
-            echo "<pre style=color:white;>";
+            /*echo "<pre style=color:white;>";
             echo "CategoryFilter is not set";
-            echo "</pre>";
+            echo "</pre>";*/
+            $resultArrayCategory=$products;
         }
 
+        if($isPriceFilterSet)
+        {
+            
+
+            if($_GET['minPrice']>0 && $_GET['maxPrice']> 0)
+            {
+                foreach($products as $element)
+                {
+                    $productPrice= getProductPriceByID($element->productID,false);
+
+                    if($productPrice<=$_GET['maxPrice'] && $productPrice>=$_GET['minPrice'])
+                    {
+                        /*echo "<pre style=color:white;>";
+                        echo "Product within Filter MIN AND MAX  ";
+                        print_r($element->prodName);
+                        echo "</pre>";*/
+                        array_push($resultArrayPrice,$element);
+                    }
+                }
+            }
+            elseif($_GET['minPrice']>0 && $_GET['maxPrice']=="")
+            {
+                foreach($products as $element)
+                {
+                    $productPrice= getProductPriceByID($element->productID,false);
+
+                    if($productPrice>=$_GET['minPrice'])
+                    {
+                        /*echo "<pre style=color:white;>";
+                        echo "Product within Filter MIN  ";
+                        echo  $element->prodName . "Preis: " .$productPrice;
+                        echo "</pre>";*/
+                        array_push($resultArrayPrice,$element);
+                    }
+                }
+
+            }
+            elseif($_GET['maxPrice']>0 && $_GET['minPrice']=="")
+            {
+                foreach($products as $element)
+                {
+                    $productPrice= getProductPriceByID($element->productID,false);
+
+                    if($productPrice<=$_GET['maxPrice'])
+                    {
+                        /*echo "<pre style=color:white;>";
+                        echo "Product within Filter MAX  ";
+                        print_r($element->prodName);
+                        echo "</pre>";*/
+                        array_push($resultArrayPrice,$element);
+                    }
+                }
+            }
+        }
+        else
+        {
+            $resultArrayPrice=$products;
+        }
+        echo "<p style=background-color:green;>";
+        print_r(count($resultArrayCategory));
+        echo "</p>";
+        echo "<p style=background-color:purple;>";
+        print_r(count($resultArrayPrice));
+        echo "</p>";
+       //$comparedArrays = array_intersect($array1,$array2);
+        //$comparedArrays = array_intersect($resultArrayCategory,$resultArrayPrice);
+        //$comparedArrays = array_intersect_assoc($resultArrayCategory,$resultArrayPrice);
+        //$mergedArrays =array_merge($resultArrayCategory,$resultArrayPrice);
+        //$occurenceCount = array_count_values($mergedArrays);
+        //echo "Elements in den Arrays Price/category: ";
+        //print_r($resultArrayPrice);
+        //print_r($resultArrayCategory[0]);
+        //echo "</pre>";
+        $superEndArray=[];
+        foreach($products as $element)
+        {
+            if(in_array($element,$resultArrayPrice) && in_array($element, $resultArrayCategory))
+            {
+                array_push($superEndArray,$element);
+            }
+        }
+        echo "<p style=background-color:gold;color:black;>";
+        print_r(count($superEndArray));
+        echo "</p>";
 
 
 
+       
 
 
         $this->setParam('products', $products);
-        if(!$isCategoryFilterSet)
-        {
-            $resultArrayCategory=$products;
-        }
-        $this->setParam('filteredProducts', $resultArrayCategory);
+     
+        $this->setParam('filteredProducts', $superEndArray);
         }
         
         

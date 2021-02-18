@@ -20,6 +20,9 @@ function getUserInformation($email)
 }
 
 
+
+
+
 function validateLogInSessionsAndCookies($email, $password)
 {
     //print_r($email . " - " . $password);
@@ -83,11 +86,18 @@ function getAllCategories()
         return $categories;
 }
 
-function getProductPriceByID($productID)
+function getProductPriceByID($productID, $convert=true)
 {
     $price = \protec\model\Pricing::findOne("pricingID = ". $productID);
     if($price->currency=="Euro"){$currency="€";}else{$currency = $price->$currency;};
-    return number_format($price->amount,2,",","."). " " . $currency;
+    if($convert)
+    {
+        return number_format($price->amount,2,",","."). " " . $currency;
+    }
+    else
+    {
+        return $price->amount;
+    }
 }
 
 function validateUploadedProductImage (&$errors)

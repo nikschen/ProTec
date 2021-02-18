@@ -1,8 +1,8 @@
 <body class="Site">
     <main class="Site-content">
 
-<div class="filterOptions" id="filter" style=color:black;>
- 
+<div class="filterOptions" id="filter">
+ <h2>Filtern Sie hier Ihre Suchanfrage</h2>
     <?//Diese Anzeige dient der Auswahl einer Kategorie nachdem die Suchanfrage dies bereits eingeschränkt hat?>
     <?$categoriesInSearch=[];          ?>
     <?foreach($products as $element) : ?>
@@ -19,8 +19,8 @@
         <label for="searchString">Suchbegriff</label>  
         <input type="text" name="searchString"<?if(isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>><br>
         <label for="minPrice">Preis</label>  
-        <input type="text" name="minPrice" placeholder="von">
-        <input type="text" name="maxPrice" placeholder="bis"><br>
+        <input type="text" name="minPrice" placeholder="von"<?if(isset($_GET['minPrice'])){echo "value=".htmlspecialchars($_GET['minPrice']);};?>>
+        <input type="text" name="maxPrice" placeholder="bis"<?if(isset($_GET['maxPrice'])){echo "value=".htmlspecialchars($_GET['maxPrice']);};?>><br>
         <button type="submit" >Ergebnisse filtern</button><br>
     </form>
 </div>
@@ -61,6 +61,7 @@
         </div>
         </div>
                     <p><?echo $_GET['searchString']?> </p>
-                    <p><?=$_SERVER['QUERY_STRING']?></p>
+                    <p><?echo $_GET['minPrice']?> </p>
+                    <p><?=htmlspecialchars($_SERVER['QUERY_STRING'])?></p>
     </main>
 </body>
