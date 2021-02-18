@@ -60,8 +60,6 @@
             </div>
         </div>
         </div>
-                    <p><?echo $_GET['searchString']?> </p>
-                    <p><?echo $_GET['minPrice']?> </p>
-                    <p><?=htmlspecialchars($_SERVER['QUERY_STRING'])?></p>
+                   
     </main>
 </body>
