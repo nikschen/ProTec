@@ -17,13 +17,75 @@ class PagesController extends \protec\core\Controller
 
         $title='ProTec > Searching';
         $this->setParam('title', $title);
-        if(isset($_POST['searchString']) && $_POST['searchString']!== null && $_POST['searchString'] !== "")
+        if(isset($_GET['searchString']) && $_GET['searchString'] !== "")
         {
-        $searchString = $_POST['searchString'];
+        $searchString = $_GET['searchString'];
         $products = \protec\model\Product::find("prodName LIKE " . "\"%" . $searchString ."%\"");
-        $this->setParam('products', $products);
+
+        $categoriesInSearch=[];
+        foreach($products as $element)
+        {
+           if(in_array($element->category,$categoriesInSearch)){}else{array_push($categoriesInSearch,$element->category);} 
         }
-       
+        //Debug START
+        echo "<br><br><br><br><br><br>";
+        echo "<pre style=color:white;>";
+        print_r($categoriesInSearch);
+        echo "</pre>";
+        echo "<pre style=color:white;>";
+
+        $isCategoryFilterSet=false;
+        foreach($_GET as $key => $value) //added the counting of on
+        {
+            if ($value=="on")
+            {
+                print("Show: " . $key) . "<br>";
+                $isCategoryFilterSet=true;
+            }
+        }
+        echo "</pre>";
+        //
+
+        if($isCategoryFilterSet)
+        {
+            $resultArrayCategory=[];
+            foreach($products as $element)
+            {
+                if(!empty($_GET[$element->category]))
+                {
+                    echo "<pre style=color:white;>";
+                    echo "Should print this product: " . $element->prodName;
+                    echo "</pre>";
+                    array_push($resultArrayCategory,$element);
+                }
+            }
+        }
+        else
+        {
+            echo "<pre style=color:white;>";
+            echo "CategoryFilter is not set";
+            echo "</pre>";
+        }
+
+
+
+
+
+
+        $this->setParam('products', $products);
+        if(!$isCategoryFilterSet)
+        {
+            $resultArrayCategory=$products;
+        }
+        $this->setParam('filteredProducts', $resultArrayCategory);
+        }
+        
+        
+
+
+
+
+
         //echo $_POST['searchString'];
         
         

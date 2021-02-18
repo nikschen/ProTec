@@ -63,9 +63,11 @@
             </div>
             <div class="searchNavContainer">
                 <div class="searchContainer">
-                    <form action="index.php?c=pages&a=search" method="post">
-                        <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_POST['searchString'])){echo "value=".htmlspecialchars($_POST['searchString']);};?>>
-                        <button type="submit" name="submitSearch"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
+                    <form action="index.php?c=pages&a=search" method="get">
+                        <input type="hidden" name="c" value="pages" >  
+                        <input type="hidden" name="a" value="search">  
+                        <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>>
+                        <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                     </form>
                 </div>
             </div>
@@ -160,8 +162,8 @@
 
         <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
-                <form action="index.php?c=pages&a=search" method="post">
-                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_POST['searchString'])){echo "value=".htmlspecialchars($_POST['searchString']);};?>>
+                <form action="index.php?c=pages&a=search" method="get">
+                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_get['searchString'])){echo "value=".htmlspecialchars($_get['searchString']);};?>>
                     <input type="submit" name="submitSearch">     <img src="<?=ICONSPATH?>searchIcon.png"/>
                 </form>
             </div>
