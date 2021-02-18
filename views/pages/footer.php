@@ -51,6 +51,7 @@
                                     <a href="index.php?c=servicepages&a=businessdiscount">Geschäftskundenrabatte</a>
                                     <a href="index.php?c=servicepages&a=newsletter">Newsletter abonnieren</a>
                                     <a href="index.php?c=servicepages&a=contactform">Kontaktformular</a>
+                                    <a href="index.php?c=servicepages&a=documentation">Dokumentation</a>
                                 </div>
                             </label>
                         </div>
