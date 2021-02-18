@@ -162,3 +162,9 @@ main {
     height: 2em;
     margin-bottom: 7%;
 }
+
+.infoPageContainer{
+    display: flex;
+    flex-direction: column;
+    width:60vw;
+}

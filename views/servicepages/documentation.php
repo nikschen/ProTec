@@ -27,9 +27,11 @@
             </li>
             <li>
                 <h3>Webseitenstruktur</h3>
+                <a class="websiteDiagramFull" href="/diagrams/ProtecDBV1.1.png" target="_blank" ><img class="websiteDiagram" src="/diagrams/ProtecDBV1.1.png" alt="Datenbankdiagramm"></a>
             </li>
             <li>
                 <h3>Datenbankstruktur</h3>
+                <a class="databaseDiagramFull" href="/diagrams/ProtecDBV1.1.png" target="_blank" ><img class="databaseDiagram" src="/diagrams/ProtecDBV1.1.png" alt="Datenbankdiagramm"></a>
             </li>
             <li>
                 <h3>Projekt(-ordner-)struktur</h3>

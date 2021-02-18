@@ -31,4 +31,10 @@ class ServicepagesController extends \protec\core\Controller
         $title='ProTec > Kontaktformular';
         $this->setParam('title', $title);
     }
+
+    public function actionDocumentation()
+    {
+        $title='ProTec > Dokumentation';
+        $this->setParam('title', $title);
+    }
 }
