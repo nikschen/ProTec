@@ -142,6 +142,11 @@ main {
     background-color: rgb(164, 204, 103);
 }
 
+.success-message ul{
+    list-style-type: none;
+    padding:0;
+}
+
 .registrationForm #messageDate {
     display: none;
 }
@@ -166,7 +171,7 @@ main {
 }
 
 .searchResults-message img {
-    width: 50%;
+
     height: 50%;
 }
 
@@ -193,3 +198,4 @@ main {
     flex-direction: column;
     width: 60vw;
 }
+

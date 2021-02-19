@@ -6,9 +6,11 @@
 .administrationContentWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content: center;
     align-self: center;
+    width:60vw;
+    height: 50vh;
 }
 
 .administrationContentWrapper img {
@@ -29,6 +31,21 @@
     margin: 0;
     min-width: 75vw;
     list-style: none;
+}
+
+.element{
+    height:336px;
+
+}
+
+.operationDescription{
+
+}
+
+
+.element:hover{
+    padding:1em;
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(355deg) brightness(108%) contrast(105%);
 }
 
 .manageProductsElements input,

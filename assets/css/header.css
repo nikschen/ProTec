@@ -5,7 +5,7 @@
 */
 header {
 
-    height:4.674em;
+    height:var(--navbarHeightFullscreen);
     font-family: 'Nanum Gothic', sans-serif;
 }
 
@@ -21,15 +21,18 @@ header {
 */
 
 .protecLogoContainer {
-    height: var(--navbarHeightFullscreen);
+    height: 100%;
 }
 
 .protecLogoContainer a {
-    height: var(--navbarHeightFullscreen);
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .protecLogo {
-    height: calc(var(--navbarHeightFullscreen) - 0.5em);
+    height: 90%;
 }
 
 .protecLogoMinimal{
@@ -58,7 +61,7 @@ header {
 .navbar a {
     float: left;
     flex-direction: column;
-    color: #d6d6d6;
+    color: var(--lightGreyParagraphColor);
     text-align: center;
     text-decoration: none;
     height: var(--navbarHeightFullscreen);
@@ -72,14 +75,12 @@ header {
 .navigation{
     display:flex;
     flex-direction: row;
-
+    width:60vw;
 }
 
 
 .navbar a:hover {
     background: var(--hoverAccentColor);
-
-    max-width:calc(100vw/3);
 }
 
 .navbar .navigation li {
@@ -90,33 +91,32 @@ header {
 
 .dropdown {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-items: center;
     align-items: center;
     align-content: center;
     font-family: 'Nanum Gothic', sans-serif;
-    padding: 0.375em 0.625em;
     font-size: 1em;
+    width:calc(60vw/5);
 }
+
+
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: var(--navbarHeightFullscreen);
-    background-color: var(--hoverAccentColor);
-    border: solid var(--orangeAccentColor);
-    border-width:0.25em;
-    border-top:none;
+    background-color: var(--mainColor);
     z-index: 2;
     font-family: 'Open Sans', sans-serif;
     height:inherit;
-    width:10.625em;
+    width:calc(60vw/5 - 1em);
 }
 
 .dropdown-content a {
     font-size: 1.1em;
     font-family: 'Open Sans', sans-serif;
-    width:10.625em;;
+    width:calc(60vw/5);
     text-align: center;
 }
 
@@ -126,28 +126,21 @@ header {
     align-items: center;
     justify-items: center;
     padding-left: 0;
-    width:10.625em;
+    width:calc(60vw/5);
     margin:0;
 
 }
-.dropdownContentList li{
-    display:flex;
-    flex-direction: column;
-    justify-items: center;
-    padding-left: 0;
-    width:10.625em;
-    margin:0;
 
-}
 
 .dropdownContentListElement{
-    height:inherit;
+
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
     width:100%;
     font-size:0.9em;
+    height:2em;
 }
 
 .dropdownContentList:hover{
@@ -160,60 +153,50 @@ header {
 }
 
 
-.dropdownContentListElement a{
-    height:2em;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    width:100%;
-
-}
-
 .categoryLogo  {
     width: 1.5em;
     height: 1.5em;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-    width: inherit;
+    width:calc(60vw/5);
+
 }
 
-
-.dropdown-content li {
-    color: black;
-    text-decoration: none;
-    display: block;
-    width:12.21em;
+.dropbtn:hover .categoryLogo, .dropbtn:hover .categoryTitle{
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
 }
 
 .dropbtn{
-    height:calc(var(--navbarHeightFullscreen) - 0.375em);
-    width:inherit;
+    height:100%;
+    width:calc(60vw/5);
 
 }
 
 .dropbtn a {
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-size: 1.67em;
     height: inherit;
-    width: 9em;
+    width:100%;
+    text-align:justify-all;
 }
 
 
 .dropdown-content .dropdownContentElement {
     display: block;
-    min-width: 12.21em;
+    width:calc(60vw/5);
 }
 
 span.categoryTitle{
-    font-size: 0.8em;
-    margin-left: 0.2em;
-    text-align: center;
-    display:inline-list-item;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.5em;
+    font-size: 1em;
+    margin-left: 0.5em;
+    color:black;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
 }
 
 
@@ -226,22 +209,26 @@ span.categoryTitle{
     background-color: var(--mainColor);
     border: none;
     margin-left: 0.2em;
+    width:calc(60vw/5);
 }
 
 .searchContainer {
-    padding: 0.2em;
-    background-color: #FFFFFF;
     border: none;
-    margin: 1.25em 0;
-    display:block;
-    border-radius: 0.25em;
-    width:fit-content;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
 }
 .searchContainer form{
-    height:inherit;
+    background-color: #FFFFFF;
+    height:33%;
     font-size: inherit;
     justify-content: center;
     align-content: center;
+    border-radius: 0.25em;
+    padding: 0.2em;
 }
 .searchContainer button{
     height:100%;
@@ -253,6 +240,8 @@ span.categoryTitle{
 .searchContainer input[type=text] {
     border: none;
     font-size: 1em;
+    border-radius: 0.25em;
+    max-width:calc(60vw/5 - 5em);
 }
 
 .searchContainer button[type=submit] {
@@ -262,11 +251,6 @@ span.categoryTitle{
 
 .searchContainer button[type=submit] img {
     height: 1em;
-}
-
-.searchContainer a {
-    height: inherit;
-    margin-bottom: 0.3em;
 }
 
 .searchContainer a #text {
@@ -292,17 +276,29 @@ input:focus::placeholder {
 
 .loginSymbol {
     height: 2em;
+    width: 2em;
+    margin-bottom: 0.5em;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
 }
+
 
 .loginContainer {
-    padding-left:0.8em;
-    padding-right: 0.8em;
-    margin-top: 0.35em;
-
+    width:3.5em;
+    padding-left: 0.5em;
 }
 
+.loginContainer:hover .loginSymbol{
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+
+
 .loginContainer a{
-    max-height: calc(var(--navbarHeightFullscreen) - 0.35em);
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -316,10 +312,28 @@ span.loginText{
 
 .productBasketIcon{
     height: 2em;
-    padding-left:0.8em;
-    padding-right: 0.8em;
-    margin-top: 0.35em;
+    width: 2em;
+    margin-bottom: 0.5em;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
+}
 
+.productBasketContainer{
+    width:7.249em;
+    padding-left: 0.5em;
+}
+
+.productBasketContainer:hover .productBasketIcon{
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+
+
+.productBasketContainer a{
+    height: 100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 span.productBasketText{
@@ -332,13 +346,56 @@ span.productBasketText{
 */
 
 .administrationContainer{
-    padding-left:0.8em;
+    width:3.593em;
+    padding-left: 0.5em;
 }
+
+.administrationContainer a{
+    height: 100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.administrationContainer:hover .administrationIcon{
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+
 
 .administrationIcon{
     height: 2em;
-    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
 }
+
 span.administrationText{
+    font-size: 1em;
+}
+
+/*
+##################################################### Profil ###########################################################
+*/
+
+.userprofileContainer{
+    width:3.593em;
+}
+
+.userprofileContainer a{
+    height: 100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userprofileIcon{
+    height: 2em;
+    margin-bottom: 0.35em;
+    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
+}
+span.userprofileText{
     font-size: 1em;
 }
