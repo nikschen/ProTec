@@ -100,6 +100,11 @@ function getProductPriceByID($productID, $convert=true)
     }
 }
 
+
+
+
+
+
 function validateUploadedProductImage (&$errors)
 {
     $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));

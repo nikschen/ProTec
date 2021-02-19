@@ -21,18 +21,14 @@ class PagesController extends \protec\core\Controller
         {
         $searchString = $_GET['searchString'];
         $products = \protec\model\Product::find("prodName LIKE " . "\"%" . $searchString ."%\"");
-
+   
         $categoriesInSearch=[];
         foreach($products as $element)
         {
            if(in_array($element->category,$categoriesInSearch)){}else{array_push($categoriesInSearch,$element->category);} 
         }
         //Debug START
-        echo "<br><br><br><br><br><br>";
-        /*echo "<pre style=color:white;>";
-        print_r($categoriesInSearch);
-        echo "</pre>";*/
-        //echo "<pre style=color:white;>";
+        //echo "<br><br><br><br><br><br>";
 
         $isCategoryFilterSet=false;
         $isPriceFilterSet=false;
@@ -40,56 +36,41 @@ class PagesController extends \protec\core\Controller
         $resultArrayPrice=[];
         $resultArrayCategory=[];
 
-        foreach($_GET as $key => $value) //added the counting of on
+        //checking if a Filter is set
+        foreach($_GET as $key => $value) 
         {
             if ($value=="on")
             {
-                //print("Show: " . $key) . "<br>";
                 $isCategoryFilterSet=true;
             }
             if ($key=="minPrice" || $key=="maxPrice")
             {
-                
                 if($value>0)
                 {
                 $isPriceFilterSet=true;
                 $number=floatval(str_replace(",",".",$value));//nach Debuggin zusammenführen mit Number_format und dann noch vielleicht in Funktion
                 }
-                /*echo "<pre style=color:white;>";
-                echo number_format($number,2);
-                echo "</pre>";*/
-                
             }
         }
-        //echo "</pre>";
-        //
-
+       
+        //do the filtering for the Category->if element is in category list on which the checkbox is "checked" will be added to the resultarray
         if($isCategoryFilterSet)
         {
-            
             foreach($products as $element)
             {
                 if(!empty($_GET[$element->category]))
                 {
-                   /* echo "<pre style=color:white;>";
-                    echo "Should print this product: " . $element->prodName;
-                    echo "</pre>";*/
                     array_push($resultArrayCategory,$element);
                 }
             }
         }
         else
         {
-            /*echo "<pre style=color:white;>";
-            echo "CategoryFilter is not set";
-            echo "</pre>";*/
             $resultArrayCategory=$products;
         }
-
+        //if there is a entry in one of the price max or min field this is set true and the list will be filtered by the price
         if($isPriceFilterSet)
         {
-            
-
             if($_GET['minPrice']>0 && $_GET['maxPrice']> 0)
             {
                 foreach($products as $element)
@@ -98,10 +79,6 @@ class PagesController extends \protec\core\Controller
 
                     if($productPrice<=$_GET['maxPrice'] && $productPrice>=$_GET['minPrice'])
                     {
-                        /*echo "<pre style=color:white;>";
-                        echo "Product within Filter MIN AND MAX  ";
-                        print_r($element->prodName);
-                        echo "</pre>";*/
                         array_push($resultArrayPrice,$element);
                     }
                 }
@@ -114,14 +91,9 @@ class PagesController extends \protec\core\Controller
 
                     if($productPrice>=$_GET['minPrice'])
                     {
-                        /*echo "<pre style=color:white;>";
-                        echo "Product within Filter MIN  ";
-                        echo  $element->prodName . "Preis: " .$productPrice;
-                        echo "</pre>";*/
                         array_push($resultArrayPrice,$element);
                     }
                 }
-
             }
             elseif($_GET['maxPrice']>0 && $_GET['minPrice']=="")
             {
@@ -131,10 +103,6 @@ class PagesController extends \protec\core\Controller
 
                     if($productPrice<=$_GET['maxPrice'])
                     {
-                        /*echo "<pre style=color:white;>";
-                        echo "Product within Filter MAX  ";
-                        print_r($element->prodName);
-                        echo "</pre>";*/
                         array_push($resultArrayPrice,$element);
                     }
                 }
@@ -144,41 +112,45 @@ class PagesController extends \protec\core\Controller
         {
             $resultArrayPrice=$products;
         }
-        echo "<p style=background-color:green;>";
-        print_r(count($resultArrayCategory));
-        echo "</p>";
-        echo "<p style=background-color:purple;>";
-        print_r(count($resultArrayPrice));
-        echo "</p>";
-       //$comparedArrays = array_intersect($array1,$array2);
-        //$comparedArrays = array_intersect($resultArrayCategory,$resultArrayPrice);
-        //$comparedArrays = array_intersect_assoc($resultArrayCategory,$resultArrayPrice);
-        //$mergedArrays =array_merge($resultArrayCategory,$resultArrayPrice);
-        //$occurenceCount = array_count_values($mergedArrays);
-        //echo "Elements in den Arrays Price/category: ";
-        //print_r($resultArrayPrice);
-        //print_r($resultArrayCategory[0]);
-        //echo "</pre>";
+        //merge the arrays by the elements occuring in both lists
         $superEndArray=[];
-        foreach($products as $element)
+        foreach($products as $element) 
         {
             if(in_array($element,$resultArrayPrice) && in_array($element, $resultArrayCategory))
             {
                 array_push($superEndArray,$element);
             }
         }
-        echo "<p style=background-color:gold;color:black;>";
-        print_r(count($superEndArray));
-        echo "</p>";
 
+        //Hinzufügen eines Mehrdimensionalen Arrays mit dem Preis
+        $productsAndTheirPrice=[];
+        foreach ($superEndArray as $element)
+        {
+            $productToAdd=[];
+            $productPrice= getProductPriceByID($element->productID,false);
+            array_push($productToAdd,$element,$productPrice);
+            array_push($productsAndTheirPrice,$productToAdd);
+        }
 
-
-       
-
+        //Sortieren des Arrays nach Kundenwunsch anhand des Preises
+        if($_GET['sorting']==='asc' || $_GET['sorting']==='desc')
+        {
+          
+            $sortingDirection = "";
+            if($_GET['sorting']==='asc')
+            {
+                $sortingDirection = SORT_ASC;
+            }
+            elseif($_GET['sorting']==='desc')
+            {
+                $sortingDirection = SORT_DESC;
+            }
+        $volume = array_column($productsAndTheirPrice, 1);
+        array_multisort($volume, $sortingDirection, $productsAndTheirPrice);
+        }
 
         $this->setParam('products', $products);
-     
-        $this->setParam('filteredProducts', $superEndArray);
+        $this->setParam('filteredProducts', $productsAndTheirPrice);
         }
         
         
@@ -187,7 +159,7 @@ class PagesController extends \protec\core\Controller
 
 
 
-        //echo $_POST['searchString'];
+        
         
         
 

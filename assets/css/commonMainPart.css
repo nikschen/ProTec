@@ -50,11 +50,12 @@ main {
 }
 
 #filter input[type=text] {
-    border-radius: 4px;
+    border: 0.0625em solid rgb(134, 133, 133);
+    border-radius: 0.25em;
     margin-top: 1%;
 }
 
-#filter .registrationForm input[type=text],
+.registrationForm input[type=text],
 [type=password],
 #selectgender,
 #selectGenderProfile {
@@ -174,6 +175,17 @@ main {
     width: 50%;
     height: 2em;
     margin-bottom: 7%;
+}
+
+.searchResults-message input[type=submit] {
+    width: 55%;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
 }
 
 .infoPageContainer {
