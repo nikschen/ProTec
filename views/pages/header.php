@@ -3,11 +3,11 @@
         <div class="navbar">
             <div class="protecLogoContainer">
                 <a class="protecLogo" href="index.php?c=pages&a=index"><img class="protecLogo"  src="<?=ICONSPATH?>protec_transparent_logo_weiß_umrandet_protec_weiß.png" alt="Logo"></a>
-                <a class="protecLogoMinimal" href="index.php?c=pages&a=index"><img class="protecLogoMinimal"  src="<?=ICONSPATH?>protecMinimal.png" alt="Logo"></a>
+                <a class="protecLogoMinimalContainer" href="index.php?c=pages&a=index"><img class="protecLogoMinimal"  src="<?=ICONSPATH?>protecMinimal.png" alt="Logo"></a>
             </div>
             <div class="navigation">
                 <div class="dropdown">
-                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/elektronikIcon.png" alt="Elek." ><span class="categoryTitle">Elektronik</span></a></div>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryElectronic"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/elektronikIcon-black.png" alt="Elek." ><span class="categoryTitle">Elektronik</span></a></div>
 
                     <div class=dropdown-content>
                         <ul class="dropdownContentList">
@@ -21,7 +21,7 @@
 
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryRaspi"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/raspberryPiIcon.png" alt="RasPi." ><span class="categoryTitle">RaspberryPi</span></a></div>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryRaspi"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/raspberryPiIcon-black.png" alt="RasPi." ><span class="categoryTitle">RaspberryPi</span></a></div>
 
                     <div class=dropdown-content>
                         <ul class="dropdownContentList">
@@ -33,7 +33,7 @@
 
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/computerIcon.png" alt="Comp." ><span class="categoryTitle">Computer</span></a></div>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categoryComputer"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/computerIcon-black.png" alt="Comp." > <span class="categoryTitle">Computer</span></a></div>
 
                     <div class=dropdown-content>
                         <ul class="dropdownContentList">
@@ -46,14 +46,14 @@
 
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon.png" alt="Neu" ><span class="categoryTitle">Neu</span></a></div></li>
+                    <div class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon-black.png" alt="Neu" > <span class="categoryTitle">Neu</span></a></div>
 
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/sensorenIcon.png" alt="Sens." ><span class="categoryTitle">Sensoren</span></a></div>
+                    <div class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/sensorenIcon-black.png" alt="Sens." > <span class="categoryTitle">Sensoren</span></a></div>
                     <div class=dropdown-content>
                         <ul class="dropdownContentList">
-                            <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">Temperatursensoren</a></li>
+                            <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Temperatursensoren">Temperatur</a></li>
                             <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Bewegungsmelder">Bewegungsmelder</a></li>
                             <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=Strommesser">Strommesser</a></li>
                             <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a></li>
@@ -84,7 +84,7 @@
                     if($validResult== "1")
                     {
                         $actionLink = "?c=pages&a=logout";
-                        $icon = "logoutIcon.png";
+                        $icon = "logoutIcon-black.png";
                         $text = "Logout";
                         $_SESSION['loggedIn']= 1;
                         $_SESSION['username'] = $_SESSION['email'];
@@ -92,7 +92,7 @@
                     else
                     {
                         $actionLink = "?c=pages&a=login";
-                        $icon = "loginIcon.png";
+                        $icon = "loginIcon-black.png";
                         $text = "Login";
                     }
                 }
@@ -108,7 +108,7 @@
                     if($validResult == "1")
                     {
                     $actionLink = "?c=pages&a=logout";
-                    $icon = "logoutIcon.png";
+                    $icon = "logoutIcon-black.png";
                     $text = "Logout";
                     $_SESSION['loggedIn']= 1;
                     $_SESSION['username'] = $_COOKIE['email'];
@@ -118,31 +118,31 @@
                     {
                       //echo "<p>No Valid </p>";
                       $actionLink = "?c=pages&a=login";
-                      $icon = "loginIcon.png";
+                      $icon = "loginIcon-black.png";
                       $text = "Login";
                     } //hier könnte man direkt in logout gehen, aus Sicherheitsgründen, weil ja scheinbar irgendwas nicht stimmt(Manipulationsverhinderung)
                 }
                 else
                 {
                         $actionLink = "?c=pages&a=login";
-                        $icon = "loginIcon.png";
+                        $icon = "loginIcon-black.png";
                         $text = "Login";
                 }
                     ?>
-                <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>" alt="<?=$text?>"><br><span class="loginText"><?=$text?></span></a>
+                <a  href="<?=$_SERVER['SCRIPT_NAME']?><?=$actionLink?>"  ><img class="loginSymbol" src="<?=ICONSPATH?><?=$icon?>" alt="<?=$text?>"><span class="loginText"><?=$text?></span></a>
             
             </div>
             <div class="productBasketContainer">
-                <a href="index.php?c=products&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon.png" alt="Warenkorb"><br><span class="productBasketText">Warenkorb</span><span class="productBasketText"> (<?=$amountOfBasketEntries?>)</span></a>
+                <a href="index.php?c=products&a=productBasket"><img class="productBasketIcon" src="<?=ICONSPATH?>productBasketIcon-black.png" alt="Warenkorb"><span class="productBasketText">Warenkorb (<?=$amountOfBasketEntries?>)</span></a>
             </div>
             <?if(isset($_SESSION['loggedIn'])) {if($_SESSION['email']=='admin@protec.de'){?>
             <div class="administrationContainer">
-                <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon.png" alt="Administration"><br><span class="administrationText">Administration</span></a>
+                <a href="index.php?c=administrativeOperations&a=chooseOperation"><img class="administrationIcon" src="<?=ICONSPATH?>administrationIcon-black.png" alt="Administration"><span class="administrationText">Admin</span></a>
             </div>
             <?}}?>
             <?if(isset($_SESSION['loggedIn'])) {if($_SESSION['email']!='admin@protec.de'){?>
             <div class="userprofileContainer">
-                <a href="index.php?c=accounts&a=profile"><img class="administrationIcon" src="<?=ICONSPATH?>userIcon.png" alt="Profile"><br><span class="userprofileText">Profil</span></a>
+                <a href="index.php?c=accounts&a=profile"><img class="userprofileIcon" src="<?=ICONSPATH?>userIcon-black.png" alt="Profile"><span class="userprofileText">Profil</span></a>
             </div>
             <?}}?>
         
@@ -163,8 +163,10 @@
         <div class="searchNavContainerMinimal">
             <div class="searchContainerMinimal">
                 <form action="index.php?c=pages&a=search" method="get">
-                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_get['searchString'])){echo "value=".htmlspecialchars($_get['searchString']);};?>>
-                    <input type="submit" name="submitSearch">     <img src="<?=ICONSPATH?>searchIcon.png"/>
+                    <input type="hidden" name="c" value="pages" >
+                    <input type="hidden" name="a" value="search">
+                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>>
+                    <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                 </form>
             </div>
         </div>

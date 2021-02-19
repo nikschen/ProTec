@@ -5,23 +5,11 @@
 */
     .Site-content {
 
-        min-height: calc(100vh - var(--navbarHeightMobile) - var(--footerHeightExtraThin) - 0.5em);
+        min-height: calc(100vh - var(--navbarHeightMobile) - var(--footerHeightExtraThin));
 
 
     }
 
-/*
-################################################### ProTec Logo ########################################################
-*/
-
-    .protecLogoMinimal{
-        display: block;
-        height:3.2em;
-    }
-    .protecLogo{
-        display:none;
-        height:inherit;
-    }
 
 /*
 ###################################################### Kategorien #######################################################
@@ -38,72 +26,9 @@
 
     .navbar{
         box-shadow: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-    }
-
-/*
-###################################################### Suche ###########################################################
-*/
-
-    .searchNavContainer{
-        display:none;
-    }
-
-    .searchNavContainerMinimal{
-
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        background-color: var(--mainColor);
-        position: fixed;
-        right: 0;
-        left: 0;
-        top:4em;
-        box-shadow: 0 0.25em 0.125em #27272780;
-        -webkit-box-shadow: 0 0.25em 0.125em #27272780;
-        -moz-box-shadow: 0 0.25em 0.125em #27272780;
-        justify-content: center;
-        flex-wrap: nowrap;
-        height: 2.8em;
-
-    }
-    .searchNavContainerMinimal form{
-        height:2em;
-        width:inherit;
-        background-color: #FFFFFF;
-    }
-
-    .searchContainerMinimal{
-
-        background-color:var(--mainColor);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin:0;
-        padding:0;
-        border:0;
-
-    }
-    .searchContainerMinimal form, .searchContainerMinimal button{
-        border-radius: 0.25em;
     }
 
 
-    .searchContainerMinimal input[type=text] {
-        border: none;
-        font-size: 1em;
-    }
-
-    .searchContainerMinimal button[type=submit] {
-        font-size: 1em;
-        background-color: #FFFFFF;
-        border: none;
-        height: inherit;
-    }
-    .searchContainerMinimal button[type=submit] img {
-        height: 1em;
-    }
 
 
     /*
