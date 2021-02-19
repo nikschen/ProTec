@@ -46,9 +46,9 @@
 }
 
 .manageProductsElements input,
-textarea,
-select,
-button,
+.manageProductsElements textarea,
+.manageProductsElements select,
+.manageProductsElements button,
 .productImageUploadLabel,
 .customerIDInput {
     padding: 0.75em 1.25em;

@@ -29,7 +29,11 @@
 
 .columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
 .columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
-    width:12.5vw;
+    width:10vw;
+}
+
+.columnHeaderUpdate, .columnContentUpdate, .columnSummaryUpdate {
+    width:5vw;
 }
 
 .columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity{
@@ -88,6 +92,7 @@
 
 .columnContentPricing, .columnSummaryPricing{
     justify-content: flex-end;
+
 }
 
 th.columnHeaderProduct{
@@ -99,6 +104,13 @@ th.columnHeaderPricing {
     justify-content: flex-end;
 }
 
+th.columnContentProduct{
+    vertical-align:middle;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .updateWantedQuantityButton{
     background: none;
     border:none;
@@ -108,3 +120,14 @@ th.columnHeaderPricing {
 .updateWantedQuantityIcon{
     height:20px;
 }
+
+.columnContentQuantity select{
+    padding: 0.5em 0.75em;
+    margin:0.25em 0;
+    display: inline-block;
+    border: 0.0625em solid rgb(134, 133, 133);
+    border-radius: 0.625em;
+    box-sizing: border-box;
+    align-items: center;
+}
+
