@@ -24,6 +24,23 @@ class ProductsController extends \protec\core\Controller
 
     public function actionProductBasket()
     {
+        if(isset($_POST['updateWantedQuantity']))
+        {
+            if(isset($_POST['toBeChangedProductID']))
+            {
+                $concerningProductID=$_POST['toBeChangedProductID'];
+                $selectedQuantity=$_POST['quantityWanted'];
+                    foreach($_SESSION['productBasket'] as $basketEntry)
+                    {
+                        if($basketEntry->productID==$concerningProductID)
+                        {
+                            $basketEntry->quantityWanted=$selectedQuantity;
+                            return;
+                        }
+                    }
+            }
+        }
+
         if(isset($_POST['resetProductBasket']))
         {
             $_SESSION['productBasket']=null;
