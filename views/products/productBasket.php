@@ -25,8 +25,23 @@
                     <?$product=\protec\model\Product::findOne("productID=".$productBasketEntry->productID);
                     $pricing=\protec\model\Pricing::findOne("pricingID=".$productBasketEntry->productID)?>
                     <tr class="productBasketElement">
-                        <td class="columnContentProduct"><?=$product->prodName?></td>
-                        <td class="columnContentQuantity"><?=$productBasketEntry->quantityWanted?></td><?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
+                        <td class="columnContentProduct"><a href="index.php?c=products&a=product&pid=<?=$productBasketEntry->productID?>"> a<?=$product->prodName?></td>
+                        <td class="columnContentQuantity">
+                            <form method="post">
+                                <select name="quantityWanted" id="quantityWanted">
+                                    <option hidden="hidden" disabled="disabled" selected="selected" value="$productBasketEntry->quantityWanted"><?=$productBasketEntry->quantityWanted?></option>
+                                    <?for($allowedAmount=1;$allowedAmount<=$product->quantityStored && $allowedAmount<=10;$allowedAmount++):?>
+                                        <?if($allowedAmount!=$productBasketEntry->quantityWanted):?>
+                                        <option value="<?=$allowedAmount?>"><?=$allowedAmount?></option>
+                                        <?else:?>
+                                        <option value="<?=$productBasketEntry->quantityWanted?>"><?=$productBasketEntry->quantityWanted?></option>
+                                        <?endif?>
+                                    <?endfor?>
+                                </select>
+                                <button class="updateWantedQuantityButton" name="updateWantedQuantity" type="submit" value="changeOfProductID<?=$productBasketEntry->productID?>"><img class="updateWantedQuantityIcon" src="<?=ICONSPATH?>updateIcon.png" alt="Update"></button>
+                            </form>
+                        </td>
+                        <?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
                         <td class="columnContentPricing"><?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?></td><?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                     </tr>
 

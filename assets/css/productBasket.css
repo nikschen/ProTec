@@ -98,3 +98,13 @@ th.columnHeaderProduct{
 th.columnHeaderPricing {
     justify-content: flex-end;
 }
+
+.updateWantedQuantityButton{
+    background: none;
+    border:none;
+    text-align: justify-all;
+}
+
+.updateWantedQuantityIcon{
+    height:20px;
+}

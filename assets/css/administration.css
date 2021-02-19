@@ -34,18 +34,15 @@
 }
 
 .element{
-    height:336px;
+    height:350px;
 
 }
-
-.operationDescription{
-
-}
-
 
 .element:hover{
-    padding:1em;
-    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(355deg) brightness(108%) contrast(105%);
+    border-bottom: 0.25em solid var(--orangeAccentColor);
+    border-top: none;
+    border-left:none;
+    border-right:none;
 }
 
 .manageProductsElements input,

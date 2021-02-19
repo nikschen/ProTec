@@ -40,7 +40,10 @@
 }
 
 .subcategoryContent .element:hover {
-    border: 0.25em solid var(--orangeAccentColor);
+    border-bottom: 0.25em solid var(--orangeAccentColor);
+    border-top: none;
+    border-left:none;
+    border-right:none;
 }
 
 .subcategoryContent .element:hover img {
