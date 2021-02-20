@@ -14,9 +14,12 @@
     <form method="get">
         <input type="hidden" name="c" value="pages" >  
         <input type="hidden" name="a" value="search">  
+        <div class="categoryFilter">
         <?foreach($categoriesInSearch as $element) : ?>
-        <input class="categorieFilter" type="checkbox" name="<?=$element?>" <?=isset($_GET[$element]) ? 'checked' : ''?>><?=$element?><br>
+        <label><input class="categoryCheckboxes" type="checkbox" name="<?=$element?>" <?=isset($_GET[$element]) ? 'checked' : ''?>><?=$element?><br></label>
         <?endforeach;?>
+        </div>
+     
     
         <label for="searchString">Suchbegriff</label>  
         <input type="text" name="searchString"<?if(isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>><br>
@@ -32,6 +35,15 @@
          </select><br>
         <button type="submit" >Ergebnisse filtern</button><br>
     </form>
+    <?php if(isset($errorMessage) && count($errorMessage) > 0) : ?>
+     <div class="error-message" style ="width:100%;border-radius:5px;background-color: red; color: white">
+     <ul>
+         <?php foreach($errorMessage as $key => $value) : ?>
+            <li><?=$value?></li>
+            <?php endforeach?>
+         </ul>
+         </div>
+         <?php endif; ?>
 </div>
 <?endif?>
 

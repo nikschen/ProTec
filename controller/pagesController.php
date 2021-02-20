@@ -27,14 +27,14 @@ class PagesController extends \protec\core\Controller
         {
            if(in_array($element->category,$categoriesInSearch)){}else{array_push($categoriesInSearch,$element->category);} 
         }
-        //Debug START
-        //echo "<br><br><br><br><br><br>";
 
         $isCategoryFilterSet=false;
         $isPriceFilterSet=false;
+        
 
         $resultArrayPrice=[];
         $resultArrayCategory=[];
+        $errorMessage=[];
 
         //checking if a Filter is set
         foreach($_GET as $key => $value) 
@@ -45,10 +45,9 @@ class PagesController extends \protec\core\Controller
             }
             if ($key=="minPrice" || $key=="maxPrice")
             {
-                if($value>0)
+                if($value>0 || $value!="")
                 {
                 $isPriceFilterSet=true;
-                $number=floatval(str_replace(",",".",$value));//nach Debuggin zusammenführen mit Number_format und dann noch vielleicht in Funktion
                 }
             }
         }
@@ -68,101 +67,112 @@ class PagesController extends \protec\core\Controller
         {
             $resultArrayCategory=$products;
         }
-        //if there is a entry in one of the price max or min field this is set true and the list will be filtered by the price
+        //if there is a entry in one of the price max or min field this is set true and the list will be filtered by the price entries
         if($isPriceFilterSet)
-        {
-            if($_GET['minPrice']>0 && $_GET['maxPrice']> 0)
-            {
-                foreach($products as $element)
-                {
-                    $productPrice= getProductPriceByID($element->productID,false);
+        {   
+                 //Replace german "," by internatinal "." to make number-check, make numbers according to german system
+                 $replaceMaxSeperator = str_replace(",",".",htmlspecialchars($_GET['maxPrice']));
+                 $replaceMinSeperator = str_replace(",",".",htmlspecialchars($_GET['minPrice']));
+                //
 
-                    if($productPrice<=$_GET['maxPrice'] && $productPrice>=$_GET['minPrice'])
+            //check if user-entry is a valid number, if not do not perform any filtering by price and give message to user
+            if(is_numeric($replaceMaxSeperator) && is_numeric($replaceMinSeperator))
+            {
+                //make price entries to clean float value
+                $maxPrice = floatval($replaceMaxSeperator);
+                $minPrice = floatval($replaceMinSeperator);
+
+                if($minPrice>0 && $maxPrice>0)
+                {
+                    foreach($products as $element)
                     {
-                        array_push($resultArrayPrice,$element);
+                        $productPrice= getProductPriceByID($element->productID,false);
+
+                        if($productPrice<=$maxPrice && $productPrice>=$minPrice)
+                        {
+                            array_push($resultArrayPrice,$element);
+                        }
+                    }
+                }
+                elseif($minPrice>0 && $maxPrice=="")
+                {
+                    foreach($products as $element)
+                    {
+                        $productPrice= getProductPriceByID($element->productID,false);
+
+                        if($productPrice>=$minPrice)
+                        {
+                            array_push($resultArrayPrice,$element);
+                        }
+                    }
+                }
+                elseif($maxPrice>0 && $minPrice=="")
+                {
+                    foreach($products as $element)
+                    {
+                        $productPrice= getProductPriceByID($element->productID,false);
+
+                        if($productPrice<=$maxPrice)
+                        {
+                            array_push($resultArrayPrice,$element);
+                        }
                     }
                 }
             }
-            elseif($_GET['minPrice']>0 && $_GET['maxPrice']=="")
+            else
             {
-                foreach($products as $element)
-                {
-                    $productPrice= getProductPriceByID($element->productID,false);
-
-                    if($productPrice>=$_GET['minPrice'])
-                    {
-                        array_push($resultArrayPrice,$element);
-                    }
-                }
-            }
-            elseif($_GET['maxPrice']>0 && $_GET['minPrice']=="")
-            {
-                foreach($products as $element)
-                {
-                    $productPrice= getProductPriceByID($element->productID,false);
-
-                    if($productPrice<=$_GET['maxPrice'])
-                    {
-                        array_push($resultArrayPrice,$element);
-                    }
-                }
+                $resultArrayPrice=$products;
+                $errorMessage['NotANumber']="Ungültige Zahl im Preisfilter";
             }
         }
         else
         {
             $resultArrayPrice=$products;
         }
-        //merge the arrays by the elements occuring in both lists
-        $superEndArray=[];
-        foreach($products as $element) 
-        {
-            if(in_array($element,$resultArrayPrice) && in_array($element, $resultArrayCategory))
+            //merge the arrays by the elements occuring in both lists
+            $superEndArray=[];
+            foreach($products as $element) 
             {
-                array_push($superEndArray,$element);
+                if(in_array($element,$resultArrayPrice) && in_array($element, $resultArrayCategory))
+                {
+                    array_push($superEndArray,$element);
+                }
             }
-        }
 
-        //Hinzufügen eines Mehrdimensionalen Arrays mit dem Preis
-        $productsAndTheirPrice=[];
-        foreach ($superEndArray as $element)
-        {
-            $productToAdd=[];
-            $productPrice= getProductPriceByID($element->productID,false);
-            array_push($productToAdd,$element,$productPrice);
-            array_push($productsAndTheirPrice,$productToAdd);
-        }
+            //Hinzufügen eines Mehrdimensionalen Arrays mit dem Preis
+            $productsAndTheirPrice=[];
+            foreach ($superEndArray as $element)
+            {
+                $productToAdd=[];
+                $productPrice= getProductPriceByID($element->productID,false);
+                array_push($productToAdd,$element,$productPrice);
+                array_push($productsAndTheirPrice,$productToAdd);
+            }
 
-        //Sortieren des Arrays nach Kundenwunsch anhand des Preises
-        if($_GET['sorting']==='asc' || $_GET['sorting']==='desc')
-        {
+            //Sortieren des Arrays nach Kundenwunsch anhand des Preises
+            if(isset($_GET['sorting']))
+            {
+            if( $_GET['sorting']==='asc' || $_GET['sorting']==='desc')
+            {
           
-            $sortingDirection = "";
-            if($_GET['sorting']==='asc')
-            {
-                $sortingDirection = SORT_ASC;
+                $sortingDirection = "";
+                if($_GET['sorting']==='asc')
+                {
+                    $sortingDirection = SORT_ASC;
+                }
+                elseif($_GET['sorting']==='desc')
+                {
+                    $sortingDirection = SORT_DESC;
+                }
+                $volume = array_column($productsAndTheirPrice, 1);
+                array_multisort($volume, $sortingDirection, $productsAndTheirPrice);
             }
-            elseif($_GET['sorting']==='desc')
-            {
-                $sortingDirection = SORT_DESC;
             }
-        $volume = array_column($productsAndTheirPrice, 1);
-        array_multisort($volume, $sortingDirection, $productsAndTheirPrice);
+
+            $this->setParam('products', $products);
+            $this->setParam('filteredProducts', $productsAndTheirPrice);
+            $this->setParam('errorMessage', $errorMessage);
         }
-
-        $this->setParam('products', $products);
-        $this->setParam('filteredProducts', $productsAndTheirPrice);
-        }
-        
-        
-
-
-
-
-
-        
-        
-        
-
 	}
 
 	public function actionLogin()
@@ -180,19 +190,10 @@ class PagesController extends \protec\core\Controller
                 $password = $_POST['password'] ?? null;
                 $rememberMe = $_POST['Remember'] ?? null;
 
-                //Debug
-                //$errors['loginstatus'] = "LoginStatus = ".$_SESSION['loggedIn'];
-               // $errors['hashwert'] = "hash aus Pw generiert: " . password_hash($_POST['password'], PASSWORD_DEFAULT);
-               // $errors['email'] = "Email: " . $email;
-               // $errors['Password'] = "PW: " . $password;
-               // $errors['rememberMe'] = "Status RememberME: " . $rememberMe;
-
                 //check in database if email is known 
                 $db = $GLOBALS['db'];
                 $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
 
-                
-                
                 //if there is a user found with that mail, start to check whether the pw is correct
                 if($login !== null)
                 {
@@ -202,17 +203,12 @@ class PagesController extends \protec\core\Controller
 
                     $account= \protec\model\Account::findOne('accountID = ' . $loginID);
                     $PWHash = $account->passwordHash;
-                    //$errors['hash'] = "Hash des Nutzers: " . $PWHash; //Testanmeldung: Bigtommycool@web.de PW: geheimespasswort
-                    //compare given password with the stored in database
+                  
                     if (password_verify($password , $PWHash))
                     {
                         $loginFirstName= $login->firstName;
                         $loginLastName= $login->lastName;
-                        //Debug Elements
-                        //$errors['ID'] = "Customer-ID = " . $loginID;
-                        //$errors['lastName'] = "Nachname des Nutzers = " . $login->lastName;
-                        //$errors['Passwortüberprüfung'] = "Passwortstatus: korrekt";
-                        //Set the login Status as true for the session, save the mail and the encrypted PW for later use within the Session
+                       
                         $_SESSION['loggedIn']= true;
                         $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
                         $_SESSION['email'] = $email;

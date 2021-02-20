@@ -46,13 +46,25 @@ main {
 
 #filter h2 {
     color: black;
-    padding: 0.75em 1.0em;
+    padding: 0.3em 1.0em;
 }
 
 #filter input[type=text] {
     border: 0.0625em solid rgb(134, 133, 133);
     border-radius: 0.25em;
     margin-top: 1%;
+}
+
+#filter .categoryFilter {
+    margin-bottom: 0.5em;
+}
+
+#filter .categoryCheckboxes {
+    margin-bottom: 0.5em;
+}
+
+#filter form label:hover {
+    background-color: var(--mainColor);
 }
 
 .registrationForm input[type=text],
@@ -142,9 +154,9 @@ main {
     background-color: rgb(164, 204, 103);
 }
 
-.success-message ul{
+.success-message ul {
     list-style-type: none;
-    padding:0;
+    padding: 0;
 }
 
 .registrationForm #messageDate {
@@ -171,7 +183,6 @@ main {
 }
 
 .searchResults-message img {
-
     height: 50%;
 }
 
@@ -198,4 +209,3 @@ main {
     flex-direction: column;
     width: 60vw;
 }
-
