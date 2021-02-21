@@ -112,6 +112,10 @@ main {
     padding-bottom: 1.25em;
 }
 
+.contactForm {
+    flex-direction: row;
+}
+
 .loginForm {
     width: 50%;
     text-align: center;
