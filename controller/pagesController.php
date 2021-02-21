@@ -293,8 +293,13 @@ class PagesController extends \protec\core\Controller
 	}
 	public function actionCategoryNew()
     {
-        $title='ProTec > Computer';
+        $title='ProTec > Neu';
         $this->setParam('title', $title);
+
+        $newProducts = protec\model\Product::getNewest(5);
+        
+        $this->setParam('newProducts', $newProducts);
+
 	}
 	public function actionCategorySensors()
     {

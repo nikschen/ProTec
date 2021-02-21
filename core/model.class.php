@@ -118,6 +118,35 @@ abstract class Model
         
     }
 
+    
+    public static function getNewest($limit=5)
+    {
+        
+        
+        $db = $GLOBALS['db'];
+        $sqlStr = 'SELECT * FROM `'.self::tablename().'` ORDER BY createdAt DESC LIMIT '.$limit .';';
+        //print_r($sqlStr);
+        
+        $results = [];
+        try
+        {
+            $results = $db->query($sqlStr)->fetchAll();
+            $count = count($results);
+            for ($i=0; $i < $count; ++$i)
+            { 
+                $class = get_called_class();
+                $results[$i] = new $class($results[$i]);
+            }
+        }
+        catch(\PDOException $error)
+        {
+            print_r($error);
+        }
+
+        return $results;
+        
+    }
+
 
 
 
