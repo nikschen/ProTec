@@ -30,6 +30,11 @@ if(!ISSET($_SESSION['productBasket']))
     $_SESSION['productBasket']=array();
 }
 
+if(!isset($_SESSION['cookiesUnderstood']))
+{
+	
+}
+
 
 //$data = new Customer;
 //$Customer= Customer::findOne();

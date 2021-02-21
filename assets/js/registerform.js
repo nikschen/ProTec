@@ -86,5 +86,38 @@ var checkBirthDate = function() {
         error.innerHTML = "";
         error.style.display = "none";
     }
-
 }
+
+function createCookie(name, value, days) {
+    var expires;
+
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        expires = "";
+    }
+
+    document.cookie = escape(name) + "=" +
+        escape(value) + expires + "; path=/";
+}
+
+//CookieButton Make Element Disappear after click
+window.addEventListener('load', function() {
+
+
+
+
+    var cookieStatus = false;
+
+    document.getElementById("understoodButton").addEventListener("click", function() {
+        var cookieBannerElement = document.getElementsByClassName("cookieBanner");
+        cookieBannerElement[0].remove();
+        var cookieStatus = true;
+        createCookie("cookieStatus", "1", "1");
+    });
+
+
+
+})

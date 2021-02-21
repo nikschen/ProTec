@@ -213,3 +213,29 @@ main {
     flex-direction: column;
     width: 60vw;
 }
+
+.cookieBanner {
+    background-color: gold;
+    color: black;
+    text-align: center;
+    border-radius: 4px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.cookieBanner p {
+    color: black;
+    width: 90%;
+}
+
+.cookieBanner #understoodButton {
+    width: 35%;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
+}

@@ -73,6 +73,17 @@
             </li>
         </ul>
     </div>
+    <?if(!isset($_COOKIE['cookieStatus'])) :?>
+    <div class="cookieBanner">
+        <p>Wir nutzen <b>Cookies</b> für ein einmaliges Nutzererlebnis, wenn Sie diese Seite benutzen stimmen die den Konditionen zu...</p>
+        <form method="post">
+            <button id="understoodButton" type="button" name="cookiesUnderstood">Verstanden</button>
+        </form>
+    </div>
+    <br>
+    
+    <?endif?>
+    
 
 </footer>
 </html>
