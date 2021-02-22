@@ -35,7 +35,9 @@
         
         </p>
         <a href="https://www.berrybase.de">https://www.berrybase.de</a>
-
+        <a href="https://www.reichelt.de">https://www.reichelt.de</a>
+        <a href="https://www.conrad.de">https://www.conrad.de</a>
+        
         <h3>2. Anforderungsbeschreibung</h3>
         <h4>2.1 Muss-Kriterien</h4>
         <ul class="mustHaveCriteria">
