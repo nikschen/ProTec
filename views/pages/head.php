@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="assets/css/productBasket.css">
     <link rel="stylesheet" href="assets/css/administration.css">
     <link rel="stylesheet" href="assets/css/documentation.css">
+    <link rel="stylesheet" href="assets/css/checkout.css">
     <link rel="stylesheet" href="assets/css/smallerWidth.css">
     <link rel="stylesheet" href="assets/css/mobileRestrictions.css">
     <link rel="stylesheet" href="assets/css/mobileExtraThin.css">

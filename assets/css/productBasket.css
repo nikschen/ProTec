@@ -79,7 +79,7 @@
 
 
 
-.clearProductBasket{
+.clearProductBasket, .getToCheckoutButton{
     background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;
@@ -89,6 +89,20 @@
     cursor: pointer;
     align-items: center;
 }
+.getToCheckoutButton{
+
+    text-decoration: none;
+}
+.getToCheckoutButton:hover{
+
+   color:var(--orangeAccentColor);
+}
+.getToCheckoutButton:disabled{
+    background-color: var(--lightGreyParagraphColor);
+    color:white;
+    cursor: not-allowed;
+}
+
 
 .columnContentPricing, .columnSummaryPricing{
     justify-content: flex-end;

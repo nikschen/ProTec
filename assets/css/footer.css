@@ -60,6 +60,7 @@ footer a {
 
 footer a:hover {
     background-color: var(--hoverAccentColor);
+    color:var(--orangeAccentColor);
     transition: 0.5s;
 }
 
@@ -86,10 +87,12 @@ footer a:hover {
 .collapser .footerItemsTitle{
     text-align:center;
     margin:0;
+    cursor:default;
 }
 
 .collapser .collapsed {
     margin:0;
+    cursor:default;
 }
 
 .collapsed{

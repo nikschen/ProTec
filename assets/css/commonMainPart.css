@@ -26,9 +26,7 @@ main {
     color: white;
 }
 
-.Site-content a:hover {
-    color: rgb(48, 143, 180);
-}
+
 
 .Site-content strong {
     font-weight: 800;

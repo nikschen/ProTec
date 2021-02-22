@@ -3,6 +3,8 @@
 
 class ProductsController extends \protec\core\Controller
 {
+
+
     public function actionProduct()
     {
 
@@ -24,7 +26,12 @@ class ProductsController extends \protec\core\Controller
 
     public function actionProductBasket()
     {
-        if(isset($_POST['updateWantedQuantity']))
+        if(isset($_POST["getToCheckout"]))
+        {
+            header("Location: index.php?c=products&a=checkoutAddress");
+        }
+
+        else if(isset($_POST['updateWantedQuantity']))
         {
             if(isset($_POST['toBeChangedProductID']))
             {
@@ -41,7 +48,7 @@ class ProductsController extends \protec\core\Controller
             }
         }
 
-        if(isset($_POST['resetProductBasket']))
+        else if(isset($_POST['resetProductBasket']))
         {
             $_SESSION['productBasket']=null;
         }
@@ -89,5 +96,56 @@ class ProductsController extends \protec\core\Controller
             }
         }
     }
+
+
+    public function actionCheckoutAddress()
+    {
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true)
+        {
+            $sqlCustomer="email="."\"".$_SESSION["email"]."\"";
+            $customer=\protec\model\Customer::findOne($sqlCustomer);
+            $sqlAddress="addressID="."\"".$customer->customerID."\"";
+            $address=\protec\model\Address::findOne($sqlAddress);
+        }
+        else
+        {
+            header("Location: index.php?c=products&a=forwardToLogin");
+        }
+
+        $title='ProTec > Checkout';
+        $this->setParam('title', $title);
+        $this->setParam('customer', $customer);
+        $this->setParam('address', $address);
+    }
+
+    public function actionForwardToLogin()
+    {
+        $forwardingMessage="Sie müssen eingeloggt sein, um Käufe zu tätigen. <br> Sie werden nun weitergeleitet...";
+        $this->setParam('forwardingMessage', $forwardingMessage);
+        $title='ProTec > Weiterleitung';
+        $this->setParam('title', $title);
+
+        header("Refresh: 3; index.php?c=pages&a=login");
+    }
+
+    public function actionCheckoutPaymentAndShipping()
+    {
+
+        $title='ProTec > Checkout';
+        $this->setParam('title', $title);
+    }
+    public function actionCheckoutCheckAndBuy()
+    {
+
+        $title='ProTec > Checkout';
+        $this->setParam('title', $title);
+    }
+    public function actionCheckoutAfterPurchase()
+    {
+        $_SESSION['productBasket']=null;
+        $title='ProTec > Ihr Einkauf';
+        $this->setParam('title', $title);
+    }
+
 
 }

@@ -43,7 +43,10 @@
                                         </select>
                                 </td>
                                 <?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
-                                <td class="columnContentPricing"><?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?></td><?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
+                                <td class="columnContentPricing">
+                                    <?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?>
+                                </td>
+                                <?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                                 <td class="columnContentUpdate">
                                     <button class="updateWantedQuantityButton" name="updateWantedQuantity" type="submit" value="changeOfProductID<?=$productBasketEntry->productID?>">
                                         <img class="updateWantedQuantityIcon" src="<?=ICONSPATH?>updateIcon.png" alt="Update">
@@ -68,6 +71,13 @@
         <form class="clearProductBasketForm" method="post">
             <button class="clearProductBasket" type="submit" name="resetProductBasket" value="resetProductBasket">Warenkorb leeren</button>
         </form>
+        <form class="getToCheckoutForm" method="post">
+            <?if(!empty($_SESSION['productBasket'])) $disabled="";
+            else $disabled="disabled";?>
+            <button class="getToCheckoutButton" type="submit" name="getToCheckout" value="getToCheckout" <?=$disabled?>>Zum Checkout</button>
+        </form>
+
+
     </div>
 </main>
 </body>
