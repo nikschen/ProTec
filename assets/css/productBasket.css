@@ -11,11 +11,14 @@
 }
 
 .productBasketContent{
-    min-width:75vw;
+    width:100%;
     display:flex;
     flex-direction: column;
     align-items: center;
     font-size:1em;
+}
+.productBasketContent thead,.productBasketContent tbody,.productBasketContent tfoot{
+    width:80%;
 }
 
 .productBasketElement{
@@ -29,11 +32,11 @@
 
 .columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
 .columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
-    width:10vw;
+    width:10%;
 }
 
 .columnHeaderUpdate, .columnContentUpdate, .columnSummaryUpdate {
-    width:5vw;
+    width:5%;
 }
 
 .columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity{
@@ -60,7 +63,7 @@
 
 
 .columnHeaderProduct, .columnContentProduct, .columnSummaryProduct{
-    width:50vw;
+    width:70%;
 }
 
 .columnSummaryQuantity , .columnSummaryProduct ,.columnSummaryPricing{

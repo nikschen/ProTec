@@ -2,11 +2,11 @@
     <main class="Site-content">
         <div class="infoPageContainer">
             <h3>Versandkosten</h3>
-                <table class="ShippingDetails" width="50%">
+                <table class="ShippingDetails" width="80%">
                     <thead style="text-align: left">
                     <tr>
-                        <th>Versandarten</th>
-                        <th>Kosten</th>
+                        <th style="width:15%">Versandarten</th>
+                        <th style="width:15%">Kosten</th>
                         <th>Zusatzinfos</th>
                     </tr>
                     </thead>
@@ -46,9 +46,10 @@
             Ihre Bestellung wird sofort nach Eingang der Zahlung versandt (sofern lieferbar).</p>
 
 
-            <h4>Nachnahme</h4>
-            <p>Bezahlen Sie erst bei Erhalt der Bestellung.
-               Ihre Bestellung wird sofort versandt (sofern lieferbar) und Sie zahlen den Nachnahmebetrag direkt an den Zusteller. Zusätzlich zu den Versandkosten berechnen wir Ihnen einen Nachnahme-Gebührenanteil in Höhe von 6,00 € (Deutschland).</p>
+            <h4>Rechnung</h4>
+            <p>Bezahlen Sie erst nach Erhalt der Bestellung.
+               Ihre Bestellung wird sofort versandt (sofern lieferbar) und Sie zahlen den Betrag innerhalb von 14 Tagen an die auf der Rechnung angegebenen Kontodaten.
+               Im Rahmen der Zahlung mit Rechnung behalten wir uns vor, eine Bonitätsprüfung durchzuführen.</p>
         </div>
     </main>
 </body>

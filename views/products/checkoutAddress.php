@@ -8,35 +8,50 @@
         </div>
         <div class="addressView">
             <table width="120%">
+                    <thead style="text-align: left">
+                    <tr>
+                        <th>Lieferadresse</th>
+                        <th>Rechnungsadresse</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                <?if($billingAddress==false) $source=$address; else $source=$billingAddress;?>
                 <tr>
-                    <td>Vorname & Nachname</td>
+                    <td><?=$customer->firstName." ".$customer->lastName ?></td>
                     <td><?=$customer->firstName." ".$customer->lastName ?></td>
                 </tr>
                 <tr>
-                    <td>Straße & Hausnummer</td>
                     <td><?=$address->street." ".$address->streetNumber?></td>
+                    <td><?=$source->street." ".$address->streetNumber?></td>
                 </tr>
                 <tr>
-                    <td>PLZ & Ort</td>
                     <td><?=$address->zipCode." ".$address->city?></td>
+                    <td><?=$source->zipCode." ".$address->city?></td>
                 </tr>
                 <tr>
-                    <td>Land</td>
                     <td><?=$address->country?></td>
+                    <td><?=$source->country?></td>
                 </tr>
                 <tr>
-                    <td>Adresszusatz</td>
-                    <td><?=$address->additionalInformation?></td>
-                </tr>
-                <tr>
-                    <td>Telefonnummer</td>
-                    <td><?=$address->phone?></td>
-                </tr>
-                <tr>
-                    <td>E-Mail</td>
+                    <td><?=$customer->eMail?></td>
                     <td><?=$customer->eMail?></td>
                 </tr>
+                <tr>
+                    <td><?=$address->additionalInformation?></td>
+                    <td><?=$source->additionalInformation?></td>
+                </tr>
+                <tr>
+                    <td><?=$address->phone?></td>
+                    <td><?=$source->phone?></td>
+                </tr>
+                </tbody>
             </table>
+
+
+            <form method="post">
+
+            </form>
+
         </div>
 
         <a class="continueCheckoutButton" href="index.php?c=products&a=checkoutPaymentAndShipping">Weiter</a>

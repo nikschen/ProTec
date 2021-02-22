@@ -106,6 +106,26 @@ class ProductsController extends \protec\core\Controller
             $customer=\protec\model\Customer::findOne($sqlCustomer);
             $sqlAddress="addressID="."\"".$customer->customerID."\"";
             $address=\protec\model\Address::findOne($sqlAddress);
+            $_SESSION['customerID']=$customer->customerID;
+            $_SESSION['shippingAddress']=$address;
+
+            $sqlPayDetail="customerID="."\"".$customer->customerID."\"";
+            $sqlBillingAddress="addressID="."\"".$customer->customerID."\"";
+
+            if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail)))
+            {
+                $payDetail=\protec\model\PayDetail::findOne($sqlPayDetail);
+                $billingAddress=\protec\model\Address::findOne($sqlBillingAddress);
+
+                $this->setParam('payDetail', $payDetail);
+                $this->setParam('billingAddress', $billingAddress);
+            }
+            else
+            {
+                $this->setParam('billingAddress', false);
+            }
+
+
         }
         else
         {
@@ -142,6 +162,40 @@ class ProductsController extends \protec\core\Controller
     }
     public function actionCheckoutAfterPurchase()
     {
+        $db = $GLOBALS["db"];
+
+        $values['customerID']=$_SESSION['customerID'];
+        $shippingAddress=$_SESSION['shippingAddress'];
+        $values['shippingAddressID']=$shippingAddress->addressID;
+        $purchase=new \protec\model\Purchase($values);
+        $purchase->insert();
+        $purchaseID=$db->lastInsertId();
+
+
+        $values=[];
+
+        foreach($_SESSION['productBasket'] as $productBasketEntry)
+        {
+            $productBasketEntry->purchaseID=$purchaseID;
+
+            echo "<pre>";
+            print_r($productBasketEntry);
+            echo "</pre>";
+            foreach($productBasketEntry as $key=>$value)
+            {
+                $values[$key]=$value;
+                echo $key;
+                echo $value;
+                exit(1);
+            }
+            echo "<pre>";
+            print_r($values);
+            echo "</pre>";
+            exit(1);
+            $productBasketEntry->insert($values);
+        }
+
+
         $_SESSION['productBasket']=null;
         $title='ProTec > Ihr Einkauf';
         $this->setParam('title', $title);
