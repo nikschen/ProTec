@@ -26,8 +26,6 @@ main {
     color: white;
 }
 
-
-
 .Site-content strong {
     font-weight: 800;
 }
@@ -50,7 +48,8 @@ main {
 #filter input[type=text] {
     border: 0.0625em solid rgb(134, 133, 133);
     border-radius: 0.25em;
-    margin-top: 1%;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
 }
 
 #filter .categoryFilter {
@@ -63,6 +62,26 @@ main {
 
 #filter form label:hover {
     background-color: var(--mainColor);
+}
+
+#filter .priceFilter {
+    width: 20.25%;
+}
+
+#filter label {
+    margin-right: 0.5em;
+}
+
+#filterSubmit {
+    width: 65%;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
 }
 
 .registrationForm input[type=text],

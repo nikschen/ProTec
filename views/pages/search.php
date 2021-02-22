@@ -20,12 +20,12 @@
         <?endforeach;?>
         </div>
      
-    
-        <label for="searchString">Suchbegriff</label>  
+        
+        <label for="searchString">Suchbegriff </label>  
         <input type="text" name="searchString"<?if(isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>><br>
         <label for="minPrice">Preis</label>  
-        <input type="text" name="minPrice" placeholder="von"<?if(isset($_GET['minPrice'])){echo "value=".htmlspecialchars($_GET['minPrice']);};?>>
-        <input type="text" name="maxPrice" placeholder="bis"<?if(isset($_GET['maxPrice'])){echo "value=".htmlspecialchars($_GET['maxPrice']);};?>><br>
+        <input class="priceFilter" type="text" name="minPrice" placeholder="von"<?if(isset($_GET['minPrice'])){echo "value=".htmlspecialchars($_GET['minPrice']);};?>>
+        <input class="priceFilter" type="text" name="maxPrice" placeholder="bis"<?if(isset($_GET['maxPrice'])){echo "value=".htmlspecialchars($_GET['maxPrice']);};?>><br>
         
         <label for="sorting">Sortierung:</label>
         <select name="sorting" id="sorting">
@@ -33,7 +33,9 @@
             <option value="asc"  <?=isset($_GET['sorting']) && $_GET['sorting']=='asc'? "selected":"" ?>>Preis: aufsteigend</option>
             <option value="desc" <?=isset($_GET['sorting']) && $_GET['sorting']=='desc'? "selected":"" ?>>Preis: absteigend</option>
          </select><br>
-        <button type="submit" >Ergebnisse filtern</button><br>
+         <div class="submitButton" style=text-align:center;>
+        <button id="filterSubmit" type="submit" >Ergebnisse filtern</button><br>
+        </div>
     </form>
     <?php if(isset($errorMessage) && count($errorMessage) > 0) : ?>
      <div class="error-message" style ="width:100%;border-radius:5px;background-color: red; color: white">

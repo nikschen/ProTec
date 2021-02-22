@@ -73,7 +73,16 @@ class PagesController extends \protec\core\Controller
                  //Replace german "," by internatinal "." to make number-check, make numbers according to german system
                  $replaceMaxSeperator = str_replace(",",".",htmlspecialchars($_GET['maxPrice']));
                  $replaceMinSeperator = str_replace(",",".",htmlspecialchars($_GET['minPrice']));
-                //
+            
+            //check if one String was empty, set zero, because an empty string is not numeric
+            if($_GET['maxPrice']=="")
+            {
+                $replaceMaxSeperator=0;
+            }
+            elseif($_GET['minPrice']=="")
+            {
+                $replaceMinSeperator=0;
+            }
 
             //check if user-entry is a valid number, if not do not perform any filtering by price and give message to user
             if(is_numeric($replaceMaxSeperator) && is_numeric($replaceMinSeperator))
