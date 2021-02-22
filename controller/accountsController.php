@@ -23,7 +23,7 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-		//the all Postvariables to Variables for easier reading later on
+		//get all post-variables to local-variables for easier reading later on
 		$email = $_POST['email'] ?? null; //
 		$password = $_POST['password'] ?? null;//
 		$password_repeat = $_POST['password-repeat'] ?? null;
@@ -41,6 +41,7 @@ class AccountsController extends \protec\core\Controller
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
 
+		//php checking the user input and creating errors-array if errors occured
 		if(mb_strlen($firstName)<2 || mb_strlen($firstName)>46 || preg_match('/[0-9]/',$firstName))
 		{
 			$errors['firstName'] = "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeichen";
@@ -156,8 +157,8 @@ class AccountsController extends \protec\core\Controller
 					$searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
 				}
     		}
-			$searchStringEnd =  rtrim($searchString,$connectionString);
-    		$allAddress = \protec\model\Address::findOne($searchStringEnd);
+			$searchStringTrimmed=  rtrim($searchString,$connectionString);
+    		$allAddress = \protec\model\Address::findOne($searchStringTrimmed);
 			
 			//set AdressID from Database to Customer if Address already existing, else: insert the data inside the database, and give the created ID to the User
 			if($allAddress !== null)
