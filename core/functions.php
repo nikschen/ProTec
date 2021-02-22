@@ -25,19 +25,13 @@ function getUserInformation($email)
 
 function validateLogInSessionsAndCookies($email, $password)
 {
-    //print_r($email . " - " . $password);
-    
     $login = \protec\model\Account::findOne("username = ". "\"".$email."\"");
-    //print_r($login->passwordHash);
-   
-    $passwordFromDatabase = $login->passwordHash;
     
+    $passwordFromDatabase = $login->passwordHash;
     $decryptedPassword = decryptPassword($password);
-    //echo $decryptedPassword;
-     //exit(0);
+    
     if(password_verify($decryptedPassword,$passwordFromDatabase))
     {
-
         return "1";
     }
 
@@ -46,7 +40,6 @@ function validateLogInSessionsAndCookies($email, $password)
 
 function encryptPassword($password)
 {
-    
     $cipherMethod = "AES-256-CTR";
     $iv_length = openssl_cipher_iv_length($cipherMethod); 
     $options = 0; 
@@ -65,7 +58,7 @@ function decryptPassword($passwordEncrypted)
     $decryption_initVector= '1428570803198685';
     $decryption_Key= 'Niklasius';
     $decryptedPassword=openssl_decrypt ($passwordEncrypted, $cipherMethod,  
-        $decryption_Key, $options, $decryption_initVector); 
+    $decryption_Key, $options, $decryption_initVector); 
 
     return $decryptedPassword;
 }
@@ -76,14 +69,12 @@ function getAllCategories()
     $sqlStr = 'SELECT DISTINCT `product`.`category` FROM `product`';
     $results = [];
 
-
     $results = $db->query($sqlStr)->fetchAll();
     foreach($results as $category)
     {
         $categories[]=$category["category"];
-
     }
-        return $categories;
+    return $categories;
 }
 
 function getProductPriceByID($productID, $convert=true)
@@ -101,14 +92,9 @@ function getProductPriceByID($productID, $convert=true)
 }
 
 
-
-
-
-
 function validateUploadedProductImage (&$errors)
 {
     $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
-
 
     //Überprüfung der Dateiendung
     $allowed_extensions = array('png');
