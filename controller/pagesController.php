@@ -139,7 +139,7 @@ class PagesController extends \protec\core\Controller
                 }
             }
 
-            //Hinzufügen eines Mehrdimensionalen Arrays mit dem Preis
+            //create multidimensional array for later use in the sorting
             $productsAndTheirPrice=[];
             foreach ($superEndArray as $element)
             {

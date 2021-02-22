@@ -16,6 +16,26 @@
         </p>
         <br><br>
 
+        <h3>1.1 Recherche und Rechercheergebnisse</h3>
+        <p>
+            Bei der Findung der Grundidee recherchierten wir hauptsächlich auf Seiten für den technisch/elektronischen Bedarf.
+            Wichtig war für uns hierbei Elemente zu entdecken, die wir gerne für uns adaptieren möchten, aber auch Elemente,
+            die wir eher störend empfanden und gerne anders umsetzen würden. Berrybase.de war unser erster Anhaltspunkt an
+            dem wir unsere Recherche begannen. Ein simpler Webshop für den Technikbastler. Bei unserer Suche trafen wir ebenfalls
+            auf Webshops die wir als "erschlagend" überladen empfanden, so zum Beispiel die Website von reichelt.de. 
+
+            Erklärtes Ziel war es nach kurzer Zeit, einen Webshop zu entwickeln, der nicht überladen mit Inhalten, sowohl für den 
+            Einsteigerbastler als auch für den fortgeschrittenen Bastler,  eine Möglichkeit bietet, durch die "Regale" zu schlendern
+            und sich inspirieren zu lassen, zu neuen Projekten.
+        </p>
+        <br><br>
+        <p>
+            Für die Recherche genutze Webpräsenzen:
+            
+        
+        </p>
+        <a href="https://www.berrybase.de">https://www.berrybase.de</a>
+
         <h3>2. Anforderungsbeschreibung</h3>
         <h4>2.1 Muss-Kriterien</h4>
         <ul class="mustHaveCriteria">
