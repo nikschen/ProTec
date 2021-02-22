@@ -399,3 +399,7 @@ span.administrationText{
 span.userprofileText{
     font-size: 1em;
 }
+
+.userprofileContainer:hover .userprofileIcon{
+    filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}

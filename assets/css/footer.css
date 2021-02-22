@@ -95,6 +95,10 @@ footer a:hover {
     cursor:default;
 }
 
+.collapser:hover{
+    cursor:default;
+}
+
 .collapsed{
     margin-left:0;
 }
