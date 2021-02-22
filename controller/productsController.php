@@ -35,7 +35,7 @@ class ProductsController extends \protec\core\Controller
                         if($basketEntry->productID==$concerningProductID)
                         {
                             $basketEntry->quantityWanted=$selectedQuantity;
-                            return;
+                            break;
                         }
                     }
             }
