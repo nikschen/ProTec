@@ -212,6 +212,42 @@
             </li>
         </ul>
 
+        <h3>8. Funktionalitäten mit Screenshots (ausklappbar)</h3>
+        <ul>
+
+        <details>
+            <summary>Hauptseite/Startseite</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/mainPage.jpg" alt="mainPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Login</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/loginPage.jpg" alt="loginPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Registrierung</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/signUpPage.jpg" alt="signUpPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Profildatenänderung</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/profilePage.jpg" alt="profilPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Suchfilter (Produktsuche)</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/searchFilter.jpg" alt="searchFilterPage Screenshot" width=90%>
+            <h2>Beispiel für fehlgeschlagene Suche</h2>
+            <img src="<?=IMAGESPATH?>/screenshots/searchFilterFailed.jpg" alt="searchFilterFailedPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Kategorieanzeige Beispiel</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/categorySite.jpg" alt="categoryPage Screenshot" width=90%>
+        </details>
+
+        </ul>
     </div>
 
 
