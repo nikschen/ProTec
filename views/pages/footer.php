@@ -75,7 +75,8 @@
     </div>
     <?if(!isset($_COOKIE['cookieStatus'])) :?>
     <div class="cookieBanner">
-        <p>Wir nutzen <b>Cookies</b> für ein einmaliges Nutzererlebnis, wenn Sie diese Seite benutzen stimmen die den Konditionen zu...</p>
+        <p>Wir nutzen <b>Cookies</b> für ein einmaliges Nutzererlebnis, wenn Sie diese Seite benutzen stimmen die den Konditionen zu</p>
+        <a id="linkToInfo" href="index.php?c=infopages&a=privacyGuidelines">Datenschutzbestimmungen</a> 
         <form method="post">
             <button id="understoodButton" type="button" name="cookiesUnderstood">Verstanden</button>
         </form>

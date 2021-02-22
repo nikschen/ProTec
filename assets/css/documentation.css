@@ -1,49 +1,60 @@
-.documentationContainer{
-    max-width:80vw;
-    display:flex;
+.documentationContainer {
+    max-width: 80vw;
+    display: flex;
     flex-direction: column;
 }
 
-.documentationContainer h2{
+.documentationContainer h2 {
     align-self: center;
 }
 
-.websiteDiagram, .databaseDiagram, .projectStructureDiagram{
-    max-width:80%;
+.websiteDiagram,
+.databaseDiagram,
+.projectStructureDiagram {
+    max-width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-.websiteDiagramFull, .databaseDiagramFull, .projectStructureDiagramFull{
-    display:flex;
+.websiteDiagramFull,
+.databaseDiagramFull,
+.projectStructureDiagramFull {
+    display: flex;
     flex-direction: column;
     justify-items: center;
     text-align: center;
-
 }
-
 
 .functionalities {
     border-collapse: collapse;
-    width:100%;
+    width: 100%;
 }
 
-.functionalitiesRow, .functionalitiesHeaderRow {
+.functionalitiesRow,
+.functionalitiesHeaderRow {
     border-bottom: solid white;
 }
 
-
-.developerColumn{
+.developerColumn {
     border-left: solid white;
     text-align: center;
 }
 
-.lastFunctionalitiesRow{
+.lastFunctionalitiesRow {
     border-style: none;
 }
 
-.mustHaveCriteria, .couldHaveCriteria {
+.mustHaveCriteria,
+.couldHaveCriteria {
     list-style-type: none;
+}
+
+details {
+    margin: 0.25em
+}
+
+details summary:hover {
+    background-color: #FDDA0F;
+    color: black;
 }

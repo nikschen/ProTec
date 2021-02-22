@@ -223,13 +223,19 @@
         <details>
             <summary>Login</summary>
             <img src="<?=IMAGESPATH?>/screenshots/loginPage.jpg" alt="loginPage Screenshot" width=90%>
+            <h2>Fehlgeschlagener Loginversuch</h2>
+            <img src="<?=IMAGESPATH?>/screenshots/errorMessageLogin.jpg" alt="loginError Screenshot" width=90%>
         </details>
 
         <details>
             <summary>Registrierung</summary>
             <img src="<?=IMAGESPATH?>/screenshots/signUpPage.jpg" alt="signUpPage Screenshot" width=90%>
+            <h2>Fehlermeldung mit JavaScript</h2>
+            <img src="<?=IMAGESPATH?>/screenshots/errorMessageJSSignUp.jpg" alt="errorMessageJS Screenshot" width=90%>
+            <h2>Fehlermeldung mit PHP</h2>
+            <img src="<?=IMAGESPATH?>/screenshots/errorMessagePHP.jpg" alt="errorMessagePHP Screenshot" width=90%>
         </details>
-
+        
         <details>
             <summary>Profildatenänderung</summary>
             <img src="<?=IMAGESPATH?>/screenshots/profilePage.jpg" alt="profilPage Screenshot" width=90%>
@@ -245,6 +251,11 @@
         <details>
             <summary>Kategorieanzeige Beispiel</summary>
             <img src="<?=IMAGESPATH?>/screenshots/categorySite.jpg" alt="categoryPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Warenkorb</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/cartPage.jpg" alt="cartPage Screenshot" width=90%>
         </details>
 
         </ul>
