@@ -7,23 +7,23 @@
                 <div class="addProductFormularContainer">
                     <form method="POST" enctype="multipart/form-data">
                         <div class="firstRow">
-                            <input class="quantityStored" type="number" min="0" name="quantityStored" placeholder="Anzahl" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
+                            <input class="quantityStored" type="number" min="0" name="quantityStored" placeholder="Anzahl" value="<?=$quantityStoredValueAdd?>">
                             <select class="category" name="category"  required >
-                                <option  hidden="hidden" disabled="disabled" selected="selected" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['category']??'');}else echo 'Kategorie wählen'?>">
-                                    <?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['category']??'Kategorie wählen');} else echo 'Kategorie wählen';?>
+                                <option  hidden="hidden" disabled="disabled" selected="selected" value="<?=$categoryValueAdd?>">
+                                    <?=$categoryValueAdd?>
                                 </option>
                                 <?foreach ($categories as $categoryName):?>
                                     <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                 <?endforeach;?>
                             </select>
                         </div>
-                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required><?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['prodName']??'');} else echo '';?></textarea>
-                            <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7"  required><?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['prodDescription']??'');} else echo '';?></textarea>
+                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required><?=$prodNameValueAdd?></textarea>
+                            <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7"  required><?=$prodDescriptionValueAdd?></textarea>
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png" required/>
 
                         <div class="lastRow">
-                            <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>" required>
-                            <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="addProduct") echo htmlspecialchars($_POST['currency']??'Euro');} else echo 'Euro';?>" required>
+                            <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?=$amountValueAdd?>" required>
+                            <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?=$currencyValueAdd?>" required>
                         </div>
                         <div class="passwordCheck">
                             <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
@@ -55,27 +55,28 @@
 
                     <form method="POST">
                         <div class="inputFields">
-                            <input type="text" name="productID" placeholder="ID des zu ändernden Produkts" value="<?if(isset($_POST["submit"])){if ($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['productID']??'');} else echo '';?>" required>
+                            <input type="text" name="productID" placeholder="ID des zu ändernden Produkts" value="<?=$productIDValueChange?>" required>
+                            <button type="submit" name="submit" value="loadDataFromDB">Produktdaten laden</button>
                             <br>
                             <p>Zu ändernde Daten:</p>
                             <br>
                             <div class="firstRow">
-                            <input class="quantityStored" type="number" min="0"  name="quantityStored" placeholder="Anzahl (gelagert)" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['quantityStored']??'');} else echo '';?>">
+                            <input class="quantityStored" type="number" min="0"  name="quantityStored" placeholder="Anzahl (gelagert)" value="<?=$quantityStoredValueChange?>">
                                 <select class="category" name="category">
-                                    <option  hidden="hidden" disabled="disabled" selected="selected" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['category']??'');} else echo ''?>">
-                                        <?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['category']??'Kategorie wählen');} else echo 'Kategorie wählen';?>
+                                    <option  hidden="hidden" disabled="disabled" selected="selected" value="<?=$categoryValueChange?>">
+                                        <?=$categoryValueChange?>
                                     </option>
                                     <?foreach ($categories as $categoryName):?>
                                         <option value="<?=$categoryName?>" ><?=$categoryName?></option>
                                     <?endforeach;?>
                                 </select>
                             </div>
-                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" ><?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['prodName']??'');} else echo '';?></textarea>
-                            <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7" ><?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['prodDescription']??'');} else echo '';?></textarea>
+                            <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" ><?=$prodNameValueChange?></textarea>
+                            <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7" ><?=$prodDescriptionValueChange?></textarea>
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png"/>
                             <div class="lastRow">
-                                <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['amount']??'');} else echo '';?>">
-                                <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?if(isset($_POST["submit"])){if($_POST["submit"]=="changeProduct") echo htmlspecialchars($_POST['currency']??'Euro');} else echo 'Euro';?>">
+                                <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?=$amountValueChange?>">
+                                <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?=$currencyValueChange?>">
                             </div>
                             <div class="passwordCheck">
                                 <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>

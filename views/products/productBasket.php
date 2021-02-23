@@ -32,7 +32,7 @@
                                 <td class="columnContentProduct"><a class="columnContentProduct" href="index.php?c=products&a=product&pid=<?=$productBasketEntry->productID?>"><?=$product->prodName?></td>
                                 <td class="columnContentQuantity">
                                         <select class="productBasketQuantityWanted" name="quantityWanted">
-                                            <option hidden="hidden" disabled="disabled" selected="selected" value="$productBasketEntry->quantityWanted"><?=$productBasketEntry->quantityWanted?></option>
+                                            <option hidden="hidden" selected="selected" value="<?=$productBasketEntry->quantityWanted?>"><?=$productBasketEntry->quantityWanted?></option>
                                             <?for($allowedAmount=1;$allowedAmount<=$product->quantityStored && $allowedAmount<=10;$allowedAmount++):?>
                                                 <?if($allowedAmount!=$productBasketEntry->quantityWanted):?>
                                                 <option value="<?=$allowedAmount?>"><?=$allowedAmount?></option>
@@ -48,7 +48,7 @@
                                 </td>
                                 <?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                                 <td class="columnContentUpdate">
-                                    <button class="updateWantedQuantityButton" name="updateWantedQuantity" type="submit" value="changeOfProductID<?=$productBasketEntry->productID?>">
+                                    <button class="updateWantedQuantityButton" name="updateWantedQuantity" type="submit" value="changeOfProductID">
                                         <img class="updateWantedQuantityIcon" src="<?=ICONSPATH?>updateIcon.png" alt="Update">
                                     </button>
                                 </td>

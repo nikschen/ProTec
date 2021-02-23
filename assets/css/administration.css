@@ -129,12 +129,23 @@
 }
 
 .passwordCheck {
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+
     border-bottom: var(--orangeAccentColor);
     border-top: var(--orangeAccentColor);
     border-style: solid;
     border-left: none;
     border-right: none;
 }
+
+.adminPasswordCheck{
+
+    width:100%;
+}
+
 
 .addProductFormularContainer form {
     display: flex;

@@ -60,7 +60,12 @@ class AdministrativeOperationsController extends \protec\core\Controller
         $db = $GLOBALS["db"];
         $categories = getAllCategories();
         $this->setParam('categories', $categories);
-        
+
+
+
+
+
+
         if (isset($_POST["password"]) && isset($_POST["submit"])) {
             $admin = \protec\model\Account::findOne("username=\"admin@protec.de\"");
             $pwdHash = $admin->passwordHash;
@@ -171,7 +176,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                 $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
                                 $destinationPath = $uploadFolder . $filename . '.' . $extension;
                                 move_uploaded_file($_FILES['file']['tmp_name'], $destinationPath);
-                                $_POST = array();
+                                $_POST= [];
                             }
                             
                         }
@@ -211,6 +216,139 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 }
             }
         }
+
+
+
+
+        if(isset($_POST["submit"]))
+        {
+            $quantityStoredValueAdd='';
+            $categoryValueAdd='Kategorie wählen';
+            $prodNameValueAdd='';
+            $prodDescriptionValueAdd='';
+            $amountValueAdd='';
+            $currencyValueAdd='Euro';
+
+            $productIDValueChange='';
+            $quantityStoredValueChange='';
+            $categoryValueChange='Kategorie wählen';
+            $prodNameValueChange='';
+            $prodDescriptionValueChange='';
+            $amountValueChange='';
+            $currencyValueChange='Euro';
+
+            if($_POST["submit"]=="loadDataFromDB")
+            {
+                $productID=$_POST["productID"];
+                $sqlProduct="productID="."\"".$productID."\"";
+                $product=\protec\model\Product::findOne($sqlProduct);
+                $sqlPricing="pricingID="."\"".$productID."\"";
+                $pricing=\protec\model\Pricing::findOne($sqlPricing);
+
+                $productIDValueChange=$productID;
+                $quantityStoredValueChange=$product->quantityStored;
+                $categoryValueChange=$product->category;
+                $prodNameValueChange=$product->prodName;
+                $prodDescriptionValueChange=$product->prodDescription;
+                $amountValueChange=$pricing->amount;
+                $currencyValueChange=$pricing->currency;
+            }
+            else if ($_POST["submit"]=="addProduct" && empty($addProductSuccess))
+            {
+                $quantityStoredValueAdd=htmlspecialchars($_POST['quantityStored']??'');
+                $categoryValueAdd=htmlspecialchars($_POST['category']??'');
+                $prodNameValueAdd=htmlspecialchars($_POST['prodName']??'');
+                $prodDescriptionValueAdd=htmlspecialchars($_POST['prodDescription']??'');
+                $amountValueAdd=htmlspecialchars($_POST['amount']??'');
+                $currencyValueAdd=htmlspecialchars($_POST['currency']??'Euro');
+
+                $productIDValueChange='';
+                $quantityStoredValueChange='Kategorie wählen';
+                $categoryValueChange='';
+                $prodNameValueChange='';
+                $prodDescriptionValueChange='';
+                $amountValueChange='';
+                $currencyValueChange='Euro';
+            }
+            else if ($_POST["submit"]=="changeProduct" && empty($productChangeSuccess))
+            {
+                $productIDValueChange=htmlspecialchars($_POST['productID']??'');
+                $quantityStoredValueChange=htmlspecialchars($_POST['quantityStored']??'');
+                $categoryValueChange=htmlspecialchars($_POST['category']??'');
+                $prodNameValueChange=htmlspecialchars($_POST['prodName']??'');
+                $prodDescriptionValueChange=htmlspecialchars($_POST['prodDescription']??'');
+                $amountValueChange=htmlspecialchars($_POST['amount']??'');
+                $currencyValueChange=htmlspecialchars($_POST['currency']??'Euro');
+
+                $quantityStoredValueAdd='';
+                $categoryValueAdd='Kategorie wählen';
+                $prodNameValueAdd='';
+                $prodDescriptionValueAdd='';
+                $amountValueAdd='';
+                $currencyValueAdd='Euro';
+            }
+
+
+
+        }
+        else if(isset($_POST["reset"]))
+        {
+
+            $quantityStoredValueAdd='';
+            $categoryValueAdd='Kategorie wählen';
+            $prodNameValueAdd='';
+            $prodDescriptionValueAdd='';
+            $amountValueAdd='';
+            $currencyValueAdd='Euro';
+
+
+            $productIDValueChange='';
+            $quantityStoredValueChange='';
+            $categoryValueChange='Kategorie wählen';
+            $prodNameValueChange='';
+            $prodDescriptionValueChange='';
+            $amountValueChange='';
+            $currencyValueChange='Euro';
+        }
+        else
+        {
+
+            $quantityStoredValueAdd='';
+            $categoryValueAdd='Kategorie wählen';
+            $prodNameValueAdd='';
+            $prodDescriptionValueAdd='';
+            $amountValueAdd='';
+            $currencyValueAdd='Euro';
+
+
+            $productIDValueChange='';
+            $quantityStoredValueChange='';
+            $categoryValueChange='Kategorie wählen';
+            $prodNameValueChange='';
+            $prodDescriptionValueChange='';
+            $amountValueChange='';
+            $currencyValueChange='Euro';
+        }
+
+
+        $this->setParam('quantityStoredValueAdd',$quantityStoredValueAdd);
+        $this->setParam('categoryValueAdd',$categoryValueAdd);
+        $this->setParam('prodNameValueAdd',$prodNameValueAdd);
+        $this->setParam('prodDescriptionValueAdd',$prodDescriptionValueAdd);
+        $this->setParam('amountValueAdd',$amountValueAdd);
+        $this->setParam('currencyValueAdd',$currencyValueAdd);
+
+
+        $this->setParam('productIDValueChange',$productIDValueChange);
+        $this->setParam('quantityStoredValueChange',$quantityStoredValueChange);
+        $this->setParam('categoryValueChange',$categoryValueChange);
+        $this->setParam('prodNameValueChange',$prodNameValueChange);
+        $this->setParam('prodDescriptionValueChange',$prodDescriptionValueChange);
+        $this->setParam('amountValueChange',$amountValueChange);
+        $this->setParam('currencyValueChange',$currencyValueChange);
+
+
+
         $this->setParam('addProductSuccess', $addProductSuccess);
         $this->setParam('changeProductSuccess', $changeProductSuccess);
         $this->setParam('deleteProductSuccess', $deleteProductSuccess);
