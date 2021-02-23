@@ -408,7 +408,7 @@ class AccountsController extends \protec\core\Controller
 			// if the creation and entry of the User is done successfully he will be redirected to the LoginPage:
 			if($success) 
 			{
-				//header( "refresh:4;url=index.php?c=pages&a=login");
+				header( "refresh:4;url=index.php?c=pages&a=login");
 			}
 
 			}

@@ -17,7 +17,7 @@
   
     <?php if(isset($success) && $success) : ?>
         <div class="success-message" style="border-radius:5px;background-color:green; color: white">
-        <p>Erfolgreich angemeldet!</p>
+        <p>Erfolgreich angemeldet! Sie werden zum Login weitergeleitet...</p>
         </div>
         <?php endif; ?>
         
@@ -33,8 +33,6 @@
                 <option value="female">Frau</option>
                 <option value="heli">ApacheHelicopter</option>
             </select><br>
-
-            <input type="text" name="title" placeholder="Titel" <?if (isset($_POST['title'])){echo "value=".htmlspecialchars($_POST['title']);};?>><br>
 
             <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST["lastName"]);};?> required ><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value=".htmlspecialchars($_POST['firstName']);};?> required ><br>
