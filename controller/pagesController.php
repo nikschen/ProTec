@@ -189,6 +189,7 @@ class PagesController extends \protec\core\Controller
 		$title='ProTec > Login';
         $this->setParam('title', $title);
         $success = false;
+        $errors = [];
 
 	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
 		{
@@ -206,7 +207,7 @@ class PagesController extends \protec\core\Controller
                 //if there is a user found with that mail, start to check whether the pw is correct
                 if($login !== null)
                 {
-                    //$errors['login'] = "E-Mail in Datenbank vorhanden";
+                    
                     //get specific Info on user for showing that he is logged in as
                     $loginID = $login->customerID;
 
@@ -229,7 +230,7 @@ class PagesController extends \protec\core\Controller
                         $this->rememberMe($email, $password);
                         }
                         $success = true;
-                     //header('Location: index.php');
+                        header("refresh:5;url=index.php");
                     }
                     else
                     {

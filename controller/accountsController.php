@@ -28,7 +28,6 @@ class AccountsController extends \protec\core\Controller
 		$password = $_POST['password'] ?? null;//
 		$password_repeat = $_POST['password-repeat'] ?? null;
 		$telefon= $_POST['phone'] ?? null;//
-		$title = $_POST['title'] ?? null;//
 		$firstName = $_POST['firstName'] ?? null;//
 		$lastName = $_POST['lastName'] ?? null;// 
 		$birthDate = $_POST['birthDate'] ?? null;
@@ -53,10 +52,6 @@ class AccountsController extends \protec\core\Controller
 		if(mb_strlen($birthDate)<10 || mb_strlen($birthDate)>15 || !preg_match('/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/',$birthDate))
 		{
 			$errors['birthDate'] = "Geburtsdatum fehlerhaft: Das ist kein gültiges Datumsformat. Bsp: 12. März 2020 = 12.03.2020";
-		}
-		if(mb_strlen($title)>0 && mb_strlen($title)<2)
-		{
-			$errors['title'] = "Titel zu kurz";
 		}
 		if(isset($_POST['passwordOld']) && $_POST['passwordOld']!== "" )
 		{
@@ -226,24 +221,19 @@ class AccountsController extends \protec\core\Controller
 
 		if(isset($_POST['submit']))
 		{
-			/*$db = $GLOBALS['db'];
-			$statement =  $db->prepare("INSERT INTO `CUSTOMER` (customerID, firstName, lastName, birthDate, eMail) VALUES (:customerID, :firstName , :lastName , :birthDate, :eMail)");
-			$statement->execute(array('firstName' => 'Holger', 'lastName' => 'Nachname', 'birthDate' => '1200-03-03', 'eMail' => 'AnpassenmitCust@gmx.de' , 'customerID' => ''));*/
-
 		#prepare to save to DB
 		$email = $_POST['email'] ?? null; //
 		$password = $_POST['password'] ?? null;//
 		$password_repeat = $_POST['password-repeat'] ?? null;
 		$telefon= $_POST['fon'] ?? null;//
-		$title = $_POST['title'] ?? null;//
 		$firstName = $_POST['firstName'] ?? null;//
-		$lastName = $_POST['lastName'] ?? null;// check warum ab Leerzeichen getrennt wird
+		$lastName = $_POST['lastName'] ?? null;// 
 		$birthDate = $_POST['birthDate'] ?? null;
 		$salutation = $_POST['Anrede'] ?? null; //
 
 		$streetInfo= $_POST['streetInfo'] ?? null; //
 		$streetNo= $_POST['streetNo'] ?? null;//
-		$address2= $_POST['address2'] ?? null; //eventuell rauslassen (Mit Niklasius besprechen) 
+		$address2= $_POST['address2'] ?? null; 
 		$zipcode= $_POST['zipcode'] ?? null;//
 		$city= $_POST['city'] ?? null;//
 		$country= $_POST['country'] ?? null;//
@@ -267,11 +257,6 @@ class AccountsController extends \protec\core\Controller
 		if(mb_strlen($birthDate)<10 || mb_strlen($birthDate)>15 || !preg_match('/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/',$birthDate))
 		{
 			$errors['birthDate'] = "Geburtsdatum fehlerhaft: Das ist kein gültiges Datumsformat. Bsp: 12. März 2020 = 12.03.2020";
-		}
-	
-		if(mb_strlen($title)>0 && mb_strlen($title)<2)
-		{
-			$errors['title'] = "Titel zu kurz";
 		}
 	
 		if(mb_strlen($password)<8 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&_-]{8,}$/',$password))
@@ -408,7 +393,7 @@ class AccountsController extends \protec\core\Controller
 			// if the creation and entry of the User is done successfully he will be redirected to the LoginPage:
 			if($success) 
 			{
-				//header( "refresh:4;url=index.php?c=pages&a=login");
+				header( "refresh:4;url=index.php?c=pages&a=login");
 			}
 
 			}
