@@ -106,22 +106,32 @@ class ProductsController extends \protec\core\Controller
             $customer=\protec\model\Customer::findOne($sqlCustomer);
             $sqlAddress="addressID="."\"".$customer->customerID."\"";
             $address=\protec\model\Address::findOne($sqlAddress);
+            $_SESSION['address']=$address;
+            $_SESSION['customer']=$customer;
             $_SESSION['customerID']=$customer->customerID;
             $_SESSION['shippingAddress']=$address;
 
             $sqlPayDetail="customerID="."\"".$customer->customerID."\"";
-            $sqlBillingAddress="addressID="."\"".$customer->customerID."\"";
+
 
             if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail)))
             {
                 $payDetail=\protec\model\PayDetail::findOne($sqlPayDetail);
+                $sqlBillingAddress="addressID="."\"".$payDetail->billingAdressID."\"";
+
                 $billingAddress=\protec\model\Address::findOne($sqlBillingAddress);
 
-                $this->setParam('payDetail', $payDetail);
+
+                $_SESSION['payDetail']=$payDetail;
+                $_SESSION['billingAddress']=$billingAddress;
+
+
+
                 $this->setParam('billingAddress', $billingAddress);
             }
             else
             {
+                $billingAddress=false;
                 $this->setParam('billingAddress', false);
             }
 
@@ -131,6 +141,59 @@ class ProductsController extends \protec\core\Controller
         {
             header("Location: index.php?c=products&a=forwardToLogin");
         }
+
+
+
+
+        if($billingAddress!=false)
+        {
+            $firstNameBillingValue=$customer->firstName;
+            $lastNameBillingValue=$customer->lastName;
+            $streetBillingValue=$billingAddress->street;
+            $streetNoBillingValue=$billingAddress->streetNumber;
+            $zipcodeBillingValue=$billingAddress->zipCode;
+            $cityBillingValue=$billingAddress->city;
+            $countryBillingValue=$billingAddress->country;
+            $emailBillingValue=$customer->eMail;
+        }
+        else
+        {
+            $firstNameBillingValue=$customer->firstName;
+            $lastNameBillingValue=$customer->lastName;
+            $streetBillingValue=$address->street;
+            $streetNoBillingValue=$address->streetNumber;
+            $zipcodeBillingValue=$address->zipCode;
+            $cityBillingValue=$address->city;
+            $countryBillingValue=$address->country;
+            $emailBillingValue=$customer->eMail;
+        }
+
+        $firstNameShippingValue=$customer->firstName;
+        $lastNameShippingValue=$customer->lastName;
+        $streetShippingValue=$address->street;
+        $streetNoShippingValue=$address->streetNumber;
+        $zipcodeShippingValue=$address->zipCode;
+        $cityShippingValue=$address->city;
+        $countryShippingValue=$address->country;
+        $emailShippingValue=$customer->eMail;
+
+        $this->setParam('firstNameBillingValue',$firstNameBillingValue);
+        $this->setParam('lastNameBillingValue',$lastNameBillingValue);
+        $this->setParam('streetBillingValue',$streetBillingValue);
+        $this->setParam('streetNoBillingValue',$streetNoBillingValue);
+        $this->setParam('zipcodeBillingValue',$zipcodeBillingValue);
+        $this->setParam('cityBillingValue',$cityBillingValue);
+        $this->setParam('countryBillingValue',$countryBillingValue);
+        $this->setParam('emailBillingValue',$emailBillingValue);
+
+        $this->setParam('firstNameShippingValue',$firstNameShippingValue);
+        $this->setParam('lastNameShippingValue',$lastNameShippingValue);
+        $this->setParam('streetShippingValue',$streetShippingValue);
+        $this->setParam('streetNoShippingValue',$streetNoShippingValue);
+        $this->setParam('zipcodeShippingValue',$zipcodeShippingValue);
+        $this->setParam('cityShippingValue',$cityShippingValue);
+        $this->setParam('countryShippingValue',$countryShippingValue);
+        $this->setParam('emailShippingValue',$emailShippingValue);
 
         $title='ProTec > Checkout';
         $this->setParam('title', $title);
@@ -151,11 +214,120 @@ class ProductsController extends \protec\core\Controller
     public function actionCheckoutPaymentAndShipping()
     {
 
+        $db=$GLOBALS['db'];
+
+        if(isset($_POST["submit"]))
+        {
+            $customer=$_SESSION['customer'];
+
+
+
+            $valuesShippingAddress['firstName']=$_POST['firstNameShipping'];
+            $valuesShippingAddress['lastName']=$_POST['lastNameShipping'];
+            $valuesShippingAddress['street']=$_POST['streetShipping'];
+            $valuesShippingAddress['streetNumber']=$_POST['streetNoShipping'];
+            $valuesShippingAddress['zipCode']=$_POST['zipcodeShipping'];
+            $valuesShippingAddress['city']=$_POST['cityShipping'];
+            $valuesShippingAddress['country']=$_POST['countryShipping'];
+
+            $shippingAddress=new \protec\model\Address($valuesShippingAddress);
+
+            $valuesBillingAddress['firstName']=$_POST['firstNameBilling'];
+            $valuesBillingAddress['lastName']=$_POST['lastNameBilling'];
+            $valuesBillingAddress['street']=$_POST['streetBilling'];
+            $valuesBillingAddress['streetNumber']=$_POST['streetNoBilling'];
+            $valuesBillingAddress['zipCode']=$_POST['zipcodeBilling'];
+            $valuesBillingAddress['city']=$_POST['cityBilling'];
+            $valuesBillingAddress['country']=$_POST['countryBilling'];
+
+            $billingAddress=new \protec\model\Address($valuesBillingAddress);
+
+
+            $searchString = "";
+            $connectionString = " AND ";
+
+            foreach ($valuesShippingAddress as $element => $value)
+                {
+                    if($value!="" && $element!='firstName' && $element!='lastName')
+                    {
+                        $searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
+                    }
+
+
+                }
+                $searchStringEnd =  rtrim($searchString,$connectionString);
+                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+
+                if($allAddress !== null)
+                {
+                    $shippingAddressID = $allAddress->addressID;
+                }
+                else
+                {
+                    $shippingAddress->insert();
+                    $shippingAddressID = $db->lastInsertId();
+                }
+
+
+            $searchString="";
+                foreach ($valuesBillingAddress as $element => $value)
+                {
+                    if($value!="" && $element!='firstName' && $element!='lastName')
+                    {
+                        $searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
+                    }
+                }
+                $searchStringEnd =  rtrim($searchString,$connectionString);
+                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+
+                if($allAddress !== null)
+                {
+                    $billingAddressID = $allAddress->addressID;
+                }
+                else
+                {
+                    $billingAddress->insert();
+                    $billingAddressID = $db->lastInsertId();
+                }
+
+                $_SESSION["shippingAddressID"]=$shippingAddressID;
+                $_SESSION["billingAddressID"]=$billingAddressID;
+
+        }
+
         $title='ProTec > Checkout';
         $this->setParam('title', $title);
     }
+
+
     public function actionCheckoutCheckAndBuy()
     {
+        $address=$_SESSION['address'];
+        $customer=$_SESSION['customer'];
+
+        /*if(!$billingAddress)
+        {
+            $this->setParam('billingAddress', $billingAddress);
+        }
+        else
+        {
+            $this->setParam('billingAddress', $address);
+        }
+
+        if(!empty($_SESSION['payDetail']))
+        {
+            $this->setParam('payDetail', $payDetail);
+        }
+        else
+        {
+            $this->setParam('payDetail', null);
+        }*/
+
+
+
+
+        $this->setParam('customer', $customer);
+        $this->setParam('address', $address);
 
         $title='ProTec > Checkout';
         $this->setParam('title', $title);
@@ -167,6 +339,7 @@ class ProductsController extends \protec\core\Controller
         $db = $GLOBALS["db"];
 
         $values['customerID']=$_SESSION['customerID'];
+        $values['payDetailID']=$_SESSION['payDetailID'];
         
         $shippingAddress=$_SESSION['shippingAddress'];
            

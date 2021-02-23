@@ -8,7 +8,7 @@ class PayDetail extends \protec\core\Model
     protected $scheme = 
     [
 
-        'paymentID'         => ['type' => M::TYPE_INT], 
+        'payDetailID'         => ['type' => M::TYPE_INT],
         'billingAddressID'  => ['type' => M::TYPE_INT], //Foreign Key auf Addresses
         'customerID'        => ['type' => M::TYPE_INT], //Foreign Key auf Customers
         'createdAt'         => ['type' => M::TYPE_STRING],

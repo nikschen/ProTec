@@ -139,12 +139,18 @@ th.columnContentProduct{
 }
 
 .columnContentQuantity select{
-    padding: 0.5em 0.75em;
+    padding: 0.25em 0.5em;
     margin:0.25em 0;
     display: inline-block;
     border: 0.0625em solid rgb(134, 133, 133);
     border-radius: 0.625em;
     box-sizing: border-box;
     align-items: center;
+    width:4em;
+    height:2em;
+
 }
 
+select.productBasketQuantityWanted{
+    min-width:3.688em;
+}
