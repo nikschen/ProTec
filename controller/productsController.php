@@ -160,43 +160,87 @@ class ProductsController extends \protec\core\Controller
         $title='ProTec > Checkout';
         $this->setParam('title', $title);
     }
+
     public function actionCheckoutAfterPurchase()
     {
+        echo "<br><br><br><br><br><br><br><br><br>";
         $db = $GLOBALS["db"];
 
         $values['customerID']=$_SESSION['customerID'];
+        
         $shippingAddress=$_SESSION['shippingAddress'];
+           
         $values['shippingAddressID']=$shippingAddress->addressID;
         $purchase=new \protec\model\Purchase($values);
         $purchase->insert();
         $purchaseID=$db->lastInsertId();
 
+        echo "<pre style=color:green;>";
+        echo "customer: " . $values['customerID'] . "<br>";
+        echo "ShippingAdressID: " . $values['shippingAddressID'] . "<br>";
+        echo "lastinsertedID: " . $purchaseID . "<br>";
+        
+        echo "</pre>";
+        echo "<pre style=color:yellow;>";
+        echo "alle elemente basket <br>";
+        foreach ($_SESSION['productBasket'] as $element)
+        {   echo "<pre style=color:yellow;>";
+            echo "im korb productID: " . $element->productID;
+            echo "</pre>";
+            foreach ($element as $deepElement)
+            {
+                echo "<pre style=color:deeppink;>";
+                echo "DEEP";
+                echo $deepElement;
+                echo "</pre>";
+            }
+        }
+        echo "</pre>";
 
         $values=[];
 
         foreach($_SESSION['productBasket'] as $productBasketEntry)
         {
-            $productBasketEntry->purchaseID=$purchaseID;
-
-            echo "<pre>";
+            echo "<pre style=color:red;>";
+            echo "KRASS" . $productBasketEntry->purchaseID;
             print_r($productBasketEntry);
+            echo "vardump: " ;
+            var_dump($productBasketEntry) ;
+            echo " :end of vardump";
+            print_r(get_object_vars($productBasketEntry));
+            $productBasketEntry->purchaseID=$purchaseID;
             echo "</pre>";
-            foreach($productBasketEntry as $key=>$value)
+           
+            echo "<pre style=color:white;>";
+            echo "Allgemeiner Zugriff <br>";
+            echo "1. " . $productBasketEntry->productID . "<br>";
+            echo "2. " . $productBasketEntry->productID . "<br>";
+            
+            echo "START";
+            echo "typ: " . gettype($productBasketEntry)."<br>";
+            
+            echo "</pre>";
+            $testarray = [1,2];
+            foreach($productBasketEntry as $element)
             {
+                echo "<pre style=color:gold;>";
+                echo "GOLD: ";
                 $values[$key]=$value;
+                
                 echo $key;
                 echo $value;
-                exit(1);
+                //exit(1);
+                echo "</pre>";
             }
             echo "<pre>";
             print_r($values);
             echo "</pre>";
-            exit(1);
+            //exit(1);
             $productBasketEntry->insert($values);
         }
 
 
-        $_SESSION['productBasket']=null;
+        //$_SESSION['productBasket']=null;
         $title='ProTec > Ihr Einkauf';
         $this->setParam('title', $title);
     }
