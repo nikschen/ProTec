@@ -14,10 +14,6 @@
     
 
     <div class="registrationForm">
-
-
-    
-    
   
     <?php if(isset($success) && $success) : ?>
         <div class="success-message" style="border-radius:5px;background-color:green; color: white">
@@ -64,18 +60,6 @@
             <p>Die mit * markierten Felder sind Pflichtfelder</p>
             <input type="submit" name="submit" value="Absenden"></input>
         </form>
-    </div>
-    <div class="testing">
-    <?
-
-    
-    
-    
-    
-    
-    
-
-?>
     </div>
 </main>
 </body>
