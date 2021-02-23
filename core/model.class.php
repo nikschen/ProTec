@@ -188,14 +188,6 @@ abstract class Model
     
     public function __set($key, $value)
     {
-        /*echo "KEY: ";
-        echo "<pre>";
-        echo $key;
-        echo "</pre>";
-        echo "VALUES: ";
-        echo "<pre>";
-        echo $value;
-        echo "</pre>";*/
         
         if(isset($this->scheme[$key]))
         {
@@ -321,7 +313,7 @@ abstract class Model
              {
                  $stmt=$db->prepare($sqlStr);
                  $stmt->execute($this->values);
-                 $this->{strtolower(self::tablename()).'ID'} = $db->lastInsertId();
+                 $this->{lcfirst(self::tablename()).'ID'} = $db->lastInsertId();
              }
              catch(\PDOException $e)
              {
