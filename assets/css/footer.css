@@ -59,7 +59,7 @@ footer a {
 }
 
 footer a:hover {
-    background-color: var(--hoverAccentColor);
+
     color:var(--orangeAccentColor);
     transition: 0.5s;
 }

@@ -232,26 +232,35 @@ main {
 }
 
 .cookieBanner {
-    background-color: gold;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orangeAccentColor);
     color: black;
-    text-align: center;
     border-radius: 4px;
     margin-left: 1%;
     margin-right: 1%;
 }
 
 .cookieBanner p {
+    text-align: center;
     color: black;
     width: 90%;
 }
 
 .cookieBanner #linkToInfo {
+    text-align: center;
     color: black;
-    width: 90%;
+    width: 50%;
+}
+.cookieBanner #linkToInfo:hover{
+    background-color: var(--mainColor);
 }
 
+
 .cookieBanner #understoodButton {
-    width: 35%;
+    width: 100%;
     background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;
