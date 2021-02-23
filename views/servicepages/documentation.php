@@ -246,6 +246,8 @@
             <img src="<?=IMAGESPATH?>/screenshots/searchFilter.jpg" alt="searchFilterPage Screenshot" width=90%>
             <h2>Beispiel für fehlgeschlagene Suche</h2>
             <img src="<?=IMAGESPATH?>/screenshots/searchFilterFailed.jpg" alt="searchFilterFailedPage Screenshot" width=90%>
+            <h4>Anmerkungen zu Falscheingaben</h4>
+            <p>Das Eingeben von negativen Werten im Preisfilter sorgt für ausbleibende Ergebnisse</p>
         </details>
 
         <details>
@@ -256,6 +258,11 @@
         <details>
             <summary>Warenkorb</summary>
             <img src="<?=IMAGESPATH?>/screenshots/cartPage.jpg" alt="cartPage Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>Cookie Banner</summary>
+            <img src="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" alt="cookieBanner Screenshot" width=90%>
         </details>
 
         </ul>
