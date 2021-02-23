@@ -12,7 +12,7 @@
            <?php if(isset($success) && $success) : ?>
             <div class="success-message" style="border-radius:5px;background-color:green; color: white">
                 <ul>
-                    <li>Erfolgreich angemeldet!</li>
+                    <li>Erfolgreich angemeldet! Sie werden automatisch weitergeleitet...</li>
                 </ul>
             </div>
             <?php endif; ?>
