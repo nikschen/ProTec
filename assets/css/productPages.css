@@ -73,14 +73,8 @@
 }
 
 
-
 .quantityNumber{
     color:var(--lightGreyParagraphColor);
-}
-
-.quantityWantedLabel{
-    font-size: 1em;
-    color:black;
 }
 
 
@@ -98,6 +92,10 @@
 .addToBasketContainer button{
     border: none;
     background: none;
+}
+
+.addToBasketContainer button:hover{
+    cursor:pointer;
 }
 
 .addToBasketButton img{

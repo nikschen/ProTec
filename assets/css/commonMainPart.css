@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids|Roboto');
+
+/*
+###################################################### Allgemein #######################################################
+*/
+
 body {
     margin: 0;
 }
@@ -19,6 +24,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: white;
 }
 
@@ -29,6 +35,11 @@ main {
 .Site-content strong {
     font-weight: 800;
 }
+
+
+/*
+######################################################## Suche #########################################################
+*/
 
 #filter {
     color: black;
@@ -84,6 +95,37 @@ main {
     align-items: center;
 }
 
+.searchResults-message {
+    text-align: center;
+    margin: 2%;
+}
+
+.searchResults-message img {
+    height: 50%;
+}
+
+.searchResults-message input[type=text] {
+    border-radius: 3px;
+    width: 50%;
+    height: 2em;
+    margin-bottom: 7%;
+}
+
+.searchResults-message input[type=submit] {
+    width: 55%;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
+}
+
+/*
+#################################################### Registrierung #####################################################
+*/
+
 .registrationForm input[type=text],
 [type=password],
 #selectgender,
@@ -129,9 +171,31 @@ main {
     padding-bottom: 1.25em;
 }
 
+.registrationForm #messageDate {
+    display: none;
+}
+
+.registrationForm #messageMail {
+    display: none;
+}
+
+.registrationForm #messagePassword {
+    display: none;
+    width: 70%;
+}
+
+/*
+################################################### Kontaktformular ####################################################
+*/
+
+
 .contactForm {
     flex-direction: row;
 }
+
+/*
+######################################################## Login #########################################################
+*/
 
 .loginForm {
     width: 50%;
@@ -180,50 +244,14 @@ main {
     padding: 0;
 }
 
-.registrationForm #messageDate {
-    display: none;
-}
-
-.registrationForm #messageMail {
-    display: none;
-}
-
-.registrationForm #messagePassword {
-    display: none;
-    width: 70%;
-}
-
 .errorContainer {
     color: var(--lightGreyParagraphColor);
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
 }
 
-.searchResults-message {
-    text-align: center;
-    margin: 2%;
-}
-
-.searchResults-message img {
-    height: 50%;
-}
-
-.searchResults-message input[type=text] {
-    border-radius: 3px;
-    width: 50%;
-    height: 2em;
-    margin-bottom: 7%;
-}
-
-.searchResults-message input[type=submit] {
-    width: 55%;
-    background-color: var(--mainColor);
-    color: white;
-    padding: 0.875em 1.25em;
-    border: none;
-    border-radius: 0.25em;
-    cursor: pointer;
-    align-items: center;
-}
+/*
+##################################################### Infoseiten #######################################################
+*/
 
 .infoPageContainer {
     display: flex;
@@ -231,41 +259,3 @@ main {
     width: 60vw;
 }
 
-.cookieBanner {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--orangeAccentColor);
-    color: black;
-    border-radius: 4px;
-    margin-left: 1%;
-    margin-right: 1%;
-}
-
-.cookieBanner p {
-    text-align: center;
-    color: black;
-}
-
-.cookieBanner #linkToInfo {
-    text-align: center;
-    color: black;
-    width: 50%;
-}
-.cookieBanner #linkToInfo:hover{
-    background-color: var(--mainColor);
-}
-
-
-.cookieBanner #understoodButton {
-    width: 100%;
-    background-color: var(--mainColor);
-    color: white;
-    padding: 0.875em 1.25em;
-    margin: 0.5em 0;
-    border: none;
-    border-radius: 0.25em;
-    cursor: pointer;
-    align-items: center;
-}

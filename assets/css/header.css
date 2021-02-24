@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-
 /*
 ###################################################### Allgemein #######################################################
 */
@@ -109,15 +107,14 @@ header {
     background-color: var(--mainColor);
     z-index: 2;
     font-family: 'Open Sans', sans-serif;
-    height:inherit;
     width:calc(60vw/5 - 1em);
 }
 
 .dropdown-content a {
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-family: 'Open Sans', sans-serif;
     width:calc(60vw/5);
-    text-align: center;
+    text-align: justify-all;
 }
 
 .dropdownContentList{
@@ -127,8 +124,7 @@ header {
     justify-items: center;
     padding-left: 0;
     width:calc(60vw/5);
-    margin:0;
-
+    margin: 0.2em 0;
 }
 
 
@@ -141,6 +137,8 @@ header {
     width:100%;
     font-size:0.9em;
     height:2em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .dropdownContentList:hover{
@@ -149,7 +147,6 @@ header {
 }
 .dropdownContentListElement:hover {
     background-color:var(--mainColor);
-
 }
 
 
@@ -165,8 +162,11 @@ header {
 
 }
 
-.dropbtn:hover .categoryLogo, .dropbtn:hover .categoryTitle{
+.dropbtn:hover .categoryLogo{
     filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+.dropbtn:hover .categoryTitle{
+    color:var(--orangeAccentColor);
 }
 
 .dropbtn{
@@ -195,8 +195,7 @@ header {
 span.categoryTitle{
     font-size: 1em;
     margin-left: 0.5em;
-    color:black;
-    filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(204deg) brightness(97%) contrast(107%);
+
 }
 
 
@@ -249,6 +248,11 @@ span.categoryTitle{
     border: none;
 }
 
+.searchContainer button[type=submit]:hover{
+    cursor:pointer;
+}
+
+
 .searchContainer button[type=submit] img {
     height: 1em;
 }
@@ -291,6 +295,10 @@ input:focus::placeholder {
     filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
 }
 
+.loginContainer:hover .loginText{
+    color:var(--orangeAccentColor);
+}
+
 
 .loginContainer a{
     height: 100%;
@@ -324,6 +332,10 @@ span.loginText{
 
 .productBasketContainer:hover .productBasketIcon{
     filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+
+.productBasketContainer:hover .productBasketText{
+    color:var(--orangeAccentColor);
 }
 
 
@@ -363,6 +375,9 @@ span.productBasketText{
     filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
 }
 
+.administrationContainer:hover .administrationText{
+    color:var(--orangeAccentColor);
+}
 
 .administrationIcon{
     height: 2em;
@@ -402,4 +417,8 @@ span.userprofileText{
 
 .userprofileContainer:hover .userprofileIcon{
     filter: invert(88%) sepia(37%) saturate(2548%) hue-rotate(345deg) brightness(108%) contrast(105%);
+}
+
+.userprofileContainer:hover .userprofileText{
+    color:var(--orangeAccentColor);
 }

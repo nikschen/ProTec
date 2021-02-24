@@ -1,5 +1,3 @@
-.Site-Content{}
-
 .productBasketContentContainer {
 
     min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));

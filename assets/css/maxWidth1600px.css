@@ -47,6 +47,10 @@
         width:calc(55vw/5);
     }
 
+    .dropdownContentListElement{
+        font-size:0.7em;
+    }
+
 /*
 ###################################################### Suche ###########################################################
 */
@@ -60,7 +64,9 @@
         max-width:calc(60vw/5 - 5.1em);
         font-size:0.75em;
         padding: 0.2em;
+        min-width:6.688em;
     }
+
 
 
 /*
@@ -100,6 +106,17 @@
         height: 2em;
     }
     span.administrationText{
+        font-size: 0.75em;
+    }
+
+/*
+##################################################### Profil ###########################################################
+*/
+
+    .userprofileIcon{
+        height: 2em;
+    }
+    span.userprofileText{
         font-size: 0.75em;
     }
 

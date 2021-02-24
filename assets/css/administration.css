@@ -1,7 +1,3 @@
-.Site-content {
-    flex-direction: column;
-    justify-content: center;
-}
 
 .administrationContentWrapper {
     display: flex;
@@ -268,7 +264,7 @@
 .manageProductsElements [type=submit],
 .manageCustomersContainer [type=submit],
 .manageProductsElements [type=reset],
-.manageCustomersContainer [type=reset] {
+.manageCustomersContainer [type=reset]{
     background-color: var(--mainColor);
     color: white;
     padding: 0.875em 1.25em;

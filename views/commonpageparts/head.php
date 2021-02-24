@@ -15,12 +15,10 @@
     <link rel="stylesheet" href="assets/css/administration.css">
     <link rel="stylesheet" href="assets/css/documentation.css">
     <link rel="stylesheet" href="assets/css/checkout.css">
-    <link rel="stylesheet" href="assets/css/smallerWidth.css">
-    <link rel="stylesheet" href="assets/css/mobileRestrictions.css">
-    <link rel="stylesheet" href="assets/css/mobileExtraThin.css">
-    <link rel="stylesheet" href="assets/css/debuggingOff.css">
+    <link rel="stylesheet" href="assets/css/maxWidth1600px.css">
+    <link rel="stylesheet" href="assets/css/maxWidth1150px.css">
+    <link rel="stylesheet" href="assets/css/maxWidth665px.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png"/>
     <script type="text/javascript" src="assets\js\registerform.js"></script>
