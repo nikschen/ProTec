@@ -84,7 +84,7 @@
 
                     if($validResult== "1")
                     {
-                        $actionLink = "?c=pages&a=logout";
+                        $actionLink = "?c=accounts&a=logout";
                         $icon = "logoutIcon-black.png";
                         $text = "Logout";
                         $_SESSION['loggedIn']= 1;
@@ -92,7 +92,7 @@
                     }
                     else
                     {
-                        $actionLink = "?c=pages&a=login";
+                        $actionLink = "?c=accounts&a=login";
                         $icon = "loginIcon-black.png";
                         $text = "Login";
                     }
@@ -108,7 +108,7 @@
 
                     if($validResult == "1")
                     {
-                    $actionLink = "?c=pages&a=logout";
+                    $actionLink = "?c=accounts&a=logout";
                     $icon = "logoutIcon-black.png";
                     $text = "Logout";
                     $_SESSION['loggedIn']= 1;
@@ -118,14 +118,14 @@
                     else
                     {
                       //echo "<p>No Valid </p>";
-                      $actionLink = "?c=pages&a=login";
+                      $actionLink = "?c=accounts&a=login";
                       $icon = "loginIcon-black.png";
                       $text = "Login";
                     } //hier könnte man direkt in logout gehen, aus Sicherheitsgründen, weil ja scheinbar irgendwas nicht stimmt(Manipulationsverhinderung)
                 }
                 else
                 {
-                        $actionLink = "?c=pages&a=login";
+                        $actionLink = "?c=accounts&a=login";
                         $icon = "loginIcon-black.png";
                         $text = "Login";
                 }

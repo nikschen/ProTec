@@ -1,17 +1,28 @@
 <?php
 
 
+/**
+ * Class PagesController
+ * Provides all logics for the common pages
+ */
 class PagesController extends \protec\core\Controller
 {
-	
 
-	public function actionIndex()
+
+    /**
+     * Only provides the page title because of the absence of dynamic elements
+     */
+    public function actionIndex()
 	{
 
         $title='ProTec > Home';
         $this->setParam('title', $title);
 	}
 
+    /**
+     *  Checks for input of a search string to show correct results of a search in the database
+     *  provides error if a given number is not numeric
+     */
     public function actionSearch()
 	{
 
@@ -25,7 +36,10 @@ class PagesController extends \protec\core\Controller
         $categoriesInSearch=[];
         foreach($products as $element)
         {
-           if(in_array($element->category,$categoriesInSearch)){}else{array_push($categoriesInSearch,$element->category);} 
+           if(!in_array($element->category, $categoriesInSearch))
+           {
+               array_push($categoriesInSearch, $element->category);
+           }
         }
 
         $isCategoryFilterSet=false;
@@ -70,7 +84,7 @@ class PagesController extends \protec\core\Controller
         //if there is a entry in one of the price max or min field this is set true and the list will be filtered by the price entries
         if($isPriceFilterSet)
         {   
-                 //Replace german "," by internatinal "." to make number-check, make numbers according to german system
+                 //Replace german "," by international "." to make number-check, make numbers according to german system
                  $replaceMaxSeperator = str_replace(",",".",htmlspecialchars($_GET['maxPrice']));
                  $replaceMinSeperator = str_replace(",",".",htmlspecialchars($_GET['minPrice']));
             
@@ -184,124 +198,35 @@ class PagesController extends \protec\core\Controller
         }
 	}
 
-	public function actionLogin()
-	{
-		$title='ProTec > Login';
-        $this->setParam('title', $title);
-        $success = false;
-        $errors = [];
 
-	    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
-		{
-            //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
-			if(isset($_POST['submit']))
-			{
-				$email    = $_POST['email'] ?? null;
-                $password = $_POST['password'] ?? null;
-                $rememberMe = $_POST['Remember'] ?? null;
-
-                //check in database if email is known 
-                $db = $GLOBALS['db'];
-                $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
-
-                //if there is a user found with that mail, start to check whether the pw is correct
-                if($login !== null)
-                {
-                    
-                    //get specific Info on user for showing that he is logged in as
-                    $loginID = $login->customerID;
-
-                    $account= \protec\model\Account::findOne('accountID = ' . $loginID);
-                    $PWHash = $account->passwordHash;
-                  
-                    if (password_verify($password , $PWHash))
-                    {
-                        $loginFirstName= $login->firstName;
-                        $loginLastName= $login->lastName;
-                       
-                        $_SESSION['loggedIn']= true;
-                        $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
-                        $_SESSION['email'] = $email;
-                        $_SESSION['password'] = encryptPassword($password);
-                        
-                        //if rememberMe was set, than start to set the cookies with the function rememberMe
-                        if($rememberMe=="on")
-                        {
-                        $this->rememberMe($email, $password);
-                        }
-                        $success = true;
-                        header("refresh:5;url=index.php");
-                    }
-                    else
-                    {
-                        $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
-                    }
-                }
-                else
-                {
-                    $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
-                }
-                
-                $this->setParam('errors', $errors);
-                $this->setParam('success', $success);
-			
-			}
-        }
-      
-        
-		/*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
-		{
-			header('Location: index.php');
-		}*/
-	}
-
-	public function actionLogout()
-	{
-        $title='ProTec > Logout';
-        $this->setParam('title', $title);
-	    if($_SESSION['loggedIn'] === true)
-		{
-			$_SESSION['loggedIn'] = false;
-        }
-        setcookie('email','',-1,'/');
-        setcookie('password','',-1,'/');
-        unset($_SESSION['username']);
-        session_destroy();
-		header('Location: index.php?c=pages&a=index');
-	}
-
-
-	public function actionProfile() //liegt nun unter Accounts evtl. hier nicht mehr nötig
-	{
-        $title='ProTec > Ihr Profil';
-        $this->setParam('title', $title);
-	    if($_SESSION['loggedIn'] === true)
-		{
-
-		}
-		else
-		{
-			header('Location: index.php');
-		}
-	}
-
-
-	public function actionCategoryRaspi()
+    public function actionCategoryRaspi()
     {
         $title='ProTec > RaspberryPi';
         $this->setParam('title', $title);
 	}
-	public function actionCategoryElectronic()
+
+    /**
+     * Only provides page title because of the absence of dynamic elements
+     */
+    public function actionCategoryElectronic()
     {
         $title='ProTec > Elektronik';
         $this->setParam('title', $title);
 	}
-	public function actionCategoryComputer()
+
+    /**
+     * Only provides page title because of the absence of dynamic elements
+     */
+    public function actionCategoryComputer()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
 	}
-	public function actionCategoryNew()
+
+    /**
+     * Only provides page title because of the absence of dynamic elements
+     */
+    public function actionCategoryNew()
     {
         $title='ProTec > Neu';
         $this->setParam('title', $title);
@@ -311,11 +236,20 @@ class PagesController extends \protec\core\Controller
         $this->setParam('newProducts', $newProducts);
 
 	}
-	public function actionCategorySensors()
+
+    /**
+     * Only provides page title because of the absence of dynamic elements
+     */
+    public function actionCategorySensors()
     {
         $title='ProTec > Computer';
         $this->setParam('title', $title);
     }
+
+    /**
+     * Provides page title according to the category given in the url
+     * fills the product array with products of the correct subcategory name
+     */
     public function actionSubcategory()
     {
         $category = $_GET['cat'];

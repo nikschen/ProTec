@@ -1,16 +1,24 @@
 <?php
 
 
+/**
+ * Class ProductsController
+ * provides all logic around the individual product pages, the productBasket and the checkout process
+ */
 class ProductsController extends \protec\core\Controller
 {
 
 
+    /**
+     *  checks for given productID, provided by the url get params
+     * provides the associated product and pricing data from the database
+     */
     public function actionProduct()
     {
 
         if(isset($_POST['submit']))
         {
-            $this->actionAddProduct();
+            $this->actionAddProduct(); //calls add product if corresponding button is pressed to add a product and the correct amount to the product basket
         }
         $productIDToBeSearchedFor = 'productID='.'"'.$_GET['pid'].'"';
         $product=protec\model\Product::findOne($productIDToBeSearchedFor);
@@ -24,14 +32,18 @@ class ProductsController extends \protec\core\Controller
 
     }
 
+    /**
+     *  provides view of the product basket items and the possibility to change the amount of products via select menu and possibility to clear the product basket entirely
+     * also responsible to start the checkout process via button
+     */
     public function actionProductBasket()
     {
-        if(isset($_POST["getToCheckout"]))
+        if(isset($_POST["getToCheckout"])) //check for button press to forward the user to the first checkout page
         {
             header("Location: index.php?c=products&a=checkoutAddress");
         }
 
-        else if(isset($_POST['updateWantedQuantity']))
+        else if(isset($_POST['updateWantedQuantity'])) //checks for button press to initiate update of a product's wanted quantity
         {
             if(isset($_POST['toBeChangedProductID']))
             {
@@ -48,7 +60,7 @@ class ProductsController extends \protec\core\Controller
             }
         }
 
-        else if(isset($_POST['resetProductBasket']))
+        else if(isset($_POST['resetProductBasket'])) //checks for button press to reset the product basket data
         {
             $_SESSION['productBasket']=null;
         }
@@ -60,6 +72,10 @@ class ProductsController extends \protec\core\Controller
     }
 
 
+    /**
+     * checks for button press on a product page, adds the product associated with the productID given by the get params to the virtual product basket together with the wanted quantity
+     * adds up the wanted quantity of a product if given to add but already existing in the product basket
+     */
     public function actionAddProduct()
     {
         if(isset($_POST['submit']))
@@ -69,11 +85,11 @@ class ProductsController extends \protec\core\Controller
             $quantityWanted=$_POST['quantityWanted']?? null;
 
 
-            if(!empty($productID)&&!empty($quantityWanted)) //prüft, ob überhaupt was eingegeben wurde ( eigentlich immer der fall, soblad der add to basket button gedrückt wird)
+            if(!empty($productID)&&!empty($quantityWanted))
             {
-                if(!empty($_SESSION['productBasket'])) //prüft, ob schon ein eintrag im warenkorb ist, wenn nicht, brauch es auch keiner überprüfung auf duplikate
+                if(!empty($_SESSION['productBasket']))//checks for any amount greater than 0 of existing entries
                 {
-                    foreach($_SESSION['productBasket'] as $basketEntry) //foreach schleife durch alle warenkorbeinträge
+                    foreach($_SESSION['productBasket'] as $basketEntry) //checks for already existing entries of the current product
                     {
                         if($basketEntry->productID==$productID)
                         {
@@ -89,18 +105,20 @@ class ProductsController extends \protec\core\Controller
                     $productBasketEntry=new \protec\model\ProductBasketEntry($values);
                     array_push($_SESSION['productBasket'],$productBasketEntry);
 
-                $amountOfBasketEntries=count($_SESSION['productBasket']); //Anzahl der Warenkorbeinträge, kommt unter das Warenkorbsymbol
-
-
-
+                $amountOfBasketEntries=count($_SESSION['productBasket']); //counts the current amount of product basket entries, used for the text below the product basket symbol in the navigation bar
             }
         }
     }
 
 
+    /**
+     *  provides the current user's billing and shipping address(es) if logged in, else forwards to the login page
+     *  if there is no billing address associated to the user yet, the shipping address will be used as the billing address as a prefill
+     * prefills the form for the shipping and billing addresses with the mentioned values
+     */
     public function actionCheckoutAddress()
     {
-        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true)
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true) //checks for user being logged in, because guests can not buy something yet without an account; users no being logged in will be forwarded to the login page
         {
             $sqlCustomer="email="."\"".$_SESSION["email"]."\"";
             $customer=\protec\model\Customer::findOne($sqlCustomer);
@@ -114,7 +132,7 @@ class ProductsController extends \protec\core\Controller
             $sqlPayDetail="customerID="."\"".$customer->customerID."\"";
 
 
-            if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail)))
+            if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail))) //checks for existing paydetails for the current user
             {
                 $payDetail=\protec\model\PayDetail::findOne($sqlPayDetail);
 
@@ -151,7 +169,7 @@ class ProductsController extends \protec\core\Controller
 
 
 
-        if($billingAddress!=false)
+        if($billingAddress!=false) //if billing address is given, all attributes of it will be filled with the billing address values
         {
             $firstNameBillingValue=$customer->firstName;
             $lastNameBillingValue=$customer->lastName;
@@ -162,7 +180,7 @@ class ProductsController extends \protec\core\Controller
             $countryBillingValue=$billingAddress->country;
             $emailBillingValue=$customer->eMail;
         }
-        else
+        else //if billing address is not given, all attributes of it will be filled with the shipping address values
         {
             $firstNameBillingValue=$customer->firstName;
             $lastNameBillingValue=$customer->lastName;
@@ -207,6 +225,9 @@ class ProductsController extends \protec\core\Controller
         $this->setParam('address', $address);
     }
 
+    /**
+     * only provides a message and a title as well as the forwarding functionality for this forwarding page
+     */
     public function actionForwardToLogin()
     {
         $forwardingMessage="Sie müssen eingeloggt sein, um Käufe zu tätigen. <br> Sie werden nun weitergeleitet...";
@@ -214,9 +235,13 @@ class ProductsController extends \protec\core\Controller
         $title='ProTec > Weiterleitung';
         $this->setParam('title', $title);
 
-        header("Refresh: 3; index.php?c=pages&a=login");
+        header("Refresh: 3; index.php?c=accounts&a=login");
     }
 
+    /**
+     *  checks for input in previous action
+     * checks for existing billing or shipping addresses; creates and inserts new address into the database if not already existing
+     */
     public function actionCheckoutPaymentAndShipping()
     {
 
@@ -253,7 +278,7 @@ class ProductsController extends \protec\core\Controller
             $searchString = "";
             $connectionString = " AND ";
 
-            foreach ($valuesShippingAddress as $element => $value)
+            foreach ($valuesShippingAddress as $element => $value) //generating searchstring for sql search command
                 {
                     if($value!="" && $element!='firstName' && $element!='lastName')
                     {
@@ -265,11 +290,11 @@ class ProductsController extends \protec\core\Controller
                 $searchStringEnd =  rtrim($searchString,$connectionString);
                 $allAddress = \protec\model\Address::findOne($searchStringEnd);
 
-                if($allAddress !== null)
+                if($allAddress !== null) //saves the found addressID if address already existed
                 {
                     $shippingAddressID = $allAddress->addressID;
                 }
-                else
+                else //inserts the new address and saves the addressID if address did not already exist
                 {
                     $shippingAddress->insert();
                     $shippingAddressID = $db->lastInsertId();
@@ -277,7 +302,7 @@ class ProductsController extends \protec\core\Controller
 
 
             $searchString="";
-                foreach ($valuesBillingAddress as $element => $value)
+                foreach ($valuesBillingAddress as $element => $value) //generating searchstring for sql search command
                 {
                     if($value!="" && $element!='firstName' && $element!='lastName')
                     {
@@ -287,11 +312,11 @@ class ProductsController extends \protec\core\Controller
                 $searchStringEnd =  rtrim($searchString,$connectionString);
                 $allAddress = \protec\model\Address::findOne($searchStringEnd);
 
-                if($allAddress !== null)
+                if($allAddress !== null)//saves the found addressID if address already existed
                 {
                     $billingAddressID = $allAddress->addressID;
                 }
-                else
+                else //inserts the new address and saves the addressID if address did not already exist
                 {
                     $billingAddress->insert();
                     $billingAddressID = $db->lastInsertId();
@@ -310,6 +335,10 @@ class ProductsController extends \protec\core\Controller
     }
 
 
+    /**
+     * checks for input in previous action
+     * checks for chosen payment and shipping methods and provides overview about the whole buying process and the chosen products, addresses and shipping and payment details
+     */
     public function actionCheckoutCheckAndBuy()
     {
         $db=$GLOBALS['db'];
@@ -328,7 +357,7 @@ class ProductsController extends \protec\core\Controller
         $valuesPayDetail['paymentMethod']=$paymentMethod;
 
 
-        if($paymentMethod!='Invoice')
+        if($paymentMethod!='Invoice') //checks for the payment method, if invoice, no payment details are needed
         {
             $paymentDetails=$_POST['paymentNumber'];
             $this->setParam('paymentDetails', $paymentDetails);
@@ -336,7 +365,7 @@ class ProductsController extends \protec\core\Controller
             $valuesPayDetail['paymentNumber']=$paymentDetails;
 
         }
-        else
+        else //translates the paymentMethod name to german for output on the website
         {
             $paymentMethod="Rechnung";
         }
@@ -350,7 +379,7 @@ class ProductsController extends \protec\core\Controller
         $searchString = "";
         $connectionString = " AND ";
 
-        foreach ($valuesPayDetail as $element => $value)
+        foreach ($valuesPayDetail as $element => $value) //generates sql string for sql search command
         {
             if($value!="" && $element!='firstName' && $element!='lastName')
             {
@@ -362,8 +391,8 @@ class ProductsController extends \protec\core\Controller
         $searchStringEnd =  rtrim($searchString,$connectionString);
         $allPaydetails = \protec\model\PayDetail::findOne($searchStringEnd);
 
-        if($allPaydetails !== null)
-        {
+        if($allPaydetails !== null) //checks for existing payDetails, otherwise inserts the new paydetails
+    {
             $payDetailID = $allPaydetails->payDetailID;
         }
         else
@@ -374,7 +403,7 @@ class ProductsController extends \protec\core\Controller
         }
         $_SESSION['payDetailID']=$payDetailID;
 
-        switch($shippingMethod)
+        switch($shippingMethod) //sets the shipping fee according to the chosen shipping method
         {
             case "DHL":  $this->setParam('shippingFee', '4.95'); break;
             case "UPS Standard":$this->setParam('shippingFee', '5.90'); break;
@@ -392,6 +421,10 @@ class ProductsController extends \protec\core\Controller
         $this->setParam('title', $title);
     }
 
+    /**
+     * takes the previous given details and finalizes the buying process by creating the purchase the product basket entries with the given data and updating the product's stored quantity as well as clearing the virtual product basket
+     * at last forwards to the home page
+     */
     public function actionCheckoutAfterPurchase()
     {
 
@@ -406,13 +439,13 @@ class ProductsController extends \protec\core\Controller
         $values['shippingAddressID']=$shippingAddress->addressID;
 
 
-        $purchase=new \protec\model\Purchase($values);
+        $purchase=new \protec\model\Purchase($values); //creation of the purchase according to the given customerID, payDetailID and shippingAddressID
 
         $purchase->insert();
         $purchaseID=$db->lastInsertId();
 
 
-        foreach($_SESSION['productBasket'] as $productBasketEntry)
+        foreach($_SESSION['productBasket'] as $productBasketEntry) // creates an entry into the productBasketEntry table for each virtual product basket entry stored in the session
         {
 
             $values= [
@@ -429,12 +462,12 @@ class ProductsController extends \protec\core\Controller
             $oldQuantityStored=$productToBeUpdated->quantityStored;
             $newQuantityStored=$oldQuantityStored-$productBasketEntry->quantityWanted;
             $productValues[] = "quantityStored=\"$newQuantityStored\"";
-            $productToBeUpdated->update($productValues, $productToBeUpdated->productID);
+            $productToBeUpdated->update($productValues, $productToBeUpdated->productID); //updates the stored quantity of every product bought according to the bought amount
 
         }
 
 
-        $_SESSION['productBasket']=null;
+        $_SESSION['productBasket']=null; //clears the product basket
         $title='ProTec > Ihr Einkauf';
         $this->setParam('title', $title);
         header("Refresh: 3; index.php?c=pages&a=index");

@@ -1,34 +1,46 @@
 <?php
 
 
+/**
+ * Class AdministrativeOperationsController
+ * Provides all logics for the administration menu
+ */
 class AdministrativeOperationsController extends \protec\core\Controller
 {
+    /**
+     *  Only provides tab title because of the absence of dynamic elements
+     */
     public function actionChooseOperation()
     {
         $title = 'Admin@ProTec';
         $this->setParam('title', $title);
     }
-    
+
+    /**
+     * Checks for input of a customerID and the admin password to delete a customer
+     * Provides errors for wrong customerID and wrong password
+     */
     public function actionManageCustomers()
     {
         $success=null;
         $errors = [];
         $db = $GLOBALS["db"];
-        if (isset($_POST["password"]) && isset($_POST["submit"]))
+
+        if (isset($_POST["password"]) && isset($_POST["submit"])) //check for password and submit being set
         {
             $admin = \protec\model\Account::findOne("username=\"admin@protec.de\"");
             $pwdHash = $admin->passwordHash;
     
-            if (password_verify($_POST["password"], $pwdHash))
+            if (password_verify($_POST["password"], $pwdHash)) //check for correct password of the admin account
             {
                 $sqlParamCustomer="customerID="."\"".$_POST["customerID"]."\"";
                 $sqlParamAccount="accountID="."\"".$_POST["customerID"]."\"";
     
-                if(empty(\protec\model\Customer::findOne($sqlParamCustomer)) || empty(\protec\model\Account::findOne($sqlParamAccount)) )
+                if(empty(\protec\model\Customer::findOne($sqlParamCustomer)) || empty(\protec\model\Account::findOne($sqlParamAccount))) //checks for given customer and account being valid objects in the database
                 {
                     $errors[]="Keine gültige ID.";
                 }
-                else
+                else //deletion of the customer and its associated account
                 {
                     $customerToBeDeleted=\protec\model\Customer::findOne($sqlParamCustomer);
                     $accountToBeDeleted=\protec\model\Account::findOne($sqlParamAccount);
@@ -48,7 +60,15 @@ class AdministrativeOperationsController extends \protec\core\Controller
         $title = 'Admin@ProTec > Kundenverwaltung';
         $this->setParam('title', $title);
     }
-    
+
+    /**
+     * checks for input of a productID, the admin password and all needed attributes of a 'Product' object, depending on the form data, to insert a product into the database
+     * OR
+     * checks for input of a productID, the admin password and several changed attributes of a 'Product' object, depending on the form data, to change a product's data in the database
+     * OR
+     * checks for input of a productID and the admin password to delete a product
+     * Provides errors for wrong productID, wrong password and wrong or missing product data
+     */
     public function actionManageProducts()
     {
         $addProductSuccess = [];
@@ -66,13 +86,13 @@ class AdministrativeOperationsController extends \protec\core\Controller
 
 
 
-        if (isset($_POST["password"]) && isset($_POST["submit"])) {
+        if (isset($_POST["password"]) && isset($_POST["submit"])) {  //check for password and submit being set
             $admin = \protec\model\Account::findOne("username=\"admin@protec.de\"");
             $pwdHash = $admin->passwordHash;
             
-            if (password_verify($_POST["password"], $pwdHash)) {
+            if (password_verify($_POST["password"], $pwdHash)) { //check for correct password of the admin account
                 
-                switch ($switch = $_POST["submit"]) {
+                switch ($switch = $_POST["submit"]) { //switch for the kind of operation wished, either to add, change or delete a product
                     case $switch == "addProduct":
                         
                         if (!isset($_POST["category"])) {
@@ -81,11 +101,11 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             else
                             {
                                 foreach ($_POST as $key => $value) {
-                                    if ($key != "submit") {
+                                    if ($key != "submit") { //no submit in values array
                                         $values[$key] = $value;
-                                    } //submit braucht nicht in values array
+                                    }
                                 }
-                                array_pop($values);
+                                array_pop($values); //no admin password in values array
         
                                 $newProduct = new \protec\model\Product($values);
                                 $newPricing = new \protec\model\Pricing($values);
@@ -98,11 +118,11 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                 validateUploadedProductImage($addProductErrors);
         
         
-                                if (empty($productErrors) && empty($pricingErrors) && empty($addProductErrors)) {
+                                if (empty($productErrors) && empty($pricingErrors) && empty($addProductErrors)) { //check for validation being successful for all uploaded data, if true, inserts are executed
                                     $newProduct->insert();
                                     $newPricing->insert();
             
-                                    $uploadFolder = IMAGESPATH; //Upload-Verzeichnis
+                                    $uploadFolder = IMAGESPATH; //Upload-directory
                                     $filename = $db->lastInsertId();
                                     $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
                                     $destinationPath = $uploadFolder . $filename . '.' . $extension;
@@ -127,15 +147,15 @@ class AdministrativeOperationsController extends \protec\core\Controller
                         $productID=$_POST["productID"];
                         $sqlParamPricing="pricingID="."\"".$pricingID."\"";
                         $sqlParamProduct="productID="."\"".$productID."\"";
-                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$changeProductErrors[]="Keine gültige ID";}
-                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$changeProductErrors[]="Keine gültige ID";}
+                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$changeProductErrors[]="Keine gültige ID";} //check for valid ID
+                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$changeProductErrors[]="Keine gültige ID";}//check for valid ID
                         else
                         {
                             foreach ($_POST as $key => $value)
                             {
-                                if ($key != "submit" && isset($key)) //submit braucht nicht in values array
+                                if ($key != "submit" && isset($key)) //no submit in values array
                                 {
-                                    if ($key == "currency" && empty($_POST["amount"]) || $key == "productID" || $key == "password" || $value == "") //currency wird nicht übernommen, wenn sich der Preis nicht ändert
+                                    if ($key == "currency" && empty($_POST["amount"]) || $key == "productID" || $key == "password" || $value == "") //currency is not changed if amount does not change
                                     {
                                         continue;
                                     }
@@ -154,12 +174,12 @@ class AdministrativeOperationsController extends \protec\core\Controller
                             $toBeChangedProduct = \protec\model\Product::findOne($sqlParamProduct);
                             $toBeChangedPricing = \protec\model\Pricing::findOne($sqlParamPricing);
     
-                            if (!empty($productValues))
+                            if (!empty($productValues)) //checks for data being empty
                             {
                                 $toBeChangedProduct->update($productValues, $toBeChangedProduct->productID);
                                 $productChangeSuccess[]="Produktdaten erfolgreich geändert";
                             }
-                            else if (!empty($pricingValues))
+                            else if (!empty($pricingValues)) //checks for data being empty
                             {
                                 $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
                                 $productChangeSuccess[]="Preisdaten erfolgreich geändert";
@@ -169,9 +189,9 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                 $changeProductErrors[]="Keine zu ändernden Produkt- oder Preisdaten angegeben.";
                             }
                             
-                            if(!empty($_FILES) && empty($changeProductErrors))
+                            if(!empty($_FILES) && empty($changeProductErrors))  //if product or pricing is changed, image will be changed too if provided
                             {
-                                $uploadFolder = IMAGESPATH; //Upload-Verzeichnis
+                                $uploadFolder = IMAGESPATH; //Upload-Directory
                                 $filename = $toBeChangedProduct->productID;
                                 $extension = strtolower(pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION));
                                 $destinationPath = $uploadFolder . $filename . '.' . $extension;
@@ -191,8 +211,8 @@ class AdministrativeOperationsController extends \protec\core\Controller
                         $sqlParamPricing="pricingID="."\"".$pricingID."\"";
                         $sqlParamProduct="productID="."\"".$productID."\"";
                         
-                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$deleteProductErrors[]="Keine gültige ID";}
-                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$deleteProductErrors[]="Keine gültige ID";}
+                        if(empty(\protec\model\Pricing::findOne($sqlParamPricing))){$deleteProductErrors[]="Keine gültige ID";} //check for valid ID
+                        else if(empty(\protec\model\Product::findOne($sqlParamProduct))){$deleteProductErrors[]="Keine gültige ID";} //check for valid ID
                         else
                         {
                             $pricingToBeRemoved = \protec\model\Pricing::findOne($sqlParamPricing);
@@ -206,7 +226,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                         break;
                 }
             }
-            else
+            else //error if password is wrong
             {
                 switch ($switch = $_POST["submit"])
                 {
@@ -237,7 +257,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
             $amountValueChange='';
             $currencyValueChange='Euro';
 
-            if($_POST["submit"]=="loadDataFromDB")
+            if($_POST["submit"]=="loadDataFromDB") //checks for button in change product section of the admin menu, provides possibility to load the existing data of a product from the database by its productID
             {
                 $productID=$_POST["productID"];
                 $sqlProduct="productID="."\"".$productID."\"";
@@ -253,7 +273,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 $amountValueChange=$pricing->amount;
                 $currencyValueChange=$pricing->currency;
             }
-            else if ($_POST["submit"]=="addProduct" && empty($addProductSuccess))
+            else if ($_POST["submit"]=="addProduct" && empty($addProductSuccess)) //prefills the correct form with data from the POST array for user convenience after reloading the page or getting an error
             {
                 $quantityStoredValueAdd=htmlspecialchars($_POST['quantityStored']??'');
                 $categoryValueAdd=htmlspecialchars($_POST['category']??'');
@@ -270,7 +290,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 $amountValueChange='';
                 $currencyValueChange='Euro';
             }
-            else if ($_POST["submit"]=="changeProduct" && empty($productChangeSuccess))
+            else if ($_POST["submit"]=="changeProduct" && empty($productChangeSuccess)) //prefills the correct form with data from the POST array for user convenience after reloading the page or getting an error
             {
                 $productIDValueChange=htmlspecialchars($_POST['productID']??'');
                 $quantityStoredValueChange=htmlspecialchars($_POST['quantityStored']??'');
@@ -291,7 +311,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
 
 
         }
-        else if(isset($_POST["reset"]))
+        else if(isset($_POST["reset"])) //clears the form because reset button malfunctioned on this site
         {
 
             $quantityStoredValueAdd='';
@@ -310,7 +330,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
             $amountValueChange='';
             $currencyValueChange='Euro';
         }
-        else
+        else //no prefilled data if not any of the given cases is matched
         {
 
             $quantityStoredValueAdd='';

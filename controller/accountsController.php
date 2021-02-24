@@ -1,17 +1,110 @@
 <?php
 
 
+/**
+ * Class AccountsController
+ * Provides all logics around login, logout, signup and the user profile
+ */
 class AccountsController extends \protec\core\Controller
 {
+    /**
+     *  Checks for input of email and password for login as well as the rememberMe checkbox to let users stay signed in
+     * provides error if email or password is wrong
+     */
     public function actionLogin()
-	{
-	
-	}
+    {
+        $title='ProTec > Login';
+        $this->setParam('title', $title);
+        $success = false;
+        $errors = [];
 
-	public function actionLogout()
-	{
-		
-	}
+        if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
+        {
+            //empty POST und dann alles aus dem Cookie reinknallen in anmeldung und bäm angemeldet
+            if(isset($_POST['submit']))
+            {
+                $email    = $_POST['email'] ?? null;
+                $password = $_POST['password'] ?? null;
+                $rememberMe = $_POST['Remember'] ?? null;
+
+                //check in database if email is known
+                $db = $GLOBALS['db'];
+                $login = \protec\model\Customer::findOne('eMail = '.$db->quote($email));
+
+                //if there is a user found with that mail, start to check whether the pw is correct
+                if($login !== null)
+                {
+
+                    //get specific Info on user for showing that he is logged in as
+                    $loginID = $login->customerID;
+
+                    $account= \protec\model\Account::findOne('accountID = ' . $loginID);
+                    $PWHash = $account->passwordHash;
+
+                    if (password_verify($password , $PWHash))
+                    {
+                        $loginFirstName= $login->firstName;
+                        $loginLastName= $login->lastName;
+
+                        $_SESSION['loggedIn']= true;
+                        $_SESSION['username'] = $loginFirstName ." ". $loginLastName;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = encryptPassword($password);
+
+                        //if rememberMe was set, than start to set the cookies with the function rememberMe
+                        if($rememberMe=="on")
+                        {
+                            $this->rememberMe($email, $password);
+                        }
+                        $success = true;
+                        header("refresh:5;url=index.php");
+                    }
+                    else
+                    {
+                        $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
+                    }
+                }
+                else
+                {
+                    $errors['checkMailAndPassword'] = "Die E-Mail Adresse oder das Passwort ist nicht korrekt!";
+                }
+
+                $this->setParam('errors', $errors);
+                $this->setParam('success', $success);
+
+            }
+        }
+
+
+        /*else WIEDER LESBAR MACHEN WENN TEST RICHTIG FUNKTionieren-----------------------------
+        {
+            header('Location: index.php');
+        }*/
+    }
+
+    /**
+     * logs the user out by destroying the session and invalidate the cookie
+     * forwards to the homepage
+     */
+    public function actionLogout()
+    {
+        $title='ProTec > Logout';
+        $this->setParam('title', $title);
+        if($_SESSION['loggedIn'] === true)
+        {
+            $_SESSION['loggedIn'] = false;
+        }
+        setcookie('email','',-1,'/');
+        setcookie('password','',-1,'/');
+        unset($_SESSION['username']);
+        session_destroy();
+        header('Location: index.php?c=pages&a=index');
+    }
+
+    /**
+     * checks for input of form data to change a users personal data or password
+     * provides errors for wrong or malformed data or wrong password conditions
+     */
 
 	public function actionProfile()
 	{
@@ -107,7 +200,7 @@ class AccountsController extends \protec\core\Controller
 		{
 			if(mb_strlen($address2)<2 || mb_strlen($address2)>60 )
 			{
-				$errors['addtitionalInfo'] = "Adresszusatz entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+				$errors['additionalInfo'] = "Adresszusatz entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
 			}
 		}
 		else
@@ -207,7 +300,11 @@ class AccountsController extends \protec\core\Controller
 
 	}
 
-	public function actionSignup() 
+    /**
+     * checks for input form data to create a customer and the corresponding account for it
+     * provides errors for wrong, missing or malformed data and already used emails
+     */
+    public function actionSignup()
 	{
 		$title='ProTec > SignUp';
 		$this->setParam('title', $title);
@@ -393,7 +490,7 @@ class AccountsController extends \protec\core\Controller
 			// if the creation and entry of the User is done successfully he will be redirected to the LoginPage:
 			if($success) 
 			{
-				header( "refresh:4;url=index.php?c=pages&a=login");
+				header( "refresh:4;url=index.php?c=accounts&a=login");
 			}
 
 			}
