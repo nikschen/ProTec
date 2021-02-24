@@ -31,13 +31,39 @@
         <br><br>
         <p>
             Für die Recherche genutze Webpräsenzen:
-            
-        
         </p>
         <a href="https://www.berrybase.de">https://www.berrybase.de</a>
         <a href="https://www.reichelt.de">https://www.reichelt.de</a>
         <a href="https://www.conrad.de">https://www.conrad.de</a>
         
+        <h3>1.2 Designentscheidungen</h3>
+        <h4>1.2.1 Logo</h4>
+        <p>
+            Das Logo orientiert sich farblich am Logo der Programmiersprache Python. Unser Webshop bietet viele Produkte an,
+            die es ermöglichen in dieser Sprache Projekte umzusetzen, insbesondere für Einsteiger, die einen leichten Einstieg
+            bevorzugen.
+            Die gewollte Farbähnlichkeit zur Inspirationsquelle soll potenzielle Kunden anlocken, die bereits mit Python Erfahrung haben,
+            da diese sich an die Sprache erinnert fühlen und so vielleicht Lust bekommen, Hardware zu erwerben, die mit Python programmiert 
+            werden kann.
+        </p><br>
+        <img src="<?=IMAGESPATH?>/logo/python.png" alt="python logo" width=10%><p>Python Logo</p><br>
+        <img src="<?=ICONSPATH?>protec_transparent_logo_weiß_umrandet_protec_weiß.png" alt="Logo Protec" width=20%><p>Protec Logo</p>
+        <br>
+        <h4>1.2.2 Farbe</h4>
+        <p>
+            Die Primär- und Akzentfarben wurden enstprechend am Logo unseres Webshops orientiert. Gelb und Blau bilden die "Grundfarben",
+            die in definierten Abstufungen angepasst Verwendung in den Elementen unserer Seite finden. Ein "leichtes" Grau rundet das Design
+            in Schrift, wie Produktbeschreibungen und Navigationslinks, optisch ab.
+        </p>
+        <img src="<?=IMAGESPATH?>/logo/colorscheme.png" alt="color scheme" width=60%><p>Farbschema</p><br>
+        <h4>1.2.3 Schriften</h4>
+        <p>
+            beides wegen der klaren linie, ohne zu technisch unmodern zu wirken
+            und die überschriftsart weil se noch bisscehn kleinere schrittweite 
+        </p>
+
+
+
         <h3>2. Anforderungsbeschreibung</h3>
         <h4>2.1 Muss-Kriterien</h4>
         <ul class="mustHaveCriteria">
@@ -149,6 +175,7 @@
                         <li>Recherche Beispielprodukte</li>
                         <li>Beispieldaten für Datenbank</li>
                         <li>Testaccounts</li>
+                        <li>NUnit Tests</li>
                         <li>Firmenlogo</li>
                     </ul>
                     <br>
@@ -180,8 +207,8 @@
         <br><br>
 
         <h3>5. Datenbankstruktur</h3>
-        <a class="databaseDiagramFull" href="/diagrams/ProtecDBV1.2.png" target="_blank">
-            <img class="databaseDiagram" src="/diagrams/ProtecDBV1.2.png" alt="Datenbankstrukturdiagramm">
+        <a class="databaseDiagramFull" href="<?=IMAGESPATH?>/models/databaseModel.png" target="_blank">
+        <img src="<?=IMAGESPATH?>/models/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%> 
         </a>
         <br><br>
 
@@ -326,6 +353,21 @@
             <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
         </details>
 
+        </ul>
+        <h3>9. Bewältigte Herausforderungen</h3>
+        <ul>
+            <li>Datenbankzugriffe</li>
+            <li>Cookie- und Sessionhandling</li>
+            <li>Sinnvolles Design einer Suche</li>
+            <li>Rückmeldung an den Nutzer wo und wann..</li>
+            <li>Geschäftslogik in logischen Code zu übersetzen</li>
+            <li>Neuorientierung nach Teamveränderung</li>
+            <li>Teamzusammenarbeit optimieren, Pausen planen, Deadlines setzen</li>
+            <li>Testcases schreiben für Websites</li>
+            <li>Designeinigungen finden</li>
+            
+            <li></li>
+            <li></li>
         </ul>
     </div>
 
