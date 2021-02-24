@@ -159,6 +159,7 @@ class ProductsController extends \protec\core\Controller
                     return $message;
                 }
             }
+            return $message;
         }
         return null;
     }

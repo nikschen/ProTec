@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="descriptionContainer">
-            <p class="errorMessage"><?=$message?></p>
+            <p class="errorMessage" style="width:90%"><?=$message?></p>
             <div class="productDescription">
                 <h4 class="descriptionHeadline">Wichtige Daten</h4>
                 <p class="productDescriptionText">
