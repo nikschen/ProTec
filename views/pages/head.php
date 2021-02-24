@@ -24,6 +24,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png"/>
     <script type="text/javascript" src="assets\js\registerform.js"></script>
+    <script type="text/javascript" src="assets\js\checkout.js"></script>
 
     <title><?=$title?></title>
 </head>

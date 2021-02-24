@@ -44,45 +44,76 @@
                 </table>
             </div>
             <div class="shippingAndPaymentSummary">
-                <table>
-                    <thead style="text-align: left">
-                    <tr>
-                        <th>Lieferadresse</th>
-                        <th>Rechnungsadresse</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?if(/*$billingAddress==false*/1) $source=$address; else $source=$billingAddress;?>
-                    <tr>
-                        <td><?=$customer->firstName." ".$customer->lastName ?></td>
-                        <td><?=$customer->firstName." ".$customer->lastName ?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$address->street." ".$address->streetNumber?></td>
-                        <td><?=$source->street." ".$address->streetNumber?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$address->zipCode." ".$address->city?></td>
-                        <td><?=$source->zipCode." ".$address->city?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$address->country?></td>
-                        <td><?=$source->country?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$customer->eMail?></td>
-                        <td><?=$customer->eMail?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$address->additionalInformation?></td>
-                        <td><?=$source->additionalInformation?></td>
-                    </tr>
-                    <tr>
-                        <td><?=$address->phone?></td>
-                        <td><?=$source->phone?></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="shippingSummary">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Lieferadresse</th>
+                            <th>Rechnungsadresse</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?if($billingAddress==false) $source=$address; else $source=$billingAddress;?>
+                        <tr>
+                            <td><?=$customer->firstName." ".$customer->lastName ?></td>
+                            <td><?=$customer->firstName." ".$customer->lastName ?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$address->street." ".$address->streetNumber?></td>
+                            <td><?=$source->street." ".$address->streetNumber?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$address->zipCode." ".$address->city?></td>
+                            <td><?=$source->zipCode." ".$address->city?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$address->country?></td>
+                            <td><?=$source->country?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$customer->eMail?></td>
+                            <td><?=$customer->eMail?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$address->additionalInformation?></td>
+                            <td><?=$source->additionalInformation?></td>
+                        </tr>
+                        <tr>
+                            <td><?=$address->phone?></td>
+                            <td><?=$source->phone?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paymentSummary">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="tableHeader">Zahlungsart</th>
+                                <th class="tableHeader">Versanddetails</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><?=$paymentMethod?></td>
+                            <td><?=$shippingMethod?></td>
+                        </tr>
+                        <?if ($paymentMethod!="Rechnung"):?>
+                            <tr>
+                                <td><br></td>
+                                <td><br></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold">Zahlungsdetails</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><?=$paymentDetails?></td>
+                                <td></td>
+                            </tr>
+                        <?endif?>
+                    </table>
+
+                </div>
             </div>
 
         </div>

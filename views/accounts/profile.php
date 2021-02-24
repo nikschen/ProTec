@@ -61,7 +61,7 @@
            
            
             <hr>
-            <p>Nur ausfüllen ein, wenn Sie Ihr Passwort ändern möchten!</p>
+            <p>Nur ausfüllen, wenn Sie Ihr Passwort ändern möchten!</p>
             <input type="password" class="passwordOld" name="passwordOld" placeholder="Ihr bisheriges Passwort*">
             <input type="password" class="password1" name="password" placeholder="Ihr neues Passwort*" onchange='checkPassword()'>
             <input type="password" class="password2" name="password-repeat" placeholder="Ihr neues Passwort wiederholt*" onchange='checkPassword()'><br>
@@ -75,10 +75,7 @@
           
         </form>
 
-<h2>Profilbearbeitung DebugAusgabe</h2>
-<?
- 
-?>
+
 </div>
 </main>
 </body>

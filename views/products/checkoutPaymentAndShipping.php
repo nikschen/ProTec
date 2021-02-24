@@ -12,11 +12,11 @@
                     <div class="choosePaymentMethod">
                         <p> Zahlungsart</p>
                         <br>
-                        <input type="radio" id="paymentMethod1" name="paymentMethod" value="IBAN" checked required><label for="paymentMethod1">IBAN</label><br>
-                        <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" required><label for="paymentMethod2">PayPal</label><br>
-                        <input type="radio" id="paymentMethod3" name="paymentMethod" value="Invoice" required><label for="paymentMethod3">Rechnung</label><br>
+                        <input type="radio" id="paymentMethod1" name="paymentMethod" value="IBAN" checked required onclick="showPaymentNumber()"><label for="paymentMethod1">IBAN</label><br>
+                        <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" required onclick="showPaymentNumber()"><label for="paymentMethod2">PayPal</label><br>
+                        <input type="radio" id="paymentMethod3" name="paymentMethod" value="Invoice" required onclick="hidePaymentNumber()"><label for="paymentMethod3">Rechnung</label><br>
                         <br>
-                        <input type="text" name="paymentNumber" placeholder="IBAN/PayPal-Adresse (wird ignoriert bei Kauf auf Rechnung)" value="<?if(isset($payDetail)) echo $payDetail->paymentNumber; else echo ''?>"><?if(isset($payDetail)) echo $payDetail->paymentNumber; else echo ''?></input><br>
+                        <input type="text" id="paymentNumber"  name="paymentNumber" placeholder="IBAN/PayPal-Adresse" value="<?if(isset($payDetail)) echo $payDetail->paymentNumber; else echo ''?>" required><br>
                     </div>
 
                     <div class="chooseShippingMethod">

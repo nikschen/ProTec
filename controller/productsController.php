@@ -16,7 +16,7 @@ class ProductsController extends \protec\core\Controller
         $product=protec\model\Product::findOne($productIDToBeSearchedFor);
         $pricingIDToBeSearchedFor='pricingID='.'"'.$_GET['pid'].'"';
         $pricingEntry=protec\model\Pricing::findOne($pricingIDToBeSearchedFor);
-        $productPrice=$pricingEntry->amount.' '.$pricingEntry->currency;
+        $productPrice=number_format($pricingEntry->amount,2, ",",".").' '.$pricingEntry->currency;
         $title=$product->prodName;
         $this->setParam('title', $title);
         $this->setParam('product', $product);
@@ -117,16 +117,22 @@ class ProductsController extends \protec\core\Controller
             if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail)))
             {
                 $payDetail=\protec\model\PayDetail::findOne($sqlPayDetail);
-                $sqlBillingAddress="addressID="."\"".$payDetail->billingAdressID."\"";
 
-                $billingAddress=\protec\model\Address::findOne($sqlBillingAddress);
+                $sqlBillingAddress="addressID="."\"".$payDetail->billingAddressID."\"";
+
+
+                if(!empty($billingAddress=\protec\model\Address::findOne($sqlBillingAddress)))
+                {
+                    $billingAddress=\protec\model\Address::findOne($sqlBillingAddress);
+                    $_SESSION['billingAddress']=$billingAddress;
+                }
+                else
+                {
+                    $_SESSION['billingAddress']=$address;
+                }
 
 
                 $_SESSION['payDetail']=$payDetail;
-                $_SESSION['billingAddress']=$billingAddress;
-
-
-
                 $this->setParam('billingAddress', $billingAddress);
             }
             else
@@ -302,31 +308,73 @@ class ProductsController extends \protec\core\Controller
 
     public function actionCheckoutCheckAndBuy()
     {
+        $db=$GLOBALS['db'];
+
+        $paymentMethod=$_POST['paymentMethod'];
+        $shippingMethod=$_POST['shippingMethod'];
+
+
+
+
         $address=$_SESSION['address'];
+        $billingAddress=$_SESSION['billingAddress'];
         $customer=$_SESSION['customer'];
+        $billingAddressID=$_SESSION['billingAddressID'];
 
-        /*if(!$billingAddress)
+        $valuesPayDetail['billingAddressID']=$billingAddressID;
+        $valuesPayDetail['customerID']=$billingAddressID;
+        $valuesPayDetail['paymentMethod']=$paymentMethod;
+
+
+        if($paymentMethod!='Invoice')
         {
-            $this->setParam('billingAddress', $billingAddress);
+            $paymentDetails=$_POST['paymentNumber'];
+            $this->setParam('paymentDetails', $paymentDetails);
+
+            $valuesPayDetail['paymentNumber']=$paymentDetails;
+
         }
         else
         {
-            $this->setParam('billingAddress', $address);
+            $paymentMethod="Rechnung";
         }
 
-        if(!empty($_SESSION['payDetail']))
+        $this->setParam('shippingMethod', $shippingMethod);
+        $this->setParam('paymentMethod', $paymentMethod);
+
+
+        $payDetail=new \protec\model\PayDetail($valuesPayDetail);
+
+        $searchString = "";
+        $connectionString = " AND ";
+
+        foreach ($valuesPayDetail as $element => $value)
         {
-            $this->setParam('payDetail', $payDetail);
+            if($value!="" && $element!='firstName' && $element!='lastName')
+            {
+                $searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
+            }
+
+
+        }
+        $searchStringEnd =  rtrim($searchString,$connectionString);
+        $allPaydetails = \protec\model\PayDetail::findOne($searchStringEnd);
+
+        if($allPaydetails !== null)
+        {
+            $payDetailID = $allPaydetails->payDetailID;
         }
         else
         {
-            $this->setParam('payDetail', null);
-        }*/
 
+            $payDetail->insert();
+            $payDetailID = $db->lastInsertId();
+        }
+        $_SESSION['payDetailID']=$payDetailID;
 
-
-
+        $this->setParam('payDetailID', $payDetailID);
         $this->setParam('customer', $customer);
+        $this->setParam('billingAddress', $billingAddress);
         $this->setParam('address', $address);
 
         $title='ProTec > Checkout';
@@ -337,14 +385,17 @@ class ProductsController extends \protec\core\Controller
     {
 
         $db = $GLOBALS["db"];
+        $shippingAddress=$_SESSION['shippingAddress'];
+
+
 
         $values['customerID']=$_SESSION['customerID'];
-        $values['payDetailID']=$_SESSION['payDetailID'];
-        
-        $shippingAddress=$_SESSION['shippingAddress'];
-           
+        $payDetailID=$_SESSION['payDetailID'];
+        $values['payDetailID']=$payDetailID;
         $values['shippingAddressID']=$shippingAddress->addressID;
+
         $purchase=new \protec\model\Purchase($values);
+
         $purchase->insert();
         $purchaseID=$db->lastInsertId();
 
