@@ -72,7 +72,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
     public function actionManageProducts()
     {
         $addProductSuccess = [];
-        $changeProductSuccess = [];
+        $productChangeSuccess = [];
         $deleteProductSuccess = [];
         $addProductErrors = [];
         $changeProductErrors = [];
@@ -161,11 +161,11 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                     }
                                     else if ($key == "currency" && !empty($_POST["amount"]) || $key == "amount")
                                     {
-                                        $pricingValues[] = "$key=\"$value\"";
+                                        $pricingValues[] = "`$key`=\"$value\"";
                                     }
                                     else
                                     {
-                                        $productValues[] = "$key=\"$value\"";
+                                        $productValues[] = "`$key`=\"$value\"";
                                     }
                                 }
                             }

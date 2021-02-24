@@ -335,7 +335,8 @@ abstract class Model
         $valueList=implode(',', $values);
         try
         {
-            $sql = 'UPDATE ' . self::tablename() . ' SET ' . $valueList . ' WHERE ' . self::tablename().'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
+            $sql = 'UPDATE ' . '`'.strtolower(self::tablename()).'`'. ' SET ' . $valueList . ' WHERE ' . lcfirst(self::tablename()).'ID = ' . $id ;//$this->data['id'];  //kann mir nicht herleiten woher diese data id stammen soll, ich meine es stellt keinen Zusammenhang dar
+
             $statement = $db->prepare($sql);
             $statement->execute();
             
