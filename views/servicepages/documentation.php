@@ -263,6 +263,50 @@
         </details>
 
         <details>
+            <summary>Checkout-Prozess</summary>
+            <details style="padding-left:3em;">
+                <summary>Checkout-Addresseingaben</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/checkoutAddress.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/checkoutAddress.png" alt="Checkout-Addresseingaben Screenshot" width=90%>
+                </a>
+            </details>
+            <details style="padding-left:3em;">
+                <summary>Checkout- Versand- und Zahlungsart</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/checkoutPaymentAndShipping.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/checkoutPaymentAndShipping.png" alt="Checkout- Versand- und Zahlungsart Screenshot" width=90%>
+                </a>
+            </details>
+            <details style="padding-left:3em;">
+                <summary>Checkout- Übersicht und Bestätigung</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/checkoutCheckAndBuy.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/checkoutCheckAndBuy.png" alt="Checkout- Übersicht und Bestätigung Screenshot" width=90%>
+                </a>
+            </details>
+        </details>
+
+        <details>
+            <summary>Administrationsmenü</summary>
+            <details style="padding-left:3em;">
+                <summary>Administrationsmenü-Startseite</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/adminMenuStartPage.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/adminMenuStartPage.png" alt="StartPage Screenshot" width=90%>
+                </a>
+            </details>
+            <details style="padding-left:3em;">
+                <summary>Administrationsmenü-Produktverwaltung</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/adminMenuProductManagement.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/adminMenuProductManagement.png" alt="ProductManagement Screenshot" width=90%>
+                </a>
+            </details>
+            <details style="padding-left:3em;">
+                <summary>Administrationsmenü-Kundenverwaltung</summary>
+                <a href="<?=IMAGESPATH?>/screenshots/adminMenuCustomerManagement.png" target="_blank">
+                    <img src="<?=IMAGESPATH?>/screenshots/adminMenuCustomerManagement.png" alt="CustomerManagement Screenshot" width=90%>
+                </a>
+            </details>
+        </details>
+
+        <details>
             <summary>Cookie Banner</summary>
             <img src="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" alt="cookieBanner Screenshot" width=90%>
         </details>
