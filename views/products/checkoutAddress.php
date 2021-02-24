@@ -18,7 +18,7 @@
                         <input class="oneLine" type="text" name="streetNoShipping" placeholder="Hausnummer*" value="<?if (isset($_POST['streetNoShipping'])){echo htmlspecialchars($_POST['streetNoShipping']);}else echo $streetNoShippingValue?>" required ><br>
                         <input class="oneLine" type="text" name="zipcodeShipping" placeholder="PLZ*" value="<?if (isset($_POST['zipcodeShipping'])){echo htmlspecialchars($_POST['zipcodeShipping']);}else echo $zipcodeShippingValue?>" required >
                         <input class="oneLine" type="text" name="cityShipping" placeholder="Ort*" value="<?if (isset($_POST['cityShipping'])){echo htmlspecialchars($_POST['cityShipping']);}else echo $cityShippingValue?>" required ><br>
-                        <input type="text" name="countryShipping" id="countryShipping"placeholder="Land*" value="<?if (isset($_POST['countryShipping'])){echo htmlspecialchars($_POST['countryShipping']);}else echo $countryShippingValue?>" required ><br>
+                        <input type="text" name="countryShipping" id="countryShipping" placeholder="Land*" value="<?if (isset($_POST['countryShipping'])){echo htmlspecialchars($_POST['countryShipping']);}else echo $countryShippingValue?>" required ><br>
                         <input type="text" class="emailToCheck" id="email" name="emailShipping" placeholder="Ihre E-Mail-Adresse*"  onchange='checkEmail()' value="<?if (isset($_POST['emailShipping'])){echo htmlspecialchars($_POST['emailShipping']);}else echo $emailShippingValue?>" required >
                         <p class="messageMail" ></p>
                         <br>

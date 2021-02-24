@@ -1,6 +1,5 @@
 <?php
-//ini_set('session.gc_maxlifetime', 3600);
-//session_set_cookie_params(3600);
+
 session:session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
 
 require_once 'init/database.php';
@@ -29,22 +28,6 @@ if(!ISSET($_SESSION['productBasket']))
 {
     $_SESSION['productBasket']=array();
 }
-
-if(!isset($_SESSION['cookiesUnderstood']))
-{
-	
-}
-
-
-//$data = new Customer;
-//$Customer= Customer::findOne();
-//;
-//
-//$data = $this->findOne();
-//print_r($data);
-//exit(0);
-
-
 
 
 if(file_exists($controllerPath))
