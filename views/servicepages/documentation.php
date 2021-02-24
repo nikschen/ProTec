@@ -235,6 +235,8 @@
             <h2>Fehlermeldung mit PHP</h2>
             <img src="<?=IMAGESPATH?>/screenshots/errorMessagePHP.jpg" alt="errorMessagePHP Screenshot" width=90%>
         </details>
+
+        
         
         <details>
             <summary>Profildatenänderung</summary>
@@ -263,6 +265,21 @@
         <details>
             <summary>Cookie Banner</summary>
             <img src="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" alt="cookieBanner Screenshot" width=90%>
+        </details>
+
+        <details>
+            <summary>FlowChart Registrierung/Profiländerung Javascript</summary>
+            <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicJS.png" alt="flowchart Javascript" width=70%>
+        </details>
+
+        <details>
+            <summary>FlowChart Registrierung/Profiländerung PHP</summary>
+            <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicPHP.png" alt="flowchart PHP" width=70%>
+        </details>
+
+        <details>
+            <summary>FlowChart Suchfunktion</summary>
+            <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
         </details>
 
         </ul>

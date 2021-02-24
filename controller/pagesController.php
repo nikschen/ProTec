@@ -28,6 +28,7 @@ class PagesController extends \protec\core\Controller
 
         $title='ProTec > Searching';
         $this->setParam('title', $title);
+        
         if(isset($_GET['searchString']) && $_GET['searchString'] !== "")
         {
         $searchString = $_GET['searchString'];
