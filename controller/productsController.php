@@ -83,8 +83,6 @@ class ProductsController extends \protec\core\Controller
     /**
      * checks for button press on a product page, adds the product associated with the productID given by the get params to the virtual product basket together with the wanted quantity
      * adds up the wanted quantity of a product if given to add but already existing in the product basket
-     * checks if the added amount exceeds the stored quantity or the allowed amount and corrects it to the maximum of possible amounts
-     * provides errormessage if amount exceeds the allowed or possible amounts and why
      */
     public function actionAddProduct()
     {
@@ -138,30 +136,28 @@ class ProductsController extends \protec\core\Controller
                         }
 
                     }
-                    
+
                 }
-                else
-                {
-                    if($quantityWanted>10) //checks if allowedAmount is exceeded
+                else {
+                    if ($quantityWanted > 10) //checks if allowedAmount is exceeded
                     {
-                        $quantityWanted=10;
-                        $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
-                    }
-                    else if($quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                        $quantityWanted = 10;
+                        $message = "Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
+                    } else if ($quantityWanted > $product->quantityStored) //checks if stored quantity of the product is exceeded
                     {
-                        $quantityWanted->quantityWanted=$product->quantityStored;
-                        $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
+                        $quantityWanted->quantityWanted = $product->quantityStored;
+                        $message = "Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
                     }
 
-                    $values=[
-                       'productID'=>$productID,
-                       'quantityWanted'=>$quantityWanted];
-                    $productBasketEntry=new \protec\model\ProductBasketEntry($values);
-                    array_push($_SESSION['productBasket'],$productBasketEntry);
-                }
+                    $values = [
+                        'productID' => $productID,
+                        'quantityWanted' => $quantityWanted];
+                    $productBasketEntry = new \protec\model\ProductBasketEntry($values);
+                    array_push($_SESSION['productBasket'], $productBasketEntry);
 
-                    $amountOfBasketEntries=count($_SESSION['productBasket']); //counts the current amount of product basket entries, used for the text below the product basket symbol in the navigation bar
-                return $message;
+                    $amountOfBasketEntries = count($_SESSION['productBasket']); //counts the current amount of product basket entries, used for the text below the product basket symbol in the navigation bar
+                    return $message;
+                }
             }
         }
         return null;
