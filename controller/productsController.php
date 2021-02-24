@@ -437,13 +437,12 @@ class ProductsController extends \protec\core\Controller
             $shippingMethod=$_POST['shippingMethod'];
 
             $valid=false;
-            $ibanPattern=preg_quote ("DE/d{2}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{2}|DE/d{20}");
 
             switch($paymentMethod)
             {
                 case 'Invoice': $valid=true; break;
                 case 'IBAN':
-                    if(preg_match($ibanPattern,$_POST['paymentNumber'])) $valid=true;
+                    if(preg_match('/^DE[a-zA-Z0-9]{2}\s?([0-9]{4}\s?){4}([0-9]{2})\s?$/',$_POST['paymentNumber'])) $valid=true;
                     else $valid=false;
                     break;
                 case 'PayPal':
@@ -466,8 +465,8 @@ class ProductsController extends \protec\core\Controller
                 if($paymentMethod!='Invoice') //checks for the payment method, if invoice, no payment details are needed
                 {
                     $paymentDetails=$_POST['paymentNumber'];
-                    $this->setParam('paymentDetails', $paymentDetails);
 
+                    $_SESSION['paymentDetails']=$paymentDetails;
                     $valuesPayDetail['paymentNumber']=$paymentDetails;
 
                 }
@@ -537,6 +536,11 @@ class ProductsController extends \protec\core\Controller
      */
     public function actionCheckoutCheckAndBuy()
     {
+        if(isset($_SESSION['paymentDetails']))
+        {
+            $this->setParam('paymentDetails', $_SESSION['paymentDetails']);
+        }
+
 
         $this->setParam('shippingFee', $_SESSION['shippingFee']);
 

@@ -370,7 +370,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
 
 
         $this->setParam('addProductSuccess', $addProductSuccess);
-        $this->setParam('changeProductSuccess', $changeProductSuccess);
+        $this->setParam('changeProductSuccess', $productChangeSuccess);
         $this->setParam('deleteProductSuccess', $deleteProductSuccess);
         $this->setParam('addProductErrors', $addProductErrors);
         $this->setParam('changeProductErrors', $changeProductErrors);

@@ -207,8 +207,8 @@
 
 
 .errorMessage{
-    background-color: red;
-    color:white;
+    background-color: #ff8b8b;
+    color:black;
     border-radius: 0.225em;
     box-sizing: border-box;
 }
