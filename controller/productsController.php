@@ -438,6 +438,7 @@ class ProductsController extends \protec\core\Controller
 
             $valid=false;
 
+          
             switch($paymentMethod)
             {
                 case 'Invoice': $valid=true; break;
