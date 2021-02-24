@@ -155,13 +155,27 @@
     }
 
 /*
+##################################################### Profil ###########################################################
+*/
+    span.userprofileText{
+        font-size: 0;
+    }
+
+/*
+################################################# Administration #######################################################
+*/
+    span.administrationText{
+        font-size: 0;
+    }
+
+/*
 #################################################### Warenkorb #########################################################
 */
 
     .productBasketContentContainer {
 
         min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightMobile));
-        min-width: 100vw;
+        min-width: 99vw;
     }
 
     .productBasketContent{
@@ -177,6 +191,51 @@
         width: 2em;
         margin-bottom: 0;
     }
+
+
+
+
+/*
+##################################################### Checkout #########################################################
+*/
+    .checkoutContainer{
+        min-height:calc(100vh - var(--navbarHeightMobile) - var(--footerHeightMobile) + 5vh);
+    }
+    .checkoutContent{
+        min-height:calc(100vh - var(--navbarHeightMobile) - var(--footerHeightMobile) + 5vh);
+    }
+
+    .checkoutContent form{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        text-align:center;
+        align-content: center;
+        width:90%;
+    }
+
+
+
+    .note{
+        font-size:0.9em;
+    }
+
+    .addressView{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width:0;
+        width: 95%;
+        height:90%;
+    }
+    .billingAddress, .shippingAddress{
+        height: 50%;
+        width:100%;
+        padding-top: 3em;
+        flex-wrap: nowrap;
+        min-width:100%;
+    }
+
 
 
 

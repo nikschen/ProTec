@@ -33,6 +33,11 @@
                                     <?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                                 </tr>
                         <?endforeach?>
+                        <tr class="productBasketElement">
+                            <td class="columnContentProduct"><a class="columnContentProduct" href="index.php?c=infopages&a=paymentAndShippingDetails">Versandkosten</a></td>
+                            <td class="columnContentQuantity"></td>
+                            <td class="columnContentPricing"><?=number_format($shippingFee,2, ",",".")?> <?=$currency?></td> <?$summedUpPricing+=$shippingFee;?>
+                        </tr>
                     </tbody>
                     <tfoot>
                     <tr class="productBasketElement">
@@ -53,34 +58,33 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?if($billingAddress==false) $source=$address; else $source=$billingAddress;?>
                         <tr>
                             <td><?=$customer->firstName." ".$customer->lastName ?></td>
                             <td><?=$customer->firstName." ".$customer->lastName ?></td>
                         </tr>
                         <tr>
                             <td><?=$address->street." ".$address->streetNumber?></td>
-                            <td><?=$source->street." ".$address->streetNumber?></td>
+                            <td><?=$billingAddress->street." ".$billingAddress->streetNumber?></td>
                         </tr>
                         <tr>
                             <td><?=$address->zipCode." ".$address->city?></td>
-                            <td><?=$source->zipCode." ".$address->city?></td>
+                            <td><?=$billingAddress->zipCode." ".$billingAddress->city?></td>
                         </tr>
                         <tr>
                             <td><?=$address->country?></td>
-                            <td><?=$source->country?></td>
+                            <td><?=$billingAddress->country?></td>
                         </tr>
                         <tr>
                             <td><?=$customer->eMail?></td>
-                            <td><?=$customer->eMail?></td>
+                            <td><br></td>
                         </tr>
                         <tr>
                             <td><?=$address->additionalInformation?></td>
-                            <td><?=$source->additionalInformation?></td>
+                            <td><?=$billingAddress->additionalInformation?></td>
                         </tr>
                         <tr>
                             <td><?=$address->phone?></td>
-                            <td><?=$source->phone?></td>
+                            <td><?=$billingAddress->phone?></td>
                         </tr>
                         </tbody>
                     </table>
@@ -90,7 +94,7 @@
                         <thead>
                             <tr>
                                 <th class="tableHeader">Zahlungsart</th>
-                                <th class="tableHeader">Versanddetails</th>
+                                <th class="tableHeader">Versandart</th>
                             </tr>
                         </thead>
                         <tr>

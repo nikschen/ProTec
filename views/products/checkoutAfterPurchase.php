@@ -6,7 +6,8 @@
             <hr>
         </div>
         <br>
-        <p>Vielen Dank für Ihren Einkauf bei ProTec! Beehren Sie uns wieder!</p>
+        <p>Vielen Dank für Ihren Einkauf bei ProTec! Beehren Sie uns wieder! <br>
+        Sie werden in Kürze auf die Startseite weitergeleitet.</p>
     </div>
 </main>
 </body>

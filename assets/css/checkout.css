@@ -44,8 +44,18 @@
     height:90%;
 }
 
-.billingAddress{
-    min-height: 14.375em;
+.billingAddress, .shippingAddress{
+    height: 50vh;
+}
+
+
+.checkoutContent form input{
+    width:49%;
+}
+
+.checkoutContent form #countryShipping, .checkoutContent form #email,
+.checkoutContent form #countryBilling{
+    width:98%;
 }
 
 
@@ -86,18 +96,23 @@ hr{
     height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 2.563em);
     width:100%;
     display:flex;
+    flex-direction: row;
     justify-content: center;
+    align-content: center;
 }
 
 .checkoutContent form{
-    width:50%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .chooseMethods{
     display:flex;
     flex-direction: row;
-    width:100%;
-    justify-content: space-evenly;
+    width:50%;
+    align-content: center;
     align-items: center;
     height:90%;
 }
@@ -105,11 +120,21 @@ hr{
 .choosePaymentMethod, .chooseShippingMethod{
     width:50%;
     height:40%;
-    justify-content: center;
 }
 
 .choosePaymentMethod input[type="text"]{
     width:90%;
+    padding: 0.75em 1.25em;
+    margin: 0.375em 0;
+    display: inline-block;
+    border: 0.0625em solid rgb(134, 133, 133);
+    border-radius: 0.625em;
+    box-sizing: border-box;
+    align-items: center;
+
+}
+.chooseMethods input[type="radio"]{
+    width:10%;
 }
 
 
@@ -164,4 +189,14 @@ hr{
     height:50vh;
     width:100%;
     padding-top: 4em;
+}
+
+.shippingAddress input, .billingAddress input{
+    padding: 0.75em 1.25em;
+    margin: 0.375em 0;
+    display: inline-block;
+    border: 0.0625em solid rgb(134, 133, 133);
+    border-radius: 0.625em;
+    box-sizing: border-box;
+    align-items: center;
 }

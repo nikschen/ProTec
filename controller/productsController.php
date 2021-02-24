@@ -247,7 +247,8 @@ class ProductsController extends \protec\core\Controller
             $valuesBillingAddress['country']=$_POST['countryBilling'];
 
             $billingAddress=new \protec\model\Address($valuesBillingAddress);
-
+            $_SESSION["shippingAddress"]=$shippingAddress;
+            $_SESSION["billingAddress"]=$billingAddress;
 
             $searchString = "";
             $connectionString = " AND ";
@@ -296,8 +297,11 @@ class ProductsController extends \protec\core\Controller
                     $billingAddressID = $db->lastInsertId();
                 }
 
-                $_SESSION["shippingAddressID"]=$shippingAddressID;
-                $_SESSION["billingAddressID"]=$billingAddressID;
+                $billingAddress->addressID=$billingAddressID;
+                $shippingAddress->addressID=$shippingAddressID;
+
+                $_SESSION['shippingAddressID']=$shippingAddressID;
+                $_SESSION['billingAddressID']=$billingAddressID;
 
         }
 
@@ -314,9 +318,7 @@ class ProductsController extends \protec\core\Controller
         $shippingMethod=$_POST['shippingMethod'];
 
 
-
-
-        $address=$_SESSION['address'];
+        $address=$_SESSION['shippingAddress'];
         $billingAddress=$_SESSION['billingAddress'];
         $customer=$_SESSION['customer'];
         $billingAddressID=$_SESSION['billingAddressID'];
@@ -372,6 +374,15 @@ class ProductsController extends \protec\core\Controller
         }
         $_SESSION['payDetailID']=$payDetailID;
 
+        switch($shippingMethod)
+        {
+            case "DHL":  $this->setParam('shippingFee', '4.95'); break;
+            case "UPS Standard":$this->setParam('shippingFee', '5.90'); break;
+            case "UPS Saver Express":$this->setParam('shippingFee', '12.50'); break;
+        }
+
+
+
         $this->setParam('payDetailID', $payDetailID);
         $this->setParam('customer', $customer);
         $this->setParam('billingAddress', $billingAddress);
@@ -394,14 +405,12 @@ class ProductsController extends \protec\core\Controller
         $values['payDetailID']=$payDetailID;
         $values['shippingAddressID']=$shippingAddress->addressID;
 
+
         $purchase=new \protec\model\Purchase($values);
 
         $purchase->insert();
         $purchaseID=$db->lastInsertId();
 
-
-
-        $values=[];
 
         foreach($_SESSION['productBasket'] as $productBasketEntry)
         {
@@ -428,6 +437,7 @@ class ProductsController extends \protec\core\Controller
         $_SESSION['productBasket']=null;
         $title='ProTec > Ihr Einkauf';
         $this->setParam('title', $title);
+        header("Refresh: 3; index.php?c=pages&a=index");
     }
 
 

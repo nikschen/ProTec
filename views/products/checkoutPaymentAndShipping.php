@@ -10,7 +10,7 @@
             <form method="post" action="index.php?c=products&a=checkoutCheckAndBuy">
                 <div class="chooseMethods">
                     <div class="choosePaymentMethod">
-                        <p> Zahlungsart</p>
+                        <p>Zahlungsart</p>
                         <br>
                         <input type="radio" id="paymentMethod1" name="paymentMethod" value="IBAN" checked required onclick="showPaymentNumber()"><label for="paymentMethod1">IBAN</label><br>
                         <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" required onclick="showPaymentNumber()"><label for="paymentMethod2">PayPal</label><br>
@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="chooseShippingMethod">
-                        <p> Versandsart</p>
+                        <p>Versandsart</p>
                         <br>
                         <input type="radio" id="shippingMethod1" name="shippingMethod" value="DHL" checked required><label for="shippingMethod1">DHL</label><br>
                         <input type="radio" id="shippingMethod2" name="shippingMethod" value="UPS Standard" required><label for="shippingMethod2">UPS Standard</label><br>

@@ -18,11 +18,11 @@
                         <input class="oneLine" type="text" name="streetNoShipping" placeholder="Hausnummer*" value="<?if (isset($_POST['streetNoShipping'])){echo htmlspecialchars($_POST['streetNoShipping']);}else echo $streetNoShippingValue?>" required ><br>
                         <input class="oneLine" type="text" name="zipcodeShipping" placeholder="PLZ*" value="<?if (isset($_POST['zipcodeShipping'])){echo htmlspecialchars($_POST['zipcodeShipping']);}else echo $zipcodeShippingValue?>" required >
                         <input class="oneLine" type="text" name="cityShipping" placeholder="Ort*" value="<?if (isset($_POST['cityShipping'])){echo htmlspecialchars($_POST['cityShipping']);}else echo $cityShippingValue?>" required ><br>
-                        <input type="text" name="countryShipping" placeholder="Land*" value="<?if (isset($_POST['countryShipping'])){echo htmlspecialchars($_POST['countryShipping']);}else echo $countryShippingValue?>" required ><br>
+                        <input type="text" name="countryShipping" id="countryShipping"placeholder="Land*" value="<?if (isset($_POST['countryShipping'])){echo htmlspecialchars($_POST['countryShipping']);}else echo $countryShippingValue?>" required ><br>
                         <input type="text" class="emailToCheck" id="email" name="emailShipping" placeholder="Ihre E-Mail-Adresse*"  onchange='checkEmail()' value="<?if (isset($_POST['emailShipping'])){echo htmlspecialchars($_POST['emailShipping']);}else echo $emailShippingValue?>" required >
                         <p class="messageMail" ></p>
                         <br>
-                        <p>Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Lieferadresse für diese Bestellung zu ändern.</p>
+                        <p class="note">Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Lieferadresse für diese Bestellung zu ändern.</p>
                     </div>
 
                     <div class="billingAddress">
@@ -34,11 +34,11 @@
                         <input class="oneLine" type="text" name="streetNoBilling" placeholder="Hausnummer*" value="<?if (isset($_POST['streetNoBilling'])){echo htmlspecialchars($_POST['streetNoBilling']);}else echo $streetNoBillingValue?>" required ><br>
                         <input class="oneLine" type="text" name="zipcodeBilling" placeholder="PLZ*" value="<?if (isset($_POST['zipcodeBilling'])){echo htmlspecialchars($_POST['zipcodeBilling']);}else echo $zipcodeBillingValue?>" required >
                         <input class="oneLine" type="text" name="cityBilling" placeholder="Ort*" value="<?if (isset($_POST['cityBilling'])){echo htmlspecialchars($_POST['cityBilling']);}else echo $cityBillingValue?>" required ><br>
-                        <input type="text" name="countryBilling" placeholder="Land*" value="<?if (isset($_POST['countryBilling'])){echo htmlspecialchars($_POST['countryBilling']);}else echo $countryBillingValue?>" required ><br>
+                        <input type="text" name="countryBilling" id="countryBilling" placeholder="Land*" value="<?if (isset($_POST['countryBilling'])){echo htmlspecialchars($_POST['countryBilling']);}else echo $countryBillingValue?>" required ><br>
                         <p class="messageMail" ></p>
                         <br>
 
-                        <p>Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Rechnungsadresse für diese Bestellung zu ändern.</p>
+                        <p class="note">Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Rechnungsadresse für diese Bestellung zu ändern.</p>
                     </div>
 
                 </div>
