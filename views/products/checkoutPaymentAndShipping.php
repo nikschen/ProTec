@@ -12,9 +12,9 @@
                     <div class="choosePaymentMethod">
                         <p>Zahlungsart</p>
                         <br>
-                        <input type="radio" id="paymentMethod1" name="paymentMethod" value="IBAN" checked required onclick="showPaymentNumber()"><label for="paymentMethod1">IBAN</label><br>
-                        <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" required onclick="showPaymentNumber()"><label for="paymentMethod2">PayPal</label><br>
-                        <input type="radio" id="paymentMethod3" name="paymentMethod" value="Invoice" required onclick="hidePaymentNumber()"><label for="paymentMethod3">Rechnung</label><br>
+                        <input type="radio" id="paymentMethod1" name="paymentMethod" value="IBAN" <?if(isset($_POST['paymentMethod'])){ if($_POST['paymentMethod']=='IBAN'){echo "checked";}else echo '';}else echo "checked"?> required onclick="showPaymentNumber()"><label for="paymentMethod1">IBAN</label><br>
+                        <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" <?if(isset($_POST['paymentMethod'])){ if($_POST['paymentMethod']=='PayPal'){echo "checked";}else echo '';}?> required onclick="showPaymentNumber()"><label for="paymentMethod2">PayPal</label><br>
+                        <input type="radio" id="paymentMethod3" name="paymentMethod" value="Invoice" <?if(isset($_POST['paymentMethod'])){ if($_POST['paymentMethod']=='Invoice'){echo "checked";}else echo '';}?> required onclick="hidePaymentNumber()"><label for="paymentMethod3">Rechnung</label><br>
                         <br>
                         <input type="text" id="paymentNumber"  name="paymentNumber" placeholder="IBAN/PayPal-Adresse" value="<?if(isset($payDetail)){ echo $payDetail->paymentNumber;} elseif (isset($_POST['paymentNumber'])) {echo htmlspecialchars($_POST['paymentNumber']);} else echo ''?>" required><br>
                         <?if(isset($error)):?>

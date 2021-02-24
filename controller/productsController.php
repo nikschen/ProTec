@@ -115,6 +115,7 @@ class ProductsController extends \protec\core\Controller
      *  provides the current user's billing and shipping address(es) if logged in, else forwards to the login page
      *  if there is no billing address associated to the user yet, the shipping address will be used as the billing address as a prefill
      * prefills the form for the shipping and billing addresses with the mentioned values
+     * after submit checks for valid values and forwards to the next checkout step if no errors occur
      */
     public function actionCheckoutAddress()
     {
@@ -423,6 +424,7 @@ class ProductsController extends \protec\core\Controller
 
     /**
      * checks for existing billing or shipping addresses; creates and inserts new address into the database if not already existing
+     * after submit checks for valid payment values if paymentMethod is not invoice and forwards to the next checkout step if no errors occur
      */
     public function actionCheckoutPaymentAndShipping()
     {
@@ -446,8 +448,8 @@ class ProductsController extends \protec\core\Controller
                     else $valid=false;
                     break;
                 case 'PayPal':
-                    if(mb_strlen($_POST['paymentNumber'])<4 || !filter_var($_POST['paymentNumber'], FILTER_VALIDATE_EMAIL))$valid=true;
-                    else $valid=false;
+                    if(mb_strlen($_POST['paymentNumber'])<4 || !filter_var($_POST['paymentNumber'], FILTER_VALIDATE_EMAIL))$valid=false;
+                    else $valid=true;
                     break;
             }
 
@@ -532,8 +534,7 @@ class ProductsController extends \protec\core\Controller
 
 
     /**
-     * checks for input in previous action
-     * checks for chosen payment and shipping methods and provides overview about the whole buying process and the chosen products, addresses and shipping and payment details
+     * provides overview about the whole buying process and the chosen products, addresses and shipping and payment details
      */
     public function actionCheckoutCheckAndBuy()
     {
@@ -561,13 +562,10 @@ class ProductsController extends \protec\core\Controller
         $db = $GLOBALS["db"];
         $shippingAddress=$_SESSION['shippingAddress'];
 
-
-
         $values['customerID']=$_SESSION['customerID'];
         $payDetailID=$_SESSION['payDetailID'];
         $values['payDetailID']=$payDetailID;
         $values['shippingAddressID']=$shippingAddress->addressID;
-
 
         $purchase=new \protec\model\Purchase($values); //creation of the purchase according to the given customerID, payDetailID and shippingAddressID
 
