@@ -37,14 +37,18 @@
 
     .productBasketContent{
         font-size:0.8em;
+        width:100%;
+    }
+    .productBasketContent thead, .productBasketContent tbody, .productBasketContent tfoot {
+        width: 100%;
     }
 
     .columnHeaderProduct, .columnContentProduct, .columnSummaryProduct{
-        width:60vw;
+        width:60%;
     }
     .columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
     .columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
-        width:15vw;
+        width:15%;
     }
 
 

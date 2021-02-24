@@ -33,6 +33,7 @@
     width:100%;
     max-height:100%;
     color:white;
+    border-collapse: collapse;
 }
 
 .addressView{
@@ -48,6 +49,9 @@
     height: 50vh;
 }
 
+.currency{
+    color:white;
+}
 
 .checkoutContent form input{
     width:49%;
@@ -67,7 +71,7 @@ hr{
     display:flex;
     flex-direction: row;
     justify-content:space-evenly;
-    width:100vw;
+    width:98vw;
     padding-top: 0.5em;
 
 }
@@ -92,16 +96,16 @@ hr{
     text-decoration: none;
 }
 
-.checkoutContent{
+.checkoutContent, .checkoutContentShort{
     height:calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen) - 2.563em);
-    width:100%;
+    width:99%;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
 }
 
-.checkoutContent form{
+.checkoutContent form, .checkoutContentShort form{
     width:100%;
     display:flex;
     flex-direction: column;

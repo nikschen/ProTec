@@ -179,8 +179,14 @@
     }
 
     .productBasketContent{
-        min-width:95vw;
+        font-size:0.8em;
+        width:100%;
     }
+    .productBasketContent thead, .productBasketContent tbody, .productBasketContent tfoot {
+        width: 100%;
+    }
+
+
 
     .productBasketText{
         display:none;
@@ -204,17 +210,21 @@
     .checkoutContent{
         min-height:calc(100vh - var(--navbarHeightMobile) - var(--footerHeightMobile) + 5vh);
     }
-
-    .checkoutContent form{
-        display:flex;
-        flex-direction:column;
-        justify-content: center;
-        text-align:center;
-        align-content: center;
-        width:90%;
+    .checkoutContainerShort{
+        min-height:calc(100vh - var(--navbarHeightMobile) - var(--footerHeightMobile));
+    }
+    .checkoutContentShort{
+        min-height:calc(80vh - var(--navbarHeightMobile) - var(--footerHeightMobile));
     }
 
+    .navigationHistory span{
+        font-size:1.1em;
+    }
 
+    .choosePaymentMethod, .chooseShippingMethod{
+        width:100%;
+
+    }
 
     .note{
         font-size:0.9em;
@@ -236,6 +246,41 @@
         min-width:100%;
     }
 
+    .summaryCheckoutContainer{
+        flex-direction: column;
+        align-items: center;
+        height:100%;
+    }
+
+    .productBasketSummary{
+        height:100%;
+        width:100%;
+        overflow-x: visible;
+        font-size:0.8em;
+    }
+
+    .productBasketSummary .columnHeaderQuantity,
+    .productBasketSummary .columnContentQuantity,
+    .productBasketSummary .columnSummaryQuantity{
+        width:7%;
+        min-width: 3.125em;
+    }
+    .productBasketSummary .columnHeaderProduct,
+    .productBasketSummary .columnContentProduct,
+    .productBasketSummary .columnSummaryProduct{
+        width:73%;
+    }
+
+    .productBasketSummary .columnHeaderPricing,
+    .productBasketSummary .columnContentPricing,
+    .productBasketSummary .columnSummaryPricing{
+        width:10%;
+        min-width: 4.688em;
+    }
+
+    .currency{
+        display:none;
+    }
 
 
 
@@ -395,8 +440,8 @@
     }
 
     .addToBasketButton img {
-        height: 0.5em;
-        width: 0.5em;
+        height: 1.5em;
+        width: 1.5em;
     }
 /*
 ############################################### Unterkategorieseiten ###################################################

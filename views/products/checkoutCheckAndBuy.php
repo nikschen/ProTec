@@ -28,7 +28,7 @@
                                     </td>
                                     <?$summedUpQuantity+=$productBasketEntry->quantityWanted?>
                                     <td class="columnContentPricing">
-                                        <?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <?=$pricing->currency?>
+                                        <?= number_format($productBasketEntry->quantityWanted * $pricing->amount,2, ",",".")?> <p class="currency">&nbsp;<?=$pricing->currency?></p>
                                     </td>
                                     <?$summedUpPricing+=$productBasketEntry->quantityWanted * $pricing->amount; $currency=$pricing->currency;?>
                                 </tr>
@@ -36,7 +36,7 @@
                         <tr class="productBasketElement">
                             <td class="columnContentProduct"><a class="columnContentProduct" href="index.php?c=infopages&a=paymentAndShippingDetails">Versandkosten</a></td>
                             <td class="columnContentQuantity"></td>
-                            <td class="columnContentPricing"><?=number_format($shippingFee,2, ",",".")?> <?=$currency?></td> <?$summedUpPricing+=$shippingFee;?>
+                            <td class="columnContentPricing"><?=number_format($shippingFee,2, ",",".")?> <p class="currency">&nbsp;<?=$currency?></p></td> <?$summedUpPricing+=$shippingFee;?>
                         </tr>
                     </tbody>
                     <tfoot>
