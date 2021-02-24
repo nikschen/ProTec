@@ -45,10 +45,7 @@
 
 
                 </div>
-                <div class="dropdown">
-                    <div class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon-black.png" alt="Neu" > <span class="categoryTitle">Neu</span></a></div>
-
-                </div>
+              
                 <div class="dropdown">
                     <div class="dropbtn"> <a href="index.php?c=pages&a=categorySensors"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/sensorenIcon-black.png" alt="Sens." > <span class="categoryTitle">Sensoren</span></a></div>
                     <div class=dropdown-content>
@@ -59,6 +56,10 @@
                             <li class="dropdownContentListElement"><a href="index.php?c=pages&a=subcategory&subcat=Sensoren&cat=GyroSensor">GyroSensor</a></li>
                         </ul>
                     </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn"><a href="index.php?c=pages&a=categoryNew"><img class="categoryLogo" id="logo" src="<?=ICONSPATH?>categories/neuIcon-black.png" alt="Neu" > <span class="categoryTitle">Neu</span></a></div>
+
                 </div>
             </div>
             <div class="searchNavContainer">
