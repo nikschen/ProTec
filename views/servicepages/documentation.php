@@ -57,7 +57,10 @@
         </p>
         <img src="<?=IMAGESPATH?>/logo/colorscheme.png" alt="color scheme" width=60%><p>Farbschema</p><br>
         <h4>1.2.3 Schriften</h4>
-        
+        <p>
+            beides wegen der klaren linie, ohne zu technisch unmodern zu wirken
+            und die überschriftsart weil se noch bisscehn kleinere schrittweite 
+        </p>
 
 
 
@@ -349,6 +352,20 @@
             <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
         </details>
 
+        </ul>
+        <h3>9. Bewältigte Herausforderungen</h3>
+        <ul>
+            <li>Datenbankzugriffe</li>
+            <li>Cookie- und Sessionhandling</li>
+            <li>Sinnvolles Design einer Suche</li>
+            <li>Rückmeldung an den Nutzer wo und wann..</li>
+            <li>Geschäftslogik in logischen Code zu übersetzen</li>
+            <li>Neuorientierung nach Teamveränderung</li>
+            <li>Testcases schreiben für Websites</li>
+            <li>Designeinigungen finden</li>
+            <li>Teamzusammenarbeit optimieren, Pausen planen, Deadlines setzen</li>
+            <li></li>
+            <li></li>
         </ul>
     </div>
 
