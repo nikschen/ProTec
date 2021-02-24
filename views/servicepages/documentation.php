@@ -180,8 +180,8 @@
         <br><br>
 
         <h3>5. Datenbankstruktur</h3>
-        <a class="databaseDiagramFull" href="/diagrams/ProtecDBV1.1.png" target="_blank">
-            <img class="databaseDiagram" src="/diagrams/ProtecDBV1.1.png" alt="Datenbankstrukturdiagramm">
+        <a class="databaseDiagramFull" href="/diagrams/ProtecDBV1.2.png" target="_blank">
+            <img class="databaseDiagram" src="/diagrams/ProtecDBV1.2.png" alt="Datenbankstrukturdiagramm">
         </a>
         <br><br>
 
