@@ -16,7 +16,7 @@
     font-size:1em;
 }
 .productBasketContent thead,.productBasketContent tbody,.productBasketContent tfoot{
-    width:80%;
+    width:100%;
 }
 
 .productBasketElement{
@@ -28,8 +28,11 @@
 }
 
 
-.columnHeaderQuantity, .columnContentQuantity, .columnHeaderPricing,
-.columnContentPricing, .columnSummaryQuantity, .columnSummaryPricing{
+.columnHeaderPricing, .columnContentPricing, .columnSummaryPricing{
+    width:12.5%;
+}
+
+.columnHeaderQuantity, .columnContentQuantity, .columnSummaryQuantity{
     width:10%;
 }
 
@@ -61,7 +64,7 @@
 
 
 .columnHeaderProduct, .columnContentProduct, .columnSummaryProduct{
-    width:70%;
+    width:67.5%;
 }
 
 .columnSummaryQuantity , .columnSummaryProduct ,.columnSummaryPricing{

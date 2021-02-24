@@ -16,9 +16,11 @@ class ProductsController extends \protec\core\Controller
     public function actionProduct()
     {
 
+        $message='';
+
         if(isset($_POST['submit']))
         {
-            $this->actionAddProduct(); //calls add product if corresponding button is pressed to add a product and the correct amount to the product basket
+            $message=$this->actionAddProduct(); //calls add product if corresponding button is pressed to add a product and the correct amount to the product basket
         }
         $productIDToBeSearchedFor = 'productID='.'"'.$_GET['pid'].'"';
         $product=protec\model\Product::findOne($productIDToBeSearchedFor);
@@ -27,6 +29,7 @@ class ProductsController extends \protec\core\Controller
         $productPrice=number_format($pricingEntry->amount,2, ",",".").' '.$pricingEntry->currency;
         $title=$product->prodName;
         $this->setParam('title', $title);
+        $this->setParam('message', $message);
         $this->setParam('product', $product);
         $this->setParam('productPrice',$productPrice);
 
@@ -75,6 +78,8 @@ class ProductsController extends \protec\core\Controller
     /**
      * checks for button press on a product page, adds the product associated with the productID given by the get params to the virtual product basket together with the wanted quantity
      * adds up the wanted quantity of a product if given to add but already existing in the product basket
+     * checks if the added amount exceeds the stored quantity or the allowed amount and corrects it to the maximum of possible amounts
+     * provides errormessage if amount exceeds the allowed or possible amounts and why
      */
     public function actionAddProduct()
     {
@@ -83,29 +88,75 @@ class ProductsController extends \protec\core\Controller
 
             $productID=$_GET['pid'] ?? null;
             $quantityWanted=$_POST['quantityWanted']?? null;
-
+            $product=\protec\model\Product::findOne('productID='.'"'.$productID.'"');
+            $message='';
 
             if(!empty($productID)&&!empty($quantityWanted))
             {
                 if(!empty($_SESSION['productBasket']))//checks for any amount greater than 0 of existing entries
                 {
-                    foreach($_SESSION['productBasket'] as $basketEntry) //checks for already existing entries of the current product
+                    foreach($_SESSION['productBasket'] as $basketEntry) //loop through each productBasket entry, checks for already existing entries of the current product
                     {
-                        if($basketEntry->productID==$productID)
+                        if($basketEntry->productID==$productID) //if current product already exists in an entry
                         {
                             $basketEntry->quantityWanted+=$quantityWanted;
-                            return;
+
+                            if($basketEntry->quantityWanted>10) //checks if allowedAmount is exceeded
+                            {
+                                $basketEntry->quantityWanted=10;
+                                $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
+                            }
+                            else if($basketEntry->quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                            {
+                                $basketEntry->quantityWanted=$product->quantityStored;
+                                $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
+                            }
                         }
+                        else
+                        {
+                            if($quantityWanted>10)  //checks if allowedAmount is exceeded
+                            {
+                                $quantityWanted=10;
+                                $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
+                            }
+                            else if($quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                            {
+                                $quantityWanted->quantityWanted=$product->quantityStored;
+                                $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
+                            }
+
+                            $values=[
+                                'productID'=>$productID,
+                                'quantityWanted'=>$quantityWanted];
+                            $productBasketEntry=new \protec\model\ProductBasketEntry($values);
+                            array_push($_SESSION['productBasket'],$productBasketEntry);
+                        }
+
                     }
                     
                 }
+                else
+                {
+                    if($quantityWanted>10) //checks if allowedAmount is exceeded
+                    {
+                        $quantityWanted=10;
+                        $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
+                    }
+                    else if($quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                    {
+                        $quantityWanted->quantityWanted=$product->quantityStored;
+                        $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
+                    }
+
                     $values=[
-                        'productID'=>$productID,
-                        'quantityWanted'=>$quantityWanted];
+                       'productID'=>$productID,
+                       'quantityWanted'=>$quantityWanted];
                     $productBasketEntry=new \protec\model\ProductBasketEntry($values);
                     array_push($_SESSION['productBasket'],$productBasketEntry);
+                }
 
-                $amountOfBasketEntries=count($_SESSION['productBasket']); //counts the current amount of product basket entries, used for the text below the product basket symbol in the navigation bar
+                    $amountOfBasketEntries=count($_SESSION['productBasket']); //counts the current amount of product basket entries, used for the text below the product basket symbol in the navigation bar
+                return $message;
             }
         }
     }
