@@ -43,10 +43,10 @@ class Controller
 			header('Location: index.php?c=errors&a=error404');
 			exit(0);
 		}
-        include VIEWSPATH.'pages/head.php';
-		include VIEWSPATH.'pages/header.php';
+        include VIEWSPATH.'commonpageparts/head.php';
+		include VIEWSPATH.'commonpageparts/header.php';
 		include $viewPath;
-		include VIEWSPATH.'pages/footer.php';
+		include VIEWSPATH.'commonpageparts/footer.php';
 		
 		
 	}
