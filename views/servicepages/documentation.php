@@ -58,8 +58,12 @@
         <img src="<?=IMAGESPATH?>/logo/colorscheme.png" alt="color scheme" width=60%><p>Farbschema</p><br>
         <h4>1.2.3 Schriften</h4>
         <p>
-            beides wegen der klaren linie, ohne zu technisch unmodern zu wirken
-            und die überschriftsart weil se noch bisscehn kleinere schrittweite 
+            gewählte Schriftarten: Nanum Gothic / Open Sans / Butterfly Kids|Roboto (Überschriften)
+        </p>
+        <p>
+            Beide Schriftarten wurden aufgrund der klaren Linie gewählt die zum technischen Aspekt des Webshops passen soll. Die gewählten Schriftarten
+            verbinden den maschinell/technischen Part der Webseite ohne dabei zu unmodern zu wirken. Eine zusätzliche Schriftart für die Überschriften
+            wurde gewählt, da sie eine kleinere Schrittweite als die meisten anderen Schriften hatte.
         </p>
 
 
