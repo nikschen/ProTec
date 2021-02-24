@@ -175,6 +175,7 @@
                         <li>Recherche Beispielprodukte</li>
                         <li>Beispieldaten für Datenbank</li>
                         <li>Testaccounts</li>
+                        <li>NUnit Tests</li>
                         <li>Firmenlogo</li>
                     </ul>
                     <br>
@@ -206,8 +207,8 @@
         <br><br>
 
         <h3>5. Datenbankstruktur</h3>
-        <a class="databaseDiagramFull" href="/diagrams/ProtecDBV1.2.png" target="_blank">
-            <img class="databaseDiagram" src="/diagrams/ProtecDBV1.2.png" alt="Datenbankstrukturdiagramm">
+        <a class="databaseDiagramFull" href="<?=IMAGESPATH?>/models/databaseModel.png" target="_blank">
+        <img src="<?=IMAGESPATH?>/models/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%> 
         </a>
         <br><br>
 
