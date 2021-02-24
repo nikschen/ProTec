@@ -183,3 +183,42 @@ footer a:hover {
 .footerItem4 {
     margin:0.2em;
 }
+
+.cookieBanner {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orangeAccentColor);
+    color: black;
+    border-radius: 4px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.cookieBanner p {
+    text-align: center;
+    color: black;
+}
+
+.cookieBanner #linkToInfo {
+    text-align: center;
+    color: black;
+    width: 50%;
+}
+.cookieBanner #linkToInfo:hover{
+    background-color: var(--mainColor);
+}
+
+
+.cookieBanner #understoodButton {
+    width: 100%;
+    background-color: var(--mainColor);
+    color: white;
+    padding: 0.875em 1.25em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    align-items: center;
+}
