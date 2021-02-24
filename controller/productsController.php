@@ -118,48 +118,49 @@ class ProductsController extends \protec\core\Controller
      */
     public function actionCheckoutAddress()
     {
-        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']==true) //checks for user being logged in, because guests can not buy something yet without an account; users no being logged in will be forwarded to the login page
+
+        $db=$GLOBALS['db'];
+
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) //checks for user being logged in, because guests can not buy something yet without an account; users no being logged in will be forwarded to the login page
         {
-            $sqlCustomer="email="."\"".$_SESSION["email"]."\"";
-            $customer=\protec\model\Customer::findOne($sqlCustomer);
-            $sqlAddress="addressID="."\"".$customer->customerID."\"";
-            $address=\protec\model\Address::findOne($sqlAddress);
-            $_SESSION['address']=$address;
-            $_SESSION['customer']=$customer;
-            $_SESSION['customerID']=$customer->customerID;
-            $_SESSION['shippingAddress']=$address;
+            $sqlCustomer = "email="."\"".$_SESSION["email"]."\"";
+            $customer = \protec\model\Customer::findOne($sqlCustomer);
+            $sqlAddress = "addressID="."\"".$customer->customerID."\"";
+            $address = \protec\model\Address::findOne($sqlAddress);
+            $_SESSION['address'] = $address;
+            $_SESSION['customer'] = $customer;
+            $_SESSION['customerID'] = $customer->customerID;
+            $_SESSION['shippingAddress'] = $address;
 
-            $sqlPayDetail="customerID="."\"".$customer->customerID."\"";
+            $sqlPayDetail = "customerID="."\"".$customer->customerID."\"";
 
 
-            if(!empty(\protec\model\PayDetail::findOne($sqlPayDetail))) //checks for existing paydetails for the current user
+            if (!empty(\protec\model\PayDetail::findOne($sqlPayDetail))) //checks for existing paydetails for the current user
             {
-                $payDetail=\protec\model\PayDetail::findOne($sqlPayDetail);
+                $payDetail = \protec\model\PayDetail::findOne($sqlPayDetail);
 
-                $sqlBillingAddress="addressID="."\"".$payDetail->billingAddressID."\"";
+                $sqlBillingAddress = "addressID="."\"".$payDetail->billingAddressID."\"";
 
 
-                if(!empty($billingAddress=\protec\model\Address::findOne($sqlBillingAddress)))
+                if (!empty($billingAddress = \protec\model\Address::findOne($sqlBillingAddress)))
                 {
-                    $billingAddress=\protec\model\Address::findOne($sqlBillingAddress);
-                    $_SESSION['billingAddress']=$billingAddress;
+                    $billingAddress = \protec\model\Address::findOne($sqlBillingAddress);
+                    $_SESSION['billingAddress'] = $billingAddress;
                 }
                 else
                 {
-                    $_SESSION['billingAddress']=$address;
+                    $_SESSION['billingAddress'] = $address;
                 }
 
 
-                $_SESSION['payDetail']=$payDetail;
+                $_SESSION['payDetail'] = $payDetail;
                 $this->setParam('billingAddress', $billingAddress);
             }
             else
             {
-                $billingAddress=false;
+                $billingAddress = false;
                 $this->setParam('billingAddress', false);
             }
-
-
         }
         else
         {
@@ -167,62 +168,243 @@ class ProductsController extends \protec\core\Controller
         }
 
 
-
-
-        if($billingAddress!=false) //if billing address is given, all attributes of it will be filled with the billing address values
+        if ($billingAddress != false) //if billing address is given, all attributes of it will be filled with the billing address values
         {
-            $firstNameBillingValue=$customer->firstName;
-            $lastNameBillingValue=$customer->lastName;
-            $streetBillingValue=$billingAddress->street;
-            $streetNoBillingValue=$billingAddress->streetNumber;
-            $zipcodeBillingValue=$billingAddress->zipCode;
-            $cityBillingValue=$billingAddress->city;
-            $countryBillingValue=$billingAddress->country;
-            $emailBillingValue=$customer->eMail;
+            $firstNameBillingValue = $customer->firstName;
+            $lastNameBillingValue = $customer->lastName;
+            $streetBillingValue = $billingAddress->street;
+            $streetNoBillingValue = $billingAddress->streetNumber;
+            $zipcodeBillingValue = $billingAddress->zipCode;
+            $cityBillingValue = $billingAddress->city;
+            $countryBillingValue = $billingAddress->country;
+            $emailBillingValue = $customer->eMail;
         }
         else //if billing address is not given, all attributes of it will be filled with the shipping address values
         {
-            $firstNameBillingValue=$customer->firstName;
-            $lastNameBillingValue=$customer->lastName;
-            $streetBillingValue=$address->street;
-            $streetNoBillingValue=$address->streetNumber;
-            $zipcodeBillingValue=$address->zipCode;
-            $cityBillingValue=$address->city;
-            $countryBillingValue=$address->country;
-            $emailBillingValue=$customer->eMail;
+            $firstNameBillingValue = $customer->firstName;
+            $lastNameBillingValue = $customer->lastName;
+            $streetBillingValue = $address->street;
+            $streetNoBillingValue = $address->streetNumber;
+            $zipcodeBillingValue = $address->zipCode;
+            $cityBillingValue = $address->city;
+            $countryBillingValue = $address->country;
+            $emailBillingValue = $customer->eMail;
         }
 
-        $firstNameShippingValue=$customer->firstName;
-        $lastNameShippingValue=$customer->lastName;
-        $streetShippingValue=$address->street;
-        $streetNoShippingValue=$address->streetNumber;
-        $zipcodeShippingValue=$address->zipCode;
-        $cityShippingValue=$address->city;
-        $countryShippingValue=$address->country;
-        $emailShippingValue=$customer->eMail;
+        $firstNameShippingValue = $customer->firstName;
+        $lastNameShippingValue = $customer->lastName;
+        $streetShippingValue = $address->street;
+        $streetNoShippingValue = $address->streetNumber;
+        $additionalInformationValue = $address->additionalInformation;
+        $zipcodeShippingValue = $address->zipCode;
+        $cityShippingValue = $address->city;
+        $countryShippingValue = $address->country;
+        $emailShippingValue = $customer->eMail;
 
-        $this->setParam('firstNameBillingValue',$firstNameBillingValue);
-        $this->setParam('lastNameBillingValue',$lastNameBillingValue);
-        $this->setParam('streetBillingValue',$streetBillingValue);
-        $this->setParam('streetNoBillingValue',$streetNoBillingValue);
-        $this->setParam('zipcodeBillingValue',$zipcodeBillingValue);
-        $this->setParam('cityBillingValue',$cityBillingValue);
-        $this->setParam('countryBillingValue',$countryBillingValue);
-        $this->setParam('emailBillingValue',$emailBillingValue);
+        $this->setParam('firstNameBillingValue', $firstNameBillingValue);
+        $this->setParam('lastNameBillingValue', $lastNameBillingValue);
+        $this->setParam('streetBillingValue', $streetBillingValue);
+        $this->setParam('streetNoBillingValue', $streetNoBillingValue);
+        $this->setParam('zipcodeBillingValue', $zipcodeBillingValue);
+        $this->setParam('cityBillingValue', $cityBillingValue);
+        $this->setParam('countryBillingValue', $countryBillingValue);
+        $this->setParam('emailBillingValue', $emailBillingValue);
 
-        $this->setParam('firstNameShippingValue',$firstNameShippingValue);
-        $this->setParam('lastNameShippingValue',$lastNameShippingValue);
-        $this->setParam('streetShippingValue',$streetShippingValue);
-        $this->setParam('streetNoShippingValue',$streetNoShippingValue);
-        $this->setParam('zipcodeShippingValue',$zipcodeShippingValue);
-        $this->setParam('cityShippingValue',$cityShippingValue);
-        $this->setParam('countryShippingValue',$countryShippingValue);
-        $this->setParam('emailShippingValue',$emailShippingValue);
+        $this->setParam('firstNameShippingValue', $firstNameShippingValue);
+        $this->setParam('lastNameShippingValue', $lastNameShippingValue);
+        $this->setParam('streetShippingValue', $streetShippingValue);
+        $this->setParam('streetNoShippingValue', $streetNoShippingValue);
+        $this->setParam('additionalInformationValue', $additionalInformationValue);
+        $this->setParam('zipcodeShippingValue', $zipcodeShippingValue);
+        $this->setParam('cityShippingValue', $cityShippingValue);
+        $this->setParam('countryShippingValue', $countryShippingValue);
+        $this->setParam('emailShippingValue', $emailShippingValue);
 
-        $title='ProTec > Checkout';
+        if (isset($_POST["submit"]))
+        {
+            $customer = $_SESSION['customer'];
+
+
+            $firstNameShipping= $_POST['firstNameShipping'];
+            $lastNameShipping= $_POST['lastNameShipping'];
+            $streetShipping= $_POST['streetShipping'];
+            $streetNoShipping= $_POST['streetNoShipping'];
+            $additionalInformation= $_POST['additionalInformation'];
+            $zipcodeShipping= $_POST['zipcodeShipping'];
+            $cityShipping= $_POST['cityShipping'];
+            $countryShipping= $_POST['countryShipping'];
+
+            if(mb_strlen($firstNameShipping)<2 || mb_strlen($firstNameShipping)>46 || preg_match('/[0-9]/',$firstNameShipping))
+            {
+                $shippingAddressErrors['firstName'] = "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeichen";
+            }
+            if(mb_strlen($lastNameShipping)<2 || mb_strlen($firstNameShipping)>100 ||preg_match('/[0-9]/',$lastNameShipping))
+            {
+                $shippingAddressErrors['lastName'] = "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
+            }
+            if(mb_strlen($streetShipping)<2 || mb_strlen($streetShipping)>255 )
+            {
+                $shippingAddressErrors['streetInfo'] = "Straßenangabe entspricht nicht den Anforderungen min. 2 max. 255 Zeichen";
+            }
+            if(mb_strlen($streetNoShipping)<1 || mb_strlen($streetNoShipping)>10 )
+            {
+                $shippingAddressErrors['streetNo'] = "Hausnummereingabe entspricht nicht den Anforderungen min. 1 max. 10 Zeichen";
+            }
+            if(mb_strlen($zipcodeShipping)<3 || mb_strlen($zipcodeShipping)>12 )
+            {
+                $shippingAddressErrors['zipcode'] = "PLZ entspricht nicht den Anforderungen min. 3 max. 12 Zeichen";
+            }
+            if($additionalInformation!=="")
+            {
+                if(mb_strlen($additionalInformation)<2 || mb_strlen($additionalInformation)>60 )
+                {
+                    $shippingAddressErrors['additionalInfo'] = "Adresszusatz entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+                }
+            }
+            else
+            {
+                $additionalInformation = null;
+            }
+            if(mb_strlen($cityShipping)<2 || mb_strlen($cityShipping)>60 )
+            {
+                $shippingAddressErrors['city'] = "Stadt entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+            }
+            if(mb_strlen($countryShipping)<2 || mb_strlen($countryShipping)>60 )
+            {
+                $shippingAddressErrors['country'] = "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+            }
+
+            $firstNameBilling= $_POST['firstNameBilling'];
+            $lastNameBilling= $_POST['lastNameBilling'];
+            $streetBilling= $_POST['streetBilling'];
+            $streetNoBilling= $_POST['streetNoBilling'];
+            $zipcodeBilling= $_POST['zipcodeBilling'];
+            $cityBilling= $_POST['cityBilling'];
+            $countryBilling= $_POST['countryBilling'];
+
+            if(mb_strlen($firstNameBilling)<2 || mb_strlen($firstNameBilling)>46 || preg_match('/[0-9]/',$firstNameBilling))
+            {
+                $billingAddressErrors['firstName'] = "Vorname entspricht nicht den Anforderungen -> mind. 2 max. 46 Zeichen,  keine Zahlen oder Sonderzeichen";
+            }
+            if(mb_strlen($lastNameBilling)<2 || mb_strlen($firstNameBilling)>100 ||preg_match('/[0-9]/',$lastNameBilling))
+            {
+                $billingAddressErrors['lastName'] = "Name entspricht nicht den Anforderungen -> min. 2 max. 100 Zeichen, keine Zahlen oder Sonderzeichen";
+            }
+            if(mb_strlen($streetBilling)<2 || mb_strlen($streetBilling)>255 )
+            {
+                $billingAddressErrors['streetInfo'] = "Straßenangabe entspricht nicht den Anforderungen min. 2 max. 255 Zeichen";
+            }
+            if(mb_strlen($streetNoBilling)<1 || mb_strlen($streetNoBilling)>10 )
+            {
+                $billingAddressErrors['streetNo'] = "Hausnummereingabe entspricht nicht den Anforderungen min. 1 max. 10 Zeichen";
+            }
+            if(mb_strlen($zipcodeBilling)<3 || mb_strlen($zipcodeBilling)>12 )
+            {
+                $billingAddressErrors['zipcode'] = "PLZ entspricht nicht den Anforderungen min. 3 max. 12 Zeichen";
+            }
+            if(mb_strlen($cityBilling)<2 || mb_strlen($cityBilling)>60 )
+            {
+                $billingAddressErrors['city'] = "Stadt entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+            }
+            if(mb_strlen($countryBilling)<2 || mb_strlen($countryBilling)>60 )
+            {
+                $billingAddressErrors['country'] = "Land entspricht nicht den Anforderungen min. 2 max. 60 Zeichen";
+            }
+
+            if(empty($shippingAddressErrors) && empty($billingAddressErrors))
+            {
+                $valuesShippingAddress['firstName'] = $_POST['firstNameShipping'];
+                $valuesShippingAddress['lastName'] = $_POST['lastNameShipping'];
+                $valuesShippingAddress['street'] = $_POST['streetShipping'];
+                $valuesShippingAddress['streetNumber'] = $_POST['streetNoShipping'];
+                $valuesShippingAddress['additionalInformation'] = $_POST['additionalInformation'];
+                $valuesShippingAddress['zipCode'] = $_POST['zipcodeShipping'];
+                $valuesShippingAddress['city'] = $_POST['cityShipping'];
+                $valuesShippingAddress['country'] = $_POST['countryShipping'];
+
+
+                $shippingAddress = new \protec\model\Address($valuesShippingAddress);
+
+                $valuesBillingAddress['firstName'] = $_POST['firstNameBilling'];
+                $valuesBillingAddress['lastName'] = $_POST['lastNameBilling'];
+                $valuesBillingAddress['street'] = $_POST['streetBilling'];
+                $valuesBillingAddress['streetNumber'] = $_POST['streetNoBilling'];
+                $valuesBillingAddress['zipCode'] = $_POST['zipcodeBilling'];
+                $valuesBillingAddress['city'] = $_POST['cityBilling'];
+                $valuesBillingAddress['country'] = $_POST['countryBilling'];
+
+                $billingAddress = new \protec\model\Address($valuesBillingAddress);
+                $_SESSION["shippingAddress"] = $shippingAddress;
+                $_SESSION["billingAddress"] = $billingAddress;
+
+                $searchString = "";
+                $connectionString = " AND ";
+
+                foreach ($valuesShippingAddress as $element => $value) //generating searchstring for sql search command
+                {
+                    if ($value != "" && $element != 'firstName' && $element != 'lastName')
+                    {
+                        $searchString .= $element." = "."\"".$value."\"".$connectionString;
+                    }
+                }
+                $searchStringEnd = rtrim($searchString, $connectionString);
+                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+
+                if ($allAddress !== null) //saves the found addressID if address already existed
+                {
+                    $shippingAddressID = $allAddress->addressID;
+                }
+                else //inserts the new address and saves the addressID if address did not already exist
+                {
+                    $shippingAddress->insert();
+                    $shippingAddressID = $db->lastInsertId();
+                }
+
+
+                $searchString = "";
+                foreach ($valuesBillingAddress as $element => $value) //generating searchstring for sql search command
+                {
+                    if ($value != "" && $element != 'firstName' && $element != 'lastName')
+                    {
+                        $searchString .= $element." = "."\"".$value."\"".$connectionString;
+                    }
+                }
+                $searchStringEnd = rtrim($searchString, $connectionString);
+                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+
+                if ($allAddress !== null)//saves the found addressID if address already existed
+                {
+                    $billingAddressID = $allAddress->addressID;
+                }
+                else //inserts the new address and saves the addressID if address did not already exist
+                {
+                    $billingAddress->insert();
+                    $billingAddressID = $db->lastInsertId();
+                }
+
+                $billingAddress->addressID = $billingAddressID;
+                $shippingAddress->addressID = $shippingAddressID;
+
+                $_SESSION['shippingAddressID'] = $shippingAddressID;
+                $_SESSION['billingAddressID'] = $billingAddressID;
+                header("Location: index.php?c=products&a=checkoutPaymentAndShipping");
+            }
+            else
+            {
+                $this->setParam('billingAddressErrors', $billingAddressErrors);
+                $this->setParam('shippingAddressErrors', $shippingAddressErrors);
+            }
+
+
+        }
+
+
+        $title = 'ProTec > Checkout';
         $this->setParam('title', $title);
         $this->setParam('customer', $customer);
         $this->setParam('address', $address);
+
+
     }
 
     /**
@@ -236,10 +418,10 @@ class ProductsController extends \protec\core\Controller
         $this->setParam('title', $title);
 
         header("Refresh: 3; index.php?c=accounts&a=login");
+
     }
 
     /**
-     *  checks for input in previous action
      * checks for existing billing or shipping addresses; creates and inserts new address into the database if not already existing
      */
     public function actionCheckoutPaymentAndShipping()
@@ -247,38 +429,61 @@ class ProductsController extends \protec\core\Controller
 
         $db=$GLOBALS['db'];
 
-        if(isset($_POST["submit"]))
+        if(isset($_POST['submit']))
         {
-            $customer=$_SESSION['customer'];
+            $paymentMethod=$_POST['paymentMethod'];
+            $shippingMethod=$_POST['shippingMethod'];
+
+            $valid=false;
+            $ibanPattern=preg_quote ("DE/d{2}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{2}|DE/d{20}");
+
+            switch($paymentMethod)
+            {
+                case 'Invoice': $valid=true; break;
+                case 'IBAN':
+                    if(preg_match($ibanPattern,$_POST['paymentNumber'])) $valid=true;
+                    else $valid=false;
+                    break;
+                case 'PayPal':
+                    if(mb_strlen($_POST['paymentNumber'])<4 || !filter_var($_POST['paymentNumber'], FILTER_VALIDATE_EMAIL))$valid=true;
+                    else $valid=false;
+                    break;
+            }
+
+            if($valid)
+            {
+
+                $customer=$_SESSION['customer'];
+                $billingAddressID=$_SESSION['billingAddressID'];
+
+                $valuesPayDetail['billingAddressID']=$billingAddressID;
+                $valuesPayDetail['customerID']=$customer->customerID;
+                $valuesPayDetail['paymentMethod']=$paymentMethod;
 
 
+                if($paymentMethod!='Invoice') //checks for the payment method, if invoice, no payment details are needed
+                {
+                    $paymentDetails=$_POST['paymentNumber'];
+                    $this->setParam('paymentDetails', $paymentDetails);
 
-            $valuesShippingAddress['firstName']=$_POST['firstNameShipping'];
-            $valuesShippingAddress['lastName']=$_POST['lastNameShipping'];
-            $valuesShippingAddress['street']=$_POST['streetShipping'];
-            $valuesShippingAddress['streetNumber']=$_POST['streetNoShipping'];
-            $valuesShippingAddress['zipCode']=$_POST['zipcodeShipping'];
-            $valuesShippingAddress['city']=$_POST['cityShipping'];
-            $valuesShippingAddress['country']=$_POST['countryShipping'];
+                    $valuesPayDetail['paymentNumber']=$paymentDetails;
 
-            $shippingAddress=new \protec\model\Address($valuesShippingAddress);
+                }
+                else //translates the paymentMethod name to german for output on the website
+                {
+                    $paymentMethod="Rechnung";
+                }
 
-            $valuesBillingAddress['firstName']=$_POST['firstNameBilling'];
-            $valuesBillingAddress['lastName']=$_POST['lastNameBilling'];
-            $valuesBillingAddress['street']=$_POST['streetBilling'];
-            $valuesBillingAddress['streetNumber']=$_POST['streetNoBilling'];
-            $valuesBillingAddress['zipCode']=$_POST['zipcodeBilling'];
-            $valuesBillingAddress['city']=$_POST['cityBilling'];
-            $valuesBillingAddress['country']=$_POST['countryBilling'];
+                $_SESSION['shippingMethod']=$shippingMethod;
+                $_SESSION['paymentMethod']=$paymentMethod;
 
-            $billingAddress=new \protec\model\Address($valuesBillingAddress);
-            $_SESSION["shippingAddress"]=$shippingAddress;
-            $_SESSION["billingAddress"]=$billingAddress;
 
-            $searchString = "";
-            $connectionString = " AND ";
+                $payDetail=new \protec\model\PayDetail($valuesPayDetail);
 
-            foreach ($valuesShippingAddress as $element => $value) //generating searchstring for sql search command
+                $searchString = "";
+                $connectionString = " AND ";
+
+                foreach ($valuesPayDetail as $element => $value) //generates sql string for sql search command
                 {
                     if($value!="" && $element!='firstName' && $element!='lastName')
                     {
@@ -288,47 +493,37 @@ class ProductsController extends \protec\core\Controller
 
                 }
                 $searchStringEnd =  rtrim($searchString,$connectionString);
-                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+                $allPaydetails = \protec\model\PayDetail::findOne($searchStringEnd);
 
-                if($allAddress !== null) //saves the found addressID if address already existed
+                if($allPaydetails !== null) //checks for existing payDetails, otherwise inserts the new paydetails
                 {
-                    $shippingAddressID = $allAddress->addressID;
+                    $payDetailID = $allPaydetails->payDetailID;
                 }
-                else //inserts the new address and saves the addressID if address did not already exist
+                else
                 {
-                    $shippingAddress->insert();
-                    $shippingAddressID = $db->lastInsertId();
-                }
 
-
-            $searchString="";
-                foreach ($valuesBillingAddress as $element => $value) //generating searchstring for sql search command
-                {
-                    if($value!="" && $element!='firstName' && $element!='lastName')
-                    {
-                        $searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
-                    }
+                    $payDetail->insert();
+                    $payDetailID = $db->lastInsertId();
                 }
-                $searchStringEnd =  rtrim($searchString,$connectionString);
-                $allAddress = \protec\model\Address::findOne($searchStringEnd);
+                $_SESSION['payDetailID']=$payDetailID;
 
-                if($allAddress !== null)//saves the found addressID if address already existed
+                switch($shippingMethod) //sets the shipping fee according to the chosen shipping method
                 {
-                    $billingAddressID = $allAddress->addressID;
-                }
-                else //inserts the new address and saves the addressID if address did not already exist
-                {
-                    $billingAddress->insert();
-                    $billingAddressID = $db->lastInsertId();
+                    case "DHL":  $_SESSION['shippingFee']='4.95'; break;
+                    case "UPS Standard":$_SESSION['shippingFee']='5.90'; break;
+                    case "UPS Saver Express":$_SESSION['shippingFee']='12.50'; break;
                 }
 
-                $billingAddress->addressID=$billingAddressID;
-                $shippingAddress->addressID=$shippingAddressID;
-
-                $_SESSION['shippingAddressID']=$shippingAddressID;
-                $_SESSION['billingAddressID']=$billingAddressID;
+                header("Location:index.php?c=products&a=checkoutCheckAndBuy");
+            }
+            else
+            {
+                $this->setParam('error', 'Ungültige Zahlungsdaten');
+            }
 
         }
+
+
 
         $title='ProTec > Checkout';
         $this->setParam('title', $title);
@@ -341,81 +536,15 @@ class ProductsController extends \protec\core\Controller
      */
     public function actionCheckoutCheckAndBuy()
     {
-        $db=$GLOBALS['db'];
 
-        $paymentMethod=$_POST['paymentMethod'];
-        $shippingMethod=$_POST['shippingMethod'];
+        $this->setParam('shippingFee', $_SESSION['shippingFee']);
 
-
-        $address=$_SESSION['shippingAddress'];
-        $billingAddress=$_SESSION['billingAddress'];
-        $customer=$_SESSION['customer'];
-        $billingAddressID=$_SESSION['billingAddressID'];
-
-        $valuesPayDetail['billingAddressID']=$billingAddressID;
-        $valuesPayDetail['customerID']=$billingAddressID;
-        $valuesPayDetail['paymentMethod']=$paymentMethod;
-
-
-        if($paymentMethod!='Invoice') //checks for the payment method, if invoice, no payment details are needed
-        {
-            $paymentDetails=$_POST['paymentNumber'];
-            $this->setParam('paymentDetails', $paymentDetails);
-
-            $valuesPayDetail['paymentNumber']=$paymentDetails;
-
-        }
-        else //translates the paymentMethod name to german for output on the website
-        {
-            $paymentMethod="Rechnung";
-        }
-
-        $this->setParam('shippingMethod', $shippingMethod);
-        $this->setParam('paymentMethod', $paymentMethod);
-
-
-        $payDetail=new \protec\model\PayDetail($valuesPayDetail);
-
-        $searchString = "";
-        $connectionString = " AND ";
-
-        foreach ($valuesPayDetail as $element => $value) //generates sql string for sql search command
-        {
-            if($value!="" && $element!='firstName' && $element!='lastName')
-            {
-                $searchString .= $element ." = " . "\"".$value."\"" . $connectionString ;
-            }
-
-
-        }
-        $searchStringEnd =  rtrim($searchString,$connectionString);
-        $allPaydetails = \protec\model\PayDetail::findOne($searchStringEnd);
-
-        if($allPaydetails !== null) //checks for existing payDetails, otherwise inserts the new paydetails
-    {
-            $payDetailID = $allPaydetails->payDetailID;
-        }
-        else
-        {
-
-            $payDetail->insert();
-            $payDetailID = $db->lastInsertId();
-        }
-        $_SESSION['payDetailID']=$payDetailID;
-
-        switch($shippingMethod) //sets the shipping fee according to the chosen shipping method
-        {
-            case "DHL":  $this->setParam('shippingFee', '4.95'); break;
-            case "UPS Standard":$this->setParam('shippingFee', '5.90'); break;
-            case "UPS Saver Express":$this->setParam('shippingFee', '12.50'); break;
-        }
-
-
-
-        $this->setParam('payDetailID', $payDetailID);
-        $this->setParam('customer', $customer);
-        $this->setParam('billingAddress', $billingAddress);
-        $this->setParam('address', $address);
+        $this->setParam('shippingMethod', $_SESSION['shippingMethod']);
+        $this->setParam('paymentMethod', $_SESSION['paymentMethod']);
+        $this->setParam('payDetailID', $_SESSION['payDetailID']);
+        $this->setParam('customer', $_SESSION['customer']);
+        $this->setParam('billingAddress', $_SESSION['billingAddress']);
+        $this->setParam('address', $_SESSION['shippingAddress']);
 
         $title='ProTec > Checkout';
         $this->setParam('title', $title);

@@ -7,7 +7,7 @@
             <span class="orderConfirmation">3. Bestellprüfung und Checkout</span>
         </div>
         <div class="checkoutContent">
-            <form method="post" action="index.php?c=products&a=checkoutPaymentAndShipping" >
+            <form method="post" >
                 <div class="addressView">
                     <div class="shippingAddress">
                         <p> Ihre Lieferadresse</p>
@@ -16,6 +16,7 @@
                         <input type="text" name="lastNameShipping" placeholder="Ihr Name*" value="<?if (isset($_POST['lastNameShipping'])){echo htmlspecialchars($_POST["lastNameShipping"]);}else echo $lastNameShippingValue?>" required ><br>
                         <input class="oneLine" type="text" name="streetShipping" placeholder="Straße*" value="<?if (isset($_POST['streetShipping'])){echo htmlspecialchars($_POST['streetShipping']);}else echo $streetShippingValue?>" required >
                         <input class="oneLine" type="text" name="streetNoShipping" placeholder="Hausnummer*" value="<?if (isset($_POST['streetNoShipping'])){echo htmlspecialchars($_POST['streetNoShipping']);}else echo $streetNoShippingValue?>" required ><br>
+                        <input class="oneLine" type="text" name="additionalInformation" id="additionalInformation" placeholder="Adresszusatz" value="<?if (isset($_POST['additionalInformation'])){echo htmlspecialchars($_POST['additionalInformation']);}else echo $additionalInformationValue?>"><br>
                         <input class="oneLine" type="text" name="zipcodeShipping" placeholder="PLZ*" value="<?if (isset($_POST['zipcodeShipping'])){echo htmlspecialchars($_POST['zipcodeShipping']);}else echo $zipcodeShippingValue?>" required >
                         <input class="oneLine" type="text" name="cityShipping" placeholder="Ort*" value="<?if (isset($_POST['cityShipping'])){echo htmlspecialchars($_POST['cityShipping']);}else echo $cityShippingValue?>" required ><br>
                         <input type="text" name="countryShipping" id="countryShipping" placeholder="Land*" value="<?if (isset($_POST['countryShipping'])){echo htmlspecialchars($_POST['countryShipping']);}else echo $countryShippingValue?>" required ><br>
@@ -23,6 +24,10 @@
                         <p class="messageMail" ></p>
                         <br>
                         <p class="note">Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Lieferadresse für diese Bestellung zu ändern.</p>
+                        <?if(isset($shippingAddressErrors)) foreach($shippingAddressErrors as $error):?>
+                        <p class="errorMessage"><?=$error?></p>
+                        <?endforeach;?>
+
                     </div>
 
                     <div class="billingAddress">
@@ -37,8 +42,10 @@
                         <input type="text" name="countryBilling" id="countryBilling" placeholder="Land*" value="<?if (isset($_POST['countryBilling'])){echo htmlspecialchars($_POST['countryBilling']);}else echo $countryBillingValue?>" required ><br>
                         <p class="messageMail" ></p>
                         <br>
-
                         <p class="note">Bitte beachten Sie, dass dies die letzte Chance ist,<br> um die Rechnungsadresse für diese Bestellung zu ändern.</p>
+                        <?if(isset($billingAddressErrors)) foreach($billingAddressErrors as $error):?>
+                            <p class="errorMessage"><?=$error?></p>
+                        <?endforeach;?>
                     </div>
 
                 </div>

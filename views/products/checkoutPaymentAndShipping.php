@@ -7,7 +7,7 @@
             <span class="orderConfirmation">3. Bestellprüfung und Checkout</span>
         </div>
         <div class="checkoutContentShort">
-            <form method="post" action="index.php?c=products&a=checkoutCheckAndBuy">
+            <form method="post" >
                 <div class="chooseMethods">
                     <div class="choosePaymentMethod">
                         <p>Zahlungsart</p>
@@ -16,7 +16,10 @@
                         <input type="radio" id="paymentMethod2" name="paymentMethod" value="PayPal" required onclick="showPaymentNumber()"><label for="paymentMethod2">PayPal</label><br>
                         <input type="radio" id="paymentMethod3" name="paymentMethod" value="Invoice" required onclick="hidePaymentNumber()"><label for="paymentMethod3">Rechnung</label><br>
                         <br>
-                        <input type="text" id="paymentNumber"  name="paymentNumber" placeholder="IBAN/PayPal-Adresse" value="<?if(isset($payDetail)) echo $payDetail->paymentNumber; else echo ''?>" required><br>
+                        <input type="text" id="paymentNumber"  name="paymentNumber" placeholder="IBAN/PayPal-Adresse" value="<?if(isset($payDetail)){ echo $payDetail->paymentNumber;} elseif (isset($_POST['paymentNumber'])) {echo htmlspecialchars($_POST['paymentNumber']);} else echo ''?>" required><br>
+                        <?if(isset($error)):?>
+                        <p class="errorMessage"><?=$error?></p>
+                        <?endif?>
                     </div>
 
                     <div class="chooseShippingMethod">
@@ -30,7 +33,7 @@
                 </div>
 
                 <div class="endOfSite">
-                    <button class="continueCheckoutButton" type="submit" value="submit">Weiter</button>
+                    <button class="continueCheckoutButton" type="submit" name="submit" value="submit">Weiter</button>
                 </div>
             </form>
         </div>

@@ -58,8 +58,8 @@
 }
 
 .checkoutContent form #countryShipping, .checkoutContent form #email,
-.checkoutContent form #countryBilling{
-    width:98%;
+.checkoutContent form #countryBilling, .checkoutContent form #additionalInformation{
+    width:99%;
 }
 
 
@@ -203,4 +203,12 @@
     border-radius: 0.625em;
     box-sizing: border-box;
     align-items: center;
+}
+
+
+.errorMessage{
+    background-color: red;
+    color:white;
+    border-radius: 0.225em;
+    box-sizing: border-box;
 }
