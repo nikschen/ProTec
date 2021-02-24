@@ -31,13 +31,33 @@
         <br><br>
         <p>
             Für die Recherche genutze Webpräsenzen:
-            
-        
         </p>
         <a href="https://www.berrybase.de">https://www.berrybase.de</a>
         <a href="https://www.reichelt.de">https://www.reichelt.de</a>
         <a href="https://www.conrad.de">https://www.conrad.de</a>
         
+        <h3>1.2 Designentscheidungen</h3>
+        <p>
+            Das Logo orientiert sich farblich am Logo der Programmiersprache Python. Unser Webshop bietet viele Produkte an,
+            die es ermöglichen in dieser Sprache Projekte umzusetzen, insbesondere für Einsteiger, die einen leichten Einstieg
+            bevorzugen.
+            Die gewollte Farbähnlichkeit zur Inspirationsquelle soll potenzielle Kunden anlocken, die bereits mit Python Erfahrung haben,
+            da diese sich an die Sprache erinnert fühlen und so vielleicht Lust bekommen, Hardware zu erwerben, die mit Python programmiert 
+            werden kann.
+        </p><br>
+        <img src="<?=IMAGESPATH?>/logo/python.png" alt="python logo" width=10%><p>Python Logo</p><br>
+        <img src="<?=ICONSPATH?>protec_transparent_logo_weiß_umrandet_protec_weiß.png" alt="Logo Protec" width=20%><p>Protec Logo</p>
+        <br>
+        <p>
+            Die Primär- und Akzentfarben wurden enstprechend am Logo unseres Webshops orientiert. Gelb und Blau bilden die "Grundfarben",
+            die in definierten Abstufungen angepasst Verwendung in den Elementen unserer Seite finden. Ein "leichtes" Grau rundet das Design
+            in Schrift, wie Produktbeschreibungen und Navigationslinks, optisch ab.
+        </p>
+        <img src="<?=IMAGESPATH?>/logo/colorscheme.png" alt="color scheme" width=60%><p>Farbschema</p><br>
+
+
+
+
         <h3>2. Anforderungsbeschreibung</h3>
         <h4>2.1 Muss-Kriterien</h4>
         <ul class="mustHaveCriteria">
