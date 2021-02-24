@@ -437,6 +437,7 @@ class ProductsController extends \protec\core\Controller
             $valid=false;
             $ibanPattern=preg_quote ("DE/d{2}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{4}[ ]/d{2}|DE/d{20}");
 
+          
             switch($paymentMethod)
             {
                 case 'Invoice': $valid=true; break;
