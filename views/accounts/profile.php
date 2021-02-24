@@ -34,8 +34,6 @@
                 <option value="heli">ApacheHelicopter</option>
             </select><br>
 
-            <input type="text" name="title" placeholder="Titel" value="Titel noch nicht in DB"><br>
-
             <input type="text" name="lastName" placeholder="Ihr Name*" value="<?if(isset($_POST['lastName'])){echo $_POST['lastName'];}else{echo htmlspecialchars($customerTable[0]['lastName']);}?>"><br>
             <input type="text" name="firstName" placeholder="Ihr Vorname*" value="<?if(isset($_POST['firstName'])){echo $_POST['firstName'];}else{echo htmlspecialchars($customerTable[0]['firstName']);}?>"><br>
             <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' value="<?if(isset($_POST['birthDate'])){echo $_POST['birthDate'];}else{echo htmlspecialchars(date('d.m.Y' , strtotime($customerTable[0]['birthDate'])));}?>"><br>
