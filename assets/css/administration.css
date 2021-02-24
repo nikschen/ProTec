@@ -67,7 +67,7 @@
     flex-direction: row;
     align-content: space-between;
     min-width: 75vw;
-    min-height: calc(100vh - var(--navbarHeightFullscreen) - var(--footerHeightFullscreen));
+    min-height: 90vh;
     justify-content: center;
 }
 
@@ -85,6 +85,7 @@
     display: flex;
     flex-direction: column;
     width: inherit;
+    height:100%;
 }
 
 .changeProductFormularContainer .submit {
@@ -248,11 +249,13 @@
 }
 
 .manageProductsError {
-    color: var(--orangeAccentColor);
+    background-color: red;
+    color: white;
 }
 
 .successEntry {
-    color: green;
+    background-color: green;
+    color: white;
 }
 
 .manageCustomersContainer h2 {
