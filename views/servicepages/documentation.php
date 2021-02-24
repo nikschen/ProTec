@@ -361,9 +361,10 @@
             <li>Rückmeldung an den Nutzer wo und wann..</li>
             <li>Geschäftslogik in logischen Code zu übersetzen</li>
             <li>Neuorientierung nach Teamveränderung</li>
+            <li>Teamzusammenarbeit optimieren, Pausen planen, Deadlines setzen</li>
             <li>Testcases schreiben für Websites</li>
             <li>Designeinigungen finden</li>
-            <li>Teamzusammenarbeit optimieren, Pausen planen, Deadlines setzen</li>
+            
             <li></li>
             <li></li>
         </ul>
