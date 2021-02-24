@@ -62,9 +62,9 @@
                                 <input type="checkbox"/>
                                 <span class="collapser"><span class="footerItemsTitle">Unsere Partner</span></span>
                                 <div class="collapsed">
-                                    <a class="partnerLogoAlign" href=""> <img class="partnerLogo" id="berrybaseLogo" src="<?=ICONSPATH?>partner\berrybase.png" alt="Logo Berrybase"></a>
-                                    <a class="partnerLogoAlign" href=""> <img class="partnerLogo" id="dhlLogo" src="<?=ICONSPATH?>partner\dhllogo.png" alt="Logo DHL"></a>
-                                    <a class="partnerLogoAlign" href=""> <img class="partnerLogo" id="opensourceLogo" src="<?=ICONSPATH?>partner\opensourcelogo.png" alt="Logo OpenSource"></a>
+                                    <img class="partnerLogo" id="berrybaseLogo" src="<?=ICONSPATH?>partner\berrybase.png" alt="Logo Berrybase">
+                                    <img class="partnerLogo" id="dhlLogo" src="<?=ICONSPATH?>partner\dhllogo.png" alt="Logo DHL">
+                                    <img class="partnerLogo" id="opensourceLogo" src="<?=ICONSPATH?>partner\opensourcelogo.png" alt="Logo OpenSource">
                                 </div>
                             </label>
                         </div>

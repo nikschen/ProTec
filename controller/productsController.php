@@ -126,8 +126,10 @@ class ProductsController extends \protec\core\Controller
         {
             $sqlCustomer = "email="."\"".$_SESSION["email"]."\"";
             $customer = \protec\model\Customer::findOne($sqlCustomer);
-            $sqlAddress = "addressID="."\"".$customer->customerID."\"";
+
+            $sqlAddress = "addressID="."\"".$customer->addressID."\"";
             $address = \protec\model\Address::findOne($sqlAddress);
+
             $_SESSION['address'] = $address;
             $_SESSION['customer'] = $customer;
             $_SESSION['customerID'] = $customer->customerID;

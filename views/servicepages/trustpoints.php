@@ -4,7 +4,7 @@
     
         <strong>Die sind´s wert! </strong><br>
             <p>So funktioniert´s:<br><br>
-            Für jeden 1 € den Sie bei uns im Laden lassen, erhalten Sie 1 Treuepunkt. 1 Treuepunkt entspricht 1 ct.<br>
+            Für jeden Euro, den Sie bei uns im Laden lassen, erhalten Sie 1 Treuepunkt. 1 Treuepunkt entspricht 1 ct.<br>
             Haben Sie <b>100</b> Treuepunkte angesammelt erhalten Sie von uns nochmal <b>100</b> Treuepunkte oben drauf! Unser Dankeschön an Sie!
             Erreichen Sie sogar <b>1000</b> Treuepunkte, sponsoren wir Ihren nächsten Einkauf mit zusätzlichen <b>2000</b> Treuepunkten.
             <br><br>

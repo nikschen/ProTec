@@ -6,6 +6,7 @@
 
             <ol>
                 <li><strong>Zugriffsdaten und Hosting</strong><br>
+                    <br>
                     <p>Sie können unsere Webseiten besuchen, ohne Angaben zu Ihrer Person zu machen. Bei jedem Aufruf einer Webseite speichert der Webserver lediglich automatisch ein sogenanntes Server-Logfile,
                         das z.B. den Namen der angeforderten Datei, Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, übertragene Datenmenge und den anfragenden Provider (Zugriffsdaten) enthält und den Abruf
                         dokumentiert.
@@ -13,16 +14,20 @@
                         Abs. 1 S. 1 lit. f DSGVO der Wahrung unserer im Rahmen einer Interessensabwägung überwiegenden berechtigten Interessen an einer korrekten Darstellung unseres Angebots. Alle Zugriffsdaten
                         werden spätestens sieben Tage nach Ende Ihres Seitenbesuchs gelöscht.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Hostingdienstleistungen durch einen Drittanbieter</strong><br>
+                    <br>
                     <p>Im Rahmen einer Verarbeitung in unserem Auftrag erbringt ein Drittanbieter für uns die Dienste zum Hosting und zur Darstellung der Webseite. Dies dient der Wahrung unserer im Rahmen einer
                         Interessensabwägung überwiegenden berechtigten Interessen an einer korrekten Darstellung unseres Angebots. Alle Daten, die im Rahmen der Nutzung dieser Webseite oder in dafür vorgesehenen
                         Formularen im Onlineshop wie folgend beschrieben erhoben werden, werden auf seinen Servern verarbeitet. Eine Verarbeitung auf anderen Servern findet nur in dem hier erläuterten Rahmen
                         statt.<br>
                         Dieser Dienstleister sitzt innerhalb eines Landes der Europäischen Union oder des Europäischen Wirtschaftsraums.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Datenerhebung und -verwendung zur Vertragsabwicklung und bei Eröffnung eines Kundenkontos</strong><br>
+                    <br>
                     <p>Wir erheben personenbezogene Daten, wenn Sie uns diese im Rahmen Ihrer Bestellung, bei einer Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) oder bei Eröffnung eines
                         Kundenkontos freiwillig mitteilen. Pflichtfelder werden als solche gekennzeichnet, da wir in diesen Fällen die Daten zwingend zur Vertragsabwicklung, bzw. zur Bearbeitung Ihrer
                         Kontaktaufnahme oder Eröffnung des Kundenkontos benötigen und Sie ohne deren Angabe die Bestellung und/ oder die Kontoeröffnung nicht abschließen, bzw. die Kontaktaufnahme nicht versenden
@@ -32,8 +37,10 @@
                         darüber hinausgehende Datenverwendung vorbehalten, die gesetzlich erlaubt ist und über die wir Sie in dieser Erklärung informieren. Die Löschung Ihres Kundenkontos ist jederzeit möglich
                         und kann entweder durch eine Nachricht an die unten beschriebene Kontaktmöglichkeit oder über eine dafür vorgesehene Funktion im Kundenkonto erfolgen.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Datenweitergabe</strong><br>
+                    <br>
                     <p>Zur Vertragserfüllung gemäß Art. 6 Abs. 1 S. 1 lit. b DSGVO geben wir Ihre Daten an das mit der Lieferung beauftragte Versandunternehmen weiter, soweit dies zur Lieferung bestellter Waren
                         erforderlich ist. Je nach dem, welchen Zahlungsdienstleister Sie im Bestellprozess auswählen, geben wir zur Abwicklung von Zahlungen die hierfür erhobenen Zahlungsdaten an das mit der
                         Zahlung beauftragte Kreditinstitut und ggf. von uns beauftragte Zahlungsdienstleister weiter bzw. an den ausgewählten Zahlungsdienst. Zum Teil erheben die ausgewählten
@@ -41,9 +48,12 @@
                         anmelden. Es gilt insoweit die Datenschutzerklärung des jeweiligen Zahlungsdienstleisters. Wir setzen Zahlungsdienstleister ein, der seinen Sitz in einem Staat außerhalb der Europäischen
                         Union hat. Die Übermittlung personenbezogener Daten an dieses Unternehmen erfolgt lediglich im Rahmen der Notwendigkeit zur Vertragserfüllung.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>E-Mail-Newsletter</strong><br>
+                    <br>
                     <p><strong>E-Mail-Werbung mit Anmeldung zum Newsletter</strong><br>
+                        <br>
                         Wenn Sie sich zu unserem Newsletter anmelden, verwenden wir die hierfür erforderlichen oder gesondert von Ihnen mitgeteilten Daten, um Ihnen regelmäßig unseren E-Mail-Newsletter aufgrund
                         Ihrer Einwilligung gemäß Art. 6 Abs. 1 S. 1 lit. a DSGVO zuzusenden.
                         Die Abmeldung vom Newsletter ist jederzeit möglich und kann entweder durch eine Nachricht an die unten beschriebene Kontaktmöglichkeit oder über einen dafür vorgesehenen Link im Newsletter
@@ -53,6 +63,7 @@
                         Dieser Dienstleister sitzt in den USA und ist zertifiziert unter dem EU-US-Privacy Shield. Ein aktuelles Zertifikat kann hier eingesehen werden. Aufgrund dieses Abkommens zwischen den USA
                         und der Europäischen Kommission hat letztere für unter dem Privacy Shield zertifizierte Unternehmen ein angemessenes Datenschutzniveau festgestellt.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Datenverwendung bei Zahlungsabwicklung</strong><br>
                     <p><strong>Bonitätsprüfung</strong><br>
@@ -67,6 +78,7 @@
                         gelöscht, sofern Sie nicht ausdrücklich in eine weitere Nutzung Ihrer Daten eingewilligt haben oder wir uns eine darüber hinausgehende Datenverwendung vorbehalten, die gesetzlich erlaubt
                         ist und über die wir Sie in dieser Erklärung informieren.
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Cookies und Webanalyse</strong><br>
                     <p>Um den Besuch unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen, um passende Produkte anzuzeigen oder zur Marktforschung verwenden wir auf
@@ -106,6 +118,7 @@
                         Endgerät abgelegt. Löschen Sie Ihre Cookies, müssen Sie den Link erneut klicken.
 
                     </p>
+                    <br><br>
                 </li>
                 <li><strong>Kontaktmöglichkeiten und Ihre Rechte</strong><br>
                     <p>
@@ -145,6 +158,7 @@
                         nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder wenn die Verarbeitung der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen dient.<br><br>
                         Dies gilt nicht, wenn die Verarbeitung zu Zwecken des Direktmarketings erfolgt. Dann werden wir Ihre personenbezogenen Daten nicht weiter zu diesem Zweck verarbeiten.
                     </p>
+                    <br><br>
                 </li>
             </ol>
         </div>
