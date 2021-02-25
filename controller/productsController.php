@@ -109,7 +109,7 @@ class ProductsController extends \protec\core\Controller
                                 $basketEntry->quantityWanted=10;
                                 $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
                             }
-                            else if($basketEntry->quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                            if($basketEntry->quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
                             {
                                 $basketEntry->quantityWanted=$product->quantityStored;
                                 $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
@@ -122,7 +122,7 @@ class ProductsController extends \protec\core\Controller
                                 $quantityWanted=10;
                                 $message="Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
                             }
-                            else if($quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
+                            if($quantityWanted>$product->quantityStored) //checks if stored quantity of the product is exceeded
                             {
                                 $quantityWanted->quantityWanted=$product->quantityStored;
                                 $message="Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
@@ -143,7 +143,9 @@ class ProductsController extends \protec\core\Controller
                     {
                         $quantityWanted = 10;
                         $message = "Es sind maximal 10 Einheiten eines Produkts pro Kauf erlaubt, daher wurde die Anzahl reduziert.";
-                    } else if ($quantityWanted > $product->quantityStored) //checks if stored quantity of the product is exceeded
+                    }
+                    
+                    if ($quantityWanted > $product->quantityStored) //checks if stored quantity of the product is exceeded
                     {
                         $quantityWanted->quantityWanted = $product->quantityStored;
                         $message = "Es sind nur noch $product->quantityStored Einheiten dieses Artikels verfügbar, daher wurde die Anzahl reduziert.";
