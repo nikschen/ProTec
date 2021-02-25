@@ -176,17 +176,47 @@ class AdministrativeOperationsController extends \protec\core\Controller
     
                             if (!empty($productValues)) //checks for data being empty
                             {
+                                $toBeChangedProductBefore=\protec\model\Product::findOne($sqlParamProduct);
+
                                 $toBeChangedProduct->update($productValues, $toBeChangedProduct->productID);
-                                $productChangeSuccess[]="Produktdaten erfolgreich geändert";
-                            }
-                            else if (!empty($pricingValues)) //checks for data being empty
-                            {
-                                $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
-                                $productChangeSuccess[]="Preisdaten erfolgreich geändert";
+
+                                $toBeChangedProductAfter = \protec\model\Product::findOne($sqlParamProduct);
+
+                                if($toBeChangedProductBefore==$toBeChangedProductAfter)
+                                {
+                                    $changeProductErrors[]="Es wurden keine veränderten Daten erkannt.";
+                                }
+                                else
+                                {
+                                    $productChangeSuccess[]="Produktdaten erfolgreich geändert";
+                                }
+
                             }
                             else
                             {
-                                $changeProductErrors[]="Keine zu ändernden Produkt- oder Preisdaten angegeben.";
+                                $changeProductErrors[]="Keine zu ändernden Produktdaten angegeben.";
+                            }
+
+                            if (!empty($pricingValues)) //checks for data being empty
+                            {
+                                $toBeChangedPricingBefore=\protec\model\Pricing::findOne($sqlParamPricing);
+
+                                $toBeChangedPricing->update($pricingValues, $toBeChangedPricing->pricingID);
+
+                                $toBeChangedPricingAfter = \protec\model\Pricing::findOne($sqlParamPricing);
+
+                                if( $toBeChangedPricingBefore==$toBeChangedPricingAfter)
+                                {
+                                    $changeProductErrors[]="Es wurden keine veränderten Daten erkannt.";
+                                }
+                                else
+                                {
+                                    $productChangeSuccess[] = "Preisdaten erfolgreich geändert";
+                                }
+                            }
+                            else
+                            {
+                                $changeProductErrors[]="Keine zu ändernden Preisdaten angegeben.";
                             }
                             
                             if(!empty($_FILES) && empty($changeProductErrors))  //if product or pricing is changed, image will be changed too if provided
@@ -265,13 +295,21 @@ class AdministrativeOperationsController extends \protec\core\Controller
                 $sqlPricing="pricingID="."\"".$productID."\"";
                 $pricing=\protec\model\Pricing::findOne($sqlPricing);
 
-                $productIDValueChange=$productID;
-                $quantityStoredValueChange=$product->quantityStored;
-                $categoryValueChange=$product->category;
-                $prodNameValueChange=$product->prodName;
-                $prodDescriptionValueChange=$product->prodDescription;
-                $amountValueChange=$pricing->amount;
-                $currencyValueChange=$pricing->currency;
+                if(!empty($product)&&!empty($pricing))
+                {
+                    $productIDValueChange=$productID;
+                    $quantityStoredValueChange=$product->quantityStored;
+                    $categoryValueChange=$product->category;
+                    $prodNameValueChange=$product->prodName;
+                    $prodDescriptionValueChange=$product->prodDescription;
+                    $amountValueChange=$pricing->amount;
+                    $currencyValueChange=$pricing->currency;
+                }
+                else
+                {
+                    $changeProductErrors[]="Es ist kein Produkt mit dieser ID vorhanden.";
+                }
+
             }
             else if ($_POST["submit"]=="addProduct" && empty($addProductSuccess)) //prefills the correct form with data from the POST array for user convenience after reloading the page or getting an error
             {

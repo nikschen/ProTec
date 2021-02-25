@@ -18,7 +18,7 @@
                             </select>
                         </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" required><?=$prodNameValueAdd?></textarea>
-                            <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="7"  required><?=$prodDescriptionValueAdd?></textarea>
+                            <textarea class="prodDescription" type="text"  name="prodDescription" placeholder="Produktbeschreibung" rows="15"  required><?=$prodDescriptionValueAdd?></textarea>
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png" required/>
 
                         <div class="lastRow">
@@ -72,14 +72,14 @@
                                 </select>
                             </div>
                             <textarea class="prodName" type="text" name="prodName" placeholder="Produktname" rows="3" ><?=$prodNameValueChange?></textarea>
-                            <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="7" ><?=$prodDescriptionValueChange?></textarea>
+                            <textarea class="prodDescription" type="textarea" name="prodDescription" placeholder="Produktbeschreibung" rows="15" ><?=$prodDescriptionValueChange?></textarea>
                             <input class="productImageUploadLabel" name="file" type="file" accept="image/png"/>
                             <div class="lastRow">
                                 <input class="pricingAmount" type="number" min="0" step="0.01" name="amount" placeholder="Preis" value="<?=$amountValueChange?>">
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?=$currencyValueChange?>">
                             </div>
                             <div class="passwordCheck">
-                                <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
+                                <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" value="geheimespasswort" required>
                             </div>
                         <div class="submitOperation">
                             <button type="submit" name="submit" value="changeProduct">Produktdaten ändern</button>
