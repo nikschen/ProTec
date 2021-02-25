@@ -19,7 +19,7 @@
                     </div>
      
                     <label for="searchString">Suchbegriff </label>  
-                    <input type="text" name="searchString"<?if(isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>><br>
+                    <input type="text" name="searchString"<?if(isset($_GET['searchString'])){echo "value="."\"".htmlspecialchars($_GET['searchString'])."\"";};?>><br>
                     <label for="minPrice">Preis</label>  
                     <input class="priceFilter" type="text" name="minPrice" placeholder="von"<?if(isset($_GET['minPrice'])){echo "value=".htmlspecialchars($_GET['minPrice']);};?>>
                     <input class="priceFilter" type="text" name="maxPrice" placeholder="bis"<?if(isset($_GET['maxPrice'])){echo "value=".htmlspecialchars($_GET['maxPrice']);};?>><br>

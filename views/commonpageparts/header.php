@@ -67,7 +67,7 @@
                     <form action="index.php?c=pages&a=search" method="get">
                         <input type="hidden" name="c" value="pages" >  
                         <input type="hidden" name="a" value="search">  
-                        <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>>
+                        <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value="."\"".htmlspecialchars($_GET["searchString"])."\"";};?>>
                         <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                     </form>
                 </div>
@@ -154,7 +154,7 @@
                 <form action="index.php?c=pages&a=search" method="get">
                     <input type="hidden" name="c" value="pages" >
                     <input type="hidden" name="a" value="search">
-                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>>
+                    <input type="text" name="searchString" placeholder="Produktsuche..."<?if (isset($_GET['searchString'])){echo "value="."\"".htmlspecialchars($_GET['searchString'])."\"";};?>>
                     <button type="submit"><img src="<?=ICONSPATH?>searchIcon.png"/></button>
                 </form>
             </div>
