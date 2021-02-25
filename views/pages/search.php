@@ -71,7 +71,7 @@
                         <form method="GET">
                             <input type="hidden" name="c" value="pages" >  
                             <input type="hidden" name="a" value="search">  
-                            <input type="text" name="searchString" placeholder="neue Suche..."<?if(isset($_GET['searchString'])){echo "value=".htmlspecialchars($_GET['searchString']);};?>>
+                            <input type="text" name="searchString" placeholder="neue Suche..."<?if(isset($_GET['searchString'])){echo "value="."\"".htmlspecialchars($_GET['searchString'])."\"";};?>>
                             <input type="submit" value="Absenden"></input>
                         </form>
                     </div>
