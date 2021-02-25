@@ -205,42 +205,33 @@
         <br><br>
 
         <h3>4. Webseitenstruktur</h3>
-        <a class="websiteDiagramFull" href="/diagrams/WebsiteStruktur.png" target="_blank">
-            <img class="websiteDiagram" src="/diagrams/WebsiteStruktur.png" alt="Webseitenstrukturdiagramm">
+        <a class="websiteDiagramFull" href="<?=IMAGESPATH?>diagrams/WebsiteStruktur.png" target="_blank">
+            <img class="websiteDiagram" src="<?=IMAGESPATH?>diagrams/WebsiteStruktur.png" alt="Webseitenstrukturdiagramm">
         </a>
         <br><br>
 
         <h3>5. Datenbankstruktur</h3>
-        <a class="databaseDiagramFull" href="<?=IMAGESPATH?>/models/databaseModel.png" target="_blank">
-        <img src="<?=IMAGESPATH?>/models/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%> 
+        <a class="databaseDiagramFull" href="<?=IMAGESPATH?>diagrams/databaseModel.png" target="_blank">
+        <img src="<?=IMAGESPATH?>diagrams/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%>
         </a>
         <br><br>
 
         <h3>6. Projekt(-ordner-)struktur</h3>
-        <a class="projectStructureDiagramFull" href="/diagrams/projectStructure.png" target="_blank">
-            <img class="projectStructureDiagram" src="/diagrams/projectStructure.png" alt="Projektstrukturdiagramm">
+        <a class="projectStructureDiagramFull" href="<?=IMAGESPATH?>diagrams/projectStructure.png" target="_blank">
+            <img class="projectStructureDiagram" src="<?=IMAGESPATH?>diagrams/projectStructure.png" alt="Projektstrukturdiagramm">
         </a>
         <br><br>
 
         <h3>7. Verwendete Software</h3>
         <ul>
-            <li>IDE - <a href="https://www.jetbrains.com/de-de/phpstorm/" target="_blank"></a>PHPStorm</li>
-            <li>IDE - <a href="https://code.visualstudio.com/" target="_blank"></a>Visual Studio Code</li>
-            <li>Versionskontrolle, Issue-Tracking, ToDo-Liste - <a href="https://github.com/" target="_blank"></a>Github
-            </li>
-            <li>Webserver Software - <a href="https://www.apachefriends.org/de/index.html" target="_blank"></a>XAMPP
-            </li>
-            <li>Software für schnelle Kommunikation - <a href="https://desktop.telegram.org/" target="_blank"></a>Telegram
-            </li>
-            <li>Software für regelmäßige Meetings - <a href="https://www.webex.com/de/unified-homepage-081220201.html"
-                                                       target="_blank"></a>Webex
-            </li>
-            <li>Software für Präsentationen und Dokumente - <a href="https://www.microsoft.com/de-de/microsoft-365"
-                                                               target="_blank"></a>Microsoft Office
-            </li>
-            <li>Datenbankentwurf und Erstellung von Datenbankdiagrammen - <a
-                        href="https://www.mysql.com/de/products/workbench/" target="_blank"></a>MySQL Workbench
-            </li>
+            <li>IDE - <a href="https://www.jetbrains.com/de-de/phpstorm/" target="_blank">PHPStorm</a></li>
+            <li>IDE - <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
+            <li>Versionskontrolle, Issue-Tracking, ToDo-Liste - <a href="https://github.com/" target="_blank">Github</a></li>
+            <li>Webserver Software - <a href="https://www.apachefriends.org/de/index.html" target="_blank">XAMPP</a></li>
+            <li>Software für schnelle Kommunikation - <a href="https://desktop.telegram.org/" target="_blank">Telegram</a></li>
+            <li>Software für regelmäßige Meetings - <a href="https://www.webex.com/de/unified-homepage-081220201.html" target="_blank">Webex</a></li>
+            <li>Software für Präsentationen und Dokumente - <a href="https://www.microsoft.com/de-de/microsoft-365" target="_blank">Microsoft Office</a></li>
+            <li>Datenbankentwurf und Erstellung von Datenbankdiagrammen - <a href="https://www.mysql.com/de/products/workbench/" target="_blank">MySQL Workbench</a></li>
         </ul>
 
         <h3>8. Funktionalitäten mit Screenshots (ausklappbar)</h3>
@@ -369,9 +360,6 @@
             <li>Teamzusammenarbeit optimieren, Pausen planen, Deadlines setzen</li>
             <li>Testcases schreiben für Websites</li>
             <li>Designeinigungen finden</li>
-            
-            <li></li>
-            <li></li>
         </ul>
     </div>
 
