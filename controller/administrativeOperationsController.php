@@ -184,7 +184,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
 
                                 if($toBeChangedProductBefore==$toBeChangedProductAfter)
                                 {
-                                    $changeProductErrors[]="Es wurden keine veränderten Daten erkannt.";
+                                    $changeProductErrors[]="Es wurden keine veränderten Produktdaten erkannt.";
                                 }
                                 else
                                 {
@@ -207,7 +207,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
 
                                 if( $toBeChangedPricingBefore==$toBeChangedPricingAfter)
                                 {
-                                    $changeProductErrors[]="Es wurden keine veränderten Daten erkannt.";
+                                    $changeProductErrors[]="Es wurden keine veränderten Preisdaten erkannt.";
                                 }
                                 else
                                 {
