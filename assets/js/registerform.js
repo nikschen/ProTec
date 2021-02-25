@@ -105,10 +105,6 @@ function createCookie(name, value, days) {
 
 //CookieButton Make Element Disappear after click
 window.addEventListener('load', function() {
-
-
-
-
     var cookieStatus = false;
 
     document.getElementById("understoodButton").addEventListener("click", function() {
