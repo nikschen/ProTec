@@ -34,8 +34,8 @@
                 <option value="heli">ApacheHelicopter</option>
             </select><br>
 
-            <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value=".htmlspecialchars($_POST["lastName"]);};?> required ><br>
-            <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value=".htmlspecialchars($_POST['firstName']);};?> required ><br>
+            <input type="text" name="lastName" placeholder="Ihr Name*" <?if (isset($_POST['lastName'])){echo "value="."\"".htmlspecialchars($_POST['lastName'])."\"";};?> required ><br>
+            <input type="text" name="firstName" placeholder="Ihr Vorname*" <?if (isset($_POST['firstName'])){echo "value="."\"".htmlspecialchars($_POST['firstName'])."\"";};?> required ><br>
             <input type="text" class="birthDateToCheck" name="birthDate" placeholder="Geburtsdatum*" onchange='checkBirthDate()' <?if (isset($_POST['birthDate'])){echo "value=".htmlspecialchars($_POST['birthDate']);};?> required >
             <p class="messageDate"></p>
             <input type="text" class="emailToCheck" id="email" name="email" placeholder="Ihre E-Mail-Adresse*" onchange='checkEmail()' <?if (isset($_POST['email'])){echo "value=".htmlspecialchars($_POST['email']);};?> required >
@@ -48,12 +48,12 @@
             <h2>Ihre Adresse</h2>
             <hr>
 
-            <input type="text" class="oneLine"  id="streetInfo" name="streetInfo" placeholder="Straße*" <?if (isset($_POST['streetInfo'])){echo "value=".htmlspecialchars($_POST['streetInfo']);};?> required >
-            <input class="oneLine" type="text" name="streetNo" placeholder="Hausnummer*" <?if (isset($_POST['streetNo'])){echo "value=".htmlspecialchars($_POST['streetNo']);};?> required ><br>
-            <input type="text" name="address2" placeholder="Adresszusatz" <?if (isset($_POST['address2'])){echo "value=".htmlspecialchars($_POST['address2']);};?>><br>
+            <input type="text" class="oneLine"  id="streetInfo" name="streetInfo" placeholder="Straße*" <?if (isset($_POST['streetInfo'])){echo "value="."\"".htmlspecialchars($_POST['streetInfo'])."\"";};?> required >
+            <input class="oneLine" type="text" name="streetNo" placeholder="Hausnummer*" <?if (isset($_POST['streetNo'])){echo "value="."\"".htmlspecialchars($_POST['streetNo'])."\"";};?> required ><br>
+            <input type="text" name="address2" placeholder="Adresszusatz" <?if (isset($_POST['address2'])){echo "value="."\"".htmlspecialchars($_POST['address2'])."\"";};?>><br>
             <input class="oneLine" type="text" name="zipcode" placeholder="PLZ*" <?if (isset($_POST['zipcode'])){echo "value=".htmlspecialchars($_POST['zipcode']);};?> required >
-            <input class="oneLine" type="text" name="city" placeholder="Ort*" <?if (isset($_POST['city'])){echo "value=".htmlspecialchars($_POST['city']);};?> required ><br>
-            <input type="text" name="country" placeholder="Land*" <?if (isset($_POST['country'])){echo "value=".htmlspecialchars($_POST['country']);};?> required ><br><br>
+            <input class="oneLine" type="text" name="city" placeholder="Ort*" <?if (isset($_POST['city'])){echo "value="."\"".htmlspecialchars($_POST['city'])."\"";};?> required ><br>
+            <input type="text" name="country" placeholder="Land*" <?if (isset($_POST['country'])){echo "value="."\"".htmlspecialchars($_POST['country'])."\"";};?> required ><br><br>
             <p>Die mit * markierten Felder sind Pflichtfelder</p>
             <input type="submit" name="submit" value="Absenden"></input>
         </form>
