@@ -359,21 +359,21 @@
 
         <details>
             <summary>FlowChart Registrierung/Profiländerung Javascript</summary>
-            <a href="<?=IMAGESPATH?>/screenshots/flowchartRegPicJS.png" target="_blank">
+            <a href="<?=IMAGESPATH?>/flowchart/flowchartRegPicJS.png" target="_blank">
                 <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicJS.png" alt="flowchart Javascript" width=70%>
             </a>
         </details>
 
         <details>
             <summary>FlowChart Registrierung/Profiländerung PHP</summary>
-            <a href="<?=IMAGESPATH?>/screenshots/flowchartRegPicPHP.png" target="_blank">
+            <a href="<?=IMAGESPATH?>/flowchart/flowchartRegPicPHP.png" target="_blank">
                 <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicPHP.png" alt="flowchart PHP" width=70%>
             </a>
         </details>
 
         <details>
             <summary>FlowChart Suchfunktion</summary>
-            <a href="<?=IMAGESPATH?>/screenshots/flowchartsearchFunktion.png" target="_blank">
+            <a href="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" target="_blank">
                 <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
             </a>
         </details>
