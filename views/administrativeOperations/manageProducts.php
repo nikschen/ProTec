@@ -79,7 +79,7 @@
                                 <input class="pricingCurrency" type="text" name="currency" placeholder="Währung" value="<?=$currencyValueChange?>">
                             </div>
                             <div class="passwordCheck">
-                                <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" value="geheimespasswort" required>
+                                <input class="adminPasswordCheck" type="password" name="password" placeholder="Administrator Passwort" required>
                             </div>
                         <div class="submitOperation">
                             <button type="submit" name="submit" value="changeProduct">Produktdaten ändern</button>

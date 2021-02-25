@@ -161,10 +161,12 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                     }
                                     else if ($key == "currency" && !empty($_POST["amount"]) || $key == "amount")
                                     {
+                                        $value=htmlspecialchars ($value);
                                         $pricingValues[] = "`$key`=\"$value\"";
                                     }
                                     else
                                     {
+                                        $value=htmlspecialchars ($value);
                                         $productValues[] = "`$key`=\"$value\"";
                                     }
                                 }
@@ -219,7 +221,7 @@ class AdministrativeOperationsController extends \protec\core\Controller
                                 $changeProductErrors[]="Keine zu ändernden Preisdaten angegeben.";
                             }
                             
-                            if(!empty($_FILES) && empty($changeProductErrors))  //if product or pricing is changed, image will be changed too if provided
+                            if(!empty($_FILES) && (empty($changeProductErrors) || (in_array("Es wurden keine veränderten Produktdaten erkannt.",$changeProductErrors) xor in_array("Es wurden keine veränderten Preisdaten erkannt.",$changeProductErrors)) ))   //if product or pricing is changed, image will be changed too if provided
                             {
                                 $uploadFolder = IMAGESPATH; //Upload-Directory
                                 $filename = $toBeChangedProduct->productID;
