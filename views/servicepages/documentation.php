@@ -212,7 +212,7 @@
 
         <h3>5. Datenbankstruktur</h3>
         <a class="databaseDiagramFull" href="<?=IMAGESPATH?>diagrams/databaseModel.png" target="_blank">
-        <img src="<?=IMAGESPATH?>diagrams/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%>
+            <img src="<?=IMAGESPATH?>diagrams/databaseModel.png" alt="Datenbankstrukturdiagramm" width=90%>
         </a>
         <br><br>
 
@@ -239,49 +239,71 @@
 
         <details>
             <summary>Hauptseite/Startseite</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/mainPage.jpg" alt="mainPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/mainPage.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/mainPage.jpg" alt="mainPage Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
             <summary>Login</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/loginPage.jpg" alt="loginPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/loginPage.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/loginPage.jpg" alt="loginPage Screenshot" width=90%>
+            </a>
             <h2>Fehlgeschlagener Loginversuch</h2>
-            <img src="<?=IMAGESPATH?>/screenshots/errorMessageLogin.jpg" alt="loginError Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/errorMessageLogin.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/errorMessageLogin.jpg" alt="loginError Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
             <summary>Registrierung</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/signUpPage.jpg" alt="signUpPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/signUpPage.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/signUpPage.jpg" alt="signUpPage Screenshot" width=90%>
+            </a>
             <h2>Fehlermeldung mit JavaScript</h2>
-            <img src="<?=IMAGESPATH?>/screenshots/errorMessageJSSignUp.jpg" alt="errorMessageJS Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/errorMessageJSSignUp.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/errorMessageJSSignUp.jpg" alt="errorMessageJS Screenshot" width=90%>
+            </a>
             <h2>Fehlermeldung mit PHP</h2>
-            <img src="<?=IMAGESPATH?>/screenshots/errorMessagePHP.jpg" alt="errorMessagePHP Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/errorMessagePHP.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/errorMessagePHP.jpg" alt="errorMessagePHP Screenshot" width=90%>
+            </a>
         </details>
 
         
         
         <details>
             <summary>Profildatenänderung</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/profilePage.jpg" alt="profilPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/profilePage.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/profilePage.jpg" alt="profilPage Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
             <summary>Suchfilter (Produktsuche)</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/searchFilter.jpg" alt="searchFilterPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/searchFilter.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/searchFilter.jpg" alt="searchFilterPage Screenshot" width=90%>
+            </a>
             <h2>Beispiel für fehlgeschlagene Suche</h2>
-            <img src="<?=IMAGESPATH?>/screenshots/searchFilterFailed.jpg" alt="searchFilterFailedPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/searchFilterFailed.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/searchFilterFailed.jpg" alt="searchFilterFailedPage Screenshot" width=90%>
+            </a>
             <h4>Anmerkungen zu Falscheingaben</h4>
             <p>Das Eingeben von negativen Werten im Preisfilter sorgt für ausbleibende Ergebnisse</p>
         </details>
 
         <details>
             <summary>Kategorieanzeige Beispiel</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/categorySite.jpg" alt="categoryPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/categorySite.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/categorySite.jpg" alt="categoryPage Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
             <summary>Warenkorb</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/cartPage.jpg" alt="cartPage Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/cartPage.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/cartPage.jpg" alt="cartPage Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
@@ -330,22 +352,30 @@
 
         <details>
             <summary>Cookie Banner</summary>
-            <img src="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" alt="cookieBanner Screenshot" width=90%>
+            <a href="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" target="_blank">
+                <img src="<?=IMAGESPATH?>/screenshots/cookieBanner.jpg" alt="cookieBanner Screenshot" width=90%>
+            </a>
         </details>
 
         <details>
             <summary>FlowChart Registrierung/Profiländerung Javascript</summary>
-            <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicJS.png" alt="flowchart Javascript" width=70%>
+            <a href="<?=IMAGESPATH?>/screenshots/flowchartRegPicJS.png" target="_blank">
+                <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicJS.png" alt="flowchart Javascript" width=70%>
+            </a>
         </details>
 
         <details>
             <summary>FlowChart Registrierung/Profiländerung PHP</summary>
-            <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicPHP.png" alt="flowchart PHP" width=70%>
+            <a href="<?=IMAGESPATH?>/screenshots/flowchartRegPicPHP.png" target="_blank">
+                <img src="<?=IMAGESPATH?>/flowchart/flowchartRegPicPHP.png" alt="flowchart PHP" width=70%>
+            </a>
         </details>
 
         <details>
             <summary>FlowChart Suchfunktion</summary>
-            <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
+            <a href="<?=IMAGESPATH?>/screenshots/flowchartsearchFunktion.png" target="_blank">
+                <img src="<?=IMAGESPATH?>/flowchart/flowchartsearchFunktion.png" alt="flowchart searchFunkttion" width=70%>
+            </a>
         </details>
 
         </ul>
